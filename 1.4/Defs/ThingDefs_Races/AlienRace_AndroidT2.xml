@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<AlienRace.ThingDef_AlienRace ParentName="ATR_BaseMechanicalPawn">
+		<defName>ATR_Tier2Android</defName>
+		<label>T2 Android</label>
+		<description>The most common tier of androids, tier two androids are classified as the lowest specifications required for fully autonomous sapience. When fully clothed or when viewed from afar, they are easily mistaken for shorter, scrawnier humans. Indeed, tier two intelligences are often the most humanlike and most likely to seek integration into human society.</description>
+		<alienRace>
+			<graphicPaths>
+                <body>
+                    <path>Things/Pawns/Humanlikes/Tier2/body/Naked_None</path>
+                    <genderGraphics>
+                        <Male>Things/Pawns/Humanlikes/Tier2/body/Naked_Male</Male>
+                        <Female>Things/Pawns/Humanlikes/Tier2/body/Naked_Female</Female>
+                        <None>Things/Pawns/Humanlikes/Tier2/body/Naked_None</None>
+                    </genderGraphics>
+                </body>
+                <head>
+                    <path>Things/Pawns/Humanlikes/Tier2/head/None_Average_Normal</path>
+                    <genderGraphics>
+                        <Male>Things/Pawns/Humanlikes/Tier2/head/Male_Average_Normal</Male>
+                        <Female>Things/Pawns/Humanlikes/Tier2/head/Female_Average_Normal</Female>
+                        <None>Things/Pawns/Humanlikes/Tier2/head/None_Average_Normal</None>
+                    </genderGraphics>
+                </head>
+                <skinShader>Cutout</skinShader>
+			</graphicPaths>
+            <generalSettings>
+                <alienPartGenerator>
+					<headTypes>
+                        <li>ATR_Tier2_Male</li>
+                        <li>ATR_Tier2_Female</li>
+                        <li>ATR_Tier2_None</li>
+                    </headTypes>
+                </alienPartGenerator>
+            </generalSettings>
+		</alienRace>
+        <uiIconPath>Things/Pawns/Humanlikes/Tier2/ATR_TierTwoExemplar</uiIconPath>
+		<statBases>
+			<MarketValue>1600</MarketValue>
+			<MoveSpeed>4.10</MoveSpeed>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+			<MentalBreakThreshold>0.28</MentalBreakThreshold>
+			<GlobalLearningFactor>0.8</GlobalLearningFactor>
+			<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+            <ATR_MaintenanceRetention>1</ATR_MaintenanceRetention>
+			<Mass>62.5</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>10</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>10</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>ATR_AndroidBody</body>
+			<baseBodySize>0.8</baseBodySize>
+		</race>
+		<modExtensions>
+			<li Class="ATReforged.ATR_MechTweaker">
+                <droneSkillLevel>10</droneSkillLevel>
+			</li>
+		</modExtensions>
+		<butcherProducts>
+            <Steel>50</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+		</butcherProducts>
+	</AlienRace.ThingDef_AlienRace>
+
+</Defs>

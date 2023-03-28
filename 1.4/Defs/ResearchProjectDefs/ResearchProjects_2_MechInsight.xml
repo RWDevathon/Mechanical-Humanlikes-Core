@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchProjectDef>
+		<defName>ATR_MechanicalInsight</defName>
+		<label>Mechanical insight</label>
+		<tab>ATR_MechResearch</tab>
+		<description>Initiate research into the possibility of creating mechanical recreations of living things - and related opportunities.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2.5</researchViewY>
+        <discoveredLetterTitle>About: Mechanical pawns</discoveredLetterTitle>
+        <discoveredLetterText>You have started down the path of producing mechanical pawns using ATR. Additional letters will appear as needed, but know that mechanical pawns can be built at the production pod, and have a different set of needs - instead of rest, they need maintenance, and while they can consume food, generally charge more efficiently. Healing units is done using repair stims or part packs instead of medicine. Units can be selectively restricted or permitted from using any resting spot for various purposes.</discoveredLetterText>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ATR_T1Androids</defName>
+		<label>T1 androids</label>
+		<tab>ATR_MechResearch</tab>
+		<description>Tier one androids are marked by humanlike resemblance, but are still no more than machines. Impressive in their resemblance and capabilities, they represent the higher echelons of Urbworld creativity and Midworld dreams. A fine advancement in our progress, and the dawn of a bright future.</description>
+		<baseCost>1600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ATR_MechanicalInsight</li>
+        </prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>ATR_UtilityBiomimetics</defName>
+		<label>Utility biomimetics</label>
+		<tab>ATR_MechResearch</tab>
+		<description>Biomimetics is the theoretical field of creating mechanical versions of living things. The earliest successful mechanical prototypes always iterate upon biological successes. Research in this field could recreate many of humanity's selective breeding successes in a robotic form.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>ATR_MechanicalInsight</li>
+		</prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>3.2</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>
