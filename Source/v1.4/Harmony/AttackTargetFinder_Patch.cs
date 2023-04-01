@@ -7,12 +7,12 @@ using System.Reflection.Emit;
 using System.Reflection;
 using System.Linq;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class AttackTargetFinder_Patch
     {
-        // This transpiler alters a validator for AttackTargetFinder to ensure that enemy AI's with EMP weapons will consider androids as vulnerable targets for attacking.
-        // Otherwise, enemies with EMP weapons will ignore androids entirely, preferring to melee or simply outright ignoring.
+        // This transpiler alters a validator for AttackTargetFinder to ensure that enemy AI's with EMP weapons will consider mechanical units as vulnerable targets for attacking.
+        // Otherwise, enemies with EMP weapons will ignore units entirely, preferring to melee or simply outright ignoring.
         [HarmonyPatch]
         public class BestAttackTarget_innerValidator_Patch
         {

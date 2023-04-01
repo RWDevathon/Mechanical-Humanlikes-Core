@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     [StaticConstructorOnStartup]
     public class Gizmo_MaintenanceEffect : Gizmo
@@ -31,12 +31,12 @@ namespace ATReforged
                 Rect firstRect = overRect.AtZero().ContractedBy(6f);
                 firstRect.height = overRect.height / 2f;
                 Text.Font = GameFont.Tiny;
-                Widgets.Label(firstRect, "ATR_MaintenanceEffectGizmoLabel".Translate(maintenanceNeed.maintenanceEffectTicks < 0 ? "ATR_MaintenanceEffectGizmoLabelNegative".Translate() : "ATR_MaintenanceEffectGizmoLabelPositive".Translate(), Mathf.RoundToInt(Mathf.Abs(maintenanceNeed.maintenanceEffectTicks / 60000))));
+                Widgets.Label(firstRect, "MHC_MaintenanceEffectGizmoLabel".Translate(maintenanceNeed.maintenanceEffectTicks < 0 ? "MHC_MaintenanceEffectGizmoLabelNegative".Translate() : "MHC_MaintenanceEffectGizmoLabelPositive".Translate(), Mathf.RoundToInt(Mathf.Abs(maintenanceNeed.maintenanceEffectTicks / 60000))));
                 Rect secondRect = overRect.AtZero().ContractedBy(6f);
                 secondRect.yMin = overRect.height / 2f;
                 float fillPercent = Mathf.Clamp(Mathf.Abs(maintenanceNeed.maintenanceEffectTicks / 60000) / 15f, 0, 1);
                 Widgets.FillableBar(secondRect, fillPercent, FullBarTex, EmptyBarTex, doBorder: true);
-                TooltipHandler.TipRegion(secondRect, () => "ATR_MaintenanceEffectDesc".Translate(), Gen.HashCombineInt(maintenanceNeed.GetHashCode(), 283641));
+                TooltipHandler.TipRegion(secondRect, () => "MHC_MaintenanceEffectDesc".Translate(), Gen.HashCombineInt(maintenanceNeed.GetHashCode(), 283641));
             });
             return new GizmoResult(GizmoState.Clear);
         }

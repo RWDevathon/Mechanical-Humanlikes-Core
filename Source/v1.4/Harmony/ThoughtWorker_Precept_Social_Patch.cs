@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_Social_Patch
     {
@@ -16,7 +16,7 @@ namespace ATReforged
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalDrone(p) || Utils.IsConsideredMechanicalDrone(otherPawn) || Utils.IsSurrogate(p) || Utils.IsSurrogate(otherPawn))
+                if (Utils.IsConsideredMechanicalDrone(p) || Utils.IsConsideredMechanicalDrone(otherPawn))
                 {
                     __result = ThoughtState.Inactive;
                 }

@@ -2,11 +2,11 @@
 using RimWorld;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class PawnBioAndNameGenerator_Patch
     {
-        // Override the generation of names for Mechanical Androids and Drones. Because mod settings allow for swapping these things around, xml doesn't do the trick. This is Run-Time information.
+        // Override the generation of names for mechanical sapients and drones. Because mod settings allow for swapping these things around, xml doesn't do the trick. This is Run-Time information.
         [HarmonyPatch(typeof(PawnBioAndNameGenerator), "GeneratePawnName")]
         public class GeneratePawnName_Patch
         {
@@ -17,33 +17,21 @@ namespace ATReforged
                 if (style == NameStyle.Numeric)
                     return;
 
-                // Mechanical androids may be Male, Female, or None based on settings. Handle name generation appropriately based on those settings.
-                if (Utils.IsConsideredMechanicalAndroid(pawn))
+                MHC_MechanicalPawnExtension modExtension = pawn.def.GetModExtension<MHC_MechanicalPawnExtension>();
+                if (modExtension?.useCustomNoneGenderNameMakers != true)
                 {
-                    // Some special pawns should ignore unique name generation.
-                    if (Utils.HasSpecialStatus(pawn))
-                        return;
-
-                    switch (pawn.gender)
-                    {
-                        // Androids that are male or female will try to use their xml name maker. Vanilla will handle the name scheme in this case.
-                        case Gender.Male:
-                        case Gender.Female:
-                            break;
-                        // Vanilla does not allow for None genders to have their own name maker, so if a race has genders but the pawn does not (IE. not all pawns of the race are genderless), we provide our own.
-                        default:
-                            if (pawn.RaceProps.hasGenders)
-                            {
-                                __result = PawnBioAndNameGenerator.GenerateFullPawnName(pawn.def, ATR_RulePackDefOf.ATR_AndroidNoneNames, pawn.story, null, ATR_RulePackDefOf.ATR_AndroidNoneNames, pawn.Faction?.ideos?.PrimaryCulture, pawn.gender, pawn.RaceProps.nameCategory, forcedLastName);
-                            }
-                            break;
-                    }
                     return;
                 }
-                // Mechanical drones never have gender. Generate a new name with the None name maker, ignoring xml tags.
-                else if (Utils.IsConsideredMechanicalDrone(pawn) && pawn.def.GetModExtension<ATR_MechTweaker>()?.letPawnKindHandleDroneBackstories == false)
+
+                // None gendered mechanical sapients will take the sapient custom name maker from the mod extension
+                if (Utils.IsConsideredMechanicalSapient(pawn) && pawn.gender == Gender.None && pawn.RaceProps.hasGenders)
                 {
-                    __result = PawnBioAndNameGenerator.GenerateFullPawnName(pawn.def, ATR_RulePackDefOf.ATR_DroneNoneNames, pawn.story, null, null, pawn.Faction?.ideos?.PrimaryCulture, pawn.gender, pawn.RaceProps.nameCategory, forcedLastName);
+                    __result = PawnBioAndNameGenerator.GenerateFullPawnName(pawn.def, modExtension.sapientNoneGenderNameMaker, pawn.story, null, modExtension.sapientNoneGenderNameMaker, pawn.Faction?.ideos?.PrimaryCulture, pawn.gender, pawn.RaceProps.nameCategory, forcedLastName);
+                }
+                // Mechanical drones never have gender and so should always take the custom name maker if provided
+                else if (Utils.IsConsideredMechanicalDrone(pawn) && pawn.def.GetModExtension<MHC_MechanicalPawnExtension>().letPawnKindHandleDroneBackstories == false)
+                {
+                    __result = PawnBioAndNameGenerator.GenerateFullPawnName(pawn.def, modExtension.droneNoneGenderNameMaker, pawn.story, null, null, pawn.Faction?.ideos?.PrimaryCulture, pawn.gender, pawn.RaceProps.nameCategory, forcedLastName);
                     
                 }
             }

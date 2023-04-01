@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Mechanical units can not be food poisoned, so set their chance to receive food poisoning to zero.
     internal class FoodUtility_Patch

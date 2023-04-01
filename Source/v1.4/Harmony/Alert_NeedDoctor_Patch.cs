@@ -3,7 +3,7 @@ using Verse;
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Mechanical units do not need doctors.
     internal class Alert_NeedDoctor_Patch

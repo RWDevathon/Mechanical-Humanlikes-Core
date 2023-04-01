@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using System;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_ColonyXenotypeMakeup_Patch
     {

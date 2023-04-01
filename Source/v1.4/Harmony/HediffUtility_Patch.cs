@@ -1,7 +1,7 @@
 ﻿using Verse;
 using HarmonyLib;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class HediffUtility_Patch
     {

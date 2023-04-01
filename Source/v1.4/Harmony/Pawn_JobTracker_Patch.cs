@@ -4,7 +4,7 @@ using Verse.AI;
 using RimWorld;
 using System.Collections.Generic;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Charge-capable pawns that are tucked in (via capture, rescue, for operations, etc) to a charge-capable bed will charge instead of resting normally.
     [HarmonyPatch(typeof(Pawn_JobTracker), "Notify_TuckedIntoBed")]
@@ -41,7 +41,7 @@ namespace ATReforged
                     ___pawn.Position = RestUtility.GetBedSleepingSlotPosFor(___pawn, bed);
                     ___pawn.Notify_Teleported(endCurrentJob: false);
                     ___pawn.stances.CancelBusyStanceHard();
-                    __instance.StartJob(JobMaker.MakeJob(ATR_JobDefOf.ATR_RechargeBattery, bed), JobCondition.InterruptForced, tag: JobTag.TuckedIntoBed);
+                    __instance.StartJob(JobMaker.MakeJob(MHC_JobDefOf.MHC_GetRecharge, bed), JobCondition.InterruptForced, tag: JobTag.TuckedIntoBed);
                     return false;
                 }
             }

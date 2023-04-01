@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+	<!-- Miscellaneous Keys -->
+	<MHC_ModTitle>Mechanical Humanlikes Core</MHC_ModTitle>
+
+	<MHC_RestartRequiredSection>Any changes to settings in this section require restarting the game.</MHC_RestartRequiredSection>
+
+
+    <MHC_ExpandMenu>Expand/Collapse</MHC_ExpandMenu>
+
+	<!-- Mod Settings Page Keys -->
+	<MHC_SettingsTabTitle>Configurations</MHC_SettingsTabTitle>
+
+	<MHC_SettingsTabOption_Folded>&lt;</MHC_SettingsTabOption_Folded>
+	<MHC_SettingsTabOption_General>General</MHC_SettingsTabOption_General>
+	<MHC_SettingsTabOption_Power>Power</MHC_SettingsTabOption_Power>
+	<MHC_SettingsTabOption_Security>Security</MHC_SettingsTabOption_Security>
+	<MHC_SettingsTabOption_Health>Health</MHC_SettingsTabOption_Health>
+	<MHC_SettingsTabOption_Connectivity>Connectivity</MHC_SettingsTabOption_Connectivity>
+	<MHC_SettingsTabOption_Stats>Stats</MHC_SettingsTabOption_Stats>
+
+	<!-- General Settings -->
+	<MHC_ApplyPreset>Apply Preset</MHC_ApplyPreset>
+
+        <!-- Permission Settings-->
+    <MHC_bedRestrictionDefaultsToAll>Beds default to All pawns rather than Mechanical/Organic</MHC_bedRestrictionDefaultsToAll>
+    <MHC_bedRestrictionDefaultsToAllDesc>By default, charging beds from this mod default to mechanical only, and all other beds default to organic only.</MHC_bedRestrictionDefaultsToAllDesc>
+
+        <!-- Consideration Settings -->
+    <MHC_isUsingCustomConsiderations>Using custom config and will not reset: {0}</MHC_isUsingCustomConsiderations>
+    <MHC_isUsingCustomConsiderationsDesc>If false, the mod will automatically regenerate what is/isn't mechanical at game startup so that it can catch new modded races for you.</MHC_isUsingCustomConsiderationsDesc>
+    <MHC_resetCustomConsiderations>Reset considerations</MHC_resetCustomConsiderations>
+	<MHC_SettingsConsideredMechanicalSapient>Mechanical Sapient</MHC_SettingsConsideredMechanicalSapient>
+	<MHC_SettingsConsideredMechanicalDrone>Mechanical Drone</MHC_SettingsConsideredMechanicalDrone>
+    <MHC_SettingsConsideredMechanicalAnimal>Mechanical Animals</MHC_SettingsConsideredMechanicalAnimal>
+    <MHC_SettingsNotConsideredMechanical>Not Mechanical</MHC_SettingsNotConsideredMechanical>
+
+	    <!-- Needs Settings -->
+	<MHC_MechanicalSapientOnlyNotice>Note: Only mechanical sapient units are affected by this. Drones have no such needs.</MHC_MechanicalSapientOnlyNotice>
+	<MHC_MechanicalSapientsNeedJoy>Sapient units need to fulfill joy needs</MHC_MechanicalSapientsNeedJoy>
+	<MHC_MechanicalSapientsNeedBeauty>Sapient units need to fulfill beauty needs</MHC_MechanicalSapientsNeedBeauty>
+	<MHC_MechanicalSapientsNeedComfort>Sapient units need to fulfill comfort needs</MHC_MechanicalSapientsNeedComfort>
+	<MHC_MechanicalSapientsNeedOutdoors>Sapient units need to fulfill outdoors/indoors needs</MHC_MechanicalSapientsNeedOutdoors>
+
+	<MHC_SettingsPresetDefault>Default</MHC_SettingsPresetDefault>
+	<MHC_SettingsPresetCustom>Custom</MHC_SettingsPresetCustom>
+
+	    <!-- Power Settings -->
+	<MHC_wattsConsumedPerBodySize>Power use per 1 body size when charging [default: 500]</MHC_wattsConsumedPerBodySize>
+	<MHC_batteryChargeRateFactor>Battery charge rate factor [default: 1]</MHC_batteryChargeRateFactor>
+
+    <!-- Health Settings -->
+        <!-- Medical -->
+    <MHC_medicinesAreInterchangeable>Organic/Mechanical medicines are interchangeable.</MHC_medicinesAreInterchangeable>
+    <MHC_showMechanicalSurgerySuccessChance>Display success chance of completed mechanical surgeries.</MHC_showMechanicalSurgerySuccessChance>
+    <MHC_maxChanceMechanicOperationSuccess>Max success change for mechanical surgeries</MHC_maxChanceMechanicOperationSuccess>
+    <MHC_chanceFailedOperationMinor>Chance failed mechanical surgeries are minor [default 75%]</MHC_chanceFailedOperationMinor>
+    <MHC_chancePartSavedOnFailure>Chance that parts are returned from failed mechanical surgeries [default 75%]</MHC_chancePartSavedOnFailure>
+
+        <!-- Maintenance -->
+    <MHC_maintenanceNeedExists>Mechanical units need maintenance.</MHC_maintenanceNeedExists>
+    <MHC_maintenanceFallRateFactor>How quickly maintenance falls naturally</MHC_maintenanceFallRateFactor>
+    <MHC_maintenanceGainRateFactor>How quickly maintenance is gained when doing maintenance</MHC_maintenanceGainRateFactor>
+
+        <!-- Hediffs -->
+    <MHC_hediffBlacklistWarning>Warning: This is can cause performance issues or bugs if misused.</MHC_hediffBlacklistWarning>
+    <MHC_settingsBlacklistedMechanicalHediffs>Blacklisted Mechanical Hediffs</MHC_settingsBlacklistedMechanicalHediffs>
+    <MHC_settingsAllowedMechanicalHediffs>Allowed Mechanical Hediffs</MHC_settingsAllowedMechanicalHediffs>
+
+    <!-- Stats Settings -->
+        <!-- Traits -->
+    <MHC_traitBlacklistWarning>Warning: The longer the list of blacklisted traits is, the more performance impact on the game it will have.</MHC_traitBlacklistWarning>
+    <MHC_settingsBlacklistedMechanicalTraits>Blacklisted Mechanical Traits</MHC_settingsBlacklistedMechanicalTraits>
+    <MHC_settingsAllowedMechanicalTraits>Allowed Mechanical Traits</MHC_settingsAllowedMechanicalTraits>
+
+</LanguageData>

@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class Dialog_RestrictToPawnType : Window
     {
@@ -17,7 +17,7 @@ namespace ATReforged
 
         private static readonly Vector2 ButSize = new Vector2(200f, 40f);
 
-        private static readonly List<Texture2D> exemplarImages = new List<Texture2D> {Tex.TierOneExemplar, Tex.TierTwoExemplar, Tex.BasicHumanExemplar, Tex.DronePawnTypeRestricted, Tex.AndroidPawnTypeRestricted, Tex.OrganicPawnTypeRestricted};
+        private static readonly List<Texture2D> exemplarImages = new List<Texture2D> {MHC_Textures.MechDroneExemplar, MHC_Textures.MechSapientExemplar, MHC_Textures.BasicHumanExemplar, MHC_Textures.MechDronePawnTypeRestricted, MHC_Textures.MechSapientPawnTypeRestricted, MHC_Textures.OrganicPawnTypeRestricted};
 
         public Dialog_RestrictToPawnType()
         {
@@ -41,7 +41,7 @@ namespace ATReforged
             Text.Font = GameFont.Medium;
             Rect TitleRect = new Rect(inRect);
             TitleRect.height = Text.LineHeight * 2f;
-            Widgets.Label(TitleRect, "ATR_RestrictedPawnTypes".Translate());
+            Widgets.Label(TitleRect, "MHC_RestrictedPawnTypes".Translate());
             Text.Font = GameFont.Small;
             inRect.yMin = TitleRect.yMax + 4f;
             Rect exemplarRect = inRect;
@@ -69,7 +69,7 @@ namespace ATReforged
             Rect position = new Rect(0f, 0, rect.width, rect.height / 3f).ContractedBy(4f);
             GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Drone) == PawnType.Drone ? 0 : 3]);
             position = new Rect(0f, rect.height / 3f, rect.width, rect.height / 3f).ContractedBy(4f);
-            GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Android) == PawnType.Android ? 1 : 4]);
+            GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Sapient) == PawnType.Sapient ? 1 : 4]);
             position = new Rect(0f, rect.height * 2f / 3f, rect.width, rect.height / 3f).ContractedBy(4f);
             GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Organic) == PawnType.Organic ? 2 : 5]);
             Widgets.EndGroup();
@@ -83,7 +83,7 @@ namespace ATReforged
                 maxOneColumn = true
             };
             listingStandard.Begin(rect);
-            if (listingStandard.RadioButton("ATR_PawnTypeNone".Translate(), (PawnType.None | pawnTypes) == PawnType.None, tooltip: "ATR_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
+            if (listingStandard.RadioButton("MHC_PawnTypeNone".Translate(), (PawnType.None | pawnTypes) == PawnType.None, tooltip: "MHC_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
             {
                 for (int j = compRestricts.Count - 1; j >= 0; j--)
                 {
@@ -92,7 +92,7 @@ namespace ATReforged
             }
             for (int i = 1; i < 8; i++)
             {
-                if (listingStandard.RadioButton($"ATR_PawnType{(PawnType)i}".Translate(), ((PawnType)i & pawnTypes) == (PawnType)i, tooltip: $"ATR_PawnType{(PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
+                if (listingStandard.RadioButton($"MHC_PawnType{(PawnType)i}".Translate(), ((PawnType)i & pawnTypes) == (PawnType)i, tooltip: $"MHC_PawnType{(PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
                 {
                     for (int j = compRestricts.Count - 1; j >= 0; j--)
                     {

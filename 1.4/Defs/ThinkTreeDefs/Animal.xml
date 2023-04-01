@@ -2,10 +2,10 @@
 <Defs>
 
     <ThinkTreeDef>
-        <defName>ATR_AnimalIdleMaintenance</defName>
+        <defName>MHC_AnimalIdleMaintenance</defName>
         <insertTag>Animal_PreWander</insertTag>
         <insertPriority>2</insertPriority>
-        <thinkRoot Class="ATReforged.JobGiver_DoMaintenanceIdle"/>
+        <thinkRoot Class="MechHumanlikes.JobGiver_DoMaintenanceIdle"/>
     </ThinkTreeDef>
-    
+
 </Defs>

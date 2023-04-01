@@ -5,7 +5,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class HealthAIUtility_Patch
     {
@@ -16,17 +16,15 @@ namespace ATReforged
             [HarmonyPostfix]
             public static void Listener(Pawn healer, Pawn patient, ref Thing __result)
             {
-                if (ATReforged_Settings.medicinesAreInterchangeable)
+                if (MechHumanlikes_Settings.medicinesAreInterchangeable)
                     return;
 
                 if (patient.playerSettings == null || patient.playerSettings.medCare <= MedicalCareCategory.NoMeds)
                 {
-                    __result = null;
                     return;
                 }
                 if (Medicine.GetMedicineCountToFullyHeal(patient) <= 0)
                 {
-                    __result = null;
                     return;
                 }
 

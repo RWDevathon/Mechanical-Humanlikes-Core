@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class WorkGiver_TendOtherMech : WorkGiver_MechTend
     {

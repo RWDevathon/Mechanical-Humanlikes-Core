@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class JobGiver_GetHemogen_Patch
     {

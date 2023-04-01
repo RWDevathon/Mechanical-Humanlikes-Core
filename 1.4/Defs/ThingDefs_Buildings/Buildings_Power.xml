@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef Name="ATR_ChargingStationBase" ParentName="BuildingBase" Abstract="True">
+    <ThingDef Name="MHC_ChargingStationBase" ParentName="BuildingBase" Abstract="True">
         <altitudeLayer>Building</altitudeLayer>
-        <thingClass>ATReforged.Building_ChargingStation</thingClass>
+        <thingClass>MechHumanlikes.Building_ChargingStation</thingClass>
         <passability>Impassable</passability>
         <pathCost>70</pathCost>
         <blockWind>true</blockWind>
@@ -13,7 +13,7 @@
         <rotatable>false</rotatable>
         <comps>
             <li>
-                <compClass>ATReforged.CompPawnCharger</compClass>
+                <compClass>MechHumanlikes.CompPawnCharger</compClass>
             </li>
             <li Class="CompProperties_Breakdownable"/>
             <li Class="CompProperties_Power">
@@ -24,15 +24,15 @@
             <li Class="CompProperties_Flickable"/>
         </comps>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-        <designationCategory>ATR_AndroidTiersDesignation</designationCategory>
+        <designationCategory>Furniture</designationCategory>
         <constructEffect>ConstructMetal</constructEffect>
         <canOverlapZones>false</canOverlapZones>
     </ThingDef>
 
-    <ThingDef ParentName="ATR_ChargingStationBase">
-        <defName>ATR_ChargingStation</defName>
-        <label>Android charging station</label>
-        <description>A station built to charge 8 adjacent androids simultaneously.</description>
+    <ThingDef ParentName="MHC_ChargingStationBase">
+        <defName>MHC_ChargingStation</defName>
+        <label>Charging station</label>
+        <description>A station built to charge 8 adjacent pawns simultaneously.</description>
         <graphicData>
             <texPath>Things/Buildings/ChargingStation</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -73,14 +73,14 @@
         <hasInteractionCell>false</hasInteractionCell>
         <designationHotKey>Misc8</designationHotKey>
         <researchPrerequisites>
-            <li>ATR_MassCharging</li>
+            <li>Electricity</li>
         </researchPrerequisites>
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
     </ThingDef>
 
     <!-- Bedside Charger -->
     <ThingDef ParentName="BuildingBase">
-        <defName>ATR_BedsideChargerFacility</defName>
+        <defName>MHC_BedsideChargerFacility</defName>
         <label>bedside charger</label>
         <description>A bedside device that allows the occupant of the linked bed to charge. It provides energy while in bed, but consumes a lot of power to do so. It must be placed directly adjacent to and facing the head of the bed.</description>
         <graphicData>
@@ -99,7 +99,7 @@
         </graphicData>
         <uiIconPath>Things/Buildings/BedsideCharger/BedsideCharger_south</uiIconPath>
         <defaultPlacingRot>South</defaultPlacingRot>
-        <researchPrerequisites><li>ATR_MechanicalStandardization</li></researchPrerequisites>
+        <researchPrerequisites><li>Electricity</li></researchPrerequisites>
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <fillPercent>0.2</fillPercent>
@@ -125,7 +125,7 @@
         <tickerType>Rare</tickerType>
         <comps>
             <li>
-                <compClass>ATReforged.CompPawnCharger</compClass>
+                <compClass>MechHumanlikes.CompPawnCharger</compClass>
             </li>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
@@ -139,7 +139,7 @@
             </li>
         </comps>
         <designationHotKey>Misc6</designationHotKey>
-        <designationCategory>ATR_AndroidTiersDesignation</designationCategory>
+        <designationCategory>Furniture</designationCategory>
         <placeWorkers>
             <li>PlaceWorker_ShowFacilitiesConnections</li>
         </placeWorkers>
@@ -147,8 +147,8 @@
 
     <!-- Charging Pods -->
 
-    <ThingDef Name="ATR_ChargingPodBase" ParentName="BedWithQualityBase" Abstract="True">
-        <thingClass>ATReforged.Building_ChargingBed</thingClass>
+    <ThingDef Name="MHC_ChargingPodBase" ParentName="BedWithQualityBase" Abstract="True">
+        <thingClass>MechHumanlikes.Building_ChargingBed</thingClass>
         <graphicData>
             <texPath>Things/Buildings/ChargingPod/ChargingPod</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -163,8 +163,8 @@
             <WorkToBuild>2800</WorkToBuild>
             <Mass>45</Mass>
             <Flammability>0.4</Flammability>
-            <ATR_MechanicalSurgerySuccessChanceFactor>1.05</ATR_MechanicalSurgerySuccessChanceFactor>
-            <ATR_MechanicalTendQualityOffset>0.1</ATR_MechanicalTendQualityOffset>
+            <MHC_MechanicalSurgerySuccessChanceFactor>1.05</MHC_MechanicalSurgerySuccessChanceFactor>
+            <MHC_MechanicalTendQualityOffset>0.1</MHC_MechanicalTendQualityOffset>
             <BedRestEffectiveness>1.1</BedRestEffectiveness>
             <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
             <Comfort>0.5</Comfort>
@@ -172,11 +172,11 @@
 	    <comps>
             <li Class="CompProperties_Flickable"/>
             <li>
-                <compClass>ATReforged.CompPawnCharger</compClass>
+                <compClass>MechHumanlikes.CompPawnCharger</compClass>
             </li>
 	        <li Class="CompProperties_AffectedByFacilities">
 			    <linkableFacilities>
-				    <li>ATR_MechanicCabinet</li>
+				    <li>MHC_MechanicCabinet</li>
                     <li>Dresser</li>
                     <li>EndTable</li>
                     <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
@@ -206,7 +206,7 @@
         <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
         <staticSunShadowHeight>0.17</staticSunShadowHeight>
         <designationHotKey>Misc5</designationHotKey>
-	    <designationCategory>ATR_AndroidTiersDesignation</designationCategory>
+	    <designationCategory>Furniture</designationCategory>
         <researchPrerequisites>
             <li>Electricity</li>
         </researchPrerequisites>
@@ -216,8 +216,8 @@
     </ThingDef>
 
 
-    <ThingDef ParentName="ATR_ChargingPodBase">
-	    <defName>ATR_ChargingPod</defName>
+    <ThingDef ParentName="MHC_ChargingPodBase">
+	    <defName>MHC_ChargingPod</defName>
         <label>Charging pod</label>
         <description>A simple charging pod that can charge mechanical units. It is not designed for comfort.</description>
 	    <costList>
@@ -235,29 +235,5 @@
 	        </li>
         </comps>
     </ThingDef>
-
-    <!-- Minified Vanometric Power Cell for SkyMind Core needs -->
-    <ThingDef>
-		<defName>ATR_VanometricPowerCellMinified</defName>
-		<label>minified vanometric power cell</label>
-		<thingClass>MinifiedThing</thingClass>
-		<category>Item</category>
-		<useHitPoints>true</useHitPoints>
-		<selectable>true</selectable>
-		<altitudeLayer>Item</altitudeLayer>
-		<scatterableOnMapGen>false</scatterableOnMapGen>
-		<tickerType>Normal</tickerType>
-		<comps>
-			<li Class="CompProperties_Forbiddable"/>
-		</comps>
-		<alwaysHaulable>true</alwaysHaulable>
-		<rotatable>false</rotatable>
-		<pathCost>14</pathCost>
-		<statBases>
-			<Mass>9</Mass>
-			<Beauty>-20</Beauty>
-		</statBases>
-		<uiIconPath>Things/Building/Special/VanometricPowerCell_north</uiIconPath>
-	</ThingDef>
 
 </Defs>

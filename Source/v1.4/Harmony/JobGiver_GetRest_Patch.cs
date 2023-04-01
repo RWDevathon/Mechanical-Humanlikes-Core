@@ -4,7 +4,7 @@ using Verse.AI;
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class JobGiver_GetRest_Patch
     {
@@ -17,19 +17,19 @@ namespace ATReforged
             {
                 try
                 {
-                    // If the pawn can't use charging or isn't on a map, then there's nothing to override. 
+                    // If the pawn can't use charging or isn't on a map, then there's nothing to override.
                     if (pawn != null && pawn.Map != null && (pawn.Faction == Faction.OfPlayer || pawn.HostFaction == Faction.OfPlayer) && Utils.CanUseBattery(pawn))
                     {
                         // Don't override non-spawned or drafted pawns.
                         if (!pawn.Spawned || pawn.Drafted)
                             return;
-                        
+
                         // Attempt to locate a viable charging bed for the pawn. This can suit comfort, rest, and room needs whereas the charging station can not.
                         Building_Bed bed = Utils.GetChargingBed(pawn, pawn);
                         if (bed != null)
                         {
                             pawn.ownership.ClaimBedIfNonMedical(bed);
-                            __result = new Job(ATR_JobDefOf.ATR_RechargeBattery, new LocalTargetInfo(bed));
+                            __result = new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(bed));
                             return;
                         }
                     }
@@ -37,7 +37,7 @@ namespace ATReforged
                 }
                 catch (Exception ex)
                 {
-                    Log.Warning("[ATR] ATReforged.JobGiver_GetRest_Patch Encountered an error while attempting to check pawn" + pawn + " for charging. Default vanilla behavior will proceed." + ex.Message + " " + ex.StackTrace);
+                    Log.Warning("[ATR] MechHumanlikes.JobGiver_GetRest_Patch Encountered an error while attempting to check pawn" + pawn + " for charging. Default vanilla behavior will proceed." + ex.Message + " " + ex.StackTrace);
                 }
             }
         }

@@ -1,10 +1,11 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     [StaticConstructorOnStartup]
     public class CompMaintenanceNeed : ThingComp
@@ -22,62 +23,6 @@ namespace ATReforged
         private static readonly float TicksPerDay = 60000;
 
         private static readonly float TicksPerLong = 2000;
-
-        private static readonly SimpleCurve PartDecayContractChance = new SimpleCurve
-        {
-            new CurvePoint(3f, 9999999f),
-            new CurvePoint(6f, 48f),
-            new CurvePoint(12f, 24f),
-            new CurvePoint(24f, 12f)
-        };
-
-        private static readonly SimpleCurve RustContractChance = new SimpleCurve
-        {
-            new CurvePoint(3f, 9999999f),
-            new CurvePoint(6f, 48f),
-            new CurvePoint(12f, 24f),
-            new CurvePoint(24f, 12f)
-        };
-
-        private static readonly SimpleCurve PowerLossContractChance = new SimpleCurve
-        {
-            new CurvePoint(3f, 9999999f),
-            new CurvePoint(6f, 60f),
-            new CurvePoint(12f, 30f),
-            new CurvePoint(24f, 15f)
-        };
-
-        private static readonly SimpleCurve CoreDamageContractChance = new SimpleCurve
-        {
-            new CurvePoint(5f, 9999999f),
-            new CurvePoint(8f, 5000f),
-            new CurvePoint(16f, 2400f),
-            new CurvePoint(32f, 120f)
-        };
-
-        private static readonly SimpleCurve FailingValvesContractChance = new SimpleCurve
-        {
-            new CurvePoint(5f, 9999999f),
-            new CurvePoint(8f, 2400f),
-            new CurvePoint(16f, 160f),
-            new CurvePoint(32f, 80f)
-        };
-
-        private static readonly SimpleCurve RogueMechanitesContractChance = new SimpleCurve
-        {
-            new CurvePoint(5f, 9999999f),
-            new CurvePoint(8f, 6400f),
-            new CurvePoint(16f, 3200f),
-            new CurvePoint(32f, 240f)
-        };
-
-        public enum MaintenanceStage
-        {
-            Critical,
-            Poor,
-            Sufficient,
-            Satisfactory
-        }
 
         public MaintenanceStage Stage
         {
@@ -118,19 +63,19 @@ namespace ATReforged
             switch (stage)
             {
                 case MaintenanceStage.Critical:
-                    return 0.03f; // 3% per day base (10 -> 0 should take 3.3 days with 1 efficiency)
+                    return 0.05f; // 5% per day base (10 -> 0 should take 2 days with 1 efficiency)
                 case MaintenanceStage.Poor:
-                    return 0.06f; // 6% per day base (30 -> 10 should take 3.3 days with 1 efficiency)
+                    return 0.10f; // 10% per day base (30 -> 10 should take 2 days with 1 efficiency)
                 case MaintenanceStage.Sufficient:
-                    return 0.12f; // 12% per day base (70 -> 30 should take 3.3 days with 1 efficiency)
+                    return 0.20f; // 20% per day base (70 -> 30 should take 2 days with 1 efficiency)
                 default:
-                    return 0.24f; // 24% per day base (100 -> 70 should take 1.25 days with 1 efficiency)
+                    return 0.60f; // 60% per day base (100 -> 70 should take 0.5 days with 1 efficiency)
             }
         }
 
         public float MaintenanceFallPerDay()
         {
-            return Mathf.Clamp(DailyFallPerStage(Stage) * ATReforged_Settings.maintenanceFallRateFactor / Pawn.GetStatValue(ATR_StatDefOf.ATR_MaintenanceRetention, cacheStaleAfterTicks: 2000), 0.005f, 2f);
+            return Mathf.Clamp(DailyFallPerStage(Stage) * MechHumanlikes_Settings.maintenanceFallRateFactor / Pawn.GetStatValue(MHC_StatDefOf.MHC_MaintenanceRetention, cacheStaleAfterTicks: 2000), 0.005f, 2f);
         }
 
         public override void PostPostMake()
@@ -149,16 +94,16 @@ namespace ATReforged
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref maintenanceLevel, "ATR_maintenanceLevel", -1);
-            Scribe_Values.Look(ref targetLevel, "ATR_targetLevel", -1);
-            Scribe_Values.Look(ref cachedFallRatePerDay, "ATR_cachedFallRatePerDay", -1);
-            Scribe_Values.Look(ref maintenanceEffectTicks, "ATR_maintenanceEffectTicks", TicksPerDay);
+            Scribe_Values.Look(ref maintenanceLevel, "MHC_maintenanceLevel", -1);
+            Scribe_Values.Look(ref targetLevel, "MHC_targetLevel", -1);
+            Scribe_Values.Look(ref cachedFallRatePerDay, "MHC_cachedFallRatePerDay", -1);
+            Scribe_Values.Look(ref maintenanceEffectTicks, "MHC_maintenanceEffectTicks", TicksPerDay);
         }
 
         public override void CompTickRare()
         {
             base.CompTickRare();
-            if (!Pawn.Spawned || !ATReforged_Settings.maintenanceNeedExists || Find.TickManager.TicksGame % 2000 != 0)
+            if (!Pawn.Spawned || !MechHumanlikes_Settings.maintenanceNeedExists || Find.TickManager.TicksGame % 2000 != 0)
             {
                 return;
             }
@@ -169,11 +114,7 @@ namespace ATReforged
                 cachedFallRatePerDay = MaintenanceFallPerDay();
             }
 
-            // If maintenance has been low for at least 3 days (modified by settings), issues can begin manifesting.
-            if (maintenanceEffectTicks < (-180000 * ATReforged_Settings.maintenancePartFailureRateFactor))
-            {
-                TryPoorMaintenanceCheck();
-            }
+            TryMaintenanceCheck();
 
             ChangeMaintenanceEffectTicks();
             ChangeMaintenanceLevel(-cachedFallRatePerDay * TicksPerLong / TicksPerDay);
@@ -188,20 +129,14 @@ namespace ATReforged
             // If we changed stages, make sure we initialize an appropriate stage effect hediff if there is one. They remove themselves automatically when appropriate.
             if (Stage != currentStage)
             {
-                switch (Stage)
+                // Check all maintenance stage effects for this race and apply them if the new stage matches their required stage.
+                foreach (HediffDef hediffDef in Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
                 {
-                    case MaintenanceStage.Critical:
-                        Hediff criticalHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_MaintenanceCritical, Pawn);
-                        Pawn.health.AddHediff(criticalHediff);
-                        break;
-                    case MaintenanceStage.Poor:
-                        Hediff poorHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_MaintenancePoor, Pawn);
-                        Pawn.health.AddHediff(poorHediff);
-                        break;
-                    case MaintenanceStage.Satisfactory:
-                        Hediff satisfactoryHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_MaintenanceSatisfactory, Pawn);
-                        Pawn.health.AddHediff(satisfactoryHediff);
-                        break;
+                    MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
+                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMaintenanceStageToOccur == Stage)
+                    {
+                        Pawn.health.AddHediff(hediffDef);
+                    }
                 }
             }
         }
@@ -239,18 +174,10 @@ namespace ATReforged
             maintenanceEffectTicks = Mathf.Clamp(maintenanceEffectTicks, -3600000, 3600000);
         }
 
-        public void SendPartFailureLetter(Pawn pawn, Hediff cause)
-        {
-            if (PawnUtility.ShouldSendNotificationAbout(pawn) && ATReforged_Settings.receiveMaintenanceFailureLetters)
-            {
-                Find.LetterStack.ReceiveLetter("LetterHealthComplicationsLabel".Translate(pawn.LabelShort, cause.LabelCap, pawn.Named("PAWN")).CapitalizeFirst(), "LetterHealthComplications".Translate(pawn.LabelShortCap, cause.LabelCap, "ATR_PoorMaintenanceLetter".Translate(), pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent, pawn);
-            }
-        }
-
         // Maintenance need has associated gizmos for displaying and controlling the maintenance level of pawns.
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (!ATReforged_Settings.maintenanceNeedExists)
+            if (!MechHumanlikes_Settings.maintenanceNeedExists)
             {
                 yield break;
             }
@@ -318,106 +245,158 @@ namespace ATReforged
             {
                 for (int stageInt = 0; stageInt < MaintenanceThresholdBandPercentages.Count - 1; stageInt++)
                 {
-                    maintenanceLevelInfoCached += "ATR_MaintenanceLevelInfoRange".Translate((MaintenanceThresholdBandPercentages[stageInt] * 100f).ToStringDecimalIfSmall(), (MaintenanceThresholdBandPercentages[stageInt + 1] * 100f).ToStringDecimalIfSmall()) + ": " + "ATR_MaintenanceLevelInfoFallRate".Translate(DailyFallPerStage((MaintenanceStage)stageInt).ToStringPercent()) + "\n";
+                    maintenanceLevelInfoCached += "MHC_MaintenanceLevelInfoRange".Translate((MaintenanceThresholdBandPercentages[stageInt] * 100f).ToStringDecimalIfSmall(), (MaintenanceThresholdBandPercentages[stageInt + 1] * 100f).ToStringDecimalIfSmall()) + ": " + "MHC_MaintenanceLevelInfoFallRate".Translate(DailyFallPerStage((MaintenanceStage)stageInt).ToStringPercent()) + "\n";
                 }
             }
-            return (("ATR_MaintenanceGizmoLabel".Translate() + ": ").Colorize(ColoredText.TipSectionTitleColor) + MaintenanceLevel.ToStringPercent("0.#") + "\n" + "ATR_MaintenanceTargetLabel".Translate() + ": " + TargetMaintenanceLevel.ToStringPercent("0.#") + "\n\n" + "ATR_MaintenanceTargetLabelDesc".Translate() + "\n\n" + "ATR_MaintenanceDesc".Translate() + ":\n\n" + maintenanceLevelInfoCached).Resolve();
+            return (("MHC_MaintenanceGizmoLabel".Translate() + ": ").Colorize(ColoredText.TipSectionTitleColor) + MaintenanceLevel.ToStringPercent("0.#") + "\n" + "MHC_MaintenanceTargetLabel".Translate() + ": " + TargetMaintenanceLevel.ToStringPercent("0.#") + "\n\n" + "MHC_MaintenanceTargetLabelDesc".Translate() + "\n\n" + "MHC_MaintenanceDesc".Translate() + ":\n\n" + maintenanceLevelInfoCached).Resolve();
         }
 
-        // Randomly applies health defects based on random chances from the ticksSincePoorMaintenance level.
-        public void TryPoorMaintenanceCheck()
+        // Randomly applies maintenance effects based on random chances from the ticksSincePoorMaintenance level.
+        public void TryMaintenanceCheck()
         {
-            Pawn_HealthTracker healthTracker = Pawn.health;
-            float modifiedFailureTicks = Mathf.Abs(maintenanceEffectTicks) / ATReforged_Settings.maintenancePartFailureRateFactor;
-            // Attempt to apply part decay.
-            if (Rand.MTBEventOccurs(PartDecayContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
+            // Check all valid maintenance effects for this race and test whether they are applied now.
+            foreach (HediffDef hediffDef in Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
             {
-                BodyPartRecord bodyPart = healthTracker.hediffSet.GetNotMissingParts()?.RandomElement();
-                if (bodyPart == null)
+                MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
+                // Maintenance stage effects are applied/removed automatically on stage changes.
+                if (effectExtension.isMaintenangeStageEffect)
                 {
-                    Log.Warning("[ATR] Attempted to apply part decay to " + Pawn + " but no viable body parts were found.");
+                    continue;
+                }
+
+                // If there is a custom maintenance worker that blocks this effect on the pawn, it can not occur.
+                if (effectExtension.maintenanceWorker != null && !effectExtension.maintenanceWorker.CanApplyTo(Pawn))
+                {
+                    continue;
+                }
+
+                // Effects requiring negative maintenance
+                if (effectExtension.daysBeforeCanOccur < 0)
+                {
+                    // Stage is too high to occur now.
+                    if (Stage > effectExtension.requiredMaintenanceStageToOccur)
+                    {
+                        continue;
+                    }
+
+                    // If maintenance effect ticks is higher than days before can occur, it can not occur (both are negative here).
+                    if (maintenanceEffectTicks > effectExtension.daysBeforeCanOccur * 60000)
+                    {
+                        continue;
+                    }
+
+                    TryMaintenanceEffect(effectExtension, maintenanceEffectTicks, Pawn, hediffDef);
+                }
+                // Effects requiring positive maintenance
+                else
+                {
+                    // Stage is too low to occur now.
+                    if (Stage < effectExtension.requiredMaintenanceStageToOccur)
+                    {
+                        continue;
+                    }
+
+                    // If maintenance effect ticks is lower than days before can occur, it can not occur (both are positive here).
+                    if (maintenanceEffectTicks < effectExtension.daysBeforeCanOccur * 60000)
+                    {
+                        continue;
+                    }
+
+                    TryMaintenanceEffect(effectExtension, maintenanceEffectTicks, Pawn, hediffDef);
+                }
+            }
+        }
+
+        public static void TryMaintenanceEffect(MHC_MaintenanceEffectExtension effectExtension, float effectTicks, Pawn pawn, HediffDef hediffDef)
+        {
+            // Check the chance to occur based on the extensions curve, with 0 corresponding to the days before it can occur. If it should, apply the appropriate effects.
+            // For example, if 4 average maintenance days must pass before an effect is applied, and 5 days have passed, the curve will evaluate at 1.
+            if (Rand.MTBEventOccurs(effectExtension.MeanDaysToOccur.Evaluate(Math.Abs(effectTicks) - Math.Abs(effectExtension.daysBeforeCanOccur)), TicksPerDay, 60f))
+            {
+                HashSet<BodyPartRecord> validParts = ValidBodyPartsForEffect(effectExtension, pawn);
+                // If there are no legal parts identified, this effect can not occur.
+                if (validParts == null)
+                {
+                    return;
+                }
+
+                // If the HashSet is empty, that means the effect should be applied to the whole body.
+                if (validParts.Count == 0)
+                {
+                    pawn.health.AddHediff(hediffDef);
+                    Hediff chosenHediff = HediffMaker.MakeHediff(hediffDef, pawn);
+                    effectExtension.maintenanceWorker?.OnApplied(pawn, null);
+                    SendMaintenanceEffectLetter(pawn, chosenHediff);
                 }
                 else
                 {
-                    Hediff decayHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_PartDecay, Pawn, bodyPart);
-                    healthTracker.AddHediff(decayHediff);
-                    SendPartFailureLetter(Pawn, decayHediff);
+                    BodyPartRecord chosenPart = validParts.RandomElement();
+                    Hediff chosenHediff = HediffMaker.MakeHediff(hediffDef, pawn, chosenPart);
+                    pawn.health.AddHediff(chosenHediff, chosenPart);
+                    effectExtension.maintenanceWorker?.OnApplied(pawn, chosenPart);
+                    SendMaintenanceEffectLetter(pawn, chosenHediff);
                 }
             }
-            // Attempt to apply part rust.
-            if (Rand.MTBEventOccurs(RustContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
+        }
+
+        public static HashSet<BodyPartRecord> ValidBodyPartsForEffect(MHC_MaintenanceEffectExtension effectExtension, Pawn pawn)
+        {
+            // If parts to affect, tags to affect, and depth are all unspecified and thus no parts have been identified yet, the effect may be applied to the whole body, signified by an empty hash set.
+            if (effectExtension.partsToAffect == null && effectExtension.bodyPartTagsToAffect == null && effectExtension.partDepthToAffect == BodyPartDepth.Undefined)
             {
-                BodyPartRecord bodyPart = healthTracker.hediffSet.GetNotMissingParts(depth: BodyPartDepth.Outside)?.RandomElement();
-                if (bodyPart == null)
+                return new HashSet<BodyPartRecord>();
+            }
+
+            HashSet<BodyPartRecord> validParts = new HashSet<BodyPartRecord>();
+            List<BodyPartRecord> pawnParts = pawn.RaceProps.body.AllParts;
+            foreach (BodyPartRecord part in pawnParts)
+            {
+                // Missing parts are skipped entirely and are always illegal.
+                if (pawn.health.hediffSet.PartIsMissing(part))
                 {
-                    Log.Warning("[ATR] Attempted to apply rust to " + Pawn + " but no viable body parts were found.");
+                    continue;
                 }
-                else
+
+                // If the maintenance worker indicates this part is illegal now, skip it.
+                if (effectExtension.maintenanceWorker?.CanApplyOnPart(pawn, part) == false)
                 {
-                    Hediff rustHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_RustedPart, Pawn, bodyPart);
-                    healthTracker.AddHediff(rustHediff);
-                    SendPartFailureLetter(Pawn, rustHediff);
+                    continue;
+                }
+
+                // If this specific part is legal, add it.
+                if (effectExtension.partsToAffect?.Contains(part.def) == true)
+                {
+                    validParts.Add(part);
+                    continue;
+                }
+
+                // If this part has the correct tag, add it.
+                if (effectExtension.bodyPartTagsToAffect != null && part.def.tags != null && effectExtension.bodyPartTagsToAffect.Any(tag => part.def.tags.Contains(tag)))
+                {
+                    validParts.Add(part);
+                    continue;
+                }
+
+                // If this part has the correct depth, add it.
+                if (effectExtension.partDepthToAffect == part.depth)
+                {
+                    validParts.Add(part);
                 }
             }
-            // Attempt to apply power loss.
-            if (Rand.MTBEventOccurs(PowerLossContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
+            if (validParts.Count > 0)
             {
-                BodyPartRecord bodyPart = healthTracker.hediffSet.GetNotMissingParts()?.Where(part => part != healthTracker.hediffSet.GetBrain())?.RandomElement();
-                if (bodyPart == null)
-                {
-                    Log.Warning("[ATR] Attempted to apply power loss to " + Pawn + " but no viable body parts were found.");
-                }
-                else
-                {
-                    Hediff powerLossHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_PowerLoss, Pawn, bodyPart);
-                    healthTracker.AddHediff(powerLossHediff);
-                    SendPartFailureLetter(Pawn, powerLossHediff);
-                }
+                return validParts;
             }
-            // Some effects can only be applied if the maintenance stage is critical.
-            if (Stage == MaintenanceStage.Critical)
+            // If no parts were identified and the effect can't be applied to the whole body, return null to signify there are no valid ways to use this effect.
+            return null;
+        }
+
+        // Send a letter to the player about an effect being applied to the pawn if appropriate.
+        public static void SendMaintenanceEffectLetter(Pawn pawn, Hediff cause)
+        {
+            if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
-                // Attempt to apply core damage.
-                if (Rand.MTBEventOccurs(CoreDamageContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
-                {
-                    BodyPartRecord bodyPart = healthTracker.hediffSet.GetBrain();
-                    if (bodyPart != null && healthTracker.capacities.GetLevel(PawnCapacityDefOf.Consciousness) > 0.3f)
-                    {
-                        Hediff coreDamageHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_DamagedCore, Pawn, bodyPart);
-                        healthTracker.AddHediff(coreDamageHediff);
-                        SendPartFailureLetter(Pawn, coreDamageHediff);
-                    }
-                }
-                // Attempt to apply failing valves.
-                if (Rand.MTBEventOccurs(FailingValvesContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
-                {
-                    BodyPartRecord bodyPart = Pawn.RaceProps.body.GetPartsWithDef(ATR_BodyPartDefOf.ATR_InternalCorePump)?.RandomElement();
-                    if (bodyPart == null)
-                    {
-                        Log.Warning("[ATR] Attempted to apply failing valves to " + Pawn + " but no viable body parts were found.");
-                    }
-                    else
-                    {
-                        Hediff failingValvesHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_FailingCoolantValves, Pawn, bodyPart);
-                        healthTracker.AddHediff(failingValvesHediff);
-                        SendPartFailureLetter(Pawn, failingValvesHediff);
-                    }
-                }
-                // Attempt to apply rogue mechanites.
-                if (Rand.MTBEventOccurs(RogueMechanitesContractChance.Evaluate(modifiedFailureTicks), TicksPerDay, 60f))
-                {
-                    BodyPartRecord bodyPart = Pawn.RaceProps.body.GetPartsWithDef(ATR_BodyPartDefOf.ATR_MechaniteStorage)?.RandomElement();
-                    if (bodyPart == null)
-                    {
-                        Log.Warning("[ATR] Attempted to apply rogue mechanites to " + Pawn + " but no viable body parts were found.");
-                    }
-                    else
-                    {
-                        Hediff rogueMechanitesHediff = HediffMaker.MakeHediff(ATR_HediffDefOf.ATR_RogueMechanites, Pawn, bodyPart);
-                        healthTracker.AddHediff(rogueMechanitesHediff);
-                        SendPartFailureLetter(Pawn, rogueMechanitesHediff);
-                    }
-                }
+                Find.LetterStack.ReceiveLetter("MHC_MaintenanceEffectOccurredLetterLabel".Translate(pawn.LabelShort, cause.LabelCap, pawn.Named("PAWN")).CapitalizeFirst(), "MHC_MaintenanceEffectOccurredLetter".Translate(pawn.LabelShortCap, cause.LabelCap, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent, pawn);
             }
         }
 

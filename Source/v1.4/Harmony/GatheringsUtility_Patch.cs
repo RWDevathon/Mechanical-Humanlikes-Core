@@ -3,7 +3,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // GatheringsUtility.ShouldGuestKeepAttendingGathering has a non-null checked food conditional that will throw errors for any humanlike pawn that does not eat food if not handled. This transpiler adds that null-check.
     internal class GatheringsUtility_Patch

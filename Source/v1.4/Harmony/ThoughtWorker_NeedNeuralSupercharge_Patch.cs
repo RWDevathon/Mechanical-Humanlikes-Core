@@ -2,12 +2,11 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_NeedNeuralSupercharge_Patch
-
     {
-        // Mechanical units do not have neural networks that can be supercharged like organics.
+        // Mechanical units do not care about neural supercharges as their neural networks are different than organics.
         [HarmonyPatch(typeof(ThoughtWorker_NeedNeuralSupercharge), "ShouldHaveThought")]
         public class CurrentStateInternal_Patch
         {
@@ -17,7 +16,7 @@ namespace ATReforged
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalAndroid(p))
+                if (Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = ThoughtState.Inactive;
                 }

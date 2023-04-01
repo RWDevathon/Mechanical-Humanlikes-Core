@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  
+
     <ThoughtDef>
-        <defName>ATR_MaintenanceMood</defName>
-        <workerClass>ATReforged.ThoughtWorker_MaintenanceMood</workerClass>
+        <defName>MHC_MaintenanceMood</defName>
+        <workerClass>MechHumanlikes.ThoughtWorker_MaintenanceMood</workerClass>
         <stages>
             <li>
                 <label>abysmal maintenance</label>
@@ -45,5 +45,5 @@
 	    <validWhileDespawned>true</validWhileDespawned>
         <nullifiedIfNotColonist>true</nullifiedIfNotColonist>
     </ThoughtDef>
-  
+
  </Defs>

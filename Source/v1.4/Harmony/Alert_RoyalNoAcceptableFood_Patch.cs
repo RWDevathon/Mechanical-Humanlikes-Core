@@ -3,7 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Do not give an alert about no food for charge-capable royals.
     internal class Alert_RoyalNoAcceptableFood_Patch

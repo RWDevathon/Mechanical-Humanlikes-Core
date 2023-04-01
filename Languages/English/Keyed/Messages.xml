@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- Surgeries -->
+	<MHC_MessageMechanicOperationFailureMinor>{0} committed a minor error while operating and aborted the procedure on {1}.</MHC_MessageMechanicOperationFailureMinor>
+	<MHC_MessageMechanicOperationFailureRidiculous>{0} has committed a major error while attempting an operation on {1}.</MHC_MessageMechanicOperationFailureRidiculous>
+	<MHC_MessageMechanicOperationFailureFatal>{0} has committed a fatal error while operating on {1} that caused unintentional cascading damage. The procedure caused irreversible damage to the unit, resulting in ceased functionality.</MHC_MessageMechanicOperationFailureFatal>
+
+</LanguageData>

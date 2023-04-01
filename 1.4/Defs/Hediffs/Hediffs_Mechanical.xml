@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HediffDef>
+        <defName>MHC_MechanicalShutdown</defName>
+        <label>decommissioned</label>
+        <description>Operability eliminated.</description>
+        <initialSeverity>0</initialSeverity>
+        <lethalSeverity>0</lethalSeverity>
+        <defaultLabelColor>(0.4, 0.4, 0.4)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>MHC_Restarting</defName>
+        <label>Restarting</label>
+        <description>Unit is fully restarting all functionality and reactivating.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <initialSeverity>1</initialSeverity>
+        <defaultLabelColor>(0.3, 0.7, 0.3)</defaultLabelColor>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-1</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <hungerRateFactor>0.4</hungerRateFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

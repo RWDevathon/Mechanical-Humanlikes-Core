@@ -3,7 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // It is necessary to patch the SickPawnVisitUtility and prefix its CanVisit function as it checks for the rest need without null-checking so it throws an error for pawns that don't need rest.
     [HarmonyPatch(typeof(SickPawnVisitUtility), "CanVisit")]

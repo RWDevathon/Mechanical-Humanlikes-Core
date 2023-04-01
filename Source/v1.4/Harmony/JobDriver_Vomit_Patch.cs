@@ -1,13 +1,12 @@
-﻿using System;
-using Verse;
+﻿using Verse;
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class JobDriver_Vomit_Patch
     {
-        // Override job for getting food based on whether the pawn can charge instead or not.
+        // Mechanical pawns do not vomit.
         [HarmonyPatch(typeof(JobDriver_Vomit), "TryMakePreToilReservations")]
         public class TryMakePreToilReservations_Patch
         {

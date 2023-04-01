@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class Need_Patch
     {
@@ -17,7 +17,7 @@ namespace ATReforged
                 {
                     if (Utils.CanUseBattery(___pawn))
                     {
-                        __result = "ATR_EnergyNeed".Translate();
+                        __result = "MHC_EnergyNeed".Translate();
                     }
                 }
             }
@@ -34,7 +34,7 @@ namespace ATReforged
                 {
                     if (Utils.CanUseBattery(___pawn))
                     {
-                        __result = $"{"ATR_EnergyNeed".Translate()}: {__instance.CurLevelPercentage.ToStringPercent()} ({__instance.CurLevel:0.##}/{__instance.MaxLevel:0.##})\n{"ATR_EnergyNeedDesc".Translate()}";
+                        __result = $"{"MHC_EnergyNeed".Translate()}: {__instance.CurLevelPercentage.ToStringPercent()} ({__instance.CurLevel:0.##}/{__instance.MaxLevel:0.##})\n{"MHC_EnergyNeedDesc".Translate()}";
                         return;
                     }
                 }

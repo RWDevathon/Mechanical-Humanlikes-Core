@@ -6,7 +6,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     /*
      *  Settings Extensions and Pawn Selectors courtesy of Simple Sidearms by PeteTimesSix. Without his work, this would have been exceedingly difficult to build!
@@ -21,7 +21,7 @@ namespace ATReforged
 
         public static void PawnSelector(this Listing_Standard instance, IEnumerable<ThingDef> pawnOptions, HashSet<string> selectedPawns, string selectedLabel, string unselectedLabel, Action onChange = null)
         {
-            IEnumerable<ThingDef> unselectedPawns = pawnOptions.Where(w => !ATReforged_Settings.isConsideredMechanical.Contains(w.defName));
+            IEnumerable<ThingDef> unselectedPawns = pawnOptions.Where(w => !MechHumanlikes_Settings.isConsideredMechanical.Contains(w.defName));
             TextAnchor anchorSave = Text.Anchor;
             Color colorSave = GUI.color;
             GUI.color = Color.white;
@@ -65,8 +65,7 @@ namespace ATReforged
                 if (interacted)
                 {
                     selectedPawns.Remove(orderedSelectedPawns[i].defName);
-                    ATReforged_Settings.isConsideredMechanical.Remove(orderedSelectedPawns[i].defName);
-                    ATReforged_Settings.canUseBattery.Remove(orderedSelectedPawns[i].defName);
+                    MechHumanlikes_Settings.isConsideredMechanical.Remove(orderedSelectedPawns[i].defName);
                     onChange?.Invoke();
                 }
             }
@@ -79,8 +78,7 @@ namespace ATReforged
                 if (interacted)
                 {
                     selectedPawns.Add(orderedUnselectedPawns[i].defName);
-                    ATReforged_Settings.isConsideredMechanical.Add(orderedUnselectedPawns[i].defName);
-                    AddChargeCapable(orderedUnselectedPawns[i]);
+                    MechHumanlikes_Settings.isConsideredMechanical.Add(orderedUnselectedPawns[i].defName);
                     onChange?.Invoke();
                 }
             }
@@ -146,14 +144,6 @@ namespace ATReforged
             instance.EndHiddenSection(subsection, subsectionHeight);
         }
 
-        public static void AddChargeCapable(ThingDef pawn)
-        {
-            if (pawn.race.intelligence > Intelligence.Animal || pawn.race.trainability != TrainabilityDefOf.None)
-            {
-                ATReforged_Settings.canUseBattery.Add(pawn.defName);
-            }
-        }
-
         public static bool DrawIconForPawn(ThingDef pawnDef, Rect contentRect, Vector2 iconOffset)
         {
             if (pawnDef == null)
@@ -161,7 +151,7 @@ namespace ATReforged
                 Log.Warning("Tried to draw an icon for a null pawn!");
                 var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
                 GUI.color = Color.white;
-                GUI.DrawTexture(iconRect, Tex.HackingIcon);
+                GUI.DrawTexture(iconRect, MHC_Textures.NoCare);
                 return Widgets.ButtonInvisible(iconRect, true);
             }
             else
@@ -175,19 +165,19 @@ namespace ATReforged
                 if (Mouse.IsOver(iconRect))
                 {
                     GUI.color = iconMouseOverColor;
-                    GUI.DrawTexture(iconRect, Tex.DrawPocket);
+                    GUI.DrawTexture(iconRect, MHC_Textures.DrawPocket);
                 }
                 else
                 {
                     GUI.color = iconBaseColor;
-                    GUI.DrawTexture(iconRect, Tex.DrawPocket);
-                    GUI.DrawTextureWithTexCoords(iconRect, Tex.DrawPocket, new Rect(0, 0, 1, 1));
+                    GUI.DrawTexture(iconRect, MHC_Textures.DrawPocket);
+                    GUI.DrawTextureWithTexCoords(iconRect, MHC_Textures.DrawPocket, new Rect(0, 0, 1, 1));
                 }
                 
                 Texture resolvedIcon = pawnDef.uiIcon;
                 if (resolvedIcon == null || resolvedIcon == BaseContent.BadTex)
                 {
-                    resolvedIcon = Tex.HackingIcon;
+                    resolvedIcon = MHC_Textures.NoCare;
                 }
                 GUI.color = pawnDef.uiIconColor;
                 GUI.DrawTexture(iconRect, resolvedIcon);

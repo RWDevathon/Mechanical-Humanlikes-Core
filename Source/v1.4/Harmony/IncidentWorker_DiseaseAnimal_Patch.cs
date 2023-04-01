@@ -4,7 +4,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class IncidentWorker_DiseaseAnimal_Patch
     {

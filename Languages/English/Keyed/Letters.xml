@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- General -->
+	<MHC_ReprogramSuccess>Drone Reprogrammed</MHC_ReprogramSuccess>
+	<MHC_ReprogramSuccessDesc>{0} has been reprogrammed. After rebooting, it will recognize the colony as its controller.</MHC_ReprogramSuccessDesc>
+	<MHC_ReprogramFailed>Reprogramming Failed</MHC_ReprogramFailed>
+	<MHC_ReprogramFailedDesc>Reprogramming operation on {0} failed. It will reboot, but it will not recognize commands.</MHC_ReprogramFailedDesc>
+
+    <!-- Maintenance -->
+    <MHC_MaintenanceEffectOccurredLetter>{PAWN_labelShort} has had a maintenance related effect occur:\n\n  {1}.</MHC_MaintenanceEffectOccurredLetter>
+    <MHC_MaintenanceEffectOccurredLetterLabel>{PAWN_labelShort}: {1}</MHC_MaintenanceEffectOccurredLetterLabel>
+
+</LanguageData>

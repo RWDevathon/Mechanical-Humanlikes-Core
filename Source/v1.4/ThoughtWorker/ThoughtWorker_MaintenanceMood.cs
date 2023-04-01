@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class ThoughtWorker_MaintenanceMood : ThoughtWorker
     {

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MHC_NeedMechanic>Need mechanic</MHC_NeedMechanic>
+	<MHC_NeedMechanicDesc>These mechanical units need repairs, but you have no healthy colonists assigned as mechanics.\n\n{0}\nAssign a healthy colonist to the Mechanic work type. While most damage will naturally be mitigated over time, mechanics will significantly increase recovery speed and reduce the chance of side-effects.</MHC_NeedMechanicDesc>
+
+</LanguageData>

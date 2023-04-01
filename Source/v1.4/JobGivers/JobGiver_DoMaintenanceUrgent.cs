@@ -2,7 +2,7 @@
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Mechanical units should attempt maintenance if in poor maintenance and allowed to gain enough to escape it before doing other work.
     public class JobGiver_DoMaintenanceUrgent : ThinkNode_JobGiver
@@ -49,8 +49,8 @@ namespace ATReforged
                 return null;
             }
 
-            // Urgent maintenance is done only if below poor maintenance or if maintenance level is at least 5% lower than the desired level.
-            if (compMaintenanceNeed.Stage > CompMaintenanceNeed.MaintenanceStage.Poor && compMaintenanceNeed.MaintenanceLevel >= compMaintenanceNeed.TargetMaintenanceLevel - 0.05)
+            // Urgent maintenance is done only if below poor maintenance and if maintenance level is at least 5% lower than the desired level.
+            if (compMaintenanceNeed.Stage > MaintenanceStage.Poor && compMaintenanceNeed.MaintenanceLevel > compMaintenanceNeed.TargetMaintenanceLevel - 0.05)
             {
                 return null;
             }
@@ -59,7 +59,7 @@ namespace ATReforged
             LocalTargetInfo maintenanceSpot = MaintenanceUtility.FindMaintenanceSpot(pawn);
             if (maintenanceSpot.IsValid)
             {
-                return JobMaker.MakeJob(ATR_JobDefOf.ATR_DoMaintenanceUrgent, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
+                return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceUrgent, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
             }
             return null;
         }

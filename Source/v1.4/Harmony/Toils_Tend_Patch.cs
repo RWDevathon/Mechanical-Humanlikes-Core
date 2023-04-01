@@ -3,7 +3,7 @@ using Verse.AI;
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class Toils_Tend_Patch
 

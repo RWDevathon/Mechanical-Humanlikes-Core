@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_PreferredXenotype_Social_Patch
     {

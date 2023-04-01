@@ -2,9 +2,9 @@
 using Verse;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    // This comp adds a gizmo to its parent allowing it to be restrictable to certain pawn types (drones, androids, organics, combinations). Certain harmony patches can check against this.
+    // This comp adds a gizmo to its parent allowing it to be restrictable to certain pawn types (drones, sapients, organics, combinations). Certain harmony patches can check against this.
     public class CompPawnTypeRestrictable : ThingComp
     {
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -19,16 +19,16 @@ namespace ATReforged
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref assignedToType, "ATR_assignedToType", PawnType.All);
+            Scribe_Values.Look(ref assignedToType, "MHC_assignedToType", PawnType.All);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             yield return new Command_Action
             {
-                icon = Tex.RestrictionGizmoIcon,
-                defaultLabel = "ATR_RestrictPawnType".Translate(),
-                defaultDesc = "ATR_RestrictPawnTypeDescription".Translate(),
+                icon = MHC_Textures.RestrictionGizmoIcon,
+                defaultLabel = "MHC_RestrictPawnType".Translate(),
+                defaultDesc = "MHC_RestrictPawnTypeDescription".Translate(),
                 action = delegate ()
                 {
                     Find.WindowStack.Add(new Dialog_RestrictToPawnType());
@@ -68,7 +68,7 @@ namespace ATReforged
         {
             if (parent is Building_Bed)
             {
-                if (ATReforged_Settings.bedRestrictionDefaultsToAll)
+                if (MechHumanlikes_Settings.bedRestrictionDefaultsToAll)
                 {
                     assignedToType = PawnType.All;
                 }

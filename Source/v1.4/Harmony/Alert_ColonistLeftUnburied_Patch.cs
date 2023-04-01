@@ -2,9 +2,9 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    // Deceased drones or surrogates don't get unburied notifications.
+    // Pawns that are not considered humanlike don't get unburied colonist notifications.
     internal class Alert_ColonistLeftUnburied_Patch
     {
         [HarmonyPatch(typeof(Alert_ColonistLeftUnburied), "IsCorpseOfColonist")]
@@ -17,7 +17,7 @@ namespace ATReforged
                     return;
 
                 Pawn p = corpse.InnerPawn;
-                if (p != null && (Utils.IsConsideredMechanicalDrone(p) || Utils.IsSurrogate(p)))
+                if (p != null && Utils.IsConsideredNonHumanlike(p))
                     __result = false;
  
             }

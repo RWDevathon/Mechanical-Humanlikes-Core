@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Simplified version of DoMaintenanceUrgent that will continue to do this job until it is interrupted by something else or its timer elapses. Maintenance effects are applied when the job terminates.
     // It will not track how much maintenance it has, or its target maintenance level, allowing it to potentially waste time (but otherwise the pawn would just wander uselessly so this is fine).
@@ -47,7 +47,7 @@ namespace ATReforged
             meditate.FailOn(() => !MeditationUtility.SafeEnvironmentalConditions(pawn, TargetLocA, Map));
             meditate.AddFinishAction(delegate
             {
-                pawn.GetComp<CompMaintenanceNeed>().ChangeMaintenanceLevel((Find.TickManager.TicksGame - startTick) * 0.00003f * ATReforged_Settings.maintenanceGainRateFactor);
+                pawn.GetComp<CompMaintenanceNeed>().ChangeMaintenanceLevel((Find.TickManager.TicksGame - startTick) * 0.00003f * MechHumanlikes_Settings.maintenanceGainRateFactor);
             });
             yield return meditate;
         }

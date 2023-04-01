@@ -3,11 +3,11 @@ using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThingSetMaker_RefugeePod_Patch
     {
-        // Factionless refugees for androids or refugees for android factions should be androids. Android refugees should do a full restart on crash.
+        // Mechanical "refugees" in pods reboot as they feel no pain and thus may not be immobilized otherwise.
         [HarmonyPatch(typeof(ThingSetMaker_RefugeePod), "Generate")]
         public class Generate_Patch
         {
@@ -19,24 +19,9 @@ namespace ATReforged
                     Thing thing = outThings[i];
                     if (thing is Pawn pawn)
                     {
-                        if (!Utils.IsConsideredMechanical(pawn) && (pawn.Faction != null && Utils.ReservedAndroidFactions.Contains(pawn.Faction.def.defName) || pawn.Faction == null && Utils.ReservedAndroidFactions.Contains(Faction.OfPlayer.def.defName)))
-                        {
-                            if (pawn.Faction != null)
-                            {
-                                pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawn.Faction.def.basicMemberKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, canGeneratePawnRelations: false, allowFood: true));
-
-                            }
-                            else
-                            {
-                                pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(Faction.OfPlayer.def.basicMemberKind, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, canGeneratePawnRelations: false, allowFood: true));
-                            }
-                            HealthUtility.DamageUntilDowned(pawn);
-                            outThings.Replace(thing, pawn);
-                        }
-
                         if (Utils.IsConsideredMechanical(pawn))
                         {
-                            pawn.health.AddHediff(ATR_HediffDefOf.ATR_LongReboot);
+                            pawn.health.AddHediff(MHC_HediffDefOf.MHC_Restarting);
                         }
                     }
                 }

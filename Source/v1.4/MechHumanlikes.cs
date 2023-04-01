@@ -1,0 +1,148 @@
+﻿using HarmonyLib;
+using System.Reflection;
+using Verse;
+using UnityEngine;
+using RimWorld;
+
+namespace MechHumanlikes
+{
+    public class MechHumanlikes : Mod
+    {
+        public static MechHumanlikes_Settings settings;
+        public static MechHumanlikes ModSingleton { get; private set; }
+
+        public MechHumanlikes(ModContentPack content) : base(content)
+        {
+            ModSingleton = this;
+            new Harmony("MechHumanlikes").PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        // Handles the localization for the mod's name in the list of mods in the mod settings page.
+        public override string SettingsCategory()
+        {
+            return "MHC_ModTitle".Translate();
+        }
+
+        // Handles actually displaying this mod's settings.
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            settings.DoSettingsWindowContents(inRect);
+            base.DoSettingsWindowContents(inRect);
+        }
+    }
+
+    [StaticConstructorOnStartup]
+    public static class MechHumanlikes_PostInit
+    {
+        static MechHumanlikes_PostInit()
+        {
+            MechHumanlikes.settings = MechHumanlikes.ModSingleton.GetSettings<MechHumanlikes_Settings>();
+            MechHumanlikes.settings.StartupChecks();
+
+            // Acquire Defs for mechanical butchering so that mechanical (non-mechanoid) units are placed in the correct categories.
+            RecipeDef mechanicalDisassembly = DefDatabase<RecipeDef>.GetNamed("ButcherCorpseMechanoid");
+            RecipeDef mechanicalSmashing = DefDatabase<RecipeDef>.GetNamed("SmashCorpseMechanoid");
+            RecipeDef butcherFlesh = DefDatabase<RecipeDef>.GetNamed("ButcherCorpseFlesh");
+
+            CompProperties_Facility bedsideChargerLinkables = MHC_ThingDefOf.MHC_BedsideChargerFacility.GetCompProperties<CompProperties_Facility>();
+
+            // Some patches can't be run with the other harmony patches as Defs aren't loaded yet. So we patch them here.
+            if (HealthCardUtility_Patch.DrawOverviewTab_Patch.Prepare())
+            {
+                new Harmony("MechHumanlikes").CreateClassProcessor(typeof(HealthCardUtility_Patch.DrawOverviewTab_Patch)).Patch();
+            }
+
+            // Must dynamically modify some ThingDefs based on certain qualifications.
+            foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
+            {
+                // Check race to see if the thingDef is for a Pawn.
+                if (thingDef.race != null)
+                {
+                    // Mechanical pawns do not need rest or get butchered like organics do. Mechanical pawns get the maintenance need if the extension exists and says they should have it.
+                    if (Utils.IsConsideredMechanical(thingDef))
+                    {
+                        ThingDef corpseDef = thingDef.race?.corpseDef;
+                        if (corpseDef != null)
+                        {
+                            // Eliminate rottable and spawnerFilth comps from mechanical corpses.
+                            corpseDef.comps.RemoveAll(compProperties => compProperties is CompProperties_Rottable || compProperties is CompProperties_SpawnerFilth);
+
+                            // Put mechanical disassembly in the machining table and crafting spot (smashing) and remove from the butcher table.
+                            mechanicalDisassembly.fixedIngredientFilter.SetAllow(corpseDef, true);
+                            mechanicalSmashing.fixedIngredientFilter.SetAllow(corpseDef, true);
+                            butcherFlesh.fixedIngredientFilter.SetAllow(corpseDef, false);
+
+                            // Make mechanical corpses not edible.
+                            IngestibleProperties ingestibleProps = corpseDef.ingestible;
+                            if (ingestibleProps != null)
+                            {
+                                ingestibleProps.preferability = FoodPreferability.Undefined;
+                            }
+                        }
+
+                        // Ensure all mechanical pawns have a mechanical pawn extension, with default values.
+                        if (!thingDef.HasModExtension<MHC_MechanicalPawnExtension>())
+                        {
+                            thingDef.modExtensions.Add(new MHC_MechanicalPawnExtension());
+                        }
+
+                        if (thingDef.GetModExtension<MHC_MechanicalPawnExtension>().needsMaintenance == true && MechHumanlikes_Settings.maintenanceNeedExists)
+                        {
+                            CompProperties cp = new CompProperties
+                            {
+                                compClass = typeof(CompMaintenanceNeed)
+                            };
+                            thingDef.comps.Add(cp);
+                        }
+                    }
+
+                    // Drones do not have learning factors.
+                    if (Utils.IsConsideredMechanicalDrone(thingDef))
+                    {
+                        StatModifier learningModifier = thingDef.statBases.Find(modifier => modifier.stat.defName == "GlobalLearningFactor");
+                        if (learningModifier != null)
+                        {
+                            learningModifier.value = 0;
+                        }
+                        else
+                        {
+                            thingDef.statBases.Add(new StatModifier() { stat = StatDefOf.GlobalLearningFactor, value = 0 });
+                        }
+                    }
+                }
+                // All beds should have the Restrictable comp to restrict what pawn type may use it.
+                if (thingDef.IsBed)
+                {
+                    CompProperties cp = new CompProperties
+                    {
+                        compClass = typeof(CompPawnTypeRestrictable)
+                    };
+                    thingDef.comps.Add(cp);
+
+                    // Non-charging beds also should have the bedside charger as a linkable building.
+                    CompProperties_AffectedByFacilities linkable = thingDef.GetCompProperties<CompProperties_AffectedByFacilities>();
+                    if (linkable != null && !typeof(Building_ChargingBed).IsAssignableFrom(thingDef.thingClass))
+                    {
+                        linkable.linkableFacilities.Add(MHC_ThingDefOf.MHC_BedsideChargerFacility);
+                        bedsideChargerLinkables.linkableBuildings.Add(thingDef);
+                    }
+                }
+            }
+
+            // Maintenance Effect workers must have their def and extension references manually defined here as they are created via a def mod extension which is def-blind and does not self-initialize.
+            foreach (HediffDef hediffDef in DefDatabase<HediffDef>.AllDefsListForReading)
+            {
+                MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
+                if (effectExtension != null)
+                {
+                    MaintenanceWorker maintenanceWorker = effectExtension.maintenanceWorker;
+                    if (maintenanceWorker != null)
+                    {
+                        maintenanceWorker.def = hediffDef;
+                        maintenanceWorker.effecter = effectExtension;
+                    }
+                }
+            }
+        }
+    }
+}

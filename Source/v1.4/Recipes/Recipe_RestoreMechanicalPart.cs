@@ -3,9 +3,9 @@ using System.Linq;
 using Verse;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    public class Recipe_RestoreMechanicalPart : Recipe_SurgeryAndroids
+    public class Recipe_RestoreMechanicalPart : Recipe_SurgeryMechanical
     {
         // This surgery may be done on any missing, damaged, or defective part. Get the list of them and return it.
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)

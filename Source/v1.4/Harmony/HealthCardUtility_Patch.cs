@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using System;
 using System.Reflection;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Vanilla Self-tending can not be enabled for player pawns if the doctor work type is completely disabled. This transpiler makes it so that mechanical units check against Mechanic instead.
     internal class HealthCardUtility_Patch
@@ -55,14 +55,14 @@ namespace ATReforged
                     // Operation target hit, yield contained instructions and add null-check branch.
                     if (insertionPoint == i)
                     {
-                        // If (Utils.IsConsideredMechanical(pawn) && pawn.WorkTypeIsDisabled(ATR_WorkTypeDefOf.ATR_Mechanic))
+                        // If (Utils.IsConsideredMechanical(pawn) && pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
                         yield return startInstruction; // Load Pawn
                         yield return new CodeInstruction(OpCodes.Call, mechCheckMethod); // Call Utils.IsConsideredMechanical(pawn)
                         yield return new CodeInstruction(OpCodes.Brfalse_S, originalStartConditionLabel); // Branch to original condition (or'd) if false to check against Doctor
 
                         yield return new CodeInstruction(OpCodes.Ldarg_1); // Load Pawn again
-                        yield return new CodeInstruction(OpCodes.Ldsfld, typeof(ATR_WorkTypeDefOf).GetField("ATR_Mechanic")); // Load the ATR_Mechanic WorkTypeDef onto the stack
-                        yield return new CodeInstruction(OpCodes.Call, targetMethod); // Call pawn.WorkTypeIsDisabled(ATR_Mechanic);
+                        yield return new CodeInstruction(OpCodes.Ldsfld, typeof(MHC_WorkTypeDefOf).GetField("MHC_Mechanic")); // Load the MHC_Mechanic WorkTypeDef onto the stack
+                        yield return new CodeInstruction(OpCodes.Call, targetMethod); // Call pawn.WorkTypeIsDisabled(MHC_Mechanic);
                         yield return new CodeInstruction(OpCodes.Brfalse_S, skipBranchLabel); // Is a mechanical pawn but can't do Mechanic, condition is true, no need to check original condition.
 
                         yield return instructions[i]; // Return the instruction we encountered initially

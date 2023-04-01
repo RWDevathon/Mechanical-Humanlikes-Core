@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     /*
      *  Settings Extensions and Pawn Selectors courtesy of Simple Sidearms by PeteTimesSix. Without his work, this would have been exceedingly difficult to build!

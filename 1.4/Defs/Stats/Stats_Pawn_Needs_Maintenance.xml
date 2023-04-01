@@ -3,7 +3,7 @@
 
     <!-- Maintenance Retention -->
     <StatDef>
-        <defName>ATR_MaintenanceRetention</defName>
+        <defName>MHC_MaintenanceRetention</defName>
         <label>maintenance retention efficiency</label>
         <description>How well this mechanical unit retains its level of maintenance over time. This stat affects how quickly the pawn's maintenance need naturally falls, and is primarily affected by coolant filtration and pumping.</description>
         <category>BasicsPawn</category>
@@ -23,8 +23,7 @@
         </capacityFactors>
         <parts>
             <li Class="StatPart_Food">
-                <factorUrgentlyHungry>0.9</factorUrgentlyHungry>
-                <factorStarving>0.7</factorStarving>
+                <factorStarving>0.6</factorStarving>
             </li>
             <li Class="StatPart_Resting">
                 <factor>3</factor>

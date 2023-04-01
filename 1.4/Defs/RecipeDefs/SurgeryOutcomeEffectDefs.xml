@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <SurgeryOutcomeEffectDef Name="ATR_MechanicalSurgeryOutcomeBase">
-        <defName>ATR_MechanicalSurgeryOutcomeBase</defName>
+    <SurgeryOutcomeEffectDef Name="MHC_MechanicalSurgeryOutcomeBase">
+        <defName>MHC_MechanicalSurgeryOutcomeBase</defName>
         <outcomes>
         <li Class="SurgeryOutcomeSuccess" />
         <li Class="SurgeryOutcome_Death">
             <failure>true</failure>
             <applyEffectsToPart>true</applyEffectsToPart>
-            <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+            <letterLabel>Lethal error committed on {PATIENT_labelShort}</letterLabel>
             <letterText>{SURGEON_labelShort} has committed a fatal error while operating on {PATIENT_labelShort} because of the special challenges of: {RECIPE_label}.</letterText>
         </li>
         <li Class="SurgeryOutcome_Failure">
-            <chance>0.45</chance>
+            <chance>0.5</chance>
             <failure>true</failure>
             <totalDamage>65</totalDamage>
             <applyEffectsToPart>true</applyEffectsToPart>
-            <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
+            <letterLabel>Catastrophic error committed on {PATIENT_labelShort}</letterLabel>
             <letterText>{SURGEON_labelShort} has failed catastrophically while operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
-        </li>
-        <li Class="SurgeryOutcome_Failure">
-            <chance>0.05</chance>
-            <failure>true</failure>
-            <totalDamage>65</totalDamage>
-            <applyEffectsToPart>false</applyEffectsToPart>
-            <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
-            <letterText>{SURGEON_labelShort} has failed in a ridiculous way while operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
         </li>
         <li Class="SurgeryOutcome_Failure">
             <failure>true</failure>
@@ -33,12 +25,12 @@
             <totalDamage>20</totalDamage>
             <applyEffectsToPart>true</applyEffectsToPart>
             <letterLabel>Surgery failed on {PATIENT_labelShort}</letterLabel>
-            <letterText>{SURGEON_labelShort} has failed in a minor way while operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
+            <letterText>{SURGEON_labelShort} has committed a minor error operating on {PATIENT_labelShort} ({RECIPE_label}).</letterText>
         </li>
         </outcomes>
         <comps>
-        <li Class="SurgeryOutcomeComp_SurgeonSuccessChance"/>
-        <li Class="ATReforged.SurgeryOutcomeComp_BedAndRoomMechQuality"/>
+        <li Class="MechHumanlikes.SurgeryOutcomeComp_MechanicSuccessChance"/>
+        <li Class="MechHumanlikes.SurgeryOutcomeComp_BedAndRoomMechQuality"/>
         <li Class="SurgeryOutcomeComp_MedicineQuality">
             <curve>
             <points>

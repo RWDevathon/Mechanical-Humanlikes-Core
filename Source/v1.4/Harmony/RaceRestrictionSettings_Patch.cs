@@ -3,10 +3,10 @@ using HarmonyLib;
 using AlienRace;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // NOTE: This is for harmony patches on Humanoid Alien Race's Assembly, not Core!
-    // Piggyback off HAR's code to make sure androids do not end up with blacklisted traits.
+    // Piggyback off HAR's code to make sure sapients do not end up with blacklisted traits.
     public class RaceRestrictionSettings_Patch
     {
         [HarmonyPatch(typeof(RaceRestrictionSettings), "CanGetTrait")]
@@ -27,8 +27,8 @@ namespace ATReforged
                     return;
                 }
 
-                // If the pawn is an android and this trait is blacklisted, it can not have it.
-                if (Utils.IsConsideredMechanicalAndroid(race) && ATReforged_Settings.blacklistedMechanicalTraits.Contains(trait.defName))
+                // If the pawn is a sapient and this trait is blacklisted, it can not have it.
+                if (Utils.IsConsideredMechanicalSapient(race) && MechHumanlikes_Settings.blacklistedMechanicalTraits.Contains(trait.defName))
                 {
                     __result = false;
                 }

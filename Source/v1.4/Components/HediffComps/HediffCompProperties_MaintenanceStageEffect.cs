@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class HediffCompProperties_MaintenanceStageEffect : HediffCompProperties
     {
@@ -9,6 +9,6 @@ namespace ATReforged
             compClass = typeof(HediffComp_MaintenanceStageEffect);
         }
 
-        public CompMaintenanceNeed.MaintenanceStage activeMaintenanceStage;
+        public MaintenanceStage activeMaintenanceStage;
     }
 }

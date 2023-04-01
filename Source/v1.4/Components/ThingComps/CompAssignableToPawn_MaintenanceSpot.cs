@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // A simple CompAssignable subclass that allows mechanical pawns to be assigned to a spot. There are no restrictions besides having a maintenance need (no 1-1 restrictions, etc).
     public class CompAssignableToPawn_MaintenanceSpot : CompAssignableToPawn
@@ -45,7 +45,7 @@ namespace ATReforged
         {
             if (pawn.GetComp<CompMaintenanceNeed>() == null)
             {
-                return "ATR_MaintenanceNeedRequired".Translate();
+                return "MHC_MaintenanceNeedRequired".Translate();
             }
             return AcceptanceReport.WasAccepted;
         }

@@ -3,7 +3,7 @@ using HarmonyLib;
 using System.Collections.Generic;
 using Verse.AI.Group;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class Trigger_PawnExperiencingDangerousTemperatures_Patch
     {

@@ -2,9 +2,9 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    // There is no reason to try and feed a mechanical unit that is charging.
+    // There is no reason to try and feed a pawn that is charging.
     internal class FeedPatientUtility_Patch
     {
         [HarmonyPatch(typeof(FeedPatientUtility), "ShouldBeFed")]
@@ -13,7 +13,7 @@ namespace ATReforged
             [HarmonyPostfix]
             public static void Listener(Pawn p, ref bool __result)
             {
-                if (__result && Utils.CanUseBattery(p) && p.CurJob.def == ATR_JobDefOf.ATR_RechargeBattery)
+                if (__result && Utils.CanUseBattery(p) && p.CurJob.def == MHC_JobDefOf.MHC_GetRecharge)
                     __result = false;
             }
         }

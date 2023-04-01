@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class JobDriver_DoMaintenanceUrgent : JobDriver
     {
@@ -61,7 +61,7 @@ namespace ATReforged
             {
                 FleckMaker.ThrowMetaIcon(pawn.Position, pawn.Map, FleckDefOf.Meditating);
             }
-            pawn.GetComp<CompMaintenanceNeed>().ChangeMaintenanceLevel(0.00003f * ATReforged_Settings.maintenanceGainRateFactor);
+            pawn.GetComp<CompMaintenanceNeed>().ChangeMaintenanceLevel(0.00003f * MechHumanlikes_Settings.maintenanceGainRateFactor);
         }
     }
 }

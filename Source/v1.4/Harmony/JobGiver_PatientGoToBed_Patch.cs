@@ -3,7 +3,7 @@ using Verse.AI;
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class JobGiver_PatientGoToBed_Patch
     {
@@ -17,7 +17,7 @@ namespace ATReforged
                 if (__result == null || __result.targetA.Thing.TryGetComp<CompPowerTrader>() == null || !Utils.CanUseBattery(pawn))
                     return;
 
-                __result = JobMaker.MakeJob(ATR_JobDefOf.ATR_RechargeBattery, __result.targetA.Thing);
+                __result = JobMaker.MakeJob(MHC_JobDefOf.MHC_GetRecharge, __result.targetA.Thing);
             }
         }
     }

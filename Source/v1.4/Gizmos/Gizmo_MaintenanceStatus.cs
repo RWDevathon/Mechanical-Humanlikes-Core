@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     [StaticConstructorOnStartup]
     public class Gizmo_MaintenanceStatus : Gizmo
@@ -37,7 +37,7 @@ namespace ATReforged
                 Rect firstRect = overRect.AtZero().ContractedBy(6f);
                 firstRect.height = overRect.height / 2f;
                 Text.Font = GameFont.Tiny;
-                Widgets.Label(firstRect, "ATR_MaintenanceGizmoLabel".Translate());
+                Widgets.Label(firstRect, "MHC_MaintenanceGizmoLabel".Translate());
                 Rect secondRect = overRect.AtZero().ContractedBy(6f);
                 secondRect.yMin = overRect.height / 2f;
                 float fillPercent = maintenanceNeed.MaintenanceLevel;

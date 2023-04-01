@@ -2,22 +2,18 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class Pawn_StyleTracker_Patch
     {
-        // Drones don't care about style.
-        [HarmonyPatch(typeof(Pawn_StyleTracker), "RequestLookChange")]
-        public class RequestLookChange_Patch
+        // Non humanlike intelligences don't care about style.
+        [HarmonyPatch(typeof(Pawn_StyleTracker), "get_CanDesireLookChange")]
+        public class get_CanDesireLookChange_Patch
         {
-            [HarmonyPrefix]
-            public static bool Listener(Pawn ___pawn)
+            [HarmonyPostfix]
+            public static void Listener(Pawn ___pawn, ref bool __result)
             {
-                if (Utils.IsConsideredMechanicalDrone(___pawn))
-                {
-                    return false;
-                }
-                return true;
+                __result = __result && !Utils.IsConsideredNonHumanlike(___pawn);
             }
         }
     }

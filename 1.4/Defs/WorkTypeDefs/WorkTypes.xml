@@ -2,7 +2,7 @@
 <Defs>
 
     <WorkTypeDef>
-        <defName>ATR_Mechanic</defName>
+        <defName>MHC_Mechanic</defName>
         <labelShort>mechanic</labelShort>
         <pawnLabel>Mechanic</pawnLabel>
         <gerundLabel>repairing</gerundLabel>
@@ -19,5 +19,5 @@
             <li>AllWork</li>
         </workTags>
     </WorkTypeDef>
-  
+
 </Defs>

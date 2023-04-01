@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Mechanical units should do maintenance if they can't find anything else to do - this effectively replaces default vanilla's wandering behavior.
     public class JobGiver_DoMaintenanceIdle : ThinkNode_JobGiver
@@ -30,7 +30,7 @@ namespace ATReforged
                 if (cachedMaintenanceTimedSpot != null && cachedMaintenanceTimedSpot.First == pawn.Position && Find.TickManager.TicksGame - cachedMaintenanceTimedSpot.Second < 30000 && MaintenanceUtility.SafeEnvironmentalConditions(pawn, pawn.Position, pawn.Map) && pawn.CanReserveAndReach(pawn.Position, PathEndMode.OnCell, Danger.None))
                 {
                     cachedPawnMaintenanceSpots[pawn.thingIDNumber] = new Pair<IntVec3, int>(pawn.Position, Find.TickManager.TicksGame);
-                    return JobMaker.MakeJob(ATR_JobDefOf.ATR_DoMaintenanceIdle, pawn.Position, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
+                    return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceIdle, pawn.Position, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
                 }
             }
 
@@ -39,7 +39,7 @@ namespace ATReforged
             if (maintenanceSpot.IsValid)
             {
                 cachedPawnMaintenanceSpots[pawn.thingIDNumber] = new Pair<IntVec3, int>(maintenanceSpot.Cell, Find.TickManager.TicksGame);
-                return JobMaker.MakeJob(ATR_JobDefOf.ATR_DoMaintenanceIdle, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
+                return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceIdle, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
             }
             return null;
         }

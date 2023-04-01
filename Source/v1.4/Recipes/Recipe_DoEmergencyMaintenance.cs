@@ -3,9 +3,9 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    public class Recipe_DoEmergencyMaintenance : Recipe_SurgeryAndroids
+    public class Recipe_DoEmergencyMaintenance : Recipe_SurgeryMechanical
     {
         // This recipe always targets the core part. It is valid if the pawn has the CompMaintenanceNeed with a level lower than 40%.
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class MedicalCareUtility_Patch
     {
@@ -26,19 +26,19 @@ namespace ATReforged
                     switch ((int)pawn.playerSettings.medCare)
                     {
                         case 0:
-                            buttonIcon = Tex.NoCare;
+                            buttonIcon = MHC_Textures.NoCare;
                             break;
                         case 1:
-                            buttonIcon = Tex.NoMed;
+                            buttonIcon = MHC_Textures.NoMed;
                             break;
                         case 2:
-                            buttonIcon = Tex.RepairStimSimple;
+                            buttonIcon = MHC_Textures.RepairStimSimple;
                             break;
                         case 3:
-                            buttonIcon = Tex.RepairStimIntermediate;
+                            buttonIcon = MHC_Textures.RepairStimIntermediate;
                             break;
                         default:
-                            buttonIcon = Tex.RepairStimAdvanced;
+                            buttonIcon = MHC_Textures.RepairStimAdvanced;
                             break;
                     }
 

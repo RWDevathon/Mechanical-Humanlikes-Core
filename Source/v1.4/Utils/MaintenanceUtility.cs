@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class MaintenanceUtility
     {
@@ -28,7 +28,7 @@ namespace ATReforged
                 float preferabilityScore = 1f / Mathf.Max(item.Cell.DistanceToSquared(pawn.Position), 0.1f);
                 Room room = item.Cell.GetRoom(pawn.Map);
 
-                if (item.Thing != null && item.Thing is Building building && building.def == ATR_ThingDefOf.ATR_MaintenanceSpot)
+                if (item.Thing != null && item.Thing is Building building && building.def == MHC_ThingDefOf.MHC_MaintenanceSpot)
                 {
                     // Assigned maintenance spot to this pawn or assigned to no one, give an additive weight of 100.
                     if (building.GetAssignedPawns()?.Contains(pawn) == true)
@@ -86,7 +86,7 @@ namespace ATReforged
             // Maintenance spots are always (and only) candidates for units of the player faction.
             if (pawn.Faction == Faction.OfPlayer)
             {
-                foreach (Building item in pawn.Map.listerBuildings.AllBuildingsColonistOfDef(ATR_ThingDefOf.ATR_MaintenanceSpot))
+                foreach (Building item in pawn.Map.listerBuildings.AllBuildingsColonistOfDef(MHC_ThingDefOf.MHC_MaintenanceSpot))
                 {
                     yield return item;
                 }

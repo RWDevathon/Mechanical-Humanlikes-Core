@@ -3,7 +3,7 @@ using HarmonyLib;
 using System.Collections.Generic;
 using System;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class HediffSet_Patch
     {
@@ -23,7 +23,7 @@ namespace ATReforged
             }
         }
 
-        // Mechanical units check against different hediffs than organics do for temperature hediff concerns.
+        // Mechanical units may check against different hediffs than organics do for temperature hediff concerns.
         [HarmonyPatch(typeof(HediffSet), "HasTemperatureInjury")]
         public class HasTemperatureInjury_Patch
         {
@@ -54,7 +54,7 @@ namespace ATReforged
                     return false;
                 }
                 // If for whatever reason our detour fails, continue with vanilla behavior instead of erroring out.
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return true;
                 }

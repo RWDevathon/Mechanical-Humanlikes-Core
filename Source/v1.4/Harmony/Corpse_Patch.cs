@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using System.Reflection;
 using System.Linq;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class Corpse_Patch
     {
@@ -39,7 +39,7 @@ namespace ATReforged
             }
         }
 
-        // This transpiler ensures that butchering drones does not create a butcher thought or history event.
+        // This transpiler ensures that butchering non-humanlike intelligences does not create a butcher thought or history event.
         [HarmonyPatch]
         public class ButcherProducts_Patch
         {
@@ -64,7 +64,7 @@ namespace ATReforged
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo);
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Corpse), nameof(Corpse.InnerPawn)));
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Utils), nameof(Utils.IsConsideredMechanicalDrone), new Type[] { typeof(Pawn) }));
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Utils), nameof(Utils.IsConsideredNonHumanlike), new Type[] { typeof(Pawn) }));
                         yield return new CodeInstruction(OpCodes.Not);
                         yield return new CodeInstruction(OpCodes.And);
 

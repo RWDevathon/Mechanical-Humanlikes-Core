@@ -2,7 +2,7 @@
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     // Alternate WorkGiver for TendSelfMech to use the appropriate Mechanical stats.
     public class WorkGiver_TendSelfMech : WorkGiver_MechTend

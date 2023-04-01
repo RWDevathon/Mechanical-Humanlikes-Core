@@ -2,42 +2,29 @@
 <Defs>
 
     <JobDef>
-		<defName>ATR_RechargeBattery</defName>
-		<driverClass>ATReforged.JobDriver_RechargeBattery</driverClass>
+		<defName>MHC_GetRecharge</defName>
+		<driverClass>MechHumanlikes.JobDriver_RechargeBattery</driverClass>
 		<reportString>Recharging battery.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 
     <JobDef>
-        <defName>ATR_ResurrectMechanical</defName>
-        <driverClass>ATReforged.JobDriver_ResurrectMechanical</driverClass>
-        <reportString>repairing TargetA.</reportString>
-    </JobDef>
-
-    <JobDef>
-        <defName>ATR_TendMechanical</defName>
-        <driverClass>ATReforged.JobDriver_TendMechanical</driverClass>
+        <defName>MHC_TendMechanical</defName>
+        <driverClass>MechHumanlikes.JobDriver_TendMechanical</driverClass>
         <reportString>tending to TargetA.</reportString>
         <casualInterruptible>false</casualInterruptible>
     </JobDef>
 
     <JobDef>
-        <defName>ATR_GenerateInsight</defName>
-        <driverClass>ATReforged.JobDriver_GenerateInsight</driverClass>
-        <reportString>generating SkyMind insight.</reportString>
-        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-    </JobDef>
-
-    <JobDef>
-        <defName>ATR_DoMaintenanceUrgent</defName>
-        <driverClass>ATReforged.JobDriver_DoMaintenanceUrgent</driverClass>
+        <defName>MHC_DoMaintenanceUrgent</defName>
+        <driverClass>MechHumanlikes.JobDriver_DoMaintenanceUrgent</driverClass>
         <reportString>doing self maintenance.</reportString>
     </JobDef>
 
     <JobDef>
-        <defName>ATR_DoMaintenanceIdle</defName>
-        <driverClass>ATReforged.JobDriver_DoMaintenanceIdle</driverClass>
+        <defName>MHC_DoMaintenanceIdle</defName>
+        <driverClass>MechHumanlikes.JobDriver_DoMaintenanceIdle</driverClass>
         <reportString>doing self maintenance.</reportString>
     </JobDef>
-    
+
 </Defs>

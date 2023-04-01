@@ -1,7 +1,7 @@
 ﻿using Verse;
 using HarmonyLib;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class GasUtility_Patch
     {

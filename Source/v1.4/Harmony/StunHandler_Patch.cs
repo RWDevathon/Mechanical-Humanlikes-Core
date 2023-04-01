@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class StunHandler_Patch
     {
@@ -17,7 +17,7 @@ namespace ATReforged
                 if (__result)
                     return;
 
-                if (___parent is Pawn pawn && Utils.IsConsideredMechanical(pawn))
+                if (___parent is Pawn pawn && pawn.def.GetModExtension<MHC_MechanicalPawnExtension>()?.vulnerableToEMP == true)
                 {
                     __result = true;
                 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- PawnType Restriction Dialog -->
+    <MHC_RestrictedPawnTypes>Restriction settings</MHC_RestrictedPawnTypes>
+
+    <MHC_PawnTypeNone>None</MHC_PawnTypeNone>
+    <MHC_PawnTypeNoneTooltip>No pawns can use this</MHC_PawnTypeNoneTooltip>
+    <MHC_PawnTypeDrone>Mechanical Drone</MHC_PawnTypeDrone>
+    <MHC_PawnTypeDroneTooltip>Only drones can use this</MHC_PawnTypeDroneTooltip>
+    <MHC_PawnTypeSapient>Mechanical Sapient</MHC_PawnTypeSapient>
+    <MHC_PawnTypeSapientTooltip>Only mechanical sapients can use this</MHC_PawnTypeSapientTooltip>
+    <MHC_PawnTypeMechanical>Mechanical</MHC_PawnTypeMechanical>
+    <MHC_PawnTypeMechanicalTooltip>Only mechanical units can use this</MHC_PawnTypeMechanicalTooltip>
+    <MHC_PawnTypeOrganic>Organic</MHC_PawnTypeOrganic>
+    <MHC_PawnTypeOrganicTooltip>Only organics can use this</MHC_PawnTypeOrganicTooltip>
+    <MHC_PawnTypeNonAI>Non-AI</MHC_PawnTypeNonAI>
+    <MHC_PawnTypeNonAITooltip>Only organics and drones can use this</MHC_PawnTypeNonAITooltip>
+    <MHC_PawnTypeAutonomous>Autonomous</MHC_PawnTypeAutonomous>
+    <MHC_PawnTypeAutonomousTooltip>Only sapient pawns can use this</MHC_PawnTypeAutonomousTooltip>
+    <MHC_PawnTypeAll>All</MHC_PawnTypeAll>
+    <MHC_PawnTypeAllTooltip>All pawns can use this</MHC_PawnTypeAllTooltip>
+
+</LanguageData>

@@ -2,7 +2,7 @@
 using Verse;
 using Verse.AI;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class JobGiver_SelfTendMech : ThinkNode_JobGiver
     {
@@ -13,12 +13,12 @@ namespace ATReforged
                 return null;
             }
 
-            if (pawn.IsColonist && pawn.WorkTypeIsDisabled(ATR_WorkTypeDefOf.ATR_Mechanic))
+            if (pawn.IsColonist && pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
             {
                 return null;
             }
 
-            Job job = JobMaker.MakeJob(ATR_JobDefOf.ATR_TendMechanical, pawn);
+            Job job = JobMaker.MakeJob(MHC_JobDefOf.MHC_TendMechanical, pawn);
             job.endAfterTendedOnce = true;
             return job;
         }

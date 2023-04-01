@@ -2,9 +2,9 @@
 using RimWorld;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    public class Recipe_PaintMechanicalUnit : Recipe_SurgeryAndroids
+    public class Recipe_PaintMechanicalUnit : Recipe_SurgeryMechanical
     {
         // This recipe always targets the core part, and is always applicable to "alien" mechanical races, as it would throw errors if not using AlienRace.
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)

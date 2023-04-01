@@ -2,7 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_SelfDislikedXenotype_Patch
     {
@@ -16,7 +16,7 @@ namespace ATReforged
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanical(p))
+                if (Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = ThoughtState.Inactive;
                 }

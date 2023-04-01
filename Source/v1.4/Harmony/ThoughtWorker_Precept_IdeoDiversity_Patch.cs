@@ -3,11 +3,11 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_IdeoDiversity_Patch
     {
-        // Mechanical drones don't care about ideological diversity. Other pawn's don't care about the drones' lack of ideology.
+        // Drones don't care about ideological diversity. Other pawns don't care about the drones' lack of ideology.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_IdeoDiversity), "ShouldHaveThought")]
         public class TW_Precept_IdeoDiversity_ShouldHaveThought
         {

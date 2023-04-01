@@ -2,9 +2,9 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
-    // Mechanical Drones are not valid targets for attempted Ideological conversions.
+    // Pawns that are considered non-humanlike intelligence are not valid targets for attempted Ideological conversions.
     internal class CompAbilityEffect_Convert_Patch
     {
         [HarmonyPatch(typeof(CompAbilityEffect_Convert), "Valid")]

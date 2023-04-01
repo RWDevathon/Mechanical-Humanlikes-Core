@@ -3,31 +3,31 @@
 
     <!-- Battery Charging Fleck -->
 
-    <FleckDef Name="ATR_FleckBase" ParentName= "FleckBase_Thrown" Abstract="True">
+    <FleckDef Name="MHC_FleckBase" ParentName= "FleckBase_Thrown" Abstract="True">
         <fadeInTime>0.2</fadeInTime>
         <solidTime>0.8</solidTime>
         <fadeOutTime>0.8</fadeOutTime>
         <altitudeLayer>MoteOverhead</altitudeLayer>
     </FleckDef>
-    
-    <FleckDef ParentName="ATR_FleckBase">
-        <defName>ATR_EmptyChargeFleck</defName>
+
+    <FleckDef ParentName="MHC_FleckBase">
+        <defName>MHC_EmptyChargeFleck</defName>
         <graphicData>
             <texPath>Things/Effects/EmptyChargeFleck</texPath>
             <renderInstanced>true</renderInstanced>
         </graphicData>
     </FleckDef>
-    
-    <FleckDef ParentName="ATR_FleckBase">
-        <defName>ATR_HalfChargeFleck</defName>
+
+    <FleckDef ParentName="MHC_FleckBase">
+        <defName>MHC_HalfChargeFleck</defName>
         <graphicData>
             <texPath>Things/Effects/HalfChargeFleck</texPath>
             <renderInstanced>true</renderInstanced>
         </graphicData>
     </FleckDef>
 
-    <FleckDef ParentName="ATR_FleckBase">
-        <defName>ATR_FullChargeFleck</defName>
+    <FleckDef ParentName="MHC_FleckBase">
+        <defName>MHC_FullChargeFleck</defName>
         <graphicData>
             <texPath>Things/Effects/FullChargeFleck</texPath>
             <renderInstanced>true</renderInstanced>

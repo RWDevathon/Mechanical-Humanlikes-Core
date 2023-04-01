@@ -2,7 +2,7 @@
 using HarmonyLib;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal static class ITab_Pawn_Visitor_Patch
     {
@@ -27,11 +27,11 @@ namespace ATReforged
                 {
                     if (pawn.IsPrisoner)
                     {
-                        Messages.Message("ATR_PrisonerDroneWarning".Translate(), MessageTypeDefOf.NeutralEvent, false);
+                        Messages.Message("MHC_ImprisonedDroneWarning".Translate(), MessageTypeDefOf.NeutralEvent, false);
                     }
                     else if (pawn.IsSlave)
                     {
-                        Messages.Message("ATR_SlaveDroneAlert".Translate(), MessageTypeDefOf.NegativeEvent, true);
+                        Messages.Message("MHC_EnslavedDroneAlert".Translate(), MessageTypeDefOf.NegativeEvent, true);
                     }
                 }
                 // Prevent displaying the prisoner tab. There is nothing necessary on it for drones.

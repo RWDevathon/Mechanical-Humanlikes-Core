@@ -3,7 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_IdeoDiversity_Uniform_Patch
     {

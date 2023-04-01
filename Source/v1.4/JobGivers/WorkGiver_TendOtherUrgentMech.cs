@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class WorkGiver_TendOtherUrgentMech : WorkGiver_MechTend
     {

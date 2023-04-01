@@ -2,11 +2,11 @@
 using HarmonyLib;
 using RimWorld;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     internal class ThoughtWorker_Precept_HasProsthetic_Patch
     {
-        // Mechanical units are a prosthetic. So they have one.
+        // Mechanical units always act as if they have a prosthetic.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_HasProsthetic), "HasProsthetic")]
         public class TW_Precept_HasProsthetic_HasProsthetic
         {
@@ -16,7 +16,7 @@ namespace ATReforged
                 if (__result)
                     return;
 
-                if (Utils.IsConsideredMechanicalAndroid(p))
+                if (Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = true;
                 }

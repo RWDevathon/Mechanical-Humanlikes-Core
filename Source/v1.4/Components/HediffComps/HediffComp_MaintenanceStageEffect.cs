@@ -1,6 +1,6 @@
 ﻿using Verse;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class HediffComp_MaintenanceStageEffect : HediffComp
     {
