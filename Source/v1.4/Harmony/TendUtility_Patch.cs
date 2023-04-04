@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MechHumanlikes
 {
-    internal class TendUtility_Patch
+    public class TendUtility_Patch
 
     {
         // Calculate mechanist tend quality (hijacking medical tend quality)
@@ -18,7 +18,7 @@ namespace MechHumanlikes
             public static bool Listener(Pawn doctor, Pawn patient, float medicinePotency, float medicineQualityMax, ref float __result)
             {
                 // Nothing to hijack if the patient isn't mechanical.
-                if (!Utils.IsConsideredMechanical(patient))
+                if (!MHC_Utils.IsConsideredMechanical(patient))
                     return true;
 
                 // Essentially vanilla TendQuality but using mechanical tend quality rather than medicinal.

@@ -5,9 +5,9 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class RitualRoleAssignments_Patch
+    public class RitualRoleAssignments_Patch
     {
-        // Non-humanlike intelligences can not engage in rituals as spectators.
+        // Drones can not engage in rituals as spectators.
         [HarmonyPatch(typeof(RitualRoleAssignments), "PawnNotAssignableReason")]
         [HarmonyPatch(new Type[] { typeof(Pawn), typeof(RitualRole), typeof(Precept_Ritual), typeof(RitualRoleAssignments), typeof(TargetInfo), typeof(bool) }, new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref })]
 
@@ -21,7 +21,7 @@ namespace MechHumanlikes
                     return;
 
                 // Drones are not allowed to hold any roles in rituals.
-                if (Utils.IsConsideredNonHumanlike(p))
+                if (MHC_Utils.IsConsideredMechanicalDrone(p))
                 {
                     __result = "MHC_InsufficientIntelligence".Translate();
                 }

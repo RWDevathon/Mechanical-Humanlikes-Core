@@ -14,7 +14,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Prefix(ref HediffSet __instance, ref float __result)
             {
-                if (Utils.IsConsideredMechanical(__instance.pawn))
+                if (MHC_Utils.IsConsideredMechanical(__instance.pawn))
                 {
                     __result = 0f;
                     return false;
@@ -30,7 +30,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Prefix(HediffSet __instance, ref bool __result, TemperatureInjuryStage minStage)
             {
-                if (!Utils.IsConsideredMechanical(__instance.pawn))
+                if (!MHC_Utils.IsConsideredMechanical(__instance.pawn))
                 {
                     return true;
                 }
@@ -38,7 +38,7 @@ namespace MechHumanlikes
                 try
                 {
                     // The targetHediffs cached are all hediffs which are temperature related and need to be checked against the hediffs present on this pawn.
-                    HashSet<HediffDef> targetHediffDefs = Utils.GetTemperatureHediffDefsForRace(__instance.pawn.RaceProps);
+                    HashSet<HediffDef> targetHediffDefs = MHC_Utils.GetTemperatureHediffDefsForRace(__instance.pawn.RaceProps);
                     if (targetHediffDefs.Count > 0)
                     {
                         foreach (Hediff hediff in __instance.hediffs)

@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class StatPart_Age_Patch
+    public class StatPart_Age_Patch
     {
         // Age as a StatPart is not used for mechanical units. This resolves issues around "baby" mechanical units with reduced work speed, and other related issues.
         [HarmonyPatch(typeof(StatPart_Age), "ActiveFor")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result)
                     return;
 
-                if (pawn.ageTracker.CurLifeStage.defName == "MechanoidFullyFormed")
+                if (MHC_Utils.IsConsideredMechanical(pawn))
                 {
                     __result = false;
                     return;

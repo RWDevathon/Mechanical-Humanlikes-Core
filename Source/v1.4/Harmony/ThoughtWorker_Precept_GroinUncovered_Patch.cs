@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_GroinUncovered_Patch
+    public class ThoughtWorker_Precept_GroinUncovered_Patch
     {
         // Mechanical units don't care about uncovered groins.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_GroinUncovered), "HasUncoveredGroin")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result)
                     return;
 
-                if (Utils.IsConsideredMechanicalSapient(p))
+                if (MHC_Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = false;
                 }

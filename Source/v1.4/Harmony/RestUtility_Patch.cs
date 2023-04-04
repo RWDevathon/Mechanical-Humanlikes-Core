@@ -6,7 +6,7 @@ using Verse;
 
 namespace MechHumanlikes
 {
-    internal class RestUtility_Patch
+    public class RestUtility_Patch
     {
         // If the bed has a CompRestrictable on it and the assigned pawn type does not match the pawn's type, then it is not a valid bed for this pawn.
         [HarmonyPatch(typeof(RestUtility), "IsValidBedFor")]
@@ -20,8 +20,8 @@ namespace MechHumanlikes
                     return;
                 }
 
-                PawnType assignedType = bedThing.TryGetComp<CompPawnTypeRestrictable>().assignedToType;
-                if ((Utils.GetPawnType(sleeper) | assignedType) != assignedType)
+                MHC_PawnType assignedType = bedThing.TryGetComp<CompMHC_PawnTypeRestrictable>().assignedToType;
+                if ((MHC_Utils.GetMHC_PawnType(sleeper) | assignedType) != assignedType)
                 {
                     __result = false;
                 }

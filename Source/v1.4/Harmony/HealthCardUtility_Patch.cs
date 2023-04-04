@@ -9,7 +9,7 @@ using System.Reflection;
 namespace MechHumanlikes
 {
     // Vanilla Self-tending can not be enabled for player pawns if the doctor work type is completely disabled. This transpiler makes it so that mechanical units check against Mechanic instead.
-    internal class HealthCardUtility_Patch
+    public class HealthCardUtility_Patch
     {
         [HarmonyPatch(typeof(HealthCardUtility), "DrawOverviewTab")]
         public class DrawOverviewTab_Patch
@@ -21,7 +21,7 @@ namespace MechHumanlikes
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
                 MethodBase targetMethod = AccessTools.Method(typeof(Pawn), "WorkTypeIsDisabled");
-                MethodBase mechCheckMethod = AccessTools.Method(typeof(Utils), "IsConsideredMechanical", new Type[] { typeof(Pawn) });
+                MethodBase mechCheckMethod = AccessTools.Method(typeof(MHC_Utils), "IsConsideredMechanical", new Type[] { typeof(Pawn) });
                 CodeInstruction startInstruction = new CodeInstruction(OpCodes.Ldarg_1);
                 List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
                 bool needNextLabel = false;
@@ -55,9 +55,9 @@ namespace MechHumanlikes
                     // Operation target hit, yield contained instructions and add null-check branch.
                     if (insertionPoint == i)
                     {
-                        // If (Utils.IsConsideredMechanical(pawn) && pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
+                        // If (MHC_Utils.IsConsideredMechanical(pawn) && pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
                         yield return startInstruction; // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, mechCheckMethod); // Call Utils.IsConsideredMechanical(pawn)
+                        yield return new CodeInstruction(OpCodes.Call, mechCheckMethod); // Call MHC_Utils.IsConsideredMechanical(pawn)
                         yield return new CodeInstruction(OpCodes.Brfalse_S, originalStartConditionLabel); // Branch to original condition (or'd) if false to check against Doctor
 
                         yield return new CodeInstruction(OpCodes.Ldarg_1); // Load Pawn again

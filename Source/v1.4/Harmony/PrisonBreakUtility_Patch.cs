@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class PrisonBreakUtility_Patch
+    public class PrisonBreakUtility_Patch
     {
         // Non-humanlike intelligences can not participate in prison breaks.
         [HarmonyPatch(typeof(PrisonBreakUtility), "CanParticipateInPrisonBreak")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener( ref bool __result, Pawn pawn)
             {
-                __result = __result && !Utils.IsConsideredNonHumanlike(pawn);
+                __result = __result && !MHC_Utils.IsConsideredNonHumanlike(pawn);
             }
         }
     }

@@ -5,7 +5,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class Toils_Tend_Patch
+    public class Toils_Tend_Patch
 
     {
         // Ensure tending to mechanical units is tied to crafting, not medicine.
@@ -15,7 +15,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(Pawn patient, ref Toil __result)
             {
-                if (Utils.IsConsideredMechanical(patient))
+                if (MHC_Utils.IsConsideredMechanical(patient))
                 {
                     Toil toil = new Toil();
                     toil.initAction = delegate

@@ -6,7 +6,7 @@ namespace MechHumanlikes
     // Mod extension for HediffDefs to mark them as maintenance consequences with appropriate details to be picked up by CompMaintenanceNeed.
     public class MHC_MaintenanceEffectExtension : DefModExtension
     {
-        // Maintenance stage-related Hediffs are simple hediffs that should be applied at the corresponding stage and removed when it is not that stage (uses requiredMaintenanceStageToOccur).
+        // Maintenance stage-related Hediffs are simple hediffs that should be applied at the corresponding stage and removed when it is not that stage (uses requiredMHC_MaintenanceStageToOccur).
         public bool isMaintenangeStageEffect = false;
 
         // Maintenance workers have special C# code for adding conditions on when it is legal to add the effect to pawns, and to add additional actions upon application.
@@ -25,7 +25,7 @@ namespace MechHumanlikes
         public int daysBeforeCanOccur = -3;
 
         // Required maintenance stage in order to occur on a pawn. IE. a pawn with very poor average maintenance can not trigger an effect if they currently have high maintenance.
-        public MaintenanceStage requiredMaintenanceStageToOccur = MaintenanceStage.Poor;
+        public MHC_MaintenanceStage requiredMHC_MaintenanceStageToOccur = MHC_MaintenanceStage.Poor;
 
         // A whitelist of races for applying the Hediff to. If left null, it will rely on above tags and apply to all races.
         public List<ThingDef> racesToAffect;

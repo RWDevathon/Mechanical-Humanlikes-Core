@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class CompAbilityEffect_BloodfeederBite_Patch
+    public class CompAbilityEffect_BloodfeederBite_Patch
     {
         // Mechanical units are invalid targets for blood feeding.
         [HarmonyPatch(typeof(CompAbilityEffect_BloodfeederBite), "Valid")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(ref bool __result, LocalTargetInfo target)
             {
-                __result = __result && !Utils.IsConsideredMechanical(target.Pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanical(target.Pawn);
             }
         }
     }

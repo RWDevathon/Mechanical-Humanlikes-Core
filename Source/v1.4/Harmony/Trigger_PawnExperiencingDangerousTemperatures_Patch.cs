@@ -5,7 +5,7 @@ using Verse.AI.Group;
 
 namespace MechHumanlikes
 {
-    internal class Trigger_PawnExperiencingDangerousTemperatures_Patch
+    public class Trigger_PawnExperiencingDangerousTemperatures_Patch
     {
         // Mechanical units check against different hediffs than organics do for temperature hediff concerns. We need to ensure they notify their lord group leader if any pawn is endangered with their unique hediffs.
         [HarmonyPatch(typeof(Trigger_PawnExperiencingDangerousTemperatures), "ActivateOn")]
@@ -25,7 +25,7 @@ namespace MechHumanlikes
                     }
 
                     // The targetHediffs taken in the last step are all hediffs which are temperature related and need to be checked against the hediffs present on this pawn.
-                    HashSet<HediffDef> targetHediffDefs = Utils.GetTemperatureHediffDefsForRace(pawn.RaceProps);
+                    HashSet<HediffDef> targetHediffDefs = MHC_Utils.GetTemperatureHediffDefsForRace(pawn.RaceProps);
                     foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
                     {
                         if (targetHediffDefs.Contains(hediff.def) && hediff.Severity > 0.15f)

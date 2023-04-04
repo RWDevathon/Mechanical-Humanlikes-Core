@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    internal class AttackTargetFinder_Patch
+    public class AttackTargetFinder_Patch
     {
         // This transpiler alters a validator for AttackTargetFinder to ensure that enemy AI's with EMP weapons will consider mechanical units as vulnerable targets for attacking.
         // Otherwise, enemies with EMP weapons will ignore units entirely, preferring to melee or simply outright ignoring.
@@ -54,8 +54,8 @@ namespace MechHumanlikes
                     {
                         yield return instructions[i]; // Return the instruction we encountered initially
                         yield return new CodeInstruction(OpCodes.Ldloc_1); // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Utils), nameof(Utils.IsConsideredMechanical), new Type[] { typeof(Pawn) })); // Our function call
-                        yield return new CodeInstruction(OpCodes.Brtrue_S, insertLabelEnd); // Branch to next check if it is a mechanical unit (if Utils.IsConsideredMechanical == true)
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(MHC_Utils), nameof(MHC_Utils.IsConsideredMechanical), new Type[] { typeof(Pawn) })); // Our function call
+                        yield return new CodeInstruction(OpCodes.Brtrue_S, insertLabelEnd); // Branch to next check if it is a mechanical unit (if MHC_Utils.IsConsideredMechanical == true)
                     }
                     // Not a target, return instruction as normal.
                     else

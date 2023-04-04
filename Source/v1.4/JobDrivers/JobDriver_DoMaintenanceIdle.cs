@@ -29,7 +29,7 @@ namespace MechHumanlikes
             if (FromBed)
             {
                 this.KeepLyingDown(BedInd);
-                if (Utils.CanUseBattery(pawn))
+                if (MHC_Utils.CanUseBattery(pawn))
                 {
                     meditate = Toils_LayDownPower.LayDown(BedInd, FromBed, lookForOtherJobs: true, canSleep: false);
                 }

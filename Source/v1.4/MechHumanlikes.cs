@@ -59,7 +59,7 @@ namespace MechHumanlikes
                 if (thingDef.race != null)
                 {
                     // Mechanical pawns do not need rest or get butchered like organics do. Mechanical pawns get the maintenance need if the extension exists and says they should have it.
-                    if (Utils.IsConsideredMechanical(thingDef))
+                    if (MHC_Utils.IsConsideredMechanical(thingDef))
                     {
                         ThingDef corpseDef = thingDef.race?.corpseDef;
                         if (corpseDef != null)
@@ -97,7 +97,7 @@ namespace MechHumanlikes
                     }
 
                     // Drones do not have learning factors.
-                    if (Utils.IsConsideredMechanicalDrone(thingDef))
+                    if (MHC_Utils.IsConsideredMechanicalDrone(thingDef))
                     {
                         StatModifier learningModifier = thingDef.statBases.Find(modifier => modifier.stat.defName == "GlobalLearningFactor");
                         if (learningModifier != null)
@@ -115,7 +115,7 @@ namespace MechHumanlikes
                 {
                     CompProperties cp = new CompProperties
                     {
-                        compClass = typeof(CompPawnTypeRestrictable)
+                        compClass = typeof(CompMHC_PawnTypeRestrictable)
                     };
                     thingDef.comps.Add(cp);
 

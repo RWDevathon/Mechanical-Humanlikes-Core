@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_Social_Patch
+    public class ThoughtWorker_Precept_Social_Patch
     {
         // Mechanical drones don't have precepts. Other pawns don't judge them for this.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_Social), "CurrentSocialStateInternal")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalDrone(p) || Utils.IsConsideredMechanicalDrone(otherPawn))
+                if (MHC_Utils.IsConsideredMechanicalDrone(p) || MHC_Utils.IsConsideredMechanicalDrone(otherPawn))
                 {
                     __result = ThoughtState.Inactive;
                 }

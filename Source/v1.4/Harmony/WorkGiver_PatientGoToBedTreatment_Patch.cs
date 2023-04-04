@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace MechHumanlikes
 {
-    internal class WorkGiver_PatientGoToBedTreatment_Patch
+    public class WorkGiver_PatientGoToBedTreatment_Patch
     {
         // Mechanical units need to check if there is a mechanic available, not if there is a doctor available, when seeking treatment.
         [HarmonyPatch(typeof(WorkGiver_PatientGoToBedTreatment), "AnyAvailableDoctorFor")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
             public static void Listener(Pawn pawn, ref bool __result)
             {
                 // Only override the method for mechanical pawns.
-                if (!Utils.IsConsideredMechanical(pawn))
+                if (!MHC_Utils.IsConsideredMechanical(pawn))
                     return;
 
                 // Don't worry about checks for map-less pawns. Vanilla behavior can handle that case.

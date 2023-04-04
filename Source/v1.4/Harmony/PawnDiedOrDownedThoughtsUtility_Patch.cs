@@ -5,7 +5,7 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class PawnDiedOrDownedThoughtsUtility_Patch
+    public class PawnDiedOrDownedThoughtsUtility_Patch
     {
         // Do not give mood thoughts about non-humanlike intelligences dying.
         [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "TryGiveThoughts")]
@@ -15,7 +15,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(ref Pawn victim)
             { 
-                return !Utils.IsConsideredNonHumanlike(victim);
+                return !MHC_Utils.IsConsideredNonHumanlike(victim);
             }
         }
     }

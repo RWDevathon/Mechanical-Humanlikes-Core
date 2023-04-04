@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Dark_Patch
+    public class ThoughtWorker_Dark_Patch
     {
         // Mechanical units aren't bothered by darkness.
         [HarmonyPatch(typeof(ThoughtWorker_Dark), "CurrentStateInternal")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalSapient(p))
+                if (MHC_Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = ThoughtState.Inactive;
                 }

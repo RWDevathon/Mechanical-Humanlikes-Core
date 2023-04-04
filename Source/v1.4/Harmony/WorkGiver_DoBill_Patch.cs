@@ -7,7 +7,7 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class WorkGiver_DoBill_Patch
+    public class WorkGiver_DoBill_Patch
     {
         // Listen for doctors/mechanics doing a work bill, and make sure they select an appropriate medicine for their task.
         [HarmonyPatch(typeof(WorkGiver_DoBill), "AddEveryMedicineToRelevantThings")]
@@ -22,20 +22,20 @@ namespace MechHumanlikes
                     if (!MechHumanlikes_Settings.medicinesAreInterchangeable && billGiver is Pawn)
                     {
                         // If the patient is a mechanical unit, make sure to use a mechanical-compatible medicine (Reserved Repair Stims or additionally by settings)
-                        if (Utils.IsConsideredMechanical(billGiver.def))
+                        if (MHC_Utils.IsConsideredMechanical(billGiver.def))
                         {
-                            relevantThings.RemoveAll(thing => !Utils.IsMechanicalRepairStim(thing.def));
+                            relevantThings.RemoveAll(thing => !MHC_Utils.IsMechanicalRepairStim(thing.def));
                         }
                         // If the patient is not mechanical, do not allow it to use Repair Stims. Other medicines will be handled by vanilla code.
                         else
                         {
-                            relevantThings.RemoveAll(thing => Utils.IsMechanicalRepairStim(thing.def));
+                            relevantThings.RemoveAll(thing => MHC_Utils.IsMechanicalRepairStim(thing.def));
                         }
                     }
                 }
                 catch(Exception e)
                 {
-                    Log.Message("[ATR] WorkGiver_DoBill.AddEveryMedicineToRelevantThings " + e.Message + " " + e.StackTrace);
+                    Log.Message("[MHC] WorkGiver_DoBill.AddEveryMedicineToRelevantThings " + e.Message + " " + e.StackTrace);
                 }
             }
         }
@@ -51,11 +51,11 @@ namespace MechHumanlikes
                 {
                     return;
                 }
-                else if (__instance.def.workType == WorkTypeDefOf.Doctor && thing is Pawn patient && Utils.IsConsideredMechanical(patient))
+                else if (__instance.def.workType == WorkTypeDefOf.Doctor && thing is Pawn patient && MHC_Utils.IsConsideredMechanical(patient))
                 {
                     __result = null;
                 }
-                else if (__instance.def.workType == MHC_WorkTypeDefOf.MHC_Mechanic && thing is Pawn unit && !Utils.IsConsideredMechanical(unit))
+                else if (__instance.def.workType == MHC_WorkTypeDefOf.MHC_Mechanic && thing is Pawn unit && !MHC_Utils.IsConsideredMechanical(unit))
                 {
                     __result = null;
                 }

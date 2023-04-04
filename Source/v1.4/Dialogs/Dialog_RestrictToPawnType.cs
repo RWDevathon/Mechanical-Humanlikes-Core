@@ -7,30 +7,30 @@ using Verse.Sound;
 
 namespace MechHumanlikes
 {
-    public class Dialog_RestrictToPawnType : Window
+    public class Dialog_RestrictToMHC_PawnType : Window
     {
         public static Vector2 scrollPosition = Vector2.zero;
 
-        private List<CompPawnTypeRestrictable> compRestricts;
+        private List<CompMHC_PawnTypeRestrictable> compRestricts;
 
-        private PawnType pawnTypes;
+        private MHC_PawnType pawnTypes;
 
         private static readonly Vector2 ButSize = new Vector2(200f, 40f);
 
-        private static readonly List<Texture2D> exemplarImages = new List<Texture2D> {MHC_Textures.MechDroneExemplar, MHC_Textures.MechSapientExemplar, MHC_Textures.BasicHumanExemplar, MHC_Textures.MechDronePawnTypeRestricted, MHC_Textures.MechSapientPawnTypeRestricted, MHC_Textures.OrganicPawnTypeRestricted};
+        private static readonly List<Texture2D> exemplarImages = new List<Texture2D> {MHC_Textures.MechDroneExemplar, MHC_Textures.MechSapientExemplar, MHC_Textures.BasicHumanExemplar, MHC_Textures.MechDroneMHC_PawnTypeRestricted, MHC_Textures.MechSapientMHC_PawnTypeRestricted, MHC_Textures.OrganicMHC_PawnTypeRestricted};
 
-        public Dialog_RestrictToPawnType()
+        public Dialog_RestrictToMHC_PawnType()
         {
             forcePause = true;
-            compRestricts = new List<CompPawnTypeRestrictable>();
+            compRestricts = new List<CompMHC_PawnTypeRestrictable>();
             foreach (object selectedObject in Find.Selector.SelectedObjectsListForReading)
             {
                 if (selectedObject is ThingWithComps selectedThing)
                 {
-                    CompPawnTypeRestrictable compPawnTypeRestrictable = selectedThing.GetComp<CompPawnTypeRestrictable>();
-                    if (compPawnTypeRestrictable != null)
+                    CompMHC_PawnTypeRestrictable compMHC_PawnTypeRestrictable = selectedThing.GetComp<CompMHC_PawnTypeRestrictable>();
+                    if (compMHC_PawnTypeRestrictable != null)
                     {
-                        compRestricts.Add(compPawnTypeRestrictable);
+                        compRestricts.Add(compMHC_PawnTypeRestrictable);
                     }
                 }
             }
@@ -41,13 +41,13 @@ namespace MechHumanlikes
             Text.Font = GameFont.Medium;
             Rect TitleRect = new Rect(inRect);
             TitleRect.height = Text.LineHeight * 2f;
-            Widgets.Label(TitleRect, "MHC_RestrictedPawnTypes".Translate());
+            Widgets.Label(TitleRect, "MHC_RestrictedMHC_PawnTypes".Translate());
             Text.Font = GameFont.Small;
             inRect.yMin = TitleRect.yMax + 4f;
             Rect exemplarRect = inRect;
             exemplarRect.width *= 0.3f;
             exemplarRect.yMax -= ButSize.y + 4f;
-            pawnTypes = PawnType.None;
+            pawnTypes = MHC_PawnType.None;
             for (int i = compRestricts.Count - 1; i >= 0; i--)
             {
                 pawnTypes |= compRestricts[i].assignedToType;
@@ -67,11 +67,11 @@ namespace MechHumanlikes
             rect.yMax = rect2.yMin - 4f;
             Widgets.BeginGroup(rect);
             Rect position = new Rect(0f, 0, rect.width, rect.height / 3f).ContractedBy(4f);
-            GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Drone) == PawnType.Drone ? 0 : 3]);
+            GUI.DrawTexture(position, exemplarImages[(pawnTypes & MHC_PawnType.Drone) == MHC_PawnType.Drone ? 0 : 3]);
             position = new Rect(0f, rect.height / 3f, rect.width, rect.height / 3f).ContractedBy(4f);
-            GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Sapient) == PawnType.Sapient ? 1 : 4]);
+            GUI.DrawTexture(position, exemplarImages[(pawnTypes & MHC_PawnType.Sapient) == MHC_PawnType.Sapient ? 1 : 4]);
             position = new Rect(0f, rect.height * 2f / 3f, rect.width, rect.height / 3f).ContractedBy(4f);
-            GUI.DrawTexture(position, exemplarImages[(pawnTypes & PawnType.Organic) == PawnType.Organic ? 2 : 5]);
+            GUI.DrawTexture(position, exemplarImages[(pawnTypes & MHC_PawnType.Organic) == MHC_PawnType.Organic ? 2 : 5]);
             Widgets.EndGroup();
         }
 
@@ -83,20 +83,20 @@ namespace MechHumanlikes
                 maxOneColumn = true
             };
             listingStandard.Begin(rect);
-            if (listingStandard.RadioButton("MHC_PawnTypeNone".Translate(), (PawnType.None | pawnTypes) == PawnType.None, tooltip: "MHC_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
+            if (listingStandard.RadioButton("MHC_MHC_PawnTypeNone".Translate(), (MHC_PawnType.None | pawnTypes) == MHC_PawnType.None, tooltip: "MHC_MHC_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
             {
                 for (int j = compRestricts.Count - 1; j >= 0; j--)
                 {
-                    compRestricts[j].SwitchToType(PawnType.None);
+                    compRestricts[j].SwitchToType(MHC_PawnType.None);
                 }
             }
             for (int i = 1; i < 8; i++)
             {
-                if (listingStandard.RadioButton($"MHC_PawnType{(PawnType)i}".Translate(), ((PawnType)i & pawnTypes) == (PawnType)i, tooltip: $"MHC_PawnType{(PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
+                if (listingStandard.RadioButton($"MHC_MHC_PawnType{(MHC_PawnType)i}".Translate(), ((MHC_PawnType)i & pawnTypes) == (MHC_PawnType)i, tooltip: $"MHC_MHC_PawnType{(MHC_PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
                 {
                     for (int j = compRestricts.Count - 1; j >= 0; j--)
                     {
-                        compRestricts[j].SwitchToType((PawnType)i);
+                        compRestricts[j].SwitchToType((MHC_PawnType)i);
                     }
                 }
             }

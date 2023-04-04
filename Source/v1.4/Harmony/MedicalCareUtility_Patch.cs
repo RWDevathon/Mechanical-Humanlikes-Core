@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MechHumanlikes
 {
-    internal class MedicalCareUtility_Patch
+    public class MedicalCareUtility_Patch
     {
         // Patch for mechanical units to have Repair Stims replace medicines graphically for the medical care selector.
         [HarmonyPatch(typeof(MedicalCareUtility), "MedicalCareSelectButton")]
@@ -17,7 +17,7 @@ namespace MechHumanlikes
             public static bool Listener(Rect rect, Pawn pawn)
             {
                 // Mechanicals get repair stim graphics.
-                if (Utils.IsConsideredMechanical(pawn))
+                if (MHC_Utils.IsConsideredMechanical(pawn))
                 {
                     Func<Pawn, MedicalCareCategory> getPayload = new Func<Pawn, MedicalCareCategory>(MedicalCareSelectButton_GetMedicalCare);
                     Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<MedicalCareCategory>>> menuGenerator = new Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<MedicalCareCategory>>>(MedicalCareSelectButton_GenerateMenu);

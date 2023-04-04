@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MechHumanlikes
 {
-    internal class ThingSetMaker_RefugeePod_Patch
+    public class ThingSetMaker_RefugeePod_Patch
     {
         // Mechanical "refugees" in pods reboot as they feel no pain and thus may not be immobilized otherwise.
         [HarmonyPatch(typeof(ThingSetMaker_RefugeePod), "Generate")]
@@ -19,7 +19,7 @@ namespace MechHumanlikes
                     Thing thing = outThings[i];
                     if (thing is Pawn pawn)
                     {
-                        if (Utils.IsConsideredMechanical(pawn))
+                        if (MHC_Utils.IsConsideredMechanical(pawn))
                         {
                             pawn.health.AddHediff(MHC_HediffDefOf.MHC_Restarting);
                         }

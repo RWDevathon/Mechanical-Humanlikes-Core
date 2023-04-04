@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_NeedNeuralSupercharge_Patch
+    public class ThoughtWorker_NeedNeuralSupercharge_Patch
     {
         // Mechanical units do not care about neural supercharges as their neural networks are different than organics.
         [HarmonyPatch(typeof(ThoughtWorker_NeedNeuralSupercharge), "ShouldHaveThought")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalSapient(p))
+                if (MHC_Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = ThoughtState.Inactive;
                 }

@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_HasProsthetic_Patch
+    public class ThoughtWorker_Precept_HasProsthetic_Patch
     {
         // Mechanical units always act as if they have a prosthetic.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_HasProsthetic), "HasProsthetic")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (__result)
                     return;
 
-                if (Utils.IsConsideredMechanicalSapient(p))
+                if (MHC_Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = true;
                 }

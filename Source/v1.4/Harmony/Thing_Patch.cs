@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class Thing_Patch
+    public class Thing_Patch
     {
         // Player charge-capable pawns have modified nutritional intake values.
         [HarmonyPatch(typeof(Thing), "IngestedCalculateAmounts")]
@@ -18,7 +18,7 @@ namespace MechHumanlikes
                     return;
 
                 // Player charge-capable pawns (to avoid issues with foreign pawns not bringing enough food) have their ingested nutrition modified.
-                if (Utils.CanUseBattery(ingester) && ingester.Faction == Faction.OfPlayer)
+                if (MHC_Utils.CanUseBattery(ingester) && ingester.Faction == Faction.OfPlayer)
                 {
                     nutritionIngested *= ingester.GetStatValue(MHC_StatDefOf.MHC_NutritionalIntakeEfficiency);
                 }

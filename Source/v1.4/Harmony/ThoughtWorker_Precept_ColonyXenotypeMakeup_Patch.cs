@@ -7,7 +7,7 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_ColonyXenotypeMakeup_Patch
+    public class ThoughtWorker_Precept_ColonyXenotypeMakeup_Patch
     {
         // Mechanical units are unaffected by preferred xenotype social effects as they can not have genetics or xenotypes.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_ColonyXenotypeMakeup), "ShouldHaveThought")]
@@ -31,7 +31,7 @@ namespace MechHumanlikes
                     else if (insertAfter && instructions[i].Branches(out branchLabel))
                     {
                         yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Utils), nameof(Utils.IsConsideredMechanical), new Type[] { typeof(Pawn) })); // Our function call
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(MHC_Utils), nameof(MHC_Utils.IsConsideredMechanical), new Type[] { typeof(Pawn) })); // Our function call
                         yield return new CodeInstruction(OpCodes.Brtrue_S, branchLabel); // Branch to the code beyond the conditional if true, we don't count mechanical pawns.
                         insertAfter = false;
                     }

@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace MechHumanlikes
 {
-    internal class GasUtility_Patch
+    public class GasUtility_Patch
     {
         // Mechanical units do not suffer gas exposure hediffs like Tox Gas.
         [HarmonyPatch(typeof(GasUtility), "ShouldGetGasExposureHediff")]
@@ -12,7 +12,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(ref bool __result, Pawn pawn)
             {
-                __result = __result && !Utils.IsConsideredMechanical(pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanical(pawn);
             }
         }
     }

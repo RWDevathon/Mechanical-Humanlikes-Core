@@ -7,7 +7,7 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class HealthAIUtility_Patch
+    public class HealthAIUtility_Patch
     {
         // Ensure the appropriate care is selected for organics and mechanicals if medicinesAreInterchangeable is false in settings. Repair stims for mechanicals, medicine for organics.
         [HarmonyPatch(typeof(HealthAIUtility), "FindBestMedicine")]
@@ -35,13 +35,13 @@ namespace MechHumanlikes
                 }
 
                 Predicate<Thing> validator;
-                if (Utils.IsConsideredMechanical(patient))
+                if (MHC_Utils.IsConsideredMechanical(patient))
                 {
-                    validator = (Thing medicine) => Utils.IsMechanicalRepairStim(medicine.def) && medicine.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medicalPotency && !medicine.IsForbidden(healer) && patient.playerSettings.medCare.AllowsMedicine(medicine.def) && healer.CanReserve(medicine, 10, 1);
+                    validator = (Thing medicine) => MHC_Utils.IsMechanicalRepairStim(medicine.def) && medicine.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medicalPotency && !medicine.IsForbidden(healer) && patient.playerSettings.medCare.AllowsMedicine(medicine.def) && healer.CanReserve(medicine, 10, 1);
                 }
                 else
                 {
-                    validator = (Thing medicine) => !Utils.IsMechanicalRepairStim(medicine.def) && medicine.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medicalPotency && !medicine.IsForbidden(healer) && patient.playerSettings.medCare.AllowsMedicine(medicine.def) && healer.CanReserve(medicine, 10, 1);
+                    validator = (Thing medicine) => !MHC_Utils.IsMechanicalRepairStim(medicine.def) && medicine.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medicalPotency && !medicine.IsForbidden(healer) && patient.playerSettings.medCare.AllowsMedicine(medicine.def) && healer.CanReserve(medicine, 10, 1);
                 }
 
 

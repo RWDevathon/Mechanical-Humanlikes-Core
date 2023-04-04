@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(Pawn p)
             {
-                if (Utils.IsConsideredNonHumanlike(p))
+                if (MHC_Utils.IsConsideredNonHumanlike(p))
                 {
                     return false;
                 }

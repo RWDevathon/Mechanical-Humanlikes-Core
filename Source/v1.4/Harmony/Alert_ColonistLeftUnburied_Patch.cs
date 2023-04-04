@@ -5,7 +5,7 @@ using RimWorld;
 namespace MechHumanlikes
 {
     // Pawns that are not considered humanlike don't get unburied colonist notifications.
-    internal class Alert_ColonistLeftUnburied_Patch
+    public class Alert_ColonistLeftUnburied_Patch
     {
         [HarmonyPatch(typeof(Alert_ColonistLeftUnburied), "IsCorpseOfColonist")]
         public class Alert_ColonistLeftUnburied_IsCorpseOfColonist_Patch
@@ -17,7 +17,7 @@ namespace MechHumanlikes
                     return;
 
                 Pawn p = corpse.InnerPawn;
-                if (p != null && Utils.IsConsideredNonHumanlike(p))
+                if (p != null && MHC_Utils.IsConsideredNonHumanlike(p))
                     __result = false;
  
             }

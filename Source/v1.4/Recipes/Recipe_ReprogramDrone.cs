@@ -11,7 +11,7 @@ namespace MechHumanlikes
         {
 
             BodyPartRecord targetBodyPart = pawn.health.hediffSet.GetBrain();
-            if (targetBodyPart != null && (Utils.IsConsideredMechanicalDrone(pawn) || Utils.IsConsideredMechanicalAnimal(pawn)))
+            if (targetBodyPart != null && (MHC_Utils.IsConsideredMechanicalDrone(pawn) || MHC_Utils.IsConsideredMechanicalAnimal(pawn)))
             {
                 yield return targetBodyPart;
             }

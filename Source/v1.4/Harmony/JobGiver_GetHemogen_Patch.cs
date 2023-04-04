@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class JobGiver_GetHemogen_Patch
+    public class JobGiver_GetHemogen_Patch
     {
         // Mechanical units are invalid targets for blood feeding.
         [HarmonyPatch(typeof(JobGiver_GetHemogen), "CanFeedOnPrisoner")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(ref AcceptanceReport __result, Pawn prisoner)
             {
-                __result = __result && !Utils.IsConsideredMechanical(prisoner);
+                __result = __result && !MHC_Utils.IsConsideredMechanical(prisoner);
             }
         }
     }

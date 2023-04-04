@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    internal class Corpse_Patch
+    public class Corpse_Patch
     {
         // No one is bothered by seeing a destroyed mechanical chassis. It doesn't rot, decay, or deteriorate significantly. It may not even have had an intelligence when destroyed.
         [HarmonyPatch(typeof(Corpse), "GiveObservedThought")]
@@ -18,7 +18,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Corpse __instance, ref Thought_Memory __result)
             {
-                if (Utils.IsConsideredMechanical(__instance.InnerPawn))
+                if (MHC_Utils.IsConsideredMechanical(__instance.InnerPawn))
                 {
                     __result = null;
                 }
@@ -32,7 +32,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Corpse __instance, Pawn observer, ref HistoryEventDef __result)
             {
-                if (Utils.IsConsideredMechanical(__instance.InnerPawn))
+                if (MHC_Utils.IsConsideredMechanical(__instance.InnerPawn))
                 {
                     __result = null;
                 }
@@ -64,7 +64,7 @@ namespace MechHumanlikes
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo);
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Corpse), nameof(Corpse.InnerPawn)));
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Utils), nameof(Utils.IsConsideredNonHumanlike), new Type[] { typeof(Pawn) }));
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(MHC_Utils), nameof(MHC_Utils.IsConsideredNonHumanlike), new Type[] { typeof(Pawn) }));
                         yield return new CodeInstruction(OpCodes.Not);
                         yield return new CodeInstruction(OpCodes.And);
 

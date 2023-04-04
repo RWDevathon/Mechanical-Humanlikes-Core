@@ -6,7 +6,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class JobGiver_GetRest_Patch
+    public class JobGiver_GetRest_Patch
     {
         // Override job for getting rest based on whether the pawn can charge instead or not. Pawns that can rest and charge will seek to do both simultaneously.
         [HarmonyPatch(typeof(JobGiver_GetRest), "TryGiveJob")]
@@ -18,14 +18,14 @@ namespace MechHumanlikes
                 try
                 {
                     // If the pawn can't use charging or isn't on a map, then there's nothing to override.
-                    if (pawn != null && pawn.Map != null && (pawn.Faction == Faction.OfPlayer || pawn.HostFaction == Faction.OfPlayer) && Utils.CanUseBattery(pawn))
+                    if (pawn != null && pawn.Map != null && (pawn.Faction == Faction.OfPlayer || pawn.HostFaction == Faction.OfPlayer) && MHC_Utils.CanUseBattery(pawn))
                     {
                         // Don't override non-spawned or drafted pawns.
                         if (!pawn.Spawned || pawn.Drafted)
                             return;
 
                         // Attempt to locate a viable charging bed for the pawn. This can suit comfort, rest, and room needs whereas the charging station can not.
-                        Building_Bed bed = Utils.GetChargingBed(pawn, pawn);
+                        Building_Bed bed = MHC_Utils.GetChargingBed(pawn, pawn);
                         if (bed != null)
                         {
                             pawn.ownership.ClaimBedIfNonMedical(bed);
@@ -37,7 +37,7 @@ namespace MechHumanlikes
                 }
                 catch (Exception ex)
                 {
-                    Log.Warning("[ATR] MechHumanlikes.JobGiver_GetRest_Patch Encountered an error while attempting to check pawn" + pawn + " for charging. Default vanilla behavior will proceed." + ex.Message + " " + ex.StackTrace);
+                    Log.Warning("[MHC] MechHumanlikes.JobGiver_GetRest_Patch Encountered an error while attempting to check pawn" + pawn + " for charging. Default vanilla behavior will proceed." + ex.Message + " " + ex.StackTrace);
                 }
             }
         }

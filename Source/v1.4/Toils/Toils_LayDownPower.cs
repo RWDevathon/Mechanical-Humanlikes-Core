@@ -46,7 +46,7 @@ namespace MechHumanlikes
                     bed = (Building_Bed)actor.CurJob.GetTarget(chargingBuilding).Thing;
                     if (!bed.OccupiedRect().Contains(actor.Position))
                     {
-                        Log.Error("[ATR] Can't start LayDown toil because pawn is not in the bed. pawn=" + actor);
+                        Log.Error("[MHC] Can't start LayDown toil because pawn is not in the bed. pawn=" + actor);
                         actor.jobs.EndCurrentJob(JobCondition.Errored, true);
                         return;
                     }

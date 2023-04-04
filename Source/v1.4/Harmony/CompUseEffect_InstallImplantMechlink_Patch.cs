@@ -5,7 +5,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class CompUseEffect_InstallImplantMechlink_Patch
+    public class CompUseEffect_InstallImplantMechlink_Patch
     {
         // Mechanical units do not suffer gas exposure hediffs like Tox Gas.
         [HarmonyPatch(typeof(CompUseEffect_InstallImplantMechlink), "CanBeUsedBy")]
@@ -20,7 +20,7 @@ namespace MechHumanlikes
                     return;
                 }
 
-                if (Utils.IsConsideredNonHumanlike(p))
+                if (MHC_Utils.IsConsideredNonHumanlike(p))
                 {
                     __result = false;
                     failReason = "MHC_NoSurrogateMechanitors".Translate();

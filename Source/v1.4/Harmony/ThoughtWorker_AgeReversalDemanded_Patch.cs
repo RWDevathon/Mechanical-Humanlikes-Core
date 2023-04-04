@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_AgeReversalDemanded_Patch
+    public class ThoughtWorker_AgeReversalDemanded_Patch
     {
         // Mechanical units do not demand age reversal.
         [HarmonyPatch(typeof(ThoughtWorker_AgeReversalDemanded), "ShouldHaveThought")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanicalSapient(p))
+                if (MHC_Utils.IsConsideredMechanicalSapient(p))
                 {
                     __result = ThoughtState.Inactive;
                 }

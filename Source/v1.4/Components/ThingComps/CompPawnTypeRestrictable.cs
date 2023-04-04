@@ -5,7 +5,7 @@ using RimWorld;
 namespace MechHumanlikes
 {
     // This comp adds a gizmo to its parent allowing it to be restrictable to certain pawn types (drones, sapients, organics, combinations). Certain harmony patches can check against this.
-    public class CompPawnTypeRestrictable : ThingComp
+    public class CompMHC_PawnTypeRestrictable : ThingComp
     {
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -19,7 +19,7 @@ namespace MechHumanlikes
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref assignedToType, "MHC_assignedToType", PawnType.All);
+            Scribe_Values.Look(ref assignedToType, "MHC_assignedToType", MHC_PawnType.All);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -27,17 +27,17 @@ namespace MechHumanlikes
             yield return new Command_Action
             {
                 icon = MHC_Textures.RestrictionGizmoIcon,
-                defaultLabel = "MHC_RestrictPawnType".Translate(),
-                defaultDesc = "MHC_RestrictPawnTypeDescription".Translate(),
+                defaultLabel = "MHC_RestrictMHC_PawnType".Translate(),
+                defaultDesc = "MHC_RestrictMHC_PawnTypeDescription".Translate(),
                 action = delegate ()
                 {
-                    Find.WindowStack.Add(new Dialog_RestrictToPawnType());
+                    Find.WindowStack.Add(new Dialog_RestrictToMHC_PawnType());
                 }
             };
         }
 
         // Switch to the restricted type. If it did not already have this type, ensure no restrictions are being violated after the change.
-        public void SwitchToType(PawnType newType)
+        public void SwitchToType(MHC_PawnType newType)
         {
             if (assignedToType == newType)
             {
@@ -51,7 +51,7 @@ namespace MechHumanlikes
                 List<Pawn> bedOwnersForRemoval = new List<Pawn>();
                 foreach (Pawn bedOwner in bed.OwnersForReading)
                 {
-                    if ((Utils.GetPawnType(bedOwner) | assignedToType) != assignedToType)
+                    if ((MHC_Utils.GetMHC_PawnType(bedOwner) | assignedToType) != assignedToType)
                     {
                         bedOwnersForRemoval.Add(bedOwner);
                     }
@@ -70,19 +70,19 @@ namespace MechHumanlikes
             {
                 if (MechHumanlikes_Settings.bedRestrictionDefaultsToAll)
                 {
-                    assignedToType = PawnType.All;
+                    assignedToType = MHC_PawnType.All;
                 }
                 else
                 {
-                    assignedToType = parent is Building_ChargingBed ? PawnType.Mechanical : PawnType.Organic;
+                    assignedToType = parent is Building_ChargingBed ? MHC_PawnType.Mechanical : MHC_PawnType.Organic;
                 }
             }
             else
             {
-                assignedToType = PawnType.All;
+                assignedToType = MHC_PawnType.All;
             }
         }
 
-        public PawnType assignedToType;
+        public MHC_PawnType assignedToType;
     }
 }

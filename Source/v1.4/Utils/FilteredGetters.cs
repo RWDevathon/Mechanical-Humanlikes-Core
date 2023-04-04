@@ -4,7 +4,7 @@ using Verse;
 
 namespace MechHumanlikes
 {
-    internal class FilteredGetters
+    public class FilteredGetters
     {
         public static IEnumerable<ThingDef> pregenedValidPawns;
 

@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_PreferredXenotype_Social_Patch
+    public class ThoughtWorker_Precept_PreferredXenotype_Social_Patch
     {
         // Mechanical units are unaffected by preferred xenotype social effects as they can not have genetics or xenotypes.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_PreferredXenotype_Social), "ShouldHaveThought")]
@@ -16,7 +16,7 @@ namespace MechHumanlikes
                 if (!__result.Active)
                     return;
 
-                if (Utils.IsConsideredMechanical(otherPawn))
+                if (MHC_Utils.IsConsideredMechanical(otherPawn))
                 {
                     __result = ThoughtState.Inactive;
                 }

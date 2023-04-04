@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class InteractionUtility_Patch
+    public class InteractionUtility_Patch
     {
         // Mechanical drones don't start social interactions.
         [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
             {
-                __result = __result && !Utils.IsConsideredMechanicalDrone(pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanicalDrone(pawn);
             }
         }
 
@@ -24,7 +24,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
             {
-                __result = __result && !Utils.IsConsideredMechanicalDrone(pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanicalDrone(pawn);
             }
         }
     }

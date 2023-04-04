@@ -6,7 +6,7 @@ using RimWorld.Planet;
 
 namespace MechHumanlikes
 {
-    internal class Pawn_HealthTracker_Patch
+    public class Pawn_HealthTracker_Patch
     {
         // Ensure the hediff to be added is not forbidden on the given pawn (for mechanicals) before doing standard AddHediff checks - it would be wasted/junk calculations.
         [HarmonyPatch(typeof(Pawn_HealthTracker), "AddHediff")]
@@ -17,7 +17,7 @@ namespace MechHumanlikes
             public static bool Listener(ref Pawn ___pawn, ref Hediff hediff, BodyPartRecord part)
             {
                 // If this is a mechanical pawn and this particular hediff is forbidden for mechanicals to have, then abort trying to add it.
-                if (Utils.IsConsideredMechanical(___pawn) && MechHumanlikes_Settings.blacklistedMechanicalHediffs.Contains(hediff.def.defName))
+                if (MHC_Utils.IsConsideredMechanical(___pawn) && MechHumanlikes_Settings.blacklistedMechanicalHediffs.Contains(hediff.def.defName))
                 {
                     return false;
                 }
@@ -34,7 +34,7 @@ namespace MechHumanlikes
             public static bool Listener(ref DamageInfo? dinfo, ref Hediff hediff, ref Caravan caravan, Pawn ___pawn)
             {
                 // If the pawn is a surrogate and wasn't just turned into one, then abort.
-                if (Utils.IsConsideredNonHumanlike(___pawn))
+                if (MHC_Utils.IsConsideredNonHumanlike(___pawn))
                 {
                     return false;
                 }

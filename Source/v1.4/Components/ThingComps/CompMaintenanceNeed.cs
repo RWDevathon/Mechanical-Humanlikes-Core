@@ -24,17 +24,17 @@ namespace MechHumanlikes
 
         private static readonly float TicksPerLong = 2000;
 
-        public MaintenanceStage Stage
+        public MHC_MaintenanceStage Stage
         {
             get
             {
                 if (maintenanceLevel < ThresholdCritical)
-                    return MaintenanceStage.Critical;
+                    return MHC_MaintenanceStage.Critical;
                 else if (maintenanceLevel < ThresholdPoor)
-                    return MaintenanceStage.Poor;
+                    return MHC_MaintenanceStage.Poor;
                 else if (maintenanceLevel < ThresholdSatisfactory)
-                    return MaintenanceStage.Sufficient;
-                return MaintenanceStage.Satisfactory;
+                    return MHC_MaintenanceStage.Sufficient;
+                return MHC_MaintenanceStage.Satisfactory;
             }
         }
 
@@ -58,15 +58,15 @@ namespace MechHumanlikes
             }
         }
 
-        private float DailyFallPerStage(MaintenanceStage stage)
+        private float DailyFallPerStage(MHC_MaintenanceStage stage)
         {
             switch (stage)
             {
-                case MaintenanceStage.Critical:
+                case MHC_MaintenanceStage.Critical:
                     return 0.05f; // 5% per day base (10 -> 0 should take 2 days with 1 efficiency)
-                case MaintenanceStage.Poor:
+                case MHC_MaintenanceStage.Poor:
                     return 0.10f; // 10% per day base (30 -> 10 should take 2 days with 1 efficiency)
-                case MaintenanceStage.Sufficient:
+                case MHC_MaintenanceStage.Sufficient:
                     return 0.20f; // 20% per day base (70 -> 30 should take 2 days with 1 efficiency)
                 default:
                     return 0.60f; // 60% per day base (100 -> 70 should take 0.5 days with 1 efficiency)
@@ -123,17 +123,17 @@ namespace MechHumanlikes
         // Alter the maintenance level by the provided amount (decreases are assumed to be negative). Ensure the level never falls outside 0 - 1 range and handle stage changes appropriately.
         public void ChangeMaintenanceLevel(float baseChange)
         {
-            MaintenanceStage currentStage = Stage;
+            MHC_MaintenanceStage currentStage = Stage;
             maintenanceLevel = Mathf.Clamp(maintenanceLevel + baseChange, 0f, 1f);
 
             // If we changed stages, make sure we initialize an appropriate stage effect hediff if there is one. They remove themselves automatically when appropriate.
             if (Stage != currentStage)
             {
                 // Check all maintenance stage effects for this race and apply them if the new stage matches their required stage.
-                foreach (HediffDef hediffDef in Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
+                foreach (HediffDef hediffDef in MHC_Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
                 {
                     MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
-                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMaintenanceStageToOccur == Stage)
+                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMHC_MaintenanceStageToOccur == Stage)
                     {
                         Pawn.health.AddHediff(hediffDef);
                     }
@@ -245,7 +245,7 @@ namespace MechHumanlikes
             {
                 for (int stageInt = 0; stageInt < MaintenanceThresholdBandPercentages.Count - 1; stageInt++)
                 {
-                    maintenanceLevelInfoCached += "MHC_MaintenanceLevelInfoRange".Translate((MaintenanceThresholdBandPercentages[stageInt] * 100f).ToStringDecimalIfSmall(), (MaintenanceThresholdBandPercentages[stageInt + 1] * 100f).ToStringDecimalIfSmall()) + ": " + "MHC_MaintenanceLevelInfoFallRate".Translate(DailyFallPerStage((MaintenanceStage)stageInt).ToStringPercent()) + "\n";
+                    maintenanceLevelInfoCached += "MHC_MaintenanceLevelInfoRange".Translate((MaintenanceThresholdBandPercentages[stageInt] * 100f).ToStringDecimalIfSmall(), (MaintenanceThresholdBandPercentages[stageInt + 1] * 100f).ToStringDecimalIfSmall()) + ": " + "MHC_MaintenanceLevelInfoFallRate".Translate(DailyFallPerStage((MHC_MaintenanceStage)stageInt).ToStringPercent()) + "\n";
                 }
             }
             return (("MHC_MaintenanceGizmoLabel".Translate() + ": ").Colorize(ColoredText.TipSectionTitleColor) + MaintenanceLevel.ToStringPercent("0.#") + "\n" + "MHC_MaintenanceTargetLabel".Translate() + ": " + TargetMaintenanceLevel.ToStringPercent("0.#") + "\n\n" + "MHC_MaintenanceTargetLabelDesc".Translate() + "\n\n" + "MHC_MaintenanceDesc".Translate() + ":\n\n" + maintenanceLevelInfoCached).Resolve();
@@ -255,7 +255,7 @@ namespace MechHumanlikes
         public void TryMaintenanceCheck()
         {
             // Check all valid maintenance effects for this race and test whether they are applied now.
-            foreach (HediffDef hediffDef in Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
+            foreach (HediffDef hediffDef in MHC_Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
             {
                 MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
                 // Maintenance stage effects are applied/removed automatically on stage changes.
@@ -274,7 +274,7 @@ namespace MechHumanlikes
                 if (effectExtension.daysBeforeCanOccur < 0)
                 {
                     // Stage is too high to occur now.
-                    if (Stage > effectExtension.requiredMaintenanceStageToOccur)
+                    if (Stage > effectExtension.requiredMHC_MaintenanceStageToOccur)
                     {
                         continue;
                     }
@@ -291,7 +291,7 @@ namespace MechHumanlikes
                 else
                 {
                     // Stage is too low to occur now.
-                    if (Stage < effectExtension.requiredMaintenanceStageToOccur)
+                    if (Stage < effectExtension.requiredMHC_MaintenanceStageToOccur)
                     {
                         continue;
                     }

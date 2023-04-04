@@ -28,7 +28,7 @@ namespace MechHumanlikes
                 }
 
                 // If the pawn is a sapient and this trait is blacklisted, it can not have it.
-                if (Utils.IsConsideredMechanicalSapient(race) && MechHumanlikes_Settings.blacklistedMechanicalTraits.Contains(trait.defName))
+                if (MHC_Utils.IsConsideredMechanicalSapient(race) && MechHumanlikes_Settings.blacklistedMechanicalTraits.Contains(trait.defName))
                 {
                     __result = false;
                 }

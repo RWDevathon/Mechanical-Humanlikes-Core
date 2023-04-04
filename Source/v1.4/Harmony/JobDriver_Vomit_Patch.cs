@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class JobDriver_Vomit_Patch
+    public class JobDriver_Vomit_Patch
     {
         // Mechanical pawns do not vomit.
         [HarmonyPatch(typeof(JobDriver_Vomit), "TryMakePreToilReservations")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(ref Pawn ___pawn, ref bool __result)
             {
-                __result = __result && !Utils.IsConsideredMechanical(___pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanical(___pawn);
             }
         }
     }

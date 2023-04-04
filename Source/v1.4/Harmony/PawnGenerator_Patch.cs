@@ -15,7 +15,7 @@ namespace MechHumanlikes
             public static bool Prefix(ref PawnGenerationRequest request)
             {
                 ThingDef thingDef = request.KindDef?.race;
-                if (thingDef != null && Utils.IsConsideredMechanicalDrone(thingDef))
+                if (thingDef != null && MHC_Utils.IsConsideredMechanicalDrone(thingDef))
                 {
                     request.FixedGender = Gender.None;
                 }
@@ -35,9 +35,9 @@ namespace MechHumanlikes
                 try
                 {
                     // Drones have some special mechanics that need to be specifically handled.
-                    if (Utils.IsConsideredMechanicalDrone(__result))
+                    if (MHC_Utils.IsConsideredMechanicalDrone(__result))
                     {
-                        Utils.ReconfigureDrone(__result);
+                        MHC_Utils.ReconfigureDrone(__result);
                     }
                 }
                 catch(Exception ex)

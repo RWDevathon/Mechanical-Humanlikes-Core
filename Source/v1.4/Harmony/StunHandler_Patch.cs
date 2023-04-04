@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class StunHandler_Patch
+    public class StunHandler_Patch
     {
         // Mechanical units are vulnerable to EMP.
         [HarmonyPatch(typeof(StunHandler), "get_AffectedByEMP")]

@@ -30,7 +30,7 @@ namespace MechHumanlikes
             }
 
             // Check if the pawn is allowed to use its battery by settings.
-            if (!Utils.CanUseBattery(pawn) || pawn.needs?.food == null)
+            if (!MHC_Utils.CanUseBattery(pawn) || pawn.needs?.food == null)
             {
                 return new FloatMenuOption("MHC_IncapableOfCharging".Translate(pawn), null);
             }

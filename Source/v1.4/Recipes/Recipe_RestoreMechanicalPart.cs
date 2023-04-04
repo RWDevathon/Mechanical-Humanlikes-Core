@@ -10,7 +10,7 @@ namespace MechHumanlikes
         // This surgery may be done on any missing, damaged, or defective part. Get the list of them and return it.
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
         {
-            if (!Utils.IsConsideredMechanical(pawn))
+            if (!MHC_Utils.IsConsideredMechanical(pawn))
             {
                 yield break;
             }

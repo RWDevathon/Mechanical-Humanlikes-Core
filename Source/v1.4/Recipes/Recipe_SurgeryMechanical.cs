@@ -52,7 +52,7 @@ namespace MechHumanlikes
 
             // Check if the surgery is successful.
             if (MechHumanlikes_Settings.showMechanicalSurgerySuccessChance)
-                Messages.Message("[ATR Debug Utility] Surgery had " + chanceSucceed + " chance to succeed.", MessageTypeDefOf.NeutralEvent);
+                Messages.Message("[Mechanical Humanlikes] Surgery had " + chanceSucceed + " chance to succeed.", MessageTypeDefOf.NeutralEvent);
             if (!Rand.Chance(chanceSucceed))
             { // Surgery failed. Determine the extent of the failure.
                 if (Rand.Chance(recipe.deathOnFailedSurgeryChance))

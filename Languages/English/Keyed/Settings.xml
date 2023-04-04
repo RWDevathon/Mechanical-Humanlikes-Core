@@ -5,7 +5,6 @@
 
 	<MHC_RestartRequiredSection>Any changes to settings in this section require restarting the game.</MHC_RestartRequiredSection>
 
-
     <MHC_ExpandMenu>Expand/Collapse</MHC_ExpandMenu>
 
 	<!-- Mod Settings Page Keys -->
@@ -13,10 +12,7 @@
 
 	<MHC_SettingsTabOption_Folded>&lt;</MHC_SettingsTabOption_Folded>
 	<MHC_SettingsTabOption_General>General</MHC_SettingsTabOption_General>
-	<MHC_SettingsTabOption_Power>Power</MHC_SettingsTabOption_Power>
-	<MHC_SettingsTabOption_Security>Security</MHC_SettingsTabOption_Security>
 	<MHC_SettingsTabOption_Health>Health</MHC_SettingsTabOption_Health>
-	<MHC_SettingsTabOption_Connectivity>Connectivity</MHC_SettingsTabOption_Connectivity>
 	<MHC_SettingsTabOption_Stats>Stats</MHC_SettingsTabOption_Stats>
 
 	<!-- General Settings -->

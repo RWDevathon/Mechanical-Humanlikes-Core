@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    internal class IncidentWorker_DiseaseHuman_Patch
+    public class IncidentWorker_DiseaseHuman_Patch
     {
         // Mechanicals aren't valid candidates for diseases.
         [HarmonyPatch(typeof(IncidentWorker_DiseaseHuman), "PotentialVictimCandidates")]
@@ -18,7 +18,7 @@ namespace MechHumanlikes
                 if (__result == null)
                     return;
 
-                __result = __result.Where(pawn => !Utils.IsConsideredMechanical(pawn));
+                __result = __result.Where(pawn => !MHC_Utils.IsConsideredMechanical(pawn));
             }
         }
     }

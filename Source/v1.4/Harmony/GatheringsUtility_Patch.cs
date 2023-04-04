@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 namespace MechHumanlikes
 {
     // GatheringsUtility.ShouldGuestKeepAttendingGathering has a non-null checked food conditional that will throw errors for any humanlike pawn that does not eat food if not handled. This transpiler adds that null-check.
-    internal class GatheringsUtility_Patch
+    public class GatheringsUtility_Patch
     {
         [HarmonyPatch(typeof(GatheringsUtility))]
         [HarmonyPatch("ShouldGuestKeepAttendingGathering")]

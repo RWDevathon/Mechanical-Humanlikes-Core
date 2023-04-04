@@ -5,7 +5,7 @@ using RimWorld;
 namespace MechHumanlikes
 {
     // Pawns that are considered non-humanlike intelligence are not valid targets for attempted Ideological conversions.
-    internal class CompAbilityEffect_Convert_Patch
+    public class CompAbilityEffect_Convert_Patch
     {
         [HarmonyPatch(typeof(CompAbilityEffect_Convert), "Valid")]
         public class CompAbilityEffect_Convert_Valid_Patch
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Prefix(LocalTargetInfo target, ref bool __result)
             {
-                if (target != null && target.Pawn != null && Utils.IsConsideredMechanicalDrone(target.Pawn))
+                if (target != null && target.Pawn != null && MHC_Utils.IsConsideredMechanicalDrone(target.Pawn))
                 {
                     __result = false;
                     return false;

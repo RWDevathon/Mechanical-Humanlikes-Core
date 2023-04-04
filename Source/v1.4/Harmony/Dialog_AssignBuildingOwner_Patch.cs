@@ -8,7 +8,7 @@ using System.Reflection.Emit;
 namespace MechHumanlikes
 {
     // Assign Building Owner has an ideology check but does not null-check it if Ideology is installed. This transpiler adds an Ideo check to it to prevent drones breaking the dialogue interface.
-    internal class Dialog_AssignBuildingOwner_Patch
+    public class Dialog_AssignBuildingOwner_Patch
     {
         [HarmonyPatch(typeof(Dialog_AssignBuildingOwner), "DoWindowContents")]
         public class DoWindowContents_Patch

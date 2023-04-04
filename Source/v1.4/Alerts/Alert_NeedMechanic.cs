@@ -36,7 +36,7 @@ namespace MechHumanlikes
                     for (int i = colonists.Count - 1; i >= 0; i--)
                     {
                         Pawn colonist = colonists[i];
-                        if ((colonist.Spawned || colonist.BrieflyDespawned()) && Utils.IsConsideredMechanical(colonist) && HealthAIUtility.ShouldBeTendedNowByPlayer(colonist))
+                        if ((colonist.Spawned || colonist.BrieflyDespawned()) && MHC_Utils.IsConsideredMechanical(colonist) && HealthAIUtility.ShouldBeTendedNowByPlayer(colonist))
                         {
                             patientsResult.Add(colonist);
                         }

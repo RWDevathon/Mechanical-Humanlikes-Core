@@ -9,7 +9,7 @@ namespace MechHumanlikes
     {
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (!(t is Pawn target) || !Utils.IsConsideredMechanical(t.def) || pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic) || (def.tendToHumanlikesOnly && !target.RaceProps.Humanlike) || (def.tendToAnimalsOnly && !target.RaceProps.Animal) || !GoodLayingStatusForTend(target, pawn) || !HealthAIUtility.ShouldBeTendedNowByPlayer(target) || !pawn.CanReserve(target, 1, -1, null, forced) || (target.InAggroMentalState && !target.health.hediffSet.HasHediff(HediffDefOf.Scaria)))
+            if (!(t is Pawn target) || !MHC_Utils.IsConsideredMechanical(t.def) || pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic) || (def.tendToHumanlikesOnly && !target.RaceProps.Humanlike) || (def.tendToAnimalsOnly && !target.RaceProps.Animal) || !GoodLayingStatusForTend(target, pawn) || !HealthAIUtility.ShouldBeTendedNowByPlayer(target) || !pawn.CanReserve(target, 1, -1, null, forced) || (target.InAggroMentalState && !target.health.hediffSet.HasHediff(HediffDefOf.Scaria)))
             {
                 return false;
             }

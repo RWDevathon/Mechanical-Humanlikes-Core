@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtWorker_Precept_IdeoDiversity_Uniform_Patch
+    public class ThoughtWorker_Precept_IdeoDiversity_Uniform_Patch
     {
         // Mechanical drones don't care about ideological diversity. Other pawns don't care about the drones' lack of ideology.
         [HarmonyPatch(typeof(ThoughtWorker_Precept_IdeoDiversity_Uniform), "ShouldHaveThought")]
@@ -14,7 +14,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(Pawn p, ref ThoughtState __result)
             {
-                if (p.Faction == null || !p.IsColonist || Utils.IsConsideredMechanicalDrone(p))
+                if (p.Faction == null || !p.IsColonist || MHC_Utils.IsConsideredMechanicalDrone(p))
                 {
                     __result = false;
                     return false;
@@ -23,7 +23,7 @@ namespace MechHumanlikes
                 int num = 0;
                 foreach (Pawn pawn in p.Map.mapPawns.SpawnedPawnsInFaction(p.Faction))
                 {
-                    if (!pawn.IsQuestLodger() && pawn.RaceProps.Humanlike && !pawn.IsSlave && !pawn.IsPrisoner && !Utils.IsConsideredMechanicalDrone(pawn))
+                    if (!pawn.IsQuestLodger() && pawn.RaceProps.Humanlike && !pawn.IsSlave && !pawn.IsPrisoner && !MHC_Utils.IsConsideredMechanicalDrone(pawn))
                     {
                         if (pawn.Ideo != p.Ideo)
                         {

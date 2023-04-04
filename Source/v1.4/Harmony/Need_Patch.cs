@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class Need_Patch
+    public class Need_Patch
     {
         // Mechanicals don't have a food meter, they have an energy meter. Since we're hijacking hunger, change the labelled name for mechanicals.
         [HarmonyPatch(typeof(Need), "get_LabelCap")]
@@ -15,7 +15,7 @@ namespace MechHumanlikes
             {
                 if (__instance.def.defName == "Food")
                 {
-                    if (Utils.CanUseBattery(___pawn))
+                    if (MHC_Utils.CanUseBattery(___pawn))
                     {
                         __result = "MHC_EnergyNeed".Translate();
                     }
@@ -32,7 +32,7 @@ namespace MechHumanlikes
             {
                 if (__instance.def.defName == "Food")
                 {
-                    if (Utils.CanUseBattery(___pawn))
+                    if (MHC_Utils.CanUseBattery(___pawn))
                     {
                         __result = $"{"MHC_EnergyNeed".Translate()}: {__instance.CurLevelPercentage.ToStringPercent()} ({__instance.CurLevel:0.##}/{__instance.MaxLevel:0.##})\n{"MHC_EnergyNeedDesc".Translate()}";
                         return;

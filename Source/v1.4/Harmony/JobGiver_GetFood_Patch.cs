@@ -6,7 +6,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class JobGiver_GetFood_Patch
+    public class JobGiver_GetFood_Patch
     {
         // Override job for getting food based on whether the pawn can charge instead, and on whether the pawn can effectively eat at all.
         [HarmonyPatch(typeof(JobGiver_GetFood), "TryGiveJob")]
@@ -34,14 +34,14 @@ namespace MechHumanlikes
                     }
 
                     // Non-player pawns as well as pawns that can not charge do not need to search for a charging spot and can use normal behavior. Do not override non-spawned or drafted pawns.
-                    if ((pawn.Faction != Faction.OfPlayer && pawn.HostFaction != Faction.OfPlayer) || !Utils.CanUseBattery(pawn) || !pawn.Spawned || pawn.Drafted)
+                    if ((pawn.Faction != Faction.OfPlayer && pawn.HostFaction != Faction.OfPlayer) || chargingEfficiency <= 0 || !pawn.Spawned || pawn.Drafted)
                     {
                         return true;
                     }
 
                     // Attempt to locate a viable charging bed for the pawn. This can suit comfort, rest, and room needs whereas the charging station can not.
                     Building_Bed bed;
-                    bed = Utils.GetChargingBed(pawn, pawn);
+                    bed = MHC_Utils.GetChargingBed(pawn, pawn);
                     if (bed != null)
                     {
                         pawn.ownership.ClaimBedIfNonMedical(bed);

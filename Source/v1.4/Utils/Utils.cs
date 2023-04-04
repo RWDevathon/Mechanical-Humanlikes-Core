@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    public static class Utils
+    public static class MHC_Utils
     {
         // GENERAL UTILITIES
 
@@ -57,23 +57,23 @@ namespace MechHumanlikes
             return IsConsideredMechanicalDrone(pawn);
         }
 
-        public static PawnType GetPawnType(Pawn pawn)
+        public static MHC_PawnType GetMHC_PawnType(Pawn pawn)
         {
             if (IsConsideredMechanicalSapient(pawn))
             {
-                return PawnType.Sapient;
+                return MHC_PawnType.Sapient;
             }
             else if (IsConsideredMechanicalDrone(pawn))
             {
-                return PawnType.Drone;
+                return MHC_PawnType.Drone;
             }
             else if (IsConsideredMechanicalAnimal(pawn))
             {
-                return PawnType.Mechanical;
+                return MHC_PawnType.Mechanical;
             }
             else
             {
-                return PawnType.Organic;
+                return MHC_PawnType.Organic;
             }
         }
 
@@ -151,7 +151,7 @@ namespace MechHumanlikes
         {
             if (raceProperties == null)
             {
-                Log.Error("[ATR] A pawn with null raceProperties tried to have those properties checked!");
+                Log.Error("[MHC] A pawn with null raceProperties tried to have those properties checked!");
                 return new HashSet<HediffDef>();
             }
 

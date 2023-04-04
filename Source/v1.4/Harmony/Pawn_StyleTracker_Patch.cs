@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class Pawn_StyleTracker_Patch
+    public class Pawn_StyleTracker_Patch
     {
         // Non humanlike intelligences don't care about style.
         [HarmonyPatch(typeof(Pawn_StyleTracker), "get_CanDesireLookChange")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Pawn ___pawn, ref bool __result)
             {
-                __result = __result && !Utils.IsConsideredNonHumanlike(___pawn);
+                __result = __result && !MHC_Utils.IsConsideredNonHumanlike(___pawn);
             }
         }
     }

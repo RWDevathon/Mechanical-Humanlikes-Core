@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+    <!-- Miscellaneous -->
+    <MHC_DroneCaptured>{0} is a drone, and can not be interacted with by wardens. Use operations to recruit or execute.</MHC_DroneCaptured>
+
     <!-- Surgeries -->
 	<MHC_MessageMechanicOperationFailureMinor>{0} committed a minor error while operating and aborted the procedure on {1}.</MHC_MessageMechanicOperationFailureMinor>
 	<MHC_MessageMechanicOperationFailureRidiculous>{0} has committed a major error while attempting an operation on {1}.</MHC_MessageMechanicOperationFailureRidiculous>

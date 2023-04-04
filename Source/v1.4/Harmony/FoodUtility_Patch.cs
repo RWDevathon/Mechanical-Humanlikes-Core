@@ -5,7 +5,7 @@ using RimWorld;
 namespace MechHumanlikes
 {
     // Mechanical units can not be food poisoned, so set their chance to receive food poisoning to zero.
-    internal class FoodUtility_Patch
+    public class FoodUtility_Patch
     {
         [HarmonyPatch(typeof(FoodUtility), "GetFoodPoisonChanceFactor")]
         public class GetFoodPoisonChanceFactor_Patch
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(Pawn ingester, ref float __result)
             {
-                if (Utils.IsConsideredMechanical(ingester))
+                if (MHC_Utils.IsConsideredMechanical(ingester))
                     __result = 0f;
             }
         }

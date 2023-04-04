@@ -4,7 +4,7 @@ using System;
 
 namespace MechHumanlikes
 {
-    internal class ImmunityHandler_Patch
+    public class ImmunityHandler_Patch
     {
         // Mechanical units are immune to contracting diseases.
         [HarmonyPatch(typeof(ImmunityHandler), "DiseaseContractChanceFactor")]
@@ -14,7 +14,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(HediffDef diseaseDef, BodyPartRecord part, ref float __result, Pawn ___pawn)
             {
-                if (__result != 0f && Utils.IsConsideredMechanical(___pawn))
+                if (__result != 0f && MHC_Utils.IsConsideredMechanical(___pawn))
                 {
                     __result = 0;
                 }

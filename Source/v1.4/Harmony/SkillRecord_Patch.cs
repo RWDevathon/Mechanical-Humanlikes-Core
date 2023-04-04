@@ -11,7 +11,7 @@ namespace MechHumanlikes
         [HarmonyPrefix]
         public static bool Prefix(ref Pawn ___pawn)
         {
-            if (Utils.IsConsideredNonHumanlike(___pawn))
+            if (MHC_Utils.IsConsideredNonHumanlike(___pawn))
             {
                 return false;
             }

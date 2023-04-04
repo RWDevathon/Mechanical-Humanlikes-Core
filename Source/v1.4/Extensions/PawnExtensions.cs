@@ -4,7 +4,7 @@ using Verse;
 
 namespace MechHumanlikes
 {
-    // Mod extension for races to control some features. These attributes are only used for humanlikes, there is no reason to provide any to non-humanlikes.
+    // Mod extension for races to control some features. Many attributes only apply to humanlikes, but the extension can also be applied effectively to animals.
     public class MHC_MechanicalPawnExtension : DefModExtension
     {
         // Bool for whether this race may be assigned as a sapient and drone, respectively. Disabling both would effectively mean this pawn is blacklisted from being mechanical.

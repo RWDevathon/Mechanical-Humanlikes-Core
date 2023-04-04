@@ -4,7 +4,7 @@ using Verse;
 
 namespace MechHumanlikes
 {
-    internal static class ITab_Pawn_Visitor_Patch
+    public static class ITab_Pawn_Visitor_Patch
     {
         // Drones are incapable of receiving social interactions, and are thus invalid for all prisoner interactions. Prevent players from interacting with the menu.
         [HarmonyPatch(typeof(ITab_Pawn_Visitor), "FillTab")]
@@ -19,7 +19,7 @@ namespace MechHumanlikes
                     return true;
 
                 // Non-drones or non-prisoners/slaves should continue with default behavior.
-                if (!Utils.IsConsideredMechanicalDrone(pawn) || !(pawn.IsPrisoner || pawn.IsSlave))
+                if (!MHC_Utils.IsConsideredMechanicalDrone(pawn) || !(pawn.IsPrisoner || pawn.IsSlave))
                     return true;
 
                 // Send a message occasionally about the illegality of drones being prisoners.

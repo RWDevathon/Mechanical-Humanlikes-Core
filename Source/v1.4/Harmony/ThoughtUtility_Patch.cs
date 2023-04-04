@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    internal class ThoughtUtility_Patch
+    public class ThoughtUtility_Patch
     {
         // Other pawns don't care about executed non-humanlike intelligences.
         [HarmonyPatch(typeof(ThoughtUtility), "GiveThoughtsForPawnExecuted")]
@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(Pawn victim, PawnExecutionKind kind)
             {
-                if (Utils.IsConsideredNonHumanlike(victim))
+                if (MHC_Utils.IsConsideredNonHumanlike(victim))
                     return false;
                 else
                     return true;
@@ -27,7 +27,7 @@ namespace MechHumanlikes
             [HarmonyPrefix]
             public static bool Listener(Pawn victim)
             {
-                if (Utils.IsConsideredNonHumanlike(victim))
+                if (MHC_Utils.IsConsideredNonHumanlike(victim))
                     return false;
                 else
                     return true;

@@ -16,7 +16,7 @@ namespace MechHumanlikes
         public static HashSet<string> blacklistedMechanicalTraits = new HashSet<string> { };
         public static bool bedRestrictionDefaultsToAll;
 
-            // Settings for what is considered mechanical and massive
+            // Settings for what is considered mechanical
         public static bool isUsingCustomConsiderations;
         public static HashSet<string> isConsideredMechanicalAnimal;
         public static HashSet<string> isConsideredMechanicalSapient;
@@ -43,11 +43,11 @@ namespace MechHumanlikes
 
         // INTERNAL SETTINGS
             // Settings page
-        public OptionsTab activeTab = OptionsTab.General;
-        public SettingsPreset ActivePreset = SettingsPreset.None;
+        public MHC_OptionsTab activeTab = MHC_OptionsTab.General;
+        public MHC_SettingsPreset ActivePreset = MHC_SettingsPreset.None;
         public bool settingsEverOpened = false;
 
-        public void StartupChecks()
+        public virtual void StartupChecks()
         {
             if (isConsideredMechanicalSapient == null)
                 isConsideredMechanicalSapient = new HashSet<string>();
@@ -57,10 +57,10 @@ namespace MechHumanlikes
                 isConsideredMechanicalAnimal = new HashSet<string>();
             if (isConsideredMechanical == null)
                 isConsideredMechanical = new HashSet<string>();
-            if (ActivePreset == SettingsPreset.None)
+            if (ActivePreset == MHC_SettingsPreset.None)
             {
                 settingsEverOpened = false;
-                ApplyPreset(SettingsPreset.Default);
+                ApplyPreset(MHC_SettingsPreset.Default);
             }
             if (!isUsingCustomConsiderations)
             {
@@ -82,7 +82,7 @@ namespace MechHumanlikes
             cachedExpandThird = true;
         }
 
-        internal void DoSettingsWindowContents(Rect inRect)
+        public virtual void DoSettingsWindowContents(Rect inRect)
         {
             settingsEverOpened = true;
             bool hasChanged = false;
@@ -127,19 +127,19 @@ namespace MechHumanlikes
 
             switch (activeTab)
             {
-                case OptionsTab.General:
+                case MHC_OptionsTab.General:
                 {
                     // PRESET SETTINGS
                     if (listingStandard.ButtonText("MHC_ApplyPreset".Translate()))
                     {
                         List<FloatMenuOption> options = new List<FloatMenuOption>();
-                        foreach (SettingsPreset s in Enum.GetValues(typeof(SettingsPreset)))
+                        foreach (MHC_SettingsPreset s in Enum.GetValues(typeof(MHC_SettingsPreset)))
                         {
-                            if (s == SettingsPreset.None) // Can not apply the None preset.
+                            if (s == MHC_SettingsPreset.None) // Can not apply the None preset.
                             {
                                 continue;
                             }
-                            options.Add(new FloatMenuOption(("MHC_SettingsPreset" + s.ToString()).Translate(), () => ApplyPreset(s)));
+                            options.Add(new FloatMenuOption(("MHC_MHC_SettingsPreset" + s.ToString()).Translate(), () => ApplyPreset(s)));
                         }
                         Find.WindowStack.Add(new FloatMenu(options));
                     }
@@ -185,7 +185,7 @@ namespace MechHumanlikes
                     listingStandard.GapLine();
                         break;
                 }
-                case OptionsTab.Health:
+                case MHC_OptionsTab.Health:
                 {
                     // MEDICAL
                     listingStandard.CheckboxLabeled("MHC_medicinesAreInterchangeable".Translate(), ref medicinesAreInterchangeable, onChange: onChange);
@@ -218,7 +218,7 @@ namespace MechHumanlikes
 
                     break;
                 }
-                case OptionsTab.Stats:
+                case MHC_OptionsTab.Stats:
                 {
                     // Traits
                     listingStandard.Label("MHC_traitBlacklistWarning".Translate());
@@ -249,7 +249,7 @@ namespace MechHumanlikes
 
 
             if (hasChanged)
-                ApplyPreset(SettingsPreset.Custom);
+                ApplyPreset(MHC_SettingsPreset.Custom);
 
             GUI.color = colorSave;
             Text.Anchor = anchorSave;
@@ -285,20 +285,20 @@ namespace MechHumanlikes
             RebuildCaches();
         }
 
-        public void ApplyPreset(SettingsPreset preset)
+        public void ApplyPreset(MHC_SettingsPreset preset)
         {
-            if (preset == SettingsPreset.None)
+            if (preset == MHC_SettingsPreset.None)
                 throw new InvalidOperationException("[MHC] Applying the None preset is illegal - were the mod options properly initialized?");
 
             ActivePreset = preset;
-            if (preset == SettingsPreset.Custom) // Custom settings are inherently not a preset, so apply no new settings.
+            if (preset == MHC_SettingsPreset.Custom) // Custom settings are inherently not a preset, so apply no new settings.
                 return;
 
             ApplyBaseSettings();
 
             switch (preset)
             {
-                case SettingsPreset.Default:
+                case MHC_SettingsPreset.Default:
                     break;
                 default:
                     throw new InvalidOperationException("Attempted to apply a nonexistent preset.");
@@ -307,7 +307,7 @@ namespace MechHumanlikes
         }
 
         // Caches for ThingDefs must be rebuilt manually. Configuration uses the MHC_MechanicalPawnExtension by default and will capture all pawn thing defs with that modExtension.
-        private void RebuildCaches()
+        protected virtual void RebuildCaches()
         {
             IEnumerable<ThingDef> validPawns = FilteredGetters.GetValidPawns();
 
@@ -364,8 +364,8 @@ namespace MechHumanlikes
         {
             base.ExposeData();
 
-            /* == INTERNAL === */
-            Scribe_Values.Look(ref ActivePreset, "MHC_ActivePreset", SettingsPreset.None, true);
+            /* == public === */
+            Scribe_Values.Look(ref ActivePreset, "MHC_ActivePreset", MHC_SettingsPreset.None, true);
 
             /* === GENERAL === */
 

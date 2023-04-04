@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    internal class IncidentWorker_DiseaseAnimal_Patch
+    public class IncidentWorker_DiseaseAnimal_Patch
     {
         // Remove all mechanical animals from the candidate list for animal diseases.
         [HarmonyPatch(typeof(IncidentWorker_DiseaseAnimal), "PotentialVictimCandidates")]
@@ -18,7 +18,7 @@ namespace MechHumanlikes
                 if (__result == null)
                     return;
 
-                __result = __result.Where(pawn => !Utils.IsConsideredMechanicalAnimal(pawn));
+                __result = __result.Where(pawn => !MHC_Utils.IsConsideredMechanicalAnimal(pawn));
             }
         }
     }

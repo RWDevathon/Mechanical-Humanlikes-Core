@@ -8,12 +8,12 @@ namespace MechHumanlikes
 {
     // Charge-capable pawns that are tucked in (via capture, rescue, for operations, etc) to a charge-capable bed will charge instead of resting normally.
     [HarmonyPatch(typeof(Pawn_JobTracker), "Notify_TuckedIntoBed")]
-    internal static class Notify_TuckedIntoBed_Patch
+    public static class Notify_TuckedIntoBed_Patch
     {
         [HarmonyPrefix]
         public static bool Prefix(Pawn_JobTracker __instance, Pawn ___pawn, Building_Bed bed)
         {
-            if (Utils.CanUseBattery(___pawn))
+            if (MHC_Utils.CanUseBattery(___pawn))
             {
                 bool isChargeCapable = false;
 
