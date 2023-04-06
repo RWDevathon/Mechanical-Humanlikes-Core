@@ -3,6 +3,8 @@ using System.Reflection;
 using Verse;
 using UnityEngine;
 using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MechHumanlikes
 {
@@ -132,14 +134,14 @@ namespace MechHumanlikes
             // Maintenance Effect workers must have their def and extension references manually defined here as they are created via a def mod extension which is def-blind and does not self-initialize.
             foreach (HediffDef hediffDef in DefDatabase<HediffDef>.AllDefsListForReading)
             {
-                MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
-                if (effectExtension != null)
+                if (hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>() is MHC_MaintenanceEffectExtension effectExtension)
                 {
-                    MaintenanceWorker maintenanceWorker = effectExtension.maintenanceWorker;
-                    if (maintenanceWorker != null)
+                    if (effectExtension.MaintenanceWorkers is List<MaintenanceWorker> maintenanceWorkers)
                     {
-                        maintenanceWorker.def = hediffDef;
-                        maintenanceWorker.effecter = effectExtension;
+                        foreach (MaintenanceWorker maintenanceWorker in maintenanceWorkers)
+                        {
+                            maintenanceWorker.def = hediffDef;
+                        }
                     }
                 }
             }

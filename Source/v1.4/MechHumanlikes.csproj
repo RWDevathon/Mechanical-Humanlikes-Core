@@ -292,8 +292,8 @@
     <Compile Include="Toils\Toils_LayDownPower.cs" />
     <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\FilteredGetters.cs" />
-    <Compile Include="Utils\Textures.cs" />
-    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\MHC_Textures.cs" />
+    <Compile Include="Utils\MHC_Utils.cs" />
     <Compile Include="JobGivers\WorkGiver_MechTend.cs" />
     <Compile Include="JobGivers\WorkGiver_TendSelfEmergencyMech.cs" />
     <Compile Include="JobGivers\WorkGiver_TendSelfMech.cs" />

@@ -215,74 +215,72 @@ namespace MechHumanlikes
                     {
                         // The HediffDef is guaranteed to have the mod extension as that is a pre-requisite condition for being in the enumerable.
                         MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
-                        if (effectExtension.maintenanceWorker != null)
+
+                        // If the maintenance worker specifies this race is invalid for this Hediff, move on.
+                        if (!effectExtension.MaintenanceWorkers.NullOrEmpty() && effectExtension.MaintenanceWorkers.Any(maintenanceWorker => !maintenanceWorker.CanEverApplyTo(race)))
                         {
-                            // If the maintenance worker specifies this race is invalid for this Hediff, move on.
-                            if (!effectExtension.maintenanceWorker.CanEverApplyTo(race))
-                            {
-                                continue;
-                            }
+                            continue;
+                        }
 
-                            // If the extension has its whitelist defined, ensure the race is included in that list.
-                            if (effectExtension.racesToAffect != null && !effectExtension.racesToAffect.Any(thingDef => thingDef.race == race))
-                            {
-                                continue;
-                            }
+                        // If the extension has its whitelist defined, ensure the race is included in that list.
+                        if (effectExtension.racesToAffect != null && !effectExtension.racesToAffect.Any(thingDef => thingDef.race == race))
+                        {
+                            continue;
+                        }
 
-                            // If the extension is stage-related and isn't race-restricted/worker-restricted, allow it.
-                            if (effectExtension.isMaintenangeStageEffect)
-                            {
-                                validHediffs.Add(hediffDef);
-                                continue;
-                            }
+                        // If the extension is stage-related and isn't race-restricted/worker-restricted, allow it.
+                        if (effectExtension.isMaintenangeStageEffect)
+                        {
+                            validHediffs.Add(hediffDef);
+                            continue;
+                        }
 
-                            // If the extension defines specific parts to affect and the race has any of those parts, it may be applied.
-                            if (effectExtension.partsToAffect != null)
+                        // If the extension defines specific parts to affect and the race has any of those parts, it may be applied.
+                        if (effectExtension.partsToAffect != null)
+                        {
+                            bool locatedViablePart = false;
+                            foreach (BodyPartDef partDef in effectExtension.partsToAffect)
                             {
-                                bool locatedViablePart = false;
-                                foreach (BodyPartDef partDef in effectExtension.partsToAffect)
-                                {
-                                    if (race.body.cachedPartsByDef[partDef].Count > 0)
-                                    {
-                                        validHediffs.Add(hediffDef);
-                                        locatedViablePart = true;
-                                        break;
-                                    }
-                                }
-                                // If this hediff is valid here, no need to run other checks.
-                                if (locatedViablePart)
-                                {
-                                    continue;
-                                }
-                            }
-
-                            // If the extension defines specific part tags to affect and the race has any of that tagged part, it may be applied.
-                            if (effectExtension.bodyPartTagsToAffect != null)
-                            {
-                                bool locatedViableTag = false;
-                                foreach (BodyPartTagDef tagDef in effectExtension.bodyPartTagsToAffect)
-                                {
-                                    if (race.body.HasPartWithTag(tagDef))
-                                    {
-                                        validHediffs.Add(hediffDef);
-                                        locatedViableTag = true;
-                                        break;
-                                    }
-                                }
-                                // If this hediff is valid here, no need to run other checks.
-                                if (locatedViableTag)
-                                {
-                                    continue;
-                                }
-                            }
-
-                            // If the extension defines a depth to affect and the race has any part with that depth, it may be applied.
-                            if (effectExtension.partDepthToAffect != BodyPartDepth.Undefined)
-                            {
-                                if (race.body.AllParts.Any(partRecord => partRecord.depth == effectExtension.partDepthToAffect))
+                                if (race.body.cachedPartsByDef[partDef].Count > 0)
                                 {
                                     validHediffs.Add(hediffDef);
+                                    locatedViablePart = true;
+                                    break;
                                 }
+                            }
+                            // If this hediff is valid here, no need to run other checks.
+                            if (locatedViablePart)
+                            {
+                                continue;
+                            }
+                        }
+
+                        // If the extension defines specific part tags to affect and the race has any of that tagged part, it may be applied.
+                        if (effectExtension.bodyPartTagsToAffect != null)
+                        {
+                            bool locatedViableTag = false;
+                            foreach (BodyPartTagDef tagDef in effectExtension.bodyPartTagsToAffect)
+                            {
+                                if (race.body.HasPartWithTag(tagDef))
+                                {
+                                    validHediffs.Add(hediffDef);
+                                    locatedViableTag = true;
+                                    break;
+                                }
+                            }
+                            // If this hediff is valid here, no need to run other checks.
+                            if (locatedViableTag)
+                            {
+                                continue;
+                            }
+                        }
+
+                        // If the extension defines a depth to affect and the race has any part with that depth, it may be applied.
+                        if (effectExtension.partDepthToAffect != BodyPartDepth.Undefined)
+                        {
+                            if (race.body.AllParts.Any(partRecord => partRecord.depth == effectExtension.partDepthToAffect))
+                            {
+                                validHediffs.Add(hediffDef);
                             }
                         }
                     }

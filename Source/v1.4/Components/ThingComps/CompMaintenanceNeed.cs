@@ -133,7 +133,7 @@ namespace MechHumanlikes
                 foreach (HediffDef hediffDef in MHC_Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
                 {
                     MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
-                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMHC_MaintenanceStageToOccur == Stage)
+                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMaintenanceStageToOccur == Stage)
                     {
                         Pawn.health.AddHediff(hediffDef);
                     }
@@ -144,7 +144,7 @@ namespace MechHumanlikes
         /// <summary>
         /// Alter the maintenance effect ticks based on the provided tick rate. Actual effect is changed based on the pawn's maintenance level.
         /// If less than 0.3 (poor maintenance), effect trends negatively, and if higher than 0.7, effect trends positively.
-        /// Between 0.3 and 0.7, effect trends toward -60000 or 60000 representing one full day of poor or high maintenance, and does not change if between -60000 and 60000 already.
+        /// Between 0.3 and 0.7, effect trends toward 0 days, and does not change if between -60000 and 60000 already.
         /// </summary>
         public void ChangeMaintenanceEffectTicks()
         {
@@ -168,7 +168,7 @@ namespace MechHumanlikes
             }
             else
             {
-                maintenanceEffectTicks = Mathf.MoveTowards(maintenanceEffectTicks, 0, 1f * TicksPerLong);
+                maintenanceEffectTicks = Mathf.MoveTowards(maintenanceEffectTicks, 0, (Mathf.Log((Mathf.Abs(maintenanceEffectTicks) / TicksPerDay) + 2, 2) - 1) * TicksPerLong);
             }
             // Prevent the ticks from going outside a 60 day value positively or negatively.
             maintenanceEffectTicks = Mathf.Clamp(maintenanceEffectTicks, -3600000, 3600000);
@@ -265,7 +265,7 @@ namespace MechHumanlikes
                 }
 
                 // If there is a custom maintenance worker that blocks this effect on the pawn, it can not occur.
-                if (effectExtension.maintenanceWorker != null && !effectExtension.maintenanceWorker.CanApplyTo(Pawn))
+                if (!effectExtension.MaintenanceWorkers.NullOrEmpty() && effectExtension.MaintenanceWorkers.Any(maintenanceWorker => !maintenanceWorker.CanApplyTo(Pawn)))
                 {
                     continue;
                 }
@@ -274,7 +274,7 @@ namespace MechHumanlikes
                 if (effectExtension.daysBeforeCanOccur < 0)
                 {
                     // Stage is too high to occur now.
-                    if (Stage > effectExtension.requiredMHC_MaintenanceStageToOccur)
+                    if (Stage > effectExtension.requiredMaintenanceStageToOccur)
                     {
                         continue;
                     }
@@ -291,7 +291,7 @@ namespace MechHumanlikes
                 else
                 {
                     // Stage is too low to occur now.
-                    if (Stage < effectExtension.requiredMHC_MaintenanceStageToOccur)
+                    if (Stage < effectExtension.requiredMaintenanceStageToOccur)
                     {
                         continue;
                     }
@@ -311,7 +311,7 @@ namespace MechHumanlikes
         {
             // Check the chance to occur based on the extensions curve, with 0 corresponding to the days before it can occur. If it should, apply the appropriate effects.
             // For example, if 4 average maintenance days must pass before an effect is applied, and 5 days have passed, the curve will evaluate at 1.
-            if (Rand.MTBEventOccurs(effectExtension.MeanDaysToOccur.Evaluate(Math.Abs(effectTicks) - Math.Abs(effectExtension.daysBeforeCanOccur)), TicksPerDay, 60f))
+            if (Rand.MTBEventOccurs(effectExtension.meanDaysToOccur.Evaluate(Math.Abs(effectTicks) - Math.Abs(effectExtension.daysBeforeCanOccur)), TicksPerDay, 60f))
             {
                 HashSet<BodyPartRecord> validParts = ValidBodyPartsForEffect(effectExtension, pawn);
                 // If there are no legal parts identified, this effect can not occur.
@@ -325,7 +325,13 @@ namespace MechHumanlikes
                 {
                     pawn.health.AddHediff(hediffDef);
                     Hediff chosenHediff = HediffMaker.MakeHediff(hediffDef, pawn);
-                    effectExtension.maintenanceWorker?.OnApplied(pawn, null);
+                    if (effectExtension.MaintenanceWorkers.NullOrEmpty())
+                    {
+                        foreach (MaintenanceWorker worker in effectExtension.MaintenanceWorkers)
+                        {
+                            worker.OnApplied(pawn, null);
+                        }
+                    }
                     SendMaintenanceEffectLetter(pawn, chosenHediff);
                 }
                 else
@@ -333,7 +339,13 @@ namespace MechHumanlikes
                     BodyPartRecord chosenPart = validParts.RandomElement();
                     Hediff chosenHediff = HediffMaker.MakeHediff(hediffDef, pawn, chosenPart);
                     pawn.health.AddHediff(chosenHediff, chosenPart);
-                    effectExtension.maintenanceWorker?.OnApplied(pawn, chosenPart);
+                    if (!effectExtension.MaintenanceWorkers.NullOrEmpty())
+                    {
+                        foreach (MaintenanceWorker worker in effectExtension.MaintenanceWorkers)
+                        {
+                            worker.OnApplied(pawn, chosenPart);
+                        }
+                    }
                     SendMaintenanceEffectLetter(pawn, chosenHediff);
                 }
             }
@@ -358,7 +370,7 @@ namespace MechHumanlikes
                 }
 
                 // If the maintenance worker indicates this part is illegal now, skip it.
-                if (effectExtension.maintenanceWorker?.CanApplyOnPart(pawn, part) == false)
+                if (!effectExtension.MaintenanceWorkers.NullOrEmpty() && effectExtension.MaintenanceWorkers.Any(maintenanceWorker => maintenanceWorker.CanApplyOnPart(pawn, part) == false))
                 {
                     continue;
                 }

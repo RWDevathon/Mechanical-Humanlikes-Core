@@ -2,9 +2,8 @@
 using System.Linq;
 using Verse;
 using RimWorld;
-using MechHumanlikes;
 
-namespace ATReforged
+namespace MechHumanlikes
 {
     public class Recipe_InstallMechanicalPart : Recipe_SurgeryMechanical
     {

@@ -27,8 +27,8 @@ namespace MechHumanlikes
         public static readonly Texture2D MechDroneExemplar = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechDroneExemplar");
         public static readonly Texture2D MechSapientExemplar = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechSapientExemplar");
         public static readonly Texture2D BasicHumanExemplar = ContentFinder<Texture2D>.Get("UI/Commands/ForColonists");
-        public static readonly Texture2D MechDroneMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechDroneMHC_PawnTypeRestricted");
-        public static readonly Texture2D MechSapientMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechSapientMHC_PawnTypeRestricted");
-        public static readonly Texture2D OrganicMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_OrganicMHC_PawnTypeRestricted");
+        public static readonly Texture2D MechDroneMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechDronePawnTypeRestricted");
+        public static readonly Texture2D MechSapientMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_MechSapientPawnTypeRestricted");
+        public static readonly Texture2D OrganicMHC_PawnTypeRestricted = ContentFinder<Texture2D>.Get("UI/Icons/Dialogs/MHC_OrganicPawnTypeRestricted");
     }
 }

@@ -9,7 +9,49 @@
         <workSkill>Crafting</workSkill>
         <workSkillLearnFactor>16</workSkillLearnFactor>
         <anesthetize>false</anesthetize>
+        <recipeUsers /> <!-- XML patches add individual races that want to use the surgeries that inherit from this class. -->
     </RecipeDef>
+
+	<!-- Surgery to remove body parts from mechanical units -->
+	<RecipeDef ParentName="MHC_surgeryMechanicalBase">
+		<defName>MHC_RemoveMechanicalBodyPart</defName>
+		<label>Remove part</label>
+		<description>Removes body part.</description>
+		<workerClass>MechHumanlikes.Recipe_RemoveMechanicalPart</workerClass>
+		<jobString>Removing body part.</jobString>
+		<workAmount>2000</workAmount>
+    	<isViolation>true</isViolation>
+		<surgerySuccessChanceFactor>2.5</surgerySuccessChanceFactor>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MHC_PartPack</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Medicine</li>
+			</categories>
+			<thingDefs>
+				<li>MHC_PartPack</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
 
 	<!-- Surgery to shutdown any incapacitated mechanical unit -->
     <RecipeDef ParentName="MHC_surgeryMechanicalBase">
