@@ -25,13 +25,13 @@ namespace MechHumanlikes
                 }
 
                 // Race-wide blacklisted needs.
-                if (pawnExtension.blacklistedNeeds.Contains(nd))
+                if (pawnExtension.blacklistedNeeds?.Contains(nd) ?? false)
                 {
                     __result = false;
                 }
 
                 // Sapient blacklisted needs.
-                if (MHC_Utils.IsConsideredMechanicalSapient(___pawn) && pawnExtension.blacklistedSapientNeeds.Contains(nd))
+                if (MHC_Utils.IsConsideredMechanicalSapient(___pawn) && (pawnExtension.blacklistedSapientNeeds?.Contains(nd) ?? false))
                 {
                     __result = false;
                 }

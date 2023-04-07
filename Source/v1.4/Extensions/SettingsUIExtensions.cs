@@ -21,7 +21,7 @@ namespace MechHumanlikes
 
         public static void PawnSelector(this Listing_Standard instance, IEnumerable<ThingDef> pawnOptions, HashSet<string> selectedPawns, string selectedLabel, string unselectedLabel, Action onChange = null)
         {
-            IEnumerable<ThingDef> unselectedPawns = pawnOptions.Where(w => !MechHumanlikes_Settings.isConsideredMechanical.Contains(w.defName));
+            IEnumerable<ThingDef> unselectedPawns = pawnOptions.Where(w => !MechHumanlikes_Settings.mechanicalRaces.Contains(w.defName));
             TextAnchor anchorSave = Text.Anchor;
             Color colorSave = GUI.color;
             GUI.color = Color.white;
@@ -65,7 +65,7 @@ namespace MechHumanlikes
                 if (interacted)
                 {
                     selectedPawns.Remove(orderedSelectedPawns[i].defName);
-                    MechHumanlikes_Settings.isConsideredMechanical.Remove(orderedSelectedPawns[i].defName);
+                    MechHumanlikes_Settings.mechanicalRaces.Remove(orderedSelectedPawns[i].defName);
                     onChange?.Invoke();
                 }
             }
@@ -78,7 +78,7 @@ namespace MechHumanlikes
                 if (interacted)
                 {
                     selectedPawns.Add(orderedUnselectedPawns[i].defName);
-                    MechHumanlikes_Settings.isConsideredMechanical.Add(orderedUnselectedPawns[i].defName);
+                    MechHumanlikes_Settings.mechanicalRaces.Add(orderedUnselectedPawns[i].defName);
                     onChange?.Invoke();
                 }
             }

@@ -13,42 +13,42 @@ namespace MechHumanlikes
 
         public static bool IsConsideredMechanical(Pawn pawn)
         {
-            return MechHumanlikes_Settings.isConsideredMechanical.Contains(pawn.def.defName);
+            return MechHumanlikes_Settings.mechanicalRaces.Contains(pawn.def.defName);
         }
 
         public static bool IsConsideredMechanical(ThingDef thingDef)
         {
-            return MechHumanlikes_Settings.isConsideredMechanical.Contains(thingDef.defName);
+            return MechHumanlikes_Settings.mechanicalRaces.Contains(thingDef.defName);
         }
 
         public static bool IsConsideredMechanicalAnimal(Pawn pawn)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalAnimal.Contains(pawn.def.defName);
+            return MechHumanlikes_Settings.mechanicalAnimals.Contains(pawn.def.defName);
         }
 
         public static bool IsConsideredMechanicalAnimal(ThingDef thingDef)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalAnimal.Contains(thingDef.defName);
+            return MechHumanlikes_Settings.mechanicalAnimals.Contains(thingDef.defName);
         }
 
         public static bool IsConsideredMechanicalSapient(Pawn pawn)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalSapient.Contains(pawn.def.defName);
+            return MechHumanlikes_Settings.mechanicalSapients.Contains(pawn.def.defName);
         }
 
         public static bool IsConsideredMechanicalSapient(ThingDef thingDef)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalSapient.Contains(thingDef.defName);
+            return MechHumanlikes_Settings.mechanicalSapients.Contains(thingDef.defName);
         }
 
         public static bool IsConsideredMechanicalDrone(Pawn pawn)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalDrone.Contains(pawn.def.defName);
+            return MechHumanlikes_Settings.mechanicalDrones.Contains(pawn.def.defName);
         }
 
         public static bool IsConsideredMechanicalDrone(ThingDef thingDef)
         {
-            return MechHumanlikes_Settings.isConsideredMechanicalDrone.Contains(thingDef.defName);
+            return MechHumanlikes_Settings.mechanicalDrones.Contains(thingDef.defName);
         }
 
         // Some pawns may be treated as non-humanlikes even if they are one, such as drones. Other mods may wish to hook into this method to add extra qualifications.

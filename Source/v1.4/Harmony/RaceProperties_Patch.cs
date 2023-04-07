@@ -1,7 +1,6 @@
 ﻿using Verse;
 using HarmonyLib;
 using AlienRace;
-using RimWorld;
 using System;
 
 namespace MechHumanlikes

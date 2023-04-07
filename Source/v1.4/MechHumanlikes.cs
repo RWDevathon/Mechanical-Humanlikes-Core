@@ -4,7 +4,6 @@ using Verse;
 using UnityEngine;
 using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MechHumanlikes
 {

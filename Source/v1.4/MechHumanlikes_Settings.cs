@@ -18,10 +18,10 @@ namespace MechHumanlikes
 
             // Settings for what is considered mechanical
         public static bool isUsingCustomConsiderations;
-        public static HashSet<string> isConsideredMechanicalAnimal;
-        public static HashSet<string> isConsideredMechanicalSapient;
-        public static HashSet<string> isConsideredMechanicalDrone;
-        public static HashSet<string> isConsideredMechanical;
+        public static HashSet<string> mechanicalAnimals = new HashSet<string>();
+        public static HashSet<string> mechanicalSapients = new HashSet<string>();
+        public static HashSet<string> mechanicalDrones = new HashSet<string>();
+        public static HashSet<string> mechanicalRaces = new HashSet<string>();
 
             // Settings for battery charge rate
         public static float batteryChargeRate;
@@ -49,14 +49,6 @@ namespace MechHumanlikes
 
         public virtual void StartupChecks()
         {
-            if (isConsideredMechanicalSapient == null)
-                isConsideredMechanicalSapient = new HashSet<string>();
-            if (isConsideredMechanicalDrone == null)
-                isConsideredMechanicalDrone = new HashSet<string>();
-            if (isConsideredMechanicalAnimal == null)
-                isConsideredMechanicalAnimal = new HashSet<string>();
-            if (isConsideredMechanical == null)
-                isConsideredMechanical = new HashSet<string>();
             if (ActivePreset == MHC_SettingsPreset.None)
             {
                 settingsEverOpened = false;
@@ -139,7 +131,7 @@ namespace MechHumanlikes
                             {
                                 continue;
                             }
-                            options.Add(new FloatMenuOption(("MHC_MHC_SettingsPreset" + s.ToString()).Translate(), () => ApplyPreset(s)));
+                            options.Add(new FloatMenuOption(("MHC_SettingsPreset" + s.ToString()).Translate(), () => ApplyPreset(s)));
                         }
                         Find.WindowStack.Add(new FloatMenu(options));
                     }
@@ -162,21 +154,21 @@ namespace MechHumanlikes
                             cachedExpandFirst = !cachedExpandFirst;
                     }
                     if (cachedExpandFirst)
-                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), isConsideredMechanicalSapient, "MHC_SettingsConsideredMechanicalSapient".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
+                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), mechanicalSapients, "MHC_SettingsConsideredMechanicalSapient".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
 
                     if (listingStandard.ButtonText("MHC_ExpandMenu".Translate()))
                     {
                         cachedExpandSecond = !cachedExpandSecond;
                     }
                     if (cachedExpandSecond)
-                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), isConsideredMechanicalDrone, "MHC_SettingsConsideredMechanicalDrone".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
+                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), mechanicalDrones, "MHC_SettingsConsideredMechanicalDrone".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
 
                     if (listingStandard.ButtonText("MHC_ExpandMenu".Translate()))
                     {
                         cachedExpandThird = !cachedExpandThird;
                     }
                     if (cachedExpandThird)
-                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Animal), isConsideredMechanicalAnimal, "MHC_SettingsConsideredMechanicalAnimal".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
+                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Animal), mechanicalAnimals, "MHC_SettingsConsideredMechanicalAnimal".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
 
                     listingStandard.GapLine();
 
@@ -354,10 +346,10 @@ namespace MechHumanlikes
                     matchingChargers.Add(validAnimal.defName);
             }
 
-            isConsideredMechanicalSapient = matchingSapients;
-            isConsideredMechanicalDrone = matchingDrones;
-            isConsideredMechanicalAnimal = matchingAnimals;
-            isConsideredMechanical = matchingMechanicals;
+            mechanicalSapients = matchingSapients;
+            mechanicalDrones = matchingDrones;
+            mechanicalAnimals = matchingAnimals;
+            mechanicalRaces = matchingMechanicals;
         }
 
         public override void ExposeData()
@@ -379,10 +371,10 @@ namespace MechHumanlikes
             Scribe_Values.Look(ref isUsingCustomConsiderations, "MHC_isUsingCustomConsiderations", false);
             try
             {
-                Scribe_Collections.Look(ref isConsideredMechanicalAnimal, "MHC_isConsideredMechanicalAnimal", LookMode.Value);
-                Scribe_Collections.Look(ref isConsideredMechanicalSapient, "MHC_isConsideredMechanicalSapient", LookMode.Value);
-                Scribe_Collections.Look(ref isConsideredMechanicalDrone, "MHC_isConsideredMechanicalDrone", LookMode.Value);
-                Scribe_Collections.Look(ref isConsideredMechanical, "MHC_isConsideredMechanical", LookMode.Value);
+                Scribe_Collections.Look(ref mechanicalAnimals, "MHC_isConsideredMechanicalAnimal", LookMode.Value);
+                Scribe_Collections.Look(ref mechanicalSapients, "MHC_isConsideredMechanicalSapient", LookMode.Value);
+                Scribe_Collections.Look(ref mechanicalDrones, "MHC_isConsideredMechanicalDrone", LookMode.Value);
+                Scribe_Collections.Look(ref mechanicalRaces, "MHC_isConsideredMechanical", LookMode.Value);
             }
             catch (Exception ex)
             {
