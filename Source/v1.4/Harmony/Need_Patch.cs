@@ -15,7 +15,7 @@ namespace MechHumanlikes
             {
                 if (__instance.def.defName == "Food")
                 {
-                    if (MHC_Utils.CanUseBattery(___pawn))
+                    if (MHC_Utils.IsConsideredMechanical(___pawn))
                     {
                         __result = "MHC_EnergyNeed".Translate();
                     }
@@ -32,7 +32,7 @@ namespace MechHumanlikes
             {
                 if (__instance.def.defName == "Food")
                 {
-                    if (MHC_Utils.CanUseBattery(___pawn))
+                    if (MHC_Utils.IsConsideredMechanical(___pawn))
                     {
                         __result = $"{"MHC_EnergyNeed".Translate()}: {__instance.CurLevelPercentage.ToStringPercent()} ({__instance.CurLevel:0.##}/{__instance.MaxLevel:0.##})\n{"MHC_EnergyNeedDesc".Translate()}";
                         return;

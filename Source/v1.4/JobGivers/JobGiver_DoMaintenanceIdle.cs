@@ -18,7 +18,7 @@ namespace MechHumanlikes
         {
             CompMaintenanceNeed compMaintenanceNeed = pawn.GetComp<CompMaintenanceNeed>();
 
-            if (compMaintenanceNeed == null || pawn.InAggroMentalState || pawn.Downed || compMaintenanceNeed.MaintenanceLevel > 0.8f)
+            if (compMaintenanceNeed == null || pawn.InAggroMentalState || compMaintenanceNeed.MaintenanceLevel > 0.8f)
             {
                 return null;
             }

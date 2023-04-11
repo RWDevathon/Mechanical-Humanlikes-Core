@@ -49,12 +49,16 @@ namespace MechHumanlikes
                         return false;
                     }
 
-                    // Attempt to locate a viable charging station. Set the result to this if one is found.
-                    Building_ChargingStation station = (Building_ChargingStation)GenClosest.ClosestThingReachable(pawn.PositionHeld, pawn.MapHeld, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), validator: building => building is Building_ChargingStation chargeStation && building.Position.InAllowedArea(pawn) && building.TryGetComp<CompPowerTrader>()?.PowerOn == true && chargeStation.GetOpenRechargeSpot(pawn) != IntVec3.Invalid);
-                    if (station != null)
+                    // Downed pawns can not use charging stations.
+                    if (!pawn.Downed)
                     {
-                        __result = new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(station.GetOpenRechargeSpot(pawn)), new LocalTargetInfo(station));
-                        return false;
+                        // Attempt to locate a viable charging station. Set the result to this if one is found.
+                        Building_ChargingStation station = (Building_ChargingStation)GenClosest.ClosestThingReachable(pawn.PositionHeld, pawn.MapHeld, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), validator: building => building is Building_ChargingStation chargeStation && pawn.CanReach(chargeStation, PathEndMode.Touch, Danger.Some) && building.Position.InAllowedArea(pawn) && building.TryGetComp<CompPowerTrader>()?.PowerOn == true && chargeStation.GetOpenRechargeSpot(pawn) != IntVec3.Invalid);
+                        if (station != null)
+                        {
+                            __result = new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(station.GetOpenRechargeSpot(pawn)), new LocalTargetInfo(station));
+                            return false;
+                        }
                     }
 
                     // If there is no viable charging bed or charging station and the pawn can not eat food, give no job.

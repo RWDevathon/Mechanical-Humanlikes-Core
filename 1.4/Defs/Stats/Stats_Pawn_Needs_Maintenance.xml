@@ -8,6 +8,7 @@
         <description>How well this mechanical unit retains its level of maintenance over time. This stat affects how quickly the pawn's maintenance need naturally falls, and is primarily affected by coolant filtration and pumping.</description>
         <category>BasicsPawn</category>
         <defaultBaseValue>1.0</defaultBaseValue>
+        <hideAtValue>1.0</hideAtValue>
         <toStringStyle>PercentZero</toStringStyle>
         <minValue>0.2</minValue>
         <maxValue>5</maxValue>

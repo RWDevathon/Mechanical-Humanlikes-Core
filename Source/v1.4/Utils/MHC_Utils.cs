@@ -89,7 +89,20 @@ namespace MechHumanlikes
             if (user.Map == null)
                 return null;
 
-            return (Building_Bed)GenClosest.ClosestThingReachable(user.PositionHeld, user.MapHeld, ThingRequest.ForGroup(ThingRequestGroup.Bed), PathEndMode.OnCell, TraverseParms.For(carrier), 9999f, (Thing b) => b.def.IsBed && (int)b.Position.GetDangerFor(user, user.Map) <= (int)Danger.Deadly && RestUtility.IsValidBedFor(b, user, carrier, true) && ((b.TryGetComp<CompPawnCharger>() != null && b.TryGetComp<CompPowerTrader>()?.PowerOn == true) || b.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading.Any(thing => thing.TryGetComp<CompPawnCharger>() != null && thing.TryGetComp<CompPowerTrader>()?.PowerOn == true) == true));
+            // Downed pawns in beds may count their current bed as a charging bed if it is charge-capable.
+            if (user.Downed && user == carrier && user.CurrentBed() is Building_Bed bed)
+            {
+                if (RestUtility.IsValidBedFor(bed, user, carrier, true) && ((bed.GetComp<CompPawnCharger>() != null && (bed.GetComp<CompPowerTrader>()?.PowerOn ?? false)) || (bed.GetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading.Any(thing => thing.TryGetComp<CompPawnCharger>() != null && (thing.TryGetComp<CompPowerTrader>()?.PowerOn ?? false)) ?? false)))
+                {
+                    return bed;
+                }
+            }
+            else if (user.Downed && user == carrier)
+            {
+                return null;
+            }
+
+            return (Building_Bed)GenClosest.ClosestThingReachable(user.PositionHeld, user.MapHeld, ThingRequest.ForGroup(ThingRequestGroup.Bed), PathEndMode.OnCell, TraverseParms.For(carrier), 9999f, (Thing b) => b.def.IsBed && (int)b.Position.GetDangerFor(user, user.Map) <= (int)Danger.Deadly && RestUtility.IsValidBedFor(b, user, carrier, true) && ((b.TryGetComp<CompPawnCharger>() != null && (b.TryGetComp<CompPowerTrader>()?.PowerOn ?? false)) || (b.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading.Any(thing => thing.TryGetComp<CompPawnCharger>() != null && (thing.TryGetComp<CompPowerTrader>()?.PowerOn ?? false)) ?? false)));
         }
 
         /* === HEALTH UTILITIES === */

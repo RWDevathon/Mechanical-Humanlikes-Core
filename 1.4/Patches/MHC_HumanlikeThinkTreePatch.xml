@@ -6,8 +6,8 @@
         <xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="JobGiver_WanderColony"]</xpath>
         <order>Prepend</order>
         <value>
-            <li Class="MechHumanlikes.JobGiver_RechargeIdle"/>
             <li Class="MechHumanlikes.JobGiver_DoMaintenanceIdle"/>
+            <li Class="MechHumanlikes.JobGiver_RechargeIdle"/>
         </value>
     </Operation>
 
@@ -16,8 +16,8 @@
         <xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="JobGiver_WanderCurrentRoom"]</xpath>
         <order>Prepend</order>
         <value>
-            <li Class="MechHumanlikes.JobGiver_RechargeIdle"/>
             <li Class="MechHumanlikes.JobGiver_DoMaintenanceIdle"/>
+            <li Class="MechHumanlikes.JobGiver_RechargeIdle"/>
         </value>
     </Operation>
 
@@ -36,6 +36,7 @@
         <order>Prepend</order>
         <value>
             <li Class="MechHumanlikes.JobGiver_DoMaintenanceIdle"/>
+            <li Class="MechHumanlikes.JobGiver_RechargeIdle"/>
         </value>
     </Operation>
 

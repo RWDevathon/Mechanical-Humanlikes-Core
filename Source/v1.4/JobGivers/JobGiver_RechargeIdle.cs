@@ -18,7 +18,7 @@ namespace MechHumanlikes
             Need_Food foodNeed = pawn.needs.food;
 
             // If the pawn can not charge or has sufficient charge, don't try giving them the job.
-            if (foodNeed == null || !pawn.Spawned || pawn.InAggroMentalState || pawn.Downed || foodNeed.CurInstantLevelPercentage >= 0.8f || pawn.GetStatValue(MHC_StatDefOf.MHC_ChargingSpeed) <= 0)
+            if (foodNeed == null || !pawn.Spawned || pawn.InAggroMentalState || foodNeed.CurLevelPercentage >= 0.8f || pawn.GetStatValue(MHC_StatDefOf.MHC_ChargingSpeed) <= 0)
             {
                 return null;
             }
@@ -30,6 +30,12 @@ namespace MechHumanlikes
             {
                 pawn.ownership.ClaimBedIfNonMedical(bed);
                 return new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(bed));
+            }
+
+            // Downed pawns can not use charging stations.
+            if (pawn.Downed)
+            {
+                return null;
             }
 
             // Attempt to locate a viable charging station.

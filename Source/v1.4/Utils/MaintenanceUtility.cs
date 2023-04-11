@@ -12,6 +12,12 @@ namespace MechHumanlikes
         // Locate a viable maintenance spot for this pawn. Order is: assigned spot, then owned room, then a room with a charging station in it, then anywhere in the colony.
         public static LocalTargetInfo FindMaintenanceSpot(Pawn pawn)
         {
+            // Downed pawns skip the entire process and use their current position.
+            if (pawn.Downed)
+            {
+                return pawn.Position;
+            }
+
             float highestPreferability = float.MinValue;
             LocalTargetInfo spot = LocalTargetInfo.Invalid;
             Room ownedRoom = pawn.ownership.OwnedRoom;
@@ -91,6 +97,7 @@ namespace MechHumanlikes
                     yield return item;
                 }
             }
+
             // A pawn's owned bed allows it to use the room that the bed is in for maintenance.
             Building_Bed bed = pawn.ownership?.OwnedBed;
             Room ownedRoom = bed?.GetRoom();
@@ -107,6 +114,7 @@ namespace MechHumanlikes
                     }
                 }
             }
+
             // Prisoners may only use the room their owned bed is in.
             if (pawn.IsPrisonerOfColony)
             {
@@ -129,6 +137,7 @@ namespace MechHumanlikes
                     }
                 }
             }
+
             // Locate three random colony positions that are valid and yield them.
             IntVec3 colonyWanderRoot = WanderUtility.GetColonyWanderRoot(pawn);
             for (int i = 0; i < 3; i++)
