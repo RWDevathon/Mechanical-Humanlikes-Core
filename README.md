@@ -3,10 +3,11 @@
 </p>
 
 # Description
-*
+* A framework using Harmony and Humanoid Alien Races (HAR) to allow for mechanical humanlike pawns with the intelligence of humans and all that comes with it.
 
 ## Features
-*
+* This mod itself has the bare minimum content necessary to have mechanical pawns, including mechanical analogues for medicine and solutions for charging.
+* An extensive mod settings page allowing for reconfiguring various races as mechanical and settings for controlling various aspects of mechanical pawns.
 
 ## Known Issues / Incompatibilities
 * Smart Medicine is incompatible at this time due to how it affects pawn's AI regarding medicine for treatment. Since mechanical units from this mod use repair stims as medicine and have a different system for medical related details, the two will conflict.
