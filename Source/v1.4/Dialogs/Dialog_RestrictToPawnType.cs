@@ -82,7 +82,7 @@ namespace MechHumanlikes
                 maxOneColumn = true
             };
             listingStandard.Begin(rect);
-            if (listingStandard.RadioButton("MHC_MHC_PawnTypeNone".Translate(), (MHC_PawnType.None | pawnTypes) == MHC_PawnType.None, tooltip: "MHC_MHC_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
+            if (listingStandard.RadioButton("MHC_PawnTypeNone".Translate(), (MHC_PawnType.None | pawnTypes) == MHC_PawnType.None, tooltip: "MHC_PawnTypeNoneTooltip".Translate(), tooltipDelay: 0.25f))
             {
                 for (int j = compRestricts.Count - 1; j >= 0; j--)
                 {
@@ -91,7 +91,7 @@ namespace MechHumanlikes
             }
             for (int i = 1; i < 8; i++)
             {
-                if (listingStandard.RadioButton($"MHC_MHC_PawnType{(MHC_PawnType)i}".Translate(), ((MHC_PawnType)i & pawnTypes) == (MHC_PawnType)i, tooltip: $"MHC_MHC_PawnType{(MHC_PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
+                if (listingStandard.RadioButton($"MHC_PawnType{(MHC_PawnType)i}".Translate(), ((MHC_PawnType)i & pawnTypes) == (MHC_PawnType)i, tooltip: $"MHC_PawnType{(MHC_PawnType)i}Tooltip".Translate(), tooltipDelay: 0.25f))
                 {
                     for (int j = compRestricts.Count - 1; j >= 0; j--)
                     {
