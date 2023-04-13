@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Charging -->
+  <MHC_ForceCharge>Принудительная зарядка</MHC_ForceCharge>
+  <MHC_NoAvailableChargingSpots>Невозможно использовать, места для зарядки зарезервированы.</MHC_NoAvailableChargingSpots>
+  <MHC_IncapableOfCharging>{0} не может заряжаться таким образом.</MHC_IncapableOfCharging>
+
+</LanguageData>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Needs -->
+  <MHC_EnergyNeed>Энергия</MHC_EnergyNeed>
+  <MHC_EnergyNeedDesc>Энергия - это количество сохраненного заряда в устройстве. Если он равен нулю, устройство перейдет в неэффективный режим пониженного энергопотребления. Если заряд не будет восстановлен, аппаратное обеспечение в конечном итоге даст критический сбой, и устройство перестанет функционировать.</MHC_EnergyNeedDesc>
+
+  <!-- Prisoner Tab -->
+  <MHC_ImprisonedDroneWarning>С дронами нельзя взаимодействовать. Используйте операции для перепрограммирования или отключения.</MHC_ImprisonedDroneWarning>
+  <MHC_EnslavedDroneAlert>Дроны не должны быть рабами! Вы страдаете от бесплатной ошибки каждый тик. Немедленно перепрограммируйте или уничтожьте этого дрона.</MHC_EnslavedDroneAlert>
+
+  <!-- Maintenance Spot -->
+  <MHC_MaintenanceNeedRequired>Не нуждается в техобслуживании.</MHC_MaintenanceNeedRequired>
+
+</LanguageData>

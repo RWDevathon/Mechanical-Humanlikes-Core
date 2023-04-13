@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Mechanical Surgery Success Chance -->
+
+  <MHC_MechanicalSurgerySuccessChance.label>шансы на успех механической операции</MHC_MechanicalSurgerySuccessChance.label>
+  <MHC_MechanicalSurgerySuccessChance.description>Базовый шанс того, что персонаж добьется успеха при выполнении операции на механических узлах. На фактический шанс успеха также влияют такие факторы, как условия, чистота помещения, используемые лекарства, сложность операции и вдохновение. Независимо от того, насколько высок шанс успеха, всегда существует небольшой шанс неудачи при выполнении любой операции.</MHC_MechanicalSurgerySuccessChance.description>
+
+
+  <!-- Mechanical Surgery Operation Speed -->
+
+  <MHC_MechanicalOperationSpeed.label>скорость механических операций</MHC_MechanicalOperationSpeed.label>
+  <MHC_MechanicalOperationSpeed.description>Скорость, с которой персонаж выполняет механические операции.</MHC_MechanicalOperationSpeed.description>
+
+
+  <!-- Mechanical Tend Quality -->
+
+  <MHC_MechanicalTendQuality.label>качество механической помощи</MHC_MechanicalTendQuality.label>
+  <MHC_MechanicalTendQuality.description>Базовое качество помощи, оказываемой при устранении повреждений целостности.\n\nНа фактическое качество помощи также влияют такие факторы, как используемые лекарства, условия, удача и так далее.</MHC_MechanicalTendQuality.description>
+
+
+  <!-- Mechanical tend speed -->
+
+  <MHC_MechanicalTendSpeed.label>скорость механической помощи</MHC_MechanicalTendSpeed.label>
+  <MHC_MechanicalTendSpeed.description>Скорость, с которой персонаж стремится к целостности повреждений.</MHC_MechanicalTendSpeed.description>
+
+
+</LanguageData>

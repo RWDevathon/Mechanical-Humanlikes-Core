@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_MechanicalShutdown.label>выведен из эксплуатации</MHC_MechanicalShutdown.label>
+  <MHC_MechanicalShutdown.description>Работоспособность исключена.</MHC_MechanicalShutdown.description>
+
+  <MHC_Restarting.label>Перезагрузка</MHC_Restarting.label>
+  <MHC_Restarting.description>Юнит полностью перезапускает все функции и снова включается.</MHC_Restarting.description>
+
+
+</LanguageData>
