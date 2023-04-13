@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Miscellaneous Keys -->
+  <MHC_ModTitle>Mechanical Humanlikes Core</MHC_ModTitle>
+
+  <MHC_RestartRequiredSection>Любые изменения настроек в этом разделе требуют перезапуска игры.</MHC_RestartRequiredSection>
+
+  <MHC_ExpandMenu>Развернуть/Свернуть</MHC_ExpandMenu>
+
+  <!-- Mod Settings Page Keys -->
+  <MHC_SettingsTabTitle>Конфигурация</MHC_SettingsTabTitle>
+
+  <MHC_SettingsTabOption_Folded>&lt;</MHC_SettingsTabOption_Folded>
+  <MHC_SettingsTabOption_General>Общие</MHC_SettingsTabOption_General>
+  <MHC_SettingsTabOption_Health>Здоровье</MHC_SettingsTabOption_Health>
+  <MHC_SettingsTabOption_Stats>Статистика</MHC_SettingsTabOption_Stats>
+
+  <!-- General Settings -->
+  <MHC_ApplyPreset>Применить предустановку</MHC_ApplyPreset>
+
+  <!-- Permission Settings-->
+  <MHC_bedRestrictionDefaultsToAll>Кровати по умолчанию имеют значение Все пешки, а не Механические/Органические</MHC_bedRestrictionDefaultsToAll>
+  <MHC_bedRestrictionDefaultsToAllDesc>По умолчанию, зарядные кровати из этого мода по умолчанию работают только в механическом режиме, а все остальные кровати - только в органическом.</MHC_bedRestrictionDefaultsToAllDesc>
+
+  <!-- Consideration Settings -->
+  <MHC_isUsingCustomConsiderations>Используется пользовательская конфигурация и не сбрасывается: {0}</MHC_isUsingCustomConsiderations>
+  <MHC_isUsingCustomConsiderationsDesc>Если выключено, то при запуске игры мод будет автоматически регенерировать то, что является/не является механическим, чтобы он мог подхватить для вас новые модифицированные расы.</MHC_isUsingCustomConsiderationsDesc>
+  <MHC_resetCustomConsiderations>Сбросить</MHC_resetCustomConsiderations>
+  <MHC_SettingsConsideredMechanicalSapient>Механический сапиент</MHC_SettingsConsideredMechanicalSapient>
+  <MHC_SettingsConsideredMechanicalDrone>Механический дрон</MHC_SettingsConsideredMechanicalDrone>
+  <MHC_SettingsConsideredMechanicalAnimal>Механические животные</MHC_SettingsConsideredMechanicalAnimal>
+  <MHC_SettingsNotConsideredMechanical>Не механические</MHC_SettingsNotConsideredMechanical>
+
+  <!-- Needs Settings -->
+  <MHC_MechanicalSapientOnlyNotice>Примечание: Это касается только механических разумных существ. У дронов нет таких потребностей.</MHC_MechanicalSapientOnlyNotice>
+  <MHC_MechanicalSapientsNeedJoy>Сапиентам необходимо удовлетворять потребности в радости</MHC_MechanicalSapientsNeedJoy>
+  <MHC_MechanicalSapientsNeedBeauty>Сапиентам необходимо удовлетворять потребности в красоте</MHC_MechanicalSapientsNeedBeauty>
+  <MHC_MechanicalSapientsNeedComfort>Сапиентам необходимо удовлетворять потребности в комфорте</MHC_MechanicalSapientsNeedComfort>
+  <MHC_MechanicalSapientsNeedOutdoors>Сапиентам необходимо удовлетворять потребности в наружных/внутренних помещениях</MHC_MechanicalSapientsNeedOutdoors>
+
+  <MHC_SettingsPresetDefault>По умолчанию</MHC_SettingsPresetDefault>
+  <MHC_SettingsPresetCustom>Пользовательское</MHC_SettingsPresetCustom>
+
+  <!-- Power Settings -->
+  <MHC_wattsConsumedPerBodySize>Потребление энергии на 1 размер тела при зарядке [по умолчанию: 500]</MHC_wattsConsumedPerBodySize>
+  <MHC_batteryChargeRateFactor>Коэффициент скорости заряда батареи [по умолчанию: 1]</MHC_batteryChargeRateFactor>
+
+  <!-- Health Settings -->
+  <!-- Medical -->
+  <MHC_medicinesAreInterchangeable>Органические и механические лекарства взаимозаменяемы.</MHC_medicinesAreInterchangeable>
+  <MHC_showMechanicalSurgerySuccessChance>Отображение шансов на успех завершенных механических операций.</MHC_showMechanicalSurgerySuccessChance>
+  <MHC_maxChanceMechanicOperationSuccess>Максимальное изменение успеха при механических операциях</MHC_maxChanceMechanicOperationSuccess>
+  <MHC_chanceFailedOperationMinor>Шанс неудачных механических операций незначителен [по умолчанию 75%]</MHC_chanceFailedOperationMinor>
+  <MHC_chancePartSavedOnFailure>Шанс возврата деталей после неудачных механических операций [по умолчанию 75%].</MHC_chancePartSavedOnFailure>
+
+  <!-- Maintenance -->
+  <MHC_maintenanceNeedExists>Механические юниты нуждаются в техническом обслуживании.</MHC_maintenanceNeedExists>
+  <MHC_maintenanceFallRateFactor>Как быстро техническое обслуживание падает</MHC_maintenanceFallRateFactor>
+  <MHC_maintenanceGainRateFactor>Как быстро нарабатывается техобслуживание при проведении техобслуживания</MHC_maintenanceGainRateFactor>
+
+  <!-- Hediffs -->
+  <MHC_hediffBlacklistWarning>Предупреждение: Это может вызвать проблемы с производительностью или ошибки при неправильном использовании.</MHC_hediffBlacklistWarning>
+  <MHC_settingsBlacklistedMechanicalHediffs>Черный список механических эффектов в здоровье</MHC_settingsBlacklistedMechanicalHediffs>
+  <MHC_settingsAllowedMechanicalHediffs>Разрешенные механические эффекты в здоровье</MHC_settingsAllowedMechanicalHediffs>
+
+  <!-- Stats Settings -->
+  <!-- Traits -->
+  <MHC_traitBlacklistWarning>Предупреждение: Чем длиннее список черных списков, тем большее влияние на производительность игры он будет оказывать.</MHC_traitBlacklistWarning>
+  <MHC_settingsBlacklistedMechanicalTraits>Черный список механических черт</MHC_settingsBlacklistedMechanicalTraits>
+  <MHC_settingsAllowedMechanicalTraits>Разрешенные механические черты</MHC_settingsAllowedMechanicalTraits>
+
+</LanguageData>

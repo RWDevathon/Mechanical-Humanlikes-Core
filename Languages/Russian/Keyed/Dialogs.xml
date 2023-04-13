@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- PawnType Restriction Dialog -->
+  <MHC_RestrictedPawnTypes>Настройки ограничений</MHC_RestrictedPawnTypes>
+
+  <MHC_PawnTypeNone>Никто</MHC_PawnTypeNone>
+  <MHC_PawnTypeNoneTooltip>Ни одна пешка не может использовать это</MHC_PawnTypeNoneTooltip>
+  <MHC_PawnTypeDrone>Механический дрон</MHC_PawnTypeDrone>
+  <MHC_PawnTypeDroneTooltip>Только дроны могут использовать это</MHC_PawnTypeDroneTooltip>
+  <MHC_PawnTypeSapient>Механический сапиент</MHC_PawnTypeSapient>
+  <MHC_PawnTypeSapientTooltip>Только механические сапиенты могут использовать это</MHC_PawnTypeSapientTooltip>
+  <MHC_PawnTypeMechanical>Механический</MHC_PawnTypeMechanical>
+  <MHC_PawnTypeMechanicalTooltip>Только механические устройства могут использовать это</MHC_PawnTypeMechanicalTooltip>
+  <MHC_PawnTypeOrganic>Органический</MHC_PawnTypeOrganic>
+  <MHC_PawnTypeOrganicTooltip>Только органические существа могут использовать это</MHC_PawnTypeOrganicTooltip>
+  <MHC_PawnTypeNonAI>Не ИИ</MHC_PawnTypeNonAI>
+  <MHC_PawnTypeNonAITooltip>Только органические существа и дроны могут использовать это</MHC_PawnTypeNonAITooltip>
+  <MHC_PawnTypeAutonomous>Автономный</MHC_PawnTypeAutonomous>
+  <MHC_PawnTypeAutonomousTooltip>Только разумные пешки могут использовать это</MHC_PawnTypeAutonomousTooltip>
+  <MHC_PawnTypeAll>Все</MHC_PawnTypeAll>
+  <MHC_PawnTypeAllTooltip>Все пешки могут использовать это</MHC_PawnTypeAllTooltip>
+
+</LanguageData>

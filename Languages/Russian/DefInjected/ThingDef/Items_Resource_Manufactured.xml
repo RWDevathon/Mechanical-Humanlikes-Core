@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Mechanical Part Pack -->
+
+  <MHC_PartPack.label>Комплект механических деталей</MHC_PartPack.label>
+  <MHC_PartPack.description>Этот набор полусобранных деталей предназначен для замены стандартных компонентов - от целых ног и рук до замысловатых батареек и адаптеров. В комплект входят основные материалы для быстрого создания более специфических деталей.</MHC_PartPack.description>
+
+
+  <!-- Simple Repair Stim -->
+
+  <MHC_RepairStimSimple.label>Простой ремонтый комплект</MHC_RepairStimSimple.label>
+  <MHC_RepairStimSimple.description>Небольшой, просто собранный комплект промышленных компонентов и инструментов для оказания помощи и стимулирования механического ремонта. В наборе отсутствует ряд очень полезных средств для более серьезных травм или операций, и он больше подходит для оказания помощи на поле боя, чем для профессионального использования.</MHC_RepairStimSimple.description>
+
+
+  <!-- Intermediate Repair Stim -->
+
+  <MHC_RepairStimIntermediate.label>Промышленный ремонтый комплект</MHC_RepairStimIntermediate.label>
+  <MHC_RepairStimIntermediate.description>Собранный комплект промышленных компонентов и инструментов для помощи и стимулирования механического ремонта. Такие наборы для стимуляции являются основными инструментами любого механика, который верит в качество. Он хорошо подходит для выполнения целого ряда задач, функционален и практичен.</MHC_RepairStimIntermediate.description>
+
+
+  <!-- Advanced Repair Stim -->
+
+  <MHC_RepairStimAdvanced.label>Продвинутый ремонтый комплект</MHC_RepairStimAdvanced.label>
+  <MHC_RepairStimAdvanced.description>Набор высокотехнологичных инструментов для помощи и стимулирования механического ремонта. Относительно редко встречающиеся за пределами Глиттерворлда, такие наборы высоко ценятся механиками и всеми уважающими себя механическими подразделениями. Благодаря им даже плохой механик может показаться очень компетентным.</MHC_RepairStimAdvanced.description>
+
+
+</LanguageData>

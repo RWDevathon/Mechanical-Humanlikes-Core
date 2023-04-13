@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Maintenance -->
+  <MHC_MaintenanceGizmoLabel>Техническое обслуживание</MHC_MaintenanceGizmoLabel>
+  <MHC_MaintenanceDesc>Техническое обслуживание является мерой здоровья памяти и системы пешки - оно имеет лишь косвенное отношение к здоровью физической части и в первую очередь является медитативным. Техническое обслуживание деградирует со временем и должно проводится единицами, имеющими достаточно свободного времени, чтобы заботиться о своем внутреннем здоровье. Плохое обслуживание снижает эффективность и может привести к поломке физических частей из-за критических ошибок ремонта, если это будет продолжаться слишком долго.\n\nВысокий уровень обслуживания дает небольшие преимущества, но также значительно увеличивает потери при обслуживании, что заставляет большинство юнитов придерживаться среднего подхода.\n\nПримечание: представленные значения - это базовые показатели, фактический уровень падения зависит от эффективности обслуживания пешки (в информационной вкладке).</MHC_MaintenanceDesc>
+  <MHC_MaintenanceTargetLabel>Цель техобслуживания</MHC_MaintenanceTargetLabel>
+  <MHC_MaintenanceTargetLabelDesc>Нажмите, чтобы установить желаемый уровень обслуживания.</MHC_MaintenanceTargetLabelDesc>
+  <MHC_MaintenanceLevelInfoRange>{0}-{1}%</MHC_MaintenanceLevelInfoRange>
+  <MHC_MaintenanceLevelInfoFallRate>Техобслуживание падает на {0} в день.</MHC_MaintenanceLevelInfoFallRate>
+
+  <MHC_MaintenanceEffectGizmoLabel>Среднее обслуживание, {0}: {1} день(и)</MHC_MaintenanceEffectGizmoLabel>
+  <MHC_MaintenanceEffectGizmoLabelPositive>Позитивное</MHC_MaintenanceEffectGizmoLabelPositive>
+  <MHC_MaintenanceEffectGizmoLabelNegative>Негативное</MHC_MaintenanceEffectGizmoLabelNegative>
+  <MHC_MaintenanceEffectDesc>Среднее обслуживание - это показатель того, насколько хорошо обслуживались память ядра и внутренние системы устройства в течение долгого времени, и меняется в зависимости от уровня обслуживания пешки. Высокие уровни улучшают настроение, а низкие - ухудшают и настроение, и здоровье. Он повышается, если уровень обслуживания выше 70%, и понижается, если ниже 30%, а в остальном медленно возвращается к базовому уровню.\n\nПримечание: обслуживание - это личное, глубоко внутреннее занятие, и поэтому оно не может быть выполнено другими людьми за пешку, за исключением экстренных ситуаций с помощью пакета деталей.</MHC_MaintenanceEffectDesc>
+
+  <!-- Pawn Type Restriction -->
+  <MHC_RestrictPawnType>Ограничения</MHC_RestrictPawnType>
+  <MHC_RestrictPawnTypeDescription>Откройте ограничения типа пешки, чтобы установить контроль над тем, какой тип пешки может использовать это.</MHC_RestrictPawnTypeDescription>
+
+</LanguageData>
