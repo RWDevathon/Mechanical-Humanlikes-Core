@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Mechanical Surgery Success Chance Factor -->
+
+  <MHC_MechanicalSurgerySuccessChanceFactor.label>фактор шансов на успех механической операции</MHC_MechanicalSurgerySuccessChanceFactor.label>
+  <MHC_MechanicalSurgerySuccessChanceFactor.description>Множитель к шансу, что операция на механическом юните будет успешной при выполнении здесь. На шанс успеха механической операции также влияет множество других факторов, включая способности механика.</MHC_MechanicalSurgerySuccessChanceFactor.description>
+
+
+  <!-- Mechanical Tend Quality Offset -->
+
+  <MHC_MechanicalTendQualityOffset.label>качество механической обработки</MHC_MechanicalTendQualityOffset.label>
+  <MHC_MechanicalTendQualityOffset.description>Это значение компенсирует качество механической обработки.</MHC_MechanicalTendQualityOffset.description>
+
+
+</LanguageData>

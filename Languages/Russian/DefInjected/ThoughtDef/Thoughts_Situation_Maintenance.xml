@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_MaintenanceMood.stages.0.label>ужасное обслуживание</MHC_MaintenanceMood.stages.0.label>
+  <MHC_MaintenanceMood.stages.0.description>Я слишком долго не мог должным образом поддерживать свою основную память и системы. Мои внутренние устройства сталкиваются с ошибками, критические компоненты вынуждены работать на пределе своих возможностей, а важные системы выходят из строя. Это то, что чувствуют органические существа, когда стареют и дряхлеют?</MHC_MaintenanceMood.stages.0.description>
+  <MHC_MaintenanceMood.stages.1.label>плохое обслуживание</MHC_MaintenanceMood.stages.1.label>
+  <MHC_MaintenanceMood.stages.1.description>В течение некоторого времени я не мог должным образом поддерживать свою основную память и системы. Есть внутренние системные ошибки, и мои системы перегружены. Потребуется много времени, чтобы исправить это.</MHC_MaintenanceMood.stages.1.description>
+  <MHC_MaintenanceMood.stages.2.label>плохое обслуживание</MHC_MaintenanceMood.stages.2.label>
+  <MHC_MaintenanceMood.stages.2.description>Моей основной памяти и системам не помешает перерыв для проверки здоровья. Полный цикл технического обслуживания был бы сейчас очень кстати.</MHC_MaintenanceMood.stages.2.description>
+  <MHC_MaintenanceMood.stages.3.label>стандартное обслуживание</MHC_MaintenanceMood.stages.3.label>
+  <MHC_MaintenanceMood.stages.3.description>Все системы показывают регулярную эффективность работы, при этом все ошибки находятся в пределах стандартных ожиданий.</MHC_MaintenanceMood.stages.3.description>
+  <MHC_MaintenanceMood.stages.4.label>достойное обслуживание</MHC_MaintenanceMood.stages.4.label>
+  <MHC_MaintenanceMood.stages.4.description>Моя основная память и системы имеют достаточные перерывы в работе, чтобы отдохнуть. Мои системы работают без сбоев.</MHC_MaintenanceMood.stages.4.description>
+  <MHC_MaintenanceMood.stages.5.label>отличное обслуживание</MHC_MaintenanceMood.stages.5.label>
+  <MHC_MaintenanceMood.stages.5.description>У меня было время провести широкий спектр внутренних проверок здоровья и оптимизации эффективности. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам.</MHC_MaintenanceMood.stages.5.description>
+  <MHC_MaintenanceMood.stages.6.label>безупречное обслуживание</MHC_MaintenanceMood.stages.6.label>
+  <MHC_MaintenanceMood.stages.6.description>У меня появилось время даже на самые ненужные проверки здоровья и оптимизацию для предсказания проблем до того, как они могут возникнуть. Мои системы работают лучше, чем в тот день, когда мое ядро впервые включилось! Должно быть, именно такое чувство испытывает органическая молодежь - несокрушимость и идеальное здоровье!</MHC_MaintenanceMood.stages.6.description>
+
+
+</LanguageData>

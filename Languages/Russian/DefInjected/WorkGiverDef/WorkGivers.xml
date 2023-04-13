@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Mechanic -->
+
+  <MHC_MechanicTendEmergency.label>ремонт пациентов с неотложными потребностями</MHC_MechanicTendEmergency.label>
+  <MHC_MechanicTendEmergency.verb>ремонт</MHC_MechanicTendEmergency.verb>
+  <MHC_MechanicTendEmergency.gerund>ремонт</MHC_MechanicTendEmergency.gerund>
+
+  <MHC_MechanicTendToHumanlikes.label>ремонт пациентов</MHC_MechanicTendToHumanlikes.label>
+  <MHC_MechanicTendToHumanlikes.verb>ремонт</MHC_MechanicTendToHumanlikes.verb>
+  <MHC_MechanicTendToHumanlikes.gerund>ремонт</MHC_MechanicTendToHumanlikes.gerund>
+
+  <MHC_MechanicTendToSelf.label>саморемонт</MHC_MechanicTendToSelf.label>
+  <MHC_MechanicTendToSelf.verb>ремонт</MHC_MechanicTendToSelf.verb>
+  <MHC_MechanicTendToSelf.gerund>ремонт</MHC_MechanicTendToSelf.gerund>
+
+  <MechanicTendToSelfEmergency.label>саморемонт</MechanicTendToSelfEmergency.label>
+  <MechanicTendToSelfEmergency.verb>ремонт</MechanicTendToSelfEmergency.verb>
+  <MechanicTendToSelfEmergency.gerund>ремонт</MechanicTendToSelfEmergency.gerund>
+
+  <MHC_DoBillsMechanicalOperation.label>оперировать человекоподбных</MHC_DoBillsMechanicalOperation.label>
+  <MHC_DoBillsMechanicalOperation.verb>оперировать</MHC_DoBillsMechanicalOperation.verb>
+  <MHC_DoBillsMechanicalOperation.gerund>операция над</MHC_DoBillsMechanicalOperation.gerund>
+
+  <MHC_MechanicRescue.label>спасение раненых союзников до постели</MHC_MechanicRescue.label>
+  <MHC_MechanicRescue.verb>спасти</MHC_MechanicRescue.verb>
+  <MHC_MechanicRescue.gerund>спасение</MHC_MechanicRescue.gerund>
+
+  <MHC_MechanicTendToAnimals.label>ремонт животных</MHC_MechanicTendToAnimals.label>
+  <MHC_MechanicTendToAnimals.verb>ремонт</MHC_MechanicTendToAnimals.verb>
+  <MHC_MechanicTendToAnimals.gerund>ремонт</MHC_MechanicTendToAnimals.gerund>
+
+  <MHC_DoBillsMechanicalAnimalOperation.label>оперировать животных</MHC_DoBillsMechanicalAnimalOperation.label>
+  <MHC_DoBillsMechanicalAnimalOperation.verb>оперировать</MHC_DoBillsMechanicalAnimalOperation.verb>
+  <MHC_DoBillsMechanicalAnimalOperation.gerund>операция над</MHC_DoBillsMechanicalAnimalOperation.gerund>
+
+  <MHC_TakeMechanicalToBedToOperate.label>укладывать пациентов на операционный стол</MHC_TakeMechanicalToBedToOperate.label>
+  <MHC_TakeMechanicalToBedToOperate.verb>провести операцию</MHC_TakeMechanicalToBedToOperate.verb>
+  <MHC_TakeMechanicalToBedToOperate.gerund>проводи операцию над</MHC_TakeMechanicalToBedToOperate.gerund>
+
+
+</LanguageData>

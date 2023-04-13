@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_ChargingStation.label>Зарядная станция</MHC_ChargingStation.label>
+  <MHC_ChargingStation.description>Станция, построенная для одновременной зарядки 8 соседних пешек.</MHC_ChargingStation.description>
+  <MHC_ChargingStation_Blueprint.label>Зарядная станция (чертеж)</MHC_ChargingStation_Blueprint.label>
+  <MHC_ChargingStation_Blueprint_Install.label>Зарядная станция (чертеж)</MHC_ChargingStation_Blueprint_Install.label>
+  <MHC_ChargingStation_Frame.label>Зарядная станция (строительство)</MHC_ChargingStation_Frame.label>
+  <MHC_ChargingStation_Frame.description>Станция, построенная для одновременной зарядки 8 соседних пешек.</MHC_ChargingStation_Frame.description>
+
+
+  <!-- Bedside Charger -->
+
+  <MHC_BedsideChargerFacility.label>прикроватный зарядник</MHC_BedsideChargerFacility.label>
+  <MHC_BedsideChargerFacility.description>Прикроватное устройство, позволяющее обитателю связанной кровати заряжаться. Оно обеспечивает энергию во время нахождения в постели, но потребляет при этом много энергии. Оно должно быть размещено непосредственно рядом с изголовьем кровати и напротив него.</MHC_BedsideChargerFacility.description>
+  <MHC_BedsideChargerFacility_Blueprint.label>прикроватный зарядник (чертеж)</MHC_BedsideChargerFacility_Blueprint.label>
+  <MHC_BedsideChargerFacility_Blueprint_Install.label>прикроватный зарядник (чертеж)</MHC_BedsideChargerFacility_Blueprint_Install.label>
+  <MHC_BedsideChargerFacility_Frame.label>прикроватный зарядник (строительство)</MHC_BedsideChargerFacility_Frame.label>
+  <MHC_BedsideChargerFacility_Frame.description>Прикроватное устройство, позволяющее обитателю связанной кровати заряжаться. Оно обеспечивает энергию во время нахождения в постели, но потребляет при этом много энергии. Оно должно быть размещено непосредственно рядом с изголовьем кровати и напротив него.</MHC_BedsideChargerFacility_Frame.description>
+
+
+  <!-- Charging Pods -->
+
+  <MHC_ChargingPod.label>Капсула для зарядки</MHC_ChargingPod.label>
+  <MHC_ChargingPod.description>Простая зарядная капсула, которая может заряжать механические устройства. Она не предназначена для комфорта.</MHC_ChargingPod.description>
+  <MHC_ChargingPod_Blueprint.label>Капсула для зарядки (чертеж)</MHC_ChargingPod_Blueprint.label>
+  <MHC_ChargingPod_Blueprint_Install.label>Капсула для зарядки (чертеж)</MHC_ChargingPod_Blueprint_Install.label>
+  <MHC_ChargingPod_Frame.label>Капсула для зарядки (строительство)</MHC_ChargingPod_Frame.label>
+  <MHC_ChargingPod_Frame.description>Простая зарядная капсула, которая может заряжать механические устройства. Она не предназначена для комфорта.</MHC_ChargingPod_Frame.description>
+
+
+</LanguageData>

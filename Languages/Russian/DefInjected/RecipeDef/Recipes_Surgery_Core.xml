@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Surgery to remove body parts from mechanical units -->
+
+  <MHC_RemoveMechanicalBodyPart.label>Снять часть</MHC_RemoveMechanicalBodyPart.label>
+  <MHC_RemoveMechanicalBodyPart.description>Снять часть тела..</MHC_RemoveMechanicalBodyPart.description>
+  <MHC_RemoveMechanicalBodyPart.jobString>Снятие части тела.</MHC_RemoveMechanicalBodyPart.jobString>
+
+
+  <!-- Surgery to shutdown any incapacitated mechanical unit -->
+
+  <MHC_MechanicalShutdown.label>Отключить центральное ядро</MHC_MechanicalShutdown.label>
+  <MHC_MechanicalShutdown.description>Отключает механический юнит, чтобы сделать его полностью нефункционирующим и умершим.</MHC_MechanicalShutdown.description>
+  <MHC_MechanicalShutdown.jobString>Отключение механического юнита.</MHC_MechanicalShutdown.jobString>
+
+
+  <!-- Surgery to restore body parts in mechanical units -->
+
+  <MHC_RestoreBodyPartMechanical.label>Восстановить часть</MHC_RestoreBodyPartMechanical.label>
+  <MHC_RestoreBodyPartMechanical.description>Восстанавливает определенную часть тела.</MHC_RestoreBodyPartMechanical.description>
+  <MHC_RestoreBodyPartMechanical.jobString>Восстановление части тела.</MHC_RestoreBodyPartMechanical.jobString>
+
+
+  <!-- Surgery to repaint mechanical units -->
+
+  <MHC_RepaintMechanical.label>Перекрасить</MHC_RepaintMechanical.label>
+  <MHC_RepaintMechanical.description>Изменение цвета краски механического юнита.</MHC_RepaintMechanical.description>
+  <MHC_RepaintMechanical.jobString>Покраска механического юнита.</MHC_RepaintMechanical.jobString>
+
+
+  <!-- Surgery to increase the maintenance level of a unit to a certain extent. -->
+
+  <MHC_DoEmergencyMaintenance.label>Провести временное техобслуживание</MHC_DoEmergencyMaintenance.label>
+  <MHC_DoEmergencyMaintenance.description>Использовать детали для устранения серьезных недостатков технического обслуживания. Поскольку техническое обслуживание - это в основном внутренняя деятельность, это может довести ее только до 40%.</MHC_DoEmergencyMaintenance.description>
+  <MHC_DoEmergencyMaintenance.jobString>Восстановление части тела.</MHC_DoEmergencyMaintenance.jobString>
+
+
+  <!-- Surgery to reprogram drones to serve the colony -->
+
+  <MHC_ReprogramDrone.label>перепрограммировать дрон</MHC_ReprogramDrone.label>
+  <MHC_ReprogramDrone.description>Перепрограммирование дронов в соответствии с целями колонии - простая, но деликатная операция - отличный способ усилить потенциал. Однако предыдущие владельцы могли установить защиту от таких операций, поэтому в случае неудачи существует высокий риск смерти.</MHC_ReprogramDrone.description>
+  <MHC_ReprogramDrone.jobString>Перепрограммирование дрона.</MHC_ReprogramDrone.jobString>
+
+
+  <!-- Reboot, akin to anesthetic but requiring no medicine -->
+
+  <MHC_RebootUnit.label>Перезапустить юнит</MHC_RebootUnit.label>
+  <MHC_RebootUnit.description>Очень простая операция по перезапуску юнита, без каких-либо побочных эффектов или последствий.</MHC_RebootUnit.description>
+  <MHC_RebootUnit.jobString>Перезапуск юнита.</MHC_RebootUnit.jobString>
+
+
+</LanguageData>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Miscellaneous -->
+  <MHC_DroneCaptured>{0} является дроном, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</MHC_DroneCaptured>
+
+  <!-- Surgeries -->
+  <MHC_MessageMechanicOperationFailureMinor>{0} допустил незначительную ошибку во время работы и прервал процедуру над {1}.</MHC_MessageMechanicOperationFailureMinor>
+  <MHC_MessageMechanicOperationFailureRidiculous>{0} допустил серьезную ошибку при попытке выполнить операцию над {1}.</MHC_MessageMechanicOperationFailureRidiculous>
+  <MHC_MessageMechanicOperationFailureFatal>{0} допустил фатальную ошибку во время работы с {1}, которая привела к непреднамеренному каскадному повреждению. Процедура вызвала необратимое повреждение устройства, что привело к прекращению его функционирования.</MHC_MessageMechanicOperationFailureFatal>
+
+</LanguageData>

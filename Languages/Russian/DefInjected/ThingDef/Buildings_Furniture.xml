@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_MechanicBed.label>Механическая кровать</MHC_MechanicBed.label>
+  <MHC_MechanicBed.description>Аналог больничной койки для механиков для проведения операций на механических юнитов. Юниты могут заряжаться во время использования этой кровати, а ряд встроенных функций дает механику преимущества при выполнении операций.</MHC_MechanicBed.description>
+  <MHC_MechanicBed_Blueprint.label>Механическая кровать (чертеж)</MHC_MechanicBed_Blueprint.label>
+  <MHC_MechanicBed_Blueprint_Install.label>Механическая кровать (чертеж)</MHC_MechanicBed_Blueprint_Install.label>
+  <MHC_MechanicBed_Frame.label>Механическая кровать (строительство)</MHC_MechanicBed_Frame.label>
+  <MHC_MechanicBed_Frame.description>Аналог больничной койки для механиков для проведения операций на механических юнитов. Юниты могут заряжаться во время использования этой кровати, а ряд встроенных функций дает механику преимущества при выполнении операций.</MHC_MechanicBed_Frame.description>
+
+  <MHC_MechanicCabinet.label>Шкаф механика</MHC_MechanicCabinet.label>
+  <MHC_MechanicCabinet.description>Небольшой шкаф, который можно использовать вместе с кроватями, совместимыми с механикой. Он содержит ряд полезных инструментов для дальнейшего улучшения работы механика.</MHC_MechanicCabinet.description>
+  <MHC_MechanicCabinet_Blueprint.label>Шкаф механика (чертеж)</MHC_MechanicCabinet_Blueprint.label>
+  <MHC_MechanicCabinet_Blueprint_Install.label>Шкаф механика (чертеж)</MHC_MechanicCabinet_Blueprint_Install.label>
+  <MHC_MechanicCabinet_Frame.label>Шкаф механика (строительство)</MHC_MechanicCabinet_Frame.label>
+  <MHC_MechanicCabinet_Frame.description>Небольшой шкаф, который можно использовать вместе с кроватями, совместимыми с механикой. Он содержит ряд полезных инструментов для дальнейшего улучшения работы механика.</MHC_MechanicCabinet_Frame.description>
+
+
+</LanguageData>
