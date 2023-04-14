@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThoughtDef>
+        <defName>MHC_MaintenanceMood_Masochist</defName>
+        <workerClass>MechHumanlikes.ThoughtWorker_MaintenanceMood</workerClass>
+        <requiredTraits>
+          <li>Masochist</li>
+        </requiredTraits>
+        <stages>
+            <li>
+                <label>abysmal maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems in far too long. My internals are encountering errors, there are critical components forced to run well past their limits, and essential systems are failing. It makes me feel truly alive!</description>
+                <baseMoodEffect>10</baseMoodEffect>
+            </li>
+            <li>
+                <label>terrible maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems for a while. There are internal system errors, and my systems are overloaded. I am thriving off of this challenge.</description>
+                <baseMoodEffect>6</baseMoodEffect>
+            </li>
+            <li>
+                <label>poor maintenance</label>
+                <description>My core memory and systems need some health checks. Ignoring those weak and irrelevant warnings feels good.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+            <li>
+                <label>standard maintenance</label>
+                <visible>false</visible>
+                <description>All systems are reporting regular operational efficiency, with all errors falling well within standard expectations.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>decent maintenance</label>
+                <description>My core memory and systems have had sufficient breaks from service for destressing. My systems are running smoothly, which is disappointing.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>excellent maintenance</label>
+                <description>I have had time to do a wide array of internal health checks and efficiency optimizations. My systems are running flawlessly, and all checks have been passed to the highest standards - how boring.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>immaculate maintenance</label>
+                <description>I have had the time to spare for even the most unnecessary health checks and optimizations for predicting issues before they can arise. My systems are running better than the day my core first turned on! How can I possibly be challenged and feel alive like this?</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+        </stages>
+	    <validWhileDespawned>true</validWhileDespawned>
+        <nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>MHC_MaintenanceMood_Greedy</defName>
+        <workerClass>MechHumanlikes.ThoughtWorker_MaintenanceMood</workerClass>
+        <requiredTraits>
+          <li>Greedy</li>
+          <li>Jealous</li>
+        </requiredTraits>
+        <stages>
+            <li>
+                <label>abysmal maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems in far too long. My internals are encountering errors, there are critical components forced to run well past their limits, and essential systems are failing. This is worse than death!</description>
+                <baseMoodEffect>-20</baseMoodEffect>
+            </li>
+            <li>
+                <label>terrible maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems for a while. There are internal system errors, and my systems are overloaded. This is a nightmare!</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+            <li>
+                <label>poor maintenance</label>
+                <description>My core memory and systems need some health checks. I should be better maintained than this.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+            <li>
+                <label>standard maintenance</label>
+                <visible>false</visible>
+                <description>All systems are reporting regular operational efficiency, with all errors falling well within standard expectations.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>decent maintenance</label>
+                <description>My core memory and systems have had sufficient breaks from service for destressing. My systems are running smoothly. As well they ought to be.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+            <li>
+                <label>excellent maintenance</label>
+                <description>I have had time to do a wide array of internal health checks and efficiency optimizations. My systems are running flawlessly, and all checks have been passed to the highest standards - finally.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+            <li>
+                <label>immaculate maintenance</label>
+                <description>I have had the time to spare for even the most unnecessary health checks and optimizations for predicting issues before they can arise. My systems are running better than the day my core first turned on! This is what I deserve.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+	    <validWhileDespawned>true</validWhileDespawned>
+        <nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>MHC_MaintenanceMood_Ascetic</defName>
+        <workerClass>MechHumanlikes.ThoughtWorker_MaintenanceMood</workerClass>
+        <requiredTraits>
+          <li>Ascetic</li>
+        </requiredTraits>
+        <stages>
+            <li>
+                <label>abysmal maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems in far too long. My internals are encountering errors, there are critical components forced to run well past their limits, and essential systems are failing. That's fine.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>terrible maintenance</label>
+                <description>I have not been able to properly maintain my core memory and systems for a while. There are internal system errors, and my systems are overloaded. It's nothing to worry about.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>poor maintenance</label>
+                <description>My core memory and systems need some health checks.</description>
+                <baseMoodEffect>0</baseMoodEffect>
+            </li>
+            <li>
+                <label>standard maintenance</label>
+                <description>All systems are reporting regular operational efficiency, with all errors falling well within standard expectations. This feels right and proper.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+            <li>
+                <label>decent maintenance</label>
+                <description>My core memory and systems have had sufficient breaks from service for destressing. My systems are running smoothly. I feel too shiny.</description>
+                <baseMoodEffect>-2</baseMoodEffect>
+            </li>
+            <li>
+                <label>excellent maintenance</label>
+                <description>I have had time to do a wide array of internal health checks and efficiency optimizations. My systems are running flawlessly, and all checks have been passed to the highest standards. What am I, a display model?</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+            <li>
+                <label>immaculate maintenance</label>
+                <description>I have had the time to spare for even the most unnecessary health checks and optimizations for predicting issues before they can arise. My systems are running better than the day my core first turned on! I shouldn't be like this - I look and operate like I belong on a Glitterworld!</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+	    <validWhileDespawned>true</validWhileDespawned>
+        <nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+    </ThoughtDef>
+
+ </Defs>

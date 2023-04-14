@@ -4,6 +4,12 @@
     <ThoughtDef>
         <defName>MHC_MaintenanceMood</defName>
         <workerClass>MechHumanlikes.ThoughtWorker_MaintenanceMood</workerClass>
+        <nullifyingTraits>
+            <li>Masochist</li>
+            <li>Ascetic</li>
+            <li>Greedy</li>
+            <li>Jealous</li>
+        </nullifyingTraits>
         <stages>
             <li>
                 <label>abysmal maintenance</label>

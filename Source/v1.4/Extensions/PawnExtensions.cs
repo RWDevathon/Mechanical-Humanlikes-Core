@@ -53,7 +53,7 @@ namespace MechHumanlikes
                 yield return "[MHC] A race was set to only be drones, does not allow drone backstories to be given by pawn kinds, and did not specify backstories directly! This is illegal!";
             }
 
-            if (useCustomNoneGenderNameMakers && (sapientNoneGenderNameMaker == null || droneNoneGenderNameMaker == null))
+            if (useCustomNoneGenderNameMakers && sapientNoneGenderNameMaker == null && droneNoneGenderNameMaker == null)
             {
                 yield return "[MHC] A race was set to use custom name makers for none gendered pawns but did not specify what those custom name makers were! This will cause issues.";
             }
