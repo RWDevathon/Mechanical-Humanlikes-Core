@@ -27,8 +27,8 @@ namespace MechHumanlikes
             yield return new Command_Action
             {
                 icon = MHC_Textures.RestrictionGizmoIcon,
-                defaultLabel = "MHC_RestrictMHC_PawnType".Translate(),
-                defaultDesc = "MHC_RestrictMHC_PawnTypeDescription".Translate(),
+                defaultLabel = "MHC_RestrictPawnType".Translate(),
+                defaultDesc = "MHC_RestrictPawnTypeDescription".Translate(),
                 action = delegate ()
                 {
                     Find.WindowStack.Add(new Dialog_RestrictToMHC_PawnType());

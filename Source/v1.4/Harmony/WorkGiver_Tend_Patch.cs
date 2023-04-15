@@ -10,11 +10,15 @@ namespace MechHumanlikes
         [HarmonyPatch(typeof(WorkGiver_Tend), "HasJobOnThing")]
         public class PotentialWorkThingsGlobal_Patch
         {
-            [HarmonyPrefix]
-            public static bool Listener(Pawn pawn, Thing t, bool forced, ref bool __result)
+            [HarmonyPostfix]
+            public static void Listener(Pawn pawn, Thing t, bool forced, ref bool __result)
             {
+                if (!__result)
+                {
+                    return;
+                }
+
                 __result = !MHC_Utils.IsConsideredMechanical(t.def);
-                return __result;
             }
         }
     }

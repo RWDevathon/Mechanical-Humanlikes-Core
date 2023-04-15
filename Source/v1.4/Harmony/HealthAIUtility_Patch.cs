@@ -23,16 +23,12 @@ namespace MechHumanlikes
                 {
                     return;
                 }
-                if (Medicine.GetMedicineCountToFullyHeal(patient) <= 0)
+                if (__result == null)
                 {
                     return;
                 }
 
-                float medicalPotency = 0;
-                if(__result != null)
-                {
-                    medicalPotency = __result.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null);
-                }
+                float medicalPotency = __result.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null);
 
                 Predicate<Thing> validator;
                 if (MHC_Utils.IsConsideredMechanical(patient))
