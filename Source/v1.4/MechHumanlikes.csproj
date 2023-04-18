@@ -175,6 +175,8 @@
   <ItemGroup>
     <Compile Include="Alerts\Alert_NeedMechanic.cs" />
     <Compile Include="Buildings\Building_ChargingBed.cs" />
+    <Compile Include="Components\HediffComps\HediffCompProperties_MaintenanceThresholdToRemove.cs" />
+    <Compile Include="Components\HediffComps\HediffComp_MaintenanceThresholdToRemove.cs" />
     <Compile Include="Components\ThingComps\CompAssignableToPawn_MaintenanceSpot.cs" />
     <Compile Include="Components\ThingComps\CompPawnTypeRestrictable.cs" />
     <Compile Include="Components\ThingComps\CompMaintenanceNeed.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="Harmony\Alert_RoyalNoAcceptableFood_Patch.cs" />
     <Compile Include="Harmony\AttackTargetFinder_Patch.cs" />
     <Compile Include="Harmony\Pawn_GuestTracker_Patch.cs" />
+    <Compile Include="Harmony\PawnGroupMakerUtility_Patch.cs" />
     <Compile Include="Harmony\RaceProperties_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_ColonyXenotypeMakeup_Patch.cs" />
     <Compile Include="Harmony\ThoughtWorker_Precept_SelfDislikedXenotype_Patch.cs" />

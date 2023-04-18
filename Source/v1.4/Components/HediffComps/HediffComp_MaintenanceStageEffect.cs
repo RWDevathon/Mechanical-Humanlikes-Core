@@ -2,7 +2,7 @@
 
 namespace MechHumanlikes
 {
-    public class HediffComp_MHC_MaintenanceStageEffect : HediffComp
+    public class HediffComp_MaintenanceStageEffect : HediffComp
     {
         public HediffCompProperties_MHC_MaintenanceStageEffect Props => (HediffCompProperties_MHC_MaintenanceStageEffect)props;
 

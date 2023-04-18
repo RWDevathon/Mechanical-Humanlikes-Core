@@ -63,13 +63,13 @@ namespace MechHumanlikes
             switch (stage)
             {
                 case MHC_MaintenanceStage.Critical:
-                    return 0.05f; // 5% per day base (10 -> 0 should take 2 days with 1 efficiency)
+                    return 0.05f; // 5% per day base (10 -> 0 should take 2 day with 1 efficiency)
                 case MHC_MaintenanceStage.Poor:
                     return 0.10f; // 10% per day base (30 -> 10 should take 2 days with 1 efficiency)
                 case MHC_MaintenanceStage.Sufficient:
                     return 0.20f; // 20% per day base (70 -> 30 should take 2 days with 1 efficiency)
                 default:
-                    return 0.60f; // 60% per day base (100 -> 70 should take 0.5 days with 1 efficiency)
+                    return 0.60f; // 60% per day base (100 -> 70 should take 0.5 day with 1 efficiency)
             }
         }
 

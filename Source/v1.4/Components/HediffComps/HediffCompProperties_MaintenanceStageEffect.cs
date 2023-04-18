@@ -6,7 +6,7 @@ namespace MechHumanlikes
     {
         public HediffCompProperties_MHC_MaintenanceStageEffect()
         {
-            compClass = typeof(HediffComp_MHC_MaintenanceStageEffect);
+            compClass = typeof(HediffComp_MaintenanceStageEffect);
         }
 
         public MHC_MaintenanceStage activeMHC_MaintenanceStage;
