@@ -254,7 +254,7 @@ namespace MechHumanlikes
                             bool locatedViablePart = false;
                             foreach (BodyPartDef partDef in effectExtension.partsToAffect)
                             {
-                                if (race.body.cachedPartsByDef[partDef].Count > 0)
+                                if (race.body.GetPartsWithDef(partDef).Count > 0)
                                 {
                                     validHediffs.Add(hediffDef);
                                     locatedViablePart = true;
@@ -303,7 +303,7 @@ namespace MechHumanlikes
             }
             catch (Exception ex)
             {
-                Log.Error("[MHC] Encountered an error while trying to generate and return maintenance-related HediffDefs for a race. Additional errors may occur!" + ex.Message + ex.StackTrace);
+                Log.Error("[MHC] Encountered an error while trying to generate and return maintenance-related HediffDefs for a race. Additional errors may occur! " + ex.Message + ex.StackTrace);
                 return new HashSet<HediffDef>();
             }
         }
