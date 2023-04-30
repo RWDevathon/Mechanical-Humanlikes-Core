@@ -242,7 +242,7 @@ namespace MechHumanlikes
                         }
 
                         // If the extension is stage-related and isn't race-restricted/worker-restricted, allow it.
-                        if (effectExtension.isMaintenangeStageEffect)
+                        if (effectExtension.isMaintenanceStageEffect)
                         {
                             validHediffs.Add(hediffDef);
                             continue;

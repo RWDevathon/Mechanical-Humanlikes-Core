@@ -133,7 +133,7 @@ namespace MechHumanlikes
                 foreach (HediffDef hediffDef in MHC_Utils.GetMaintenanceEffectsForRace(Pawn.RaceProps))
                 {
                     MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
-                    if (effectExtension.isMaintenangeStageEffect && effectExtension.requiredMaintenanceStageToOccur == Stage)
+                    if (effectExtension.isMaintenanceStageEffect && effectExtension.requiredMaintenanceStageToOccur == Stage)
                     {
                         Pawn.health.AddHediff(hediffDef);
                     }
@@ -259,7 +259,7 @@ namespace MechHumanlikes
             {
                 MHC_MaintenanceEffectExtension effectExtension = hediffDef.GetModExtension<MHC_MaintenanceEffectExtension>();
                 // Maintenance stage effects are applied/removed automatically on stage changes.
-                if (effectExtension.isMaintenangeStageEffect)
+                if (effectExtension.isMaintenanceStageEffect)
                 {
                     continue;
                 }

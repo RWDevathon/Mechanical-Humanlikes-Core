@@ -7,7 +7,7 @@ namespace MechHumanlikes
     // Pawns that are not considered humanlike don't get unburied colonist notifications.
     public class Alert_ColonistLeftUnburied_Patch
     {
-        [HarmonyPatch(typeof(Alert_ColonistLeftUnburied), "IsCorpseOfColonist")]
+        [HarmonyPatch(typeof(Alert_ColonistLeftUnburied), nameof(Alert_ColonistLeftUnburied.IsCorpseOfColonist))]
         public class Alert_ColonistLeftUnburied_IsCorpseOfColonist_Patch
         {
             [HarmonyPostfix]

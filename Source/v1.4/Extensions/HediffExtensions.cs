@@ -8,7 +8,7 @@ namespace MechHumanlikes
     public class MHC_MaintenanceEffectExtension : DefModExtension
     {
         // Maintenance stage-related Hediffs are simple hediffs that should be applied at the corresponding stage and removed when it is not that stage (uses requiredMaintenanceStageToOccur).
-        public bool isMaintenangeStageEffect = false;
+        public bool isMaintenanceStageEffect = false;
 
         // Maintenance workers have special C# code for adding conditions on when it is legal to add the effect to pawns, and to add additional actions upon application.
         // A HediffDef may have multiple maintenance workers. Conditionals are always AND, meaning all workers must permit the effect for it to be legal.
