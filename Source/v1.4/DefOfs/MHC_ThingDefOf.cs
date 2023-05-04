@@ -14,5 +14,7 @@ namespace MechHumanlikes
         public static ThingDef MHC_BedsideChargerFacility;
 
         public static ThingDef MHC_MaintenanceSpot;
+
+        public static ThingDef MHC_CoolantPack;
     }
 }

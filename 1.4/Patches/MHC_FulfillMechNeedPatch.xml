@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Colonists should have mech need fulfillment in their main colonist behavior tree. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath>
+        <value>
+            <li Class="MechHumanlikes.JobGiver_GetMechNeed"/>
+        </value>
+    </Operation>
+
+    <!-- Pawns should have mech need fulfillment as a basic need. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThinkTreeDef[defName="SatisfyBasicNeeds" or defName="SatisfyBasicNeedsAndWork"]/thinkRoot/subNodes/li/subNodes</xpath>
+        <value>
+            <li Class="MechHumanlikes.JobGiver_GetMechNeed"/>
+        </value>
+    </Operation>
+
+    <!-- Prisoners should have mech need fulfillment as a basic need. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath>
+        <value>
+            <li Class="MechHumanlikes.JobGiver_GetMechNeed"/>
+        </value>
+    </Operation>
+
+</Patch>

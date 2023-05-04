@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <NeedDef>
+        <defName>MHC_Coolant</defName>
+        <needClass>MechHumanlikes.Need_MechanicalNeed</needClass>
+        <label>coolant</label>
+        <description>Coolant is the amount of reserve coolant a pawn currently retains. If it is at zero, the pawn will swiftly shut down and become incapacitated.</description>
+        <listPriority>375</listPriority>
+        <fallPerDay>0.01667</fallPerDay>
+        <showForCaravanMembers>true</showForCaravanMembers>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <modExtensions>
+            <li Class="MechHumanlikes.MHC_MechanicalNeedExtension">
+                <hediffToApplyOnEmpty>MHC_CoolantShortage</hediffToApplyOnEmpty>
+                <hediffRisePerDay>1</hediffRisePerDay>
+                <hediffFallPerDay>0.25</hediffFallPerDay>
+            </li>
+        </modExtensions>
+    </NeedDef>
+
+    <NeedDef>
+        <defName>MHC_Lubrication</defName>
+        <needClass>MechHumanlikes.Need_MechanicalNeed</needClass>
+        <label>lubricant</label>
+        <description>Lubricant is the amount of reserve lubricant a pawn currently retains. If it is at zero, the pawn will lose maintenance, manipulation, and moving efficiency.</description>
+        <listPriority>370</listPriority>
+        <fallPerDay>0.1334</fallPerDay>
+        <showForCaravanMembers>true</showForCaravanMembers>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <modExtensions>
+            <li Class="MechHumanlikes.MHC_MechanicalNeedExtension">
+                <hediffToApplyOnEmpty>MHC_LubricantShortage</hediffToApplyOnEmpty>
+                <hediffRisePerDay>0.1</hediffRisePerDay>
+                <hediffFallPerDay>0.5</hediffFallPerDay>
+            </li>
+        </modExtensions>
+    </NeedDef>
+
+</Defs>

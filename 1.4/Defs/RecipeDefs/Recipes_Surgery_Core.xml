@@ -211,4 +211,49 @@
 		<addsHediff>MHC_Restarting</addsHediff>
 	</RecipeDef>
 
+    <RecipeDef ParentName="MHC_surgeryMechanicalBase">
+        <defName>MHC_ExtractCoolant</defName>
+        <label>extract coolant pack</label>
+        <description>Extract the coolant reserves of the target. The operation will fail if there is insuffient reserves.\n\nCoolant can be consumed by mechanical pawns to replenish their own coolant reserves.</description>
+        <workerClass>MechHumanlikes.Recipe_ExtractCoolant</workerClass>
+        <jobString>Extracting coolant pack.</jobString>
+        <workAmount>500</workAmount>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <isViolation>true</isViolation>
+        <descriptionHyperlinks>
+            <ThingDef>MHC_CoolantPack</ThingDef>
+        </descriptionHyperlinks>
+        <uiIconThing>HemogenPack</uiIconThing>
+        <anesthetize>false</anesthetize>
+        <workSkillLearnFactor>2</workSkillLearnFactor>
+    </RecipeDef>
+
+    <RecipeDef ParentName="MHC_surgeryMechanicalBase">
+        <defName>MHC_CoolantInjection</defName>
+        <label>inject coolant</label>
+        <description>Manually replenish a pawn's coolant reserves by injecting from a pack. This does not replace lost coolant in the chassis, but is essential for replenishing that lost quantity over time from the reserves.</description>
+        <jobString>injecting coolant into TargetA.</jobString>
+        <workAmount>800</workAmount>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <anesthetize>false</anesthetize>
+        <workerClass>MechHumanlikes.Recipe_InjectCoolant</workerClass>
+        <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MHC_CoolantPack</li>
+                    </thingDefs>
+                </filter>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MHC_CoolantPack</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+
 </Defs>

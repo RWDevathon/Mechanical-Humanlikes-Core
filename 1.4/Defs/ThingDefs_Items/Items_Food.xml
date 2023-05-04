@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef>
+        <defName>MHC_CoolantPack</defName>
+        <label>coolant pack</label>
+        <description>A tightly sealed package of coolant for mechanical units. Mechanical units consume it to replenish internal coolant reserves. It only fills the reserve and can not replenish immediately lost coolant.</description>
+        <category>Item</category>
+        <thingClass>ThingWithComps</thingClass>
+        <drawerType>MapMeshOnly</drawerType>
+        <useHitPoints>true</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <selectable>true</selectable>
+        <stackLimit>10</stackLimit>
+        <tickerType>Rare</tickerType>
+        <possessionCount>5</possessionCount>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <alwaysHaulable>true</alwaysHaulable>
+        <pathCost>14</pathCost>
+        <allowedArchonexusCount>-1</allowedArchonexusCount>
+        <resourceReadoutPriority>Last</resourceReadoutPriority>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <graphicData>
+            <texPath>Things/Items/Manufactured/MHC_RepairStimSimple</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>0.5</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <DeteriorationRate>5</DeteriorationRate>
+            <Mass>0.75</Mass>
+            <Flammability>0.1</Flammability>
+            <Nutrition>0.1</Nutrition>
+            <Beauty>0</Beauty>
+            <MarketValue>3</MarketValue>
+            <WorkToMake>1200</WorkToMake>
+        </statBases>
+        <thingCategories>
+            <li>Foods</li>
+        </thingCategories>
+        <ingestible>
+            <foodType>Fluid</foodType>
+            <preferability>DesperateOnly</preferability>
+            <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+            <ingestSound>Ingest_Inject</ingestSound>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                    <need>MHC_Coolant</need>
+                    <offset>0.5</offset>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <recipeMaker>
+            <recipeUsers>
+                <li>DrugLab</li>
+            </recipeUsers>
+            <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <soundWorking>Recipe_Drug</soundWorking>
+        </recipeMaker>
+        <costList>
+            <Neutroamine>5</Neutroamine>
+            <Chemfuel>1</Chemfuel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+        </comps>
+        <modExtensions>
+            <li Class="MechHumanlikes.MHC_FoodExtension">
+                <consumableByOrganics>false</consumableByOrganics>
+                <satisfiesMechNeeds>
+                    <li>MHC_Coolant</li>
+                </satisfiesMechNeeds>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>

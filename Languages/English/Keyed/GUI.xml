@@ -12,4 +12,7 @@
     <!-- Maintenance Spot -->
     <MHC_MaintenanceNeedRequired>Has no maintenance need.</MHC_MaintenanceNeedRequired>
 
+    <!-- Coolant Extraction -->
+    <MHC_NoCoolant>Does not have coolant.</MHC_NoCoolant>
+
 </LanguageData>

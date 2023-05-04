@@ -9,4 +9,8 @@
 	<MHC_MessageMechanicOperationFailureRidiculous>{0} has committed a major error while attempting an operation on {1}.</MHC_MessageMechanicOperationFailureRidiculous>
 	<MHC_MessageMechanicOperationFailureFatal>{0} has committed a fatal error while operating on {1} that caused unintentional cascading damage. The procedure caused irreversible damage to the unit, resulting in ceased functionality.</MHC_MessageMechanicOperationFailureFatal>
 
+    <!-- Coolant Extraction -->
+    <MHC_CannotStartCoolantExtraction>{PAWN_nameDef} doesn't have enough coolant reserves to extract a coolant pack.</MHC_CannotStartCoolantExtraction>
+    <MHC_PawnHadInsufficientCoolantToExtractCoolantPack>{PAWN_nameDef} did not have enough coolant reserves to extract a coolant pack.</MHC_PawnHadInsufficientCoolantToExtractCoolantPack>
+
 </LanguageData>

@@ -102,6 +102,16 @@ namespace MechHumanlikes
                 return null;
             }
 
+            // Try to use the user's owned bed if it is legal.
+            if (user.ownership?.OwnedBed != null)
+            {
+                Building_Bed ownedBed = user.ownership.OwnedBed;
+                if ((int)ownedBed.Position.GetDangerFor(user, user.Map) <= (int)Danger.Deadly && RestUtility.IsValidBedFor(ownedBed, user, carrier, true) && ((ownedBed.TryGetComp<CompPawnCharger>() != null && ownedBed.TryGetComp<CompPowerTrader>()?.PowerOn == true) || ownedBed.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading.Any(thing => thing.TryGetComp<CompPawnCharger>() != null && thing.TryGetComp<CompPowerTrader>()?.PowerOn == true) == true))
+                {
+                    return ownedBed;
+                }
+            }
+
             return (Building_Bed)GenClosest.ClosestThingReachable(user.PositionHeld, user.MapHeld, ThingRequest.ForGroup(ThingRequestGroup.Bed), PathEndMode.OnCell, TraverseParms.For(carrier), 9999f, (Thing b) => b.def.IsBed && (int)b.Position.GetDangerFor(user, user.Map) <= (int)Danger.Deadly && RestUtility.IsValidBedFor(b, user, carrier, true) && ((b.TryGetComp<CompPawnCharger>() != null && (b.TryGetComp<CompPowerTrader>()?.PowerOn ?? false)) || (b.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading.Any(thing => thing.TryGetComp<CompPawnCharger>() != null && (thing.TryGetComp<CompPowerTrader>()?.PowerOn ?? false)) ?? false)));
         }
 
@@ -307,6 +317,9 @@ namespace MechHumanlikes
                 return new HashSet<HediffDef>();
             }
         }
+
+        // Cached dictionary matching mechanical NeedDefs to the ingestible items which can satisfy that need that is generated in a Static Constructor On Startup.
+        public static Dictionary<NeedDef, List<ThingDef>> cachedMechNeeds = new Dictionary<NeedDef, List<ThingDef>>();
 
         // Cached Hediffs for a particular pawn's race that count as temperature hediffs to avoid recalculation, cached when needed.
         private static Dictionary<RaceProperties, HashSet<HediffDef>> cachedTemperatureHediffs = new Dictionary<RaceProperties, HashSet<HediffDef>>();

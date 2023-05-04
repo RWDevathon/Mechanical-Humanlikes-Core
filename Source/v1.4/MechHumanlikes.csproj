@@ -183,11 +183,14 @@
     <Compile Include="Components\ThingComps\CompPawnCharger.cs" />
     <Compile Include="Components\SurgeryOutcomeComp_BedAndRoomMechQuality.cs" />
     <Compile Include="Components\SurgeryOutcomeComp_SurgeonSuccessChance.cs" />
+    <Compile Include="DefOfs\MHC_HistoryEventDefOf.cs" />
+    <Compile Include="DefOfs\MHC_NeedDefOf.cs" />
     <Compile Include="DefOfs\MHC_WorkTypeDefOf.cs" />
     <Compile Include="Dialogs\Dialog_RestrictToPawnType.cs" />
     <Compile Include="Dialogs\Dialog_Repaint.cs" />
     <Compile Include="Extensions\ListingExtensions.cs" />
     <Compile Include="Extensions\HediffExtensions.cs" />
+    <Compile Include="Extensions\NeedExtensions.cs" />
     <Compile Include="Extensions\ThingExtensions.cs" />
     <Compile Include="Extensions\SettingsUIExtensions.cs" />
     <Compile Include="Gizmos\Gizmo_MaintenanceEffect.cs" />
@@ -246,6 +249,7 @@
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceIdle.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceUrgent.cs" />
     <Compile Include="JobDrivers\JobDriver_TendMechanical.cs" />
+    <Compile Include="JobGivers\JobGiver_GetMechNeed.cs" />
     <Compile Include="JobGivers\JobGiver_RechargeIdle.cs" />
     <Compile Include="MechHumanlikes.cs" />
     <Compile Include="Buildings\Building_ChargingStation.cs" />
@@ -274,6 +278,9 @@
     <Compile Include="Harmony\Toils_Tend_Patch.cs" />
     <Compile Include="Harmony\WorkGiver_DoBill_Patch.cs" />
     <Compile Include="MaintenanceWorkers\MaintenanceWorker.cs" />
+    <Compile Include="Needs\Need_MechanicalNeed.cs" />
+    <Compile Include="Recipes\Recipe_InjectCoolant.cs" />
+    <Compile Include="Recipes\Recipe_ExtractCoolant.cs" />
     <Compile Include="Recipes\Recipe_DoEmergencyMaintenance.cs" />
     <Compile Include="DefOfs\MHC_HediffDefOf.cs" />
     <Compile Include="Recipes\Recipe_InstallMechanicalPart.cs" />

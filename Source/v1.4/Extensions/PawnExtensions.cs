@@ -15,6 +15,10 @@ namespace MechHumanlikes
         // Bool for whether this race has the maintenance need added by this mod. Setting this to disabled may be preferred for other race mods with their own maintenance needs.
         public bool needsMaintenance = true;
 
+        // Bool for whether this race has the coolant and lubricant needs added by this mod. These options are opt-in so other race modders may explicitly choose to use it for their mods but not use it by default.
+        public bool needsCoolant = false;
+        public bool needsLubricant = false;
+
         // Int for the stat levels of this race when set as a drone. This does nothing if the race is not considered drones.
         public int droneSkillLevel = 8;
 
@@ -39,6 +43,9 @@ namespace MechHumanlikes
 
         // List of needs that specifically mechanical sapients do not have. Same note as above.
         public List<NeedDef> blacklistedSapientNeeds;
+
+        // List of mechanical-specific needs that units of this ThingDef have. Mechanical-specific needs are a whitelist.
+        public List<NeedDef> mechanicalNeeds;
 
 
         public override IEnumerable<string> ConfigErrors()

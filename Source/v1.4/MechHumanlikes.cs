@@ -128,6 +128,25 @@ namespace MechHumanlikes
                         bedsideChargerLinkables.linkableBuildings.Add(thingDef);
                     }
                 }
+                if (thingDef.IsIngestible)
+                {
+                    MHC_FoodExtension ingestibleExtension = thingDef.GetModExtension<MHC_FoodExtension>();
+                    if (ingestibleExtension != null && ingestibleExtension.consumableByMechanicals && ingestibleExtension.satisfiesMechNeeds != null)
+                    {
+                        foreach (NeedDef needDef in ingestibleExtension.satisfiesMechNeeds)
+                        {
+                            if (MHC_Utils.cachedMechNeeds.ContainsKey(needDef))
+                            {
+                                MHC_Utils.cachedMechNeeds[needDef].Add(thingDef);
+                            }
+                            else
+                            {
+                                MHC_Utils.cachedMechNeeds[needDef] = new List<ThingDef> { thingDef };
+                            }
+                        }
+                    }
+
+                }
             }
 
             // Maintenance Effect workers must have their def and extension references manually defined here as they are created via a def mod extension which is def-blind and does not self-initialize.

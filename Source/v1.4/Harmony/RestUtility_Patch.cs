@@ -20,7 +20,7 @@ namespace MechHumanlikes
                     return;
                 }
 
-                MHC_PawnType assignedType = bedThing.TryGetComp<CompMHC_PawnTypeRestrictable>().assignedToType;
+                MHC_PawnType? assignedType = bedThing.TryGetComp<CompMHC_PawnTypeRestrictable>()?.assignedToType;
                 if ((MHC_Utils.GetMHC_PawnType(sleeper) | assignedType) != assignedType)
                 {
                     __result = false;

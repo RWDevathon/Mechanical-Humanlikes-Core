@@ -15,5 +15,6 @@ namespace MechHumanlikes
 
         public static HediffDef MHC_Restarting;
 
+        public static HediffDef MHC_CoolantShortage;
     }
 }

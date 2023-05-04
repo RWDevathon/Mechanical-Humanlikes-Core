@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <RecipeDef>
+        <defName>MHC_Make_IndustrialCoolantPack</defName>
+        <label>make coolant packs</label>
+        <description>Efficiently make coolant packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it. It is completely inedible for organic life. The package has a minute amount of nutrition.</description>
+        <jobString>Making coolant.</jobString>
+        <workAmount>4800</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Drug</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Neutroamine</li>
+                <li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+        <workSkill>Crafting</workSkill>
+        <products>
+            <MHC_CoolantPack>10</MHC_CoolantPack>
+        </products>
+        <displayPriority>1300</displayPriority>
+    </RecipeDef>
+
+</Defs>

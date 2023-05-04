@@ -36,7 +36,7 @@ namespace MechHumanlikes
                     __result = false;
                 }
                 // If it is organic, ensure it is compatible with organic pawns.
-                else if (!foodExtension.consumableByOrganics)
+                else if (!MHC_Utils.IsConsideredMechanical(pawnDef) && !foodExtension.consumableByOrganics)
                 {
                     __result = false;
                 }
