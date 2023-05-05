@@ -13,7 +13,7 @@ namespace MechHumanlikes
         {
             if (by == Faction.OfPlayer && MHC_Utils.IsConsideredMechanicalDrone(___pawn))
             {
-                Messages.Message("MHC_DroneCaptured".Translate(), MessageTypeDefOf.CautionInput, false);
+                Messages.Message("MHC_DroneCaptured".Translate(___pawn), MessageTypeDefOf.CautionInput, false);
             }
         }
     }

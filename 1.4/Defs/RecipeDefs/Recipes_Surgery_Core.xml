@@ -157,8 +157,7 @@
 		<jobString>Reprogramming drone.</jobString>
 		<workAmount>5000</workAmount>
 		<skillRequirements>
-            <Crafting>8</Crafting>
-            <Intellectual>6</Intellectual>
+            <Crafting>6</Crafting>
         </skillRequirements>
 		<surgerySuccessChanceFactor>0.8</surgerySuccessChanceFactor>
 		<deathOnFailedSurgeryChance>0.4</deathOnFailedSurgeryChance>
@@ -211,6 +210,7 @@
 		<addsHediff>MHC_Restarting</addsHediff>
 	</RecipeDef>
 
+    <!-- Extracting coolant from aa mechanical unit -->
     <RecipeDef ParentName="MHC_surgeryMechanicalBase">
         <defName>MHC_ExtractCoolant</defName>
         <label>extract coolant pack</label>
@@ -229,6 +229,7 @@
         <workSkillLearnFactor>2</workSkillLearnFactor>
     </RecipeDef>
 
+    <!-- Injecting coolant into a mechanical unit -->
     <RecipeDef ParentName="MHC_surgeryMechanicalBase">
         <defName>MHC_CoolantInjection</defName>
         <label>inject coolant</label>
