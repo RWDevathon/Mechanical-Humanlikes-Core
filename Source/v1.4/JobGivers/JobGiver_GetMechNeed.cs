@@ -47,7 +47,7 @@ namespace MechHumanlikes
                     {
                         continue;
                     }
-                    desiredCount = Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / needOffsetter.offset);
+                    desiredCount = Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / (needOffsetter.offset / pawn.BodySize));
                     Job job = JobMaker.MakeJob(JobDefOf.Ingest, item);
                     job.count = Mathf.Min(item.stackCount, desiredCount);
                     job.ingestTotalCount = true;
