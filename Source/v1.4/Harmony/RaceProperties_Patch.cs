@@ -31,7 +31,7 @@ namespace MechHumanlikes
                 ThingDef pawnDef = CachedData.GetRaceFromRaceProps(__instance);
 
                 // If it is mechanical, ensure the food is compatible with mechanical units.
-                if (MHC_Utils.IsConsideredMechanical(pawnDef) && (!foodExtension.consumableByMechanicals))
+                if (MHC_Utils.IsConsideredMechanical(pawnDef) && !foodExtension.consumableByMechanicals)
                 {
                     __result = false;
                 }

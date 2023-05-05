@@ -34,11 +34,57 @@
                 <li>Chemfuel</li>
 			</thingDefs>
 		</fixedIngredientFilter>
+        <recipeUsers>
+            <li>BiofuelRefinery</li>
+        </recipeUsers>
         <workSkill>Crafting</workSkill>
         <products>
             <MHC_CoolantPack>10</MHC_CoolantPack>
         </products>
         <displayPriority>1300</displayPriority>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>MHC_Make_IndustrialLubricationPack</defName>
+        <label>make lubrication packs</label>
+        <description>Efficiently make lubrication packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it. It is completely inedible for organic life. The package has a minute amount of nutrition.</description>
+        <jobString>Making coolant.</jobString>
+        <workAmount>4000</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Drug</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Chemfuel</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Neutroamine</li>
+                <li>Chemfuel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+        <recipeUsers>
+            <li>BiofuelRefinery</li>
+        </recipeUsers>
+        <workSkill>Crafting</workSkill>
+        <products>
+            <MHC_LubricationPack>10</MHC_LubricationPack>
+        </products>
+        <displayPriority>1290</displayPriority>
     </RecipeDef>
 
 </Defs>
