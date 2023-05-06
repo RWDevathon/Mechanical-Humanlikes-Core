@@ -120,7 +120,7 @@
             <outcomeDoers>
                 <li Class="MechHumanlikes.IngestionOutcomeDoer_OffsetMechNeed">
                     <need>MHC_Lubrication</need>
-                    <offset>1</offset>
+                    <offset>0.5</offset>
                 </li>
             </outcomeDoers>
         </ingestible>
