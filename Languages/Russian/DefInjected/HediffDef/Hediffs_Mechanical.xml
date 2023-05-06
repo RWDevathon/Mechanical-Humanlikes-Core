@@ -7,5 +7,19 @@
   <MHC_Restarting.label>Перезагрузка</MHC_Restarting.label>
   <MHC_Restarting.description>Юнит полностью перезапускает все функции и снова включается.</MHC_Restarting.description>
 
+  <MHC_CoolantShortage.label>Нехватка охлаждающей жидкости</MHC_CoolantShortage.label>
+  <MHC_CoolantShortage.description>У этого юнита недостаточно охлаждающей жидкости для полного заполнения линий охлаждения, и он отключается, чтобы избежать катастрофического отказа.\nЗапасы охлаждающей жидкости должны быть пополнены, чтобы обеспечить возврат к надлежащей функциональности.</MHC_CoolantShortage.description>
+  <MHC_CoolantShortage.stages.0.label>незначительная</MHC_CoolantShortage.stages.0.label>
+  <MHC_CoolantShortage.stages.1.label>умеренная</MHC_CoolantShortage.stages.1.label>
+  <MHC_CoolantShortage.stages.2.label>серьезная</MHC_CoolantShortage.stages.2.label>
+  <MHC_CoolantShortage.stages.3.label>экстремальная</MHC_CoolantShortage.stages.3.label>
+
+  <MHC_LubricantShortage.label>Нехватка смазки</MHC_LubricantShortage.label>
+  <MHC_LubricantShortage.description>У этого юнита недостаточно смазки для поддержания бесперебойной работы деталей, что снижает эффективность работы наружной части и увеличивает потери в техническом обслуживании.\nДля восстановления нормальной работы необходимо пополнить запасы смазки.</MHC_LubricantShortage.description>
+  <MHC_LubricantShortage.stages.0.label>незначительная</MHC_LubricantShortage.stages.0.label>
+  <MHC_LubricantShortage.stages.1.label>умеренная</MHC_LubricantShortage.stages.1.label>
+  <MHC_LubricantShortage.stages.2.label>серьезная</MHC_LubricantShortage.stages.2.label>
+  <MHC_LubricantShortage.stages.3.label>экстремальная</MHC_LubricantShortage.stages.3.label>
+
 
 </LanguageData>

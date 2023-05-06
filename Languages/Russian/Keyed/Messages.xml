@@ -9,4 +9,8 @@
   <MHC_MessageMechanicOperationFailureRidiculous>{0} допустил серьезную ошибку при попытке выполнить операцию над {1}.</MHC_MessageMechanicOperationFailureRidiculous>
   <MHC_MessageMechanicOperationFailureFatal>{0} допустил фатальную ошибку во время работы с {1}, которая привела к непреднамеренному каскадному повреждению. Процедура вызвала необратимое повреждение устройства, что привело к прекращению его функционирования.</MHC_MessageMechanicOperationFailureFatal>
 
+  <!-- Coolant Extraction -->
+  <MHC_CannotStartCoolantExtraction>У {PAWN_nameDef} недостаточно запасов охлаждающей жидкости для извлечения упаковки охлаждающей жидкости.</MHC_CannotStartCoolantExtraction>
+  <MHC_PawnHadInsufficientCoolantToExtractCoolantPack>У {PAWN_nameDef} не было достаточного запаса охлаждающей жидкости для извлечения упаковки охлаждающей жидкости.</MHC_PawnHadInsufficientCoolantToExtractCoolantPack>
+
 </LanguageData>

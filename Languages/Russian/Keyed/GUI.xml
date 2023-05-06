@@ -12,4 +12,7 @@
   <!-- Maintenance Spot -->
   <MHC_MaintenanceNeedRequired>Не нуждается в техобслуживании.</MHC_MaintenanceNeedRequired>
 
+  <!-- Coolant Extraction -->
+  <MHC_NoCoolant>Не содержит охлаждающей жидкости.</MHC_NoCoolant>
+
 </LanguageData>
