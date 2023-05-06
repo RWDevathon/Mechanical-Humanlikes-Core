@@ -50,7 +50,7 @@ namespace MechHumanlikes
             }
 
             // Urgent maintenance is done only if below poor maintenance and if maintenance level is at least 5% lower than the desired level.
-            if (compMaintenanceNeed.Stage > MHC_MaintenanceStage.Poor && compMaintenanceNeed.MaintenanceLevel > compMaintenanceNeed.TargetMaintenanceLevel - 0.05)
+            if (compMaintenanceNeed.Stage > MHC_MaintenanceStage.Poor || compMaintenanceNeed.MaintenanceLevel > compMaintenanceNeed.TargetMaintenanceLevel - 0.05)
             {
                 return null;
             }

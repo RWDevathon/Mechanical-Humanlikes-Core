@@ -40,7 +40,7 @@ namespace MechHumanlikes
             Text.Font = GameFont.Medium;
             Rect TitleRect = new Rect(inRect);
             TitleRect.height = Text.LineHeight * 2f;
-            Widgets.Label(TitleRect, "MHC_RestrictedMHC_PawnTypes".Translate());
+            Widgets.Label(TitleRect, "MHC_RestrictedPawnTypes".Translate());
             Text.Font = GameFont.Small;
             inRect.yMin = TitleRect.yMax + 4f;
             Rect exemplarRect = inRect;

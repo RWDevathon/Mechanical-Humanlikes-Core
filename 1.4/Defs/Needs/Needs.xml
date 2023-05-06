@@ -25,7 +25,7 @@
         <label>lubricant</label>
         <description>Lubricant is the amount of reserve lubricant a pawn currently retains. If it is at zero, the pawn will lose maintenance, manipulation, and moving efficiency.</description>
         <listPriority>370</listPriority>
-        <fallPerDay>0.1334</fallPerDay>
+        <fallPerDay>0.0667</fallPerDay>
         <showForCaravanMembers>true</showForCaravanMembers>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
         <modExtensions>

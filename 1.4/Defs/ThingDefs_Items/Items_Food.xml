@@ -44,7 +44,7 @@
             <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
             <ingestSound>Ingest_Inject</ingestSound>
             <outcomeDoers>
-                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                <li Class="MechHumanlikes.IngestionOutcomeDoer_OffsetMechNeed">
                     <need>MHC_Coolant</need>
                     <offset>0.5</offset>
                 </li>
@@ -118,9 +118,9 @@
             <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
             <ingestSound>Ingest_Inject</ingestSound>
             <outcomeDoers>
-                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                <li Class="MechHumanlikes.IngestionOutcomeDoer_OffsetMechNeed">
                     <need>MHC_Lubrication</need>
-                    <offset>0.5</offset>
+                    <offset>1</offset>
                 </li>
             </outcomeDoers>
         </ingestible>

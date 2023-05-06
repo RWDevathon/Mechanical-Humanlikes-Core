@@ -246,6 +246,7 @@
     <Compile Include="Harmony\WorkGiver_Tend_Patch.cs" />
     <Compile Include="Components\HediffComps\HediffComp_MaintenanceStageEffect.cs" />
     <Compile Include="Components\HediffComps\HediffCompProperties_MaintenanceStageEffect.cs" />
+    <Compile Include="IngestionOutcomeDoers\IngestionOutcomeDoer_OffsetMechNeed.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceIdle.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceUrgent.cs" />
     <Compile Include="JobDrivers\JobDriver_TendMechanical.cs" />
