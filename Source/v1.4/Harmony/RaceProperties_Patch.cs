@@ -21,8 +21,8 @@ namespace MechHumanlikes
                 }
 
                 // Get the food extension for this thing def. If there isn't one, then we leave the original result.
-                MHC_FoodExtension foodExtension = t.GetModExtension<MHC_FoodExtension>();
-                if (foodExtension == null)
+                MHC_NeedFulfillerExtension fulfillerExtension = t.GetModExtension<MHC_NeedFulfillerExtension>();
+                if (fulfillerExtension == null)
                 {
                     return;
                 }
@@ -31,12 +31,12 @@ namespace MechHumanlikes
                 ThingDef pawnDef = CachedData.GetRaceFromRaceProps(__instance);
 
                 // If it is mechanical, ensure the food is compatible with mechanical units.
-                if (MHC_Utils.IsConsideredMechanical(pawnDef) && !foodExtension.consumableByMechanicals)
+                if (MHC_Utils.IsConsideredMechanical(pawnDef) && !fulfillerExtension.consumableByMechanicals)
                 {
                     __result = false;
                 }
                 // If it is organic, ensure it is compatible with organic pawns.
-                else if (!MHC_Utils.IsConsideredMechanical(pawnDef) && !foodExtension.consumableByOrganics)
+                else if (!MHC_Utils.IsConsideredMechanical(pawnDef) && !fulfillerExtension.consumableByOrganics)
                 {
                     __result = false;
                 }

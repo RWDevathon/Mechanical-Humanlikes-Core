@@ -4,7 +4,7 @@
     <RecipeDef>
         <defName>MHC_Make_IndustrialCoolantPack</defName>
         <label>make coolant packs</label>
-        <description>Efficiently make coolant packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it. It is completely inedible for organic life. The package has a minute amount of nutrition.</description>
+        <description>Efficiently make coolant packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it.</description>
         <jobString>Making coolant.</jobString>
         <workAmount>4800</workAmount>
         <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
@@ -47,8 +47,8 @@
     <RecipeDef>
         <defName>MHC_Make_IndustrialLubricationPack</defName>
         <label>make lubrication packs</label>
-        <description>Efficiently make lubrication packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it. It is completely inedible for organic life. The package has a minute amount of nutrition.</description>
-        <jobString>Making coolant.</jobString>
+        <description>Efficiently make lubrication packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it.</description>
+        <jobString>Making lubricant.</jobString>
         <workAmount>4000</workAmount>
         <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
         <effectWorking>Cook</effectWorking>

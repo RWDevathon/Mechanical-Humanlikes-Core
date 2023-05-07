@@ -12,6 +12,8 @@ namespace MechHumanlikes
         }
         public static JobDef MHC_GetRecharge;
 
+        public static JobDef MHC_IngestMechNeed;
+
         public static JobDef MHC_TendMechanical;
 
         public static JobDef MHC_DoMaintenanceUrgent;

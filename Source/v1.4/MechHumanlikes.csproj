@@ -249,6 +249,7 @@
     <Compile Include="IngestionOutcomeDoers\IngestionOutcomeDoer_OffsetMechNeed.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceIdle.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceUrgent.cs" />
+    <Compile Include="JobDrivers\JobDriver_FulfillMechNeed.cs" />
     <Compile Include="JobDrivers\JobDriver_TendMechanical.cs" />
     <Compile Include="JobGivers\JobGiver_GetMechNeed.cs" />
     <Compile Include="JobGivers\JobGiver_RechargeIdle.cs" />
@@ -291,6 +292,7 @@
     <Compile Include="ThoughtWorker\ThoughtWorker_MaintenanceMood.cs" />
     <Compile Include="JobDrivers\JobDriver_RechargeBattery.cs" />
     <Compile Include="Recipes\Recipe_RestoreMechanicalPart.cs" />
+    <Compile Include="Toils\Toils_FulfillMechNeed.cs" />
     <Compile Include="Utils\IngestionOutcomeDoer_MechOrganicDifferentEffects.cs" />
     <Compile Include="Utils\MaintenanceUtility.cs" />
     <Compile Include="JobGivers\JobGiver_DoMaintenanceIdle.cs" />
