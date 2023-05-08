@@ -128,13 +128,19 @@ namespace MechHumanlikes
                         bedsideChargerLinkables.linkableBuildings.Add(thingDef);
                     }
                 }
-                if (thingDef.IsIngestible)
+                // Things that fulfill mech needs should be marked appropriately.
+                if (thingDef.HasModExtension<MHC_NeedFulfillerExtension>())
                 {
-                    MHC_FoodExtension ingestibleExtension = thingDef.GetModExtension<MHC_FoodExtension>();
-                    if (ingestibleExtension != null && ingestibleExtension.consumableByMechanicals && ingestibleExtension.satisfiesMechNeeds != null)
+                    MHC_NeedFulfillerExtension ingestibleExtension = thingDef.GetModExtension<MHC_NeedFulfillerExtension>();
+                    if (ingestibleExtension != null && ingestibleExtension.consumableByMechanicals && ingestibleExtension.needOffsetRelations != null)
                     {
-                        foreach (NeedDef needDef in ingestibleExtension.satisfiesMechNeeds)
+                        foreach (NeedDef needDef in ingestibleExtension.needOffsetRelations.Keys)
                         {
+                            if (ingestibleExtension.needOffsetRelations[needDef] < 0)
+                            {
+                                continue;
+                            }
+
                             if (MHC_Utils.cachedMechNeeds.ContainsKey(needDef))
                             {
                                 MHC_Utils.cachedMechNeeds[needDef].Add(thingDef);

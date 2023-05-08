@@ -42,15 +42,14 @@ namespace MechHumanlikes
                 Thing item = GetNeedSatisfyingItem(pawn, needDef);
                 if (item != null)
                 {
-                    int desiredCount = 1;
-                    if (!(item.def.ingestible.outcomeDoers.FirstOrFallback(outcomeDoer => outcomeDoer is IngestionOutcomeDoer_OffsetNeed offsetter && offsetter.need == needDef) is IngestionOutcomeDoer_OffsetNeed needOffsetter))
+                    MHC_NeedFulfillerExtension needFulfiller = item.def.GetModExtension<MHC_NeedFulfillerExtension>();
+                    if (needFulfiller == null)
                     {
                         continue;
                     }
-                    desiredCount = Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / (needOffsetter.offset / pawn.BodySize));
-                    Job job = JobMaker.MakeJob(JobDefOf.Ingest, item);
+                    int desiredCount = Mathf.Max(1, Mathf.FloorToInt((need.MaxLevel - need.CurLevel) / needFulfiller.needOffsetRelations[needDef]));
+                    Job job = JobMaker.MakeJob(MHC_JobDefOf.MHC_IngestMechNeed, item);
                     job.count = Mathf.Min(item.stackCount, desiredCount);
-                    job.ingestTotalCount = true;
                     return job;
                 }
             }

@@ -27,7 +27,7 @@ namespace MechHumanlikes
 
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(ThingDef parentDef)
         {
-            yield return new StatDrawEntry(StatCategoryDefOf.BasicsNonPawnImportant, need.LabelCap, (offset >= 0f) ? "+" : string.Empty + Mathf.RoundToInt(offset * 100f), need.description, need.listPriority);
+            yield return new StatDrawEntry(StatCategoryDefOf.BasicsNonPawnImportant, need.LabelCap, ((offset >= 0f) ? "+" : string.Empty) + Mathf.RoundToInt(offset * 100f), need.description, need.listPriority);
         }
     }
 }

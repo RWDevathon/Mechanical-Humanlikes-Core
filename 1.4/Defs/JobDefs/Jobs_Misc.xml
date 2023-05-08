@@ -9,6 +9,13 @@
     </JobDef>
 
     <JobDef>
+        <defName>MHC_IngestMechNeed</defName>
+        <driverClass>MechHumanlikes.JobDriver_FulfillMechNeed</driverClass>
+        <reportString>Replenishing need.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
         <defName>MHC_TendMechanical</defName>
         <driverClass>MechHumanlikes.JobDriver_TendMechanical</driverClass>
         <reportString>tending to TargetA.</reportString>
