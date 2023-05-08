@@ -6,4 +6,9 @@
 	<MHC_NoAvailableChargingSpots>Cannot use, charging spots are reserved.</MHC_NoAvailableChargingSpots>
 	<MHC_IncapableOfCharging>{0} can not recharge this way.</MHC_IncapableOfCharging>
 
+    <!-- Fulfilling Mech Needs -->
+    <MHC_ForceConsumption>Consume {0}</MHC_ForceConsumption>
+    <MHC_ForceConsumptionMultiple>Consume multiple of {0}</MHC_ForceConsumptionMultiple>
+    <MHC_ConsumeCount>Consume {1_labelShort} x{{0}}</MHC_ConsumeCount>
+
 </LanguageData>

@@ -62,10 +62,6 @@ namespace MechHumanlikes
                 }
                 toil.actor.GainComfortFromCellIfPossible();
             };
-            toil.WithProgressBar(consumableInd, delegate
-            {
-                return (toil.actor.CurJob.GetTarget(consumableInd).Thing == null) ? 0.5f : (1f - (toil.actor.jobs.curDriver.ticksLeftThisToil / 300));
-            });
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.FailOnDestroyedOrNull(consumableInd);
             toil.AddFinishAction(delegate

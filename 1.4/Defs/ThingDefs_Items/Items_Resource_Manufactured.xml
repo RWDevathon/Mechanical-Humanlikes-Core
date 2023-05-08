@@ -220,6 +220,9 @@
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>
+            <li>
+                <compClass>MechHumanlikes.CompMechNeedFulfiller</compClass>
+            </li>
         </comps>
         <modExtensions>
             <li Class="MechHumanlikes.MHC_NeedFulfillerExtension">
@@ -281,6 +284,9 @@
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>
+            <li>
+                <compClass>MechHumanlikes.CompMechNeedFulfiller</compClass>
+            </li>
         </comps>
         <modExtensions>
             <li Class="MechHumanlikes.MHC_NeedFulfillerExtension">

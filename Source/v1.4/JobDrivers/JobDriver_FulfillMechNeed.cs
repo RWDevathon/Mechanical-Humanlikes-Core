@@ -43,25 +43,25 @@ namespace MechHumanlikes
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOn(() => ConsumableSource.Destroyed);
-            Toil chew = Toils_FulfillMechNeed.ConsumeItem(pawn, ConsumableIndex).FailOn((Toil x) => !ConsumableSource.Spawned && (pawn.carryTracker == null || pawn.carryTracker.CarriedThing != ConsumableSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
-            foreach (Toil item in PrepareToConsumeToils(chew))
+            Toil consume = Toils_FulfillMechNeed.ConsumeItem(pawn, ConsumableIndex).FailOn((Toil x) => !ConsumableSource.Spawned && (pawn.carryTracker == null || pawn.carryTracker.CarriedThing != ConsumableSource)).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+            foreach (Toil item in PrepareToConsumeToils(consume))
             {
                 yield return item;
             }
-            yield return chew;
+            yield return consume;
             yield return Toils_FulfillMechNeed.FinalizeConsumption(pawn, ConsumableIndex);
         }
 
-        private IEnumerable<Toil> PrepareToConsumeToils(Toil chewToil)
+        private IEnumerable<Toil> PrepareToConsumeToils(Toil consumeToil)
         {
             if (pawn.RaceProps.ToolUser)
             {
-                return PrepareToConsumeToils_ToolUser(chewToil);
+                return PrepareToConsumeToils_ToolUser(consumeToil);
             }
             return PrepareToConsumeToils_NonToolUser();
         }
 
-        private IEnumerable<Toil> PrepareToConsumeToils_ToolUser(Toil chewToil)
+        private IEnumerable<Toil> PrepareToConsumeToils_ToolUser(Toil consumeToil)
         {
             if (itemFromInventory)
             {
@@ -73,7 +73,7 @@ namespace MechHumanlikes
                 Toil gotoToPickup = Toils_Goto.GotoThing(ConsumableIndex, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(ConsumableIndex);
                 yield return Toils_Jump.JumpIf(gotoToPickup, () => pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation));
                 yield return Toils_Goto.GotoThing(ConsumableIndex, PathEndMode.Touch).FailOnDespawnedNullOrForbidden(ConsumableIndex);
-                yield return Toils_Jump.Jump(chewToil);
+                yield return Toils_Jump.Jump(consumeToil);
                 yield return gotoToPickup;
                 yield return Toils_FulfillMechNeed.PickupConsumable(ConsumableIndex, pawn);
             }

@@ -178,6 +178,7 @@
     <Compile Include="Components\HediffComps\HediffCompProperties_MaintenanceThresholdToRemove.cs" />
     <Compile Include="Components\HediffComps\HediffComp_MaintenanceThresholdToRemove.cs" />
     <Compile Include="Components\ThingComps\CompAssignableToPawn_MaintenanceSpot.cs" />
+    <Compile Include="Components\ThingComps\CompMechNeedFulfiller.cs" />
     <Compile Include="Components\ThingComps\CompPawnTypeRestrictable.cs" />
     <Compile Include="Components\ThingComps\CompMaintenanceNeed.cs" />
     <Compile Include="Components\ThingComps\CompPawnCharger.cs" />
