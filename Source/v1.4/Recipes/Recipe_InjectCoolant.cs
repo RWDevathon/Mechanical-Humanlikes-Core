@@ -32,20 +32,29 @@ namespace MechHumanlikes
             }
             return base.AvailableOnNow(thing, part);
         }
+
+        // Explicitly do nothing in this method as it gets handled in ApplyOnPawn instead.
         public override void ConsumeIngredient(Thing ingredient, RecipeDef recipe, Map map)
         {
         }
 
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            float gain = 0;
             foreach (Thing ingredient in ingredients)
             {
-                float gainAmount = (ingredient.def.ingestible?.outcomeDoers.Find(outcomeDoer => outcomeDoer is IngestionOutcomeDoer_OffsetNeed needOffsetter && needOffsetter.need == MHC_NeedDefOf.MHC_Coolant) as IngestionOutcomeDoer_OffsetNeed).offset;
-                gain += ingredient.stackCount * gainAmount;
+                // Fulfill mech needs.
+                Dictionary<NeedDef, float> needFulfillment = ingredient.def.GetModExtension<MHC_NeedFulfillerExtension>().needOffsetRelations;
+                foreach (NeedDef needDef in needFulfillment.Keys)
+                {
+                    Need need = pawn.needs.TryGetNeed(needDef);
+                    if (need == null)
+                    {
+                        continue;
+                    }
+                    need.CurLevel += needFulfillment[needDef] * ingredient.stackCount;
+                }
             }
 
-            pawn.needs.TryGetNeed(MHC_NeedDefOf.MHC_Coolant).CurLevel += gain;
             for (int i = 0; i < ingredients.Count; i++)
             {
                 ingredients[i].Destroy();
@@ -56,7 +65,7 @@ namespace MechHumanlikes
         {
             if (bill.billStack?.billGiver is Pawn pawn)
             {
-                return Mathf.Min(bill.Map.listerThings.ThingsOfDef(MHC_ThingDefOf.MHC_CoolantPack).Sum((Thing x) => x.stackCount), ((Need_MechanicalNeed) pawn.needs.TryGetNeed(MHC_NeedDefOf.MHC_Coolant)).CoolantDesired / 0.35f);
+                return Mathf.Min(bill.Map.listerThings.ThingsOfDef(MHC_ThingDefOf.MHC_CoolantPack).Sum((Thing x) => x.stackCount), Mathf.FloorToInt(((Need_MechanicalNeed) pawn.needs.TryGetNeed(MHC_NeedDefOf.MHC_Coolant)).CoolantDesired / 0.5f));
             }
             return base.GetIngredientCount(ing, bill);
         }
