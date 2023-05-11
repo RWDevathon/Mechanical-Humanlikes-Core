@@ -14,3 +14,5 @@
 
 ## Links
 [Discord](https://discord.gg/udNCpbkABT)
+
+[GitHub](https://github.com/RWDevathon/Mechanical-Humanlikes-Core)
