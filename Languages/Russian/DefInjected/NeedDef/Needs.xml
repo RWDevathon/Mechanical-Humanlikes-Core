@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_Coolant.label>охлаждающая жидкость</MHC_Coolant.label>
+  <MHC_Coolant.description>Охлаждающая жидкость - это количество резервной охлаждающей жидкости, которую пешка сохраняет в настоящее время. Если это равно нулю, пешка быстро отключится и станет недееспособной.</MHC_Coolant.description>
+
+  <MHC_Lubrication.label>смазка</MHC_Lubrication.label>
+  <MHC_Lubrication.description>Смазка - это количество резервной смазки, которую пешка сохраняет в настоящее время. Если это равно нулю, пешка теряет эффективность обслуживания, работы и перемещения.</MHC_Lubrication.description>
+
+
+</LanguageData>

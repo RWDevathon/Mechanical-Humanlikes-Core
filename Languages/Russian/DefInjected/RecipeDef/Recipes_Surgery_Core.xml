@@ -50,4 +50,18 @@
   <MHC_RebootUnit.jobString>Перезапуск юнита.</MHC_RebootUnit.jobString>
 
 
+  <!-- Extracting coolant from aa mechanical unit -->
+
+  <MHC_ExtractCoolant.label>извлечь упаковку охлаждающей жидкости</MHC_ExtractCoolant.label>
+  <MHC_ExtractCoolant.description>Извлечь запасы охлаждающей жидкости цели. Операция будет провалена, если запасов недостаточно.\n\nОхлаждающая жидкость может быть использована механическими юнитами для пополнения собственных запасов хладагента.</MHC_ExtractCoolant.description>
+  <MHC_ExtractCoolant.jobString>Извлечение упаковки охлаждающей жидкостью.</MHC_ExtractCoolant.jobString>
+
+
+  <!-- Injecting coolant into a mechanical unit -->
+
+  <MHC_CoolantInjection.label>ввести охлаждающую жидкость</MHC_CoolantInjection.label>
+  <MHC_CoolantInjection.description>Вручную пополняйте запасы охлаждающей жидкости пешки, впрыскивая ее из упаковки. Это не заменяет потерянную охлаждающую жидкость в шасси, но необходимо для восполнения потерянного со временем количества из резервов.</MHC_CoolantInjection.description>
+  <MHC_CoolantInjection.jobString>введение охлаждающей жидкости в TargetA.</MHC_CoolantInjection.jobString>
+
+
 </LanguageData>

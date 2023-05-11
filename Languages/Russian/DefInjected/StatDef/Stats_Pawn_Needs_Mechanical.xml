@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Maintenance Retention -->
+
+  <MHC_MaintenanceRetention.label>эффективность техобслуживания</MHC_MaintenanceRetention.label>
+  <MHC_MaintenanceRetention.description>Насколько хорошо этот механический юнит сохраняет свой уровень обслуживания с течением времени. Этот показатель влияет на то, как быстро естественным образом снижается потребность пешки в обслуживании, и в первую очередь на него влияют фильтрация и прокачка охлаждающей жидкости.</MHC_MaintenanceRetention.description>
+
+
+  <!-- Mechanical Need Capacity -->
+
+  <MHC_MechanicalNeedCapacity.label>максимальная емкость механических потребностей</MHC_MechanicalNeedCapacity.label>
+  <MHC_MechanicalNeedCapacity.description>Количество потребностей (и запасов) этого механического юнита, в виде коэффициента. Этот показатель влияет на то, насколько большую потребность может иметь пешка одновременно и сколько ей нужно будет пополнить, чтобы достичь полного удовлетворения.</MHC_MechanicalNeedCapacity.description>
+
+
+</LanguageData>

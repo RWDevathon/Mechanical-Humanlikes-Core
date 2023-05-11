@@ -37,7 +37,7 @@
 
   <MHC_TakeMechanicalToBedToOperate.label>укладывать пациентов на операционный стол</MHC_TakeMechanicalToBedToOperate.label>
   <MHC_TakeMechanicalToBedToOperate.verb>провести операцию</MHC_TakeMechanicalToBedToOperate.verb>
-  <MHC_TakeMechanicalToBedToOperate.gerund>проводи операцию над</MHC_TakeMechanicalToBedToOperate.gerund>
+  <MHC_TakeMechanicalToBedToOperate.gerund>проводит операцию над</MHC_TakeMechanicalToBedToOperate.gerund>
 
 
 </LanguageData>
