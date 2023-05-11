@@ -49,8 +49,14 @@ namespace MechHumanlikes
                 return null;
             }
 
-            // Urgent maintenance is done only if below poor maintenance and if maintenance level is at least 5% lower than the desired level.
-            if (compMaintenanceNeed.Stage > MHC_MaintenanceStage.Poor || compMaintenanceNeed.MaintenanceLevel > compMaintenanceNeed.TargetMaintenanceLevel - 0.05)
+            // If the pawn is currently doing urgent maintenance and is not at their target level, continue doing maintenance.
+            if (pawn.CurJobDef == MHC_JobDefOf.MHC_DoMaintenanceUrgent && compMaintenanceNeed.TargetMaintenanceLevel > compMaintenanceNeed.MaintenanceLevel)
+            {
+                return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceUrgent, pawn.Position, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
+            }
+
+            // Urgent maintenance is otherwise skipped if it is less than 30% away from the target level and above Poor.
+            if (compMaintenanceNeed.MaintenanceLevel / compMaintenanceNeed.TargetMaintenanceLevel > 0.7f && compMaintenanceNeed.Stage > MHC_MaintenanceStage.Poor)
             {
                 return null;
             }
@@ -59,7 +65,7 @@ namespace MechHumanlikes
             LocalTargetInfo maintenanceSpot = MaintenanceUtility.FindMaintenanceSpot(pawn);
             if (maintenanceSpot.IsValid)
             {
-                return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceUrgent, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(pawn.Position));
+                return JobMaker.MakeJob(MHC_JobDefOf.MHC_DoMaintenanceUrgent, maintenanceSpot.Cell, pawn.InBed() ? ((LocalTargetInfo)pawn.CurrentBed()) : new LocalTargetInfo(maintenanceSpot.Cell));
             }
             return null;
         }
