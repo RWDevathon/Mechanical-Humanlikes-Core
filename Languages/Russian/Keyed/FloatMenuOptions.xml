@@ -6,4 +6,9 @@
   <MHC_NoAvailableChargingSpots>Невозможно использовать, места для зарядки зарезервированы.</MHC_NoAvailableChargingSpots>
   <MHC_IncapableOfCharging>{0} не может заряжаться таким образом.</MHC_IncapableOfCharging>
 
+  <!-- Fulfilling Mech Needs -->
+  <MHC_ForceConsumption>Потребление {0}</MHC_ForceConsumption>
+  <MHC_ForceConsumptionMultiple>Потребление кратно {0}</MHC_ForceConsumptionMultiple>
+  <MHC_ConsumeCount>Потребление {1_labelShort} x{{0}}</MHC_ConsumeCount>
+
 </LanguageData>
