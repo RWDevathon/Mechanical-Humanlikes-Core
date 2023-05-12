@@ -23,6 +23,8 @@
     <loadAfter>
         <li>brrainz.harmony</li><!-- Dependency -->
         <li>erdelf.HumanoidAlienRaces</li><!-- Dependency -->
+        <li>Dubwise.DubsBadHygiene</li><!-- DBH has a destructive PostFix on pawn needs so we need to load after it. -->
+        <li>Dubwise.DubsBadHygiene.Lite</li><!-- DBH has a destructive PostFix on pawn needs so we need to load after it. -->
     </loadAfter>
     <description><![CDATA[
 MHC is a framework mod built off of Humanoid Alien Races (HAR) and Harmony to allow pawns of humanlike intelligence to be mechanical in nature without falling into the rabbit hole of mechanoid restrictions.
