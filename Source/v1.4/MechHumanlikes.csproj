@@ -175,6 +175,7 @@
   <ItemGroup>
     <Compile Include="Alerts\Alert_NeedMechanic.cs" />
     <Compile Include="Buildings\Building_ChargingBed.cs" />
+    <Compile Include="Compatibility\ZombielandSupport.cs" />
     <Compile Include="Components\HediffComps\HediffCompProperties_MaintenanceThresholdToRemove.cs" />
     <Compile Include="Components\HediffComps\HediffComp_MaintenanceThresholdToRemove.cs" />
     <Compile Include="Components\ThingComps\CompAssignableToPawn_MaintenanceSpot.cs" />
