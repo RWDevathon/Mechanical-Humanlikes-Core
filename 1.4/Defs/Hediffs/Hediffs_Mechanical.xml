@@ -43,6 +43,7 @@
         <defName>MHC_CoolantShortage</defName>
         <label>Coolant shortage</label>
         <description>This unit has insufficient coolant to fully fill its coolant lines and is shutting down to avoid catastrophic failure.\nCoolant reserves must be refilled to ensure a return to proper functionality.</description>
+        <maxSeverity>1</maxSeverity>
         <stages>
             <li>
                 <label>minor</label>
@@ -93,6 +94,7 @@
         <defName>MHC_LubricantShortage</defName>
         <label>Lubricant shortage</label>
         <description>This unit has insufficient lubrication to maintain smooth part functionality, reducing exterior part efficiency and increasing the loss of maintenance.\nLubricant reserves must be refilled to ensure a return to proper functionality.</description>
+        <maxSeverity>1</maxSeverity>
         <stages>
             <li>
                 <label>minor</label>

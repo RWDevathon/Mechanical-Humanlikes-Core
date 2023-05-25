@@ -190,9 +190,9 @@
         <resourceReadoutPriority>Last</resourceReadoutPriority>
         <drawGUIOverlay>true</drawGUIOverlay>
         <graphicData>
-            <texPath>Things/Items/Manufactured/MHC_RepairStimSimple</texPath>
+            <texPath>Things/Items/Manufactured/MHC_CoolantPack</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
-            <drawSize>0.5</drawSize>
+            <drawSize>0.85</drawSize>
         </graphicData>
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>
@@ -254,9 +254,9 @@
         <resourceReadoutPriority>Last</resourceReadoutPriority>
         <drawGUIOverlay>true</drawGUIOverlay>
         <graphicData>
-            <texPath>Things/Items/Manufactured/MHC_RepairStimSimple</texPath>
+            <texPath>Things/Items/Manufactured/MHC_LubricationPack</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
-            <drawSize>0.5</drawSize>
+            <drawSize>0.85</drawSize>
         </graphicData>
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>

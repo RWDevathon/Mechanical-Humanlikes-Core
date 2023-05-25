@@ -224,7 +224,7 @@
         <descriptionHyperlinks>
             <ThingDef>MHC_CoolantPack</ThingDef>
         </descriptionHyperlinks>
-        <uiIconThing>HemogenPack</uiIconThing>
+        <uiIconThing>MHC_CoolantPack</uiIconThing>
         <anesthetize>false</anesthetize>
         <workSkillLearnFactor>2</workSkillLearnFactor>
     </RecipeDef>
