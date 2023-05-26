@@ -283,8 +283,7 @@
     <Compile Include="Harmony\WorkGiver_DoBill_Patch.cs" />
     <Compile Include="MaintenanceWorkers\MaintenanceWorker.cs" />
     <Compile Include="Needs\Need_MechanicalNeed.cs" />
-    <Compile Include="Recipes\Recipe_InjectCoolant.cs" />
-    <Compile Include="Recipes\Recipe_ExtractCoolant.cs" />
+    <Compile Include="Recipes\Recipe_SurgicallyFulfillMechNeed.cs" />
     <Compile Include="Recipes\Recipe_DoEmergencyMaintenance.cs" />
     <Compile Include="DefOfs\MHC_HediffDefOf.cs" />
     <Compile Include="Recipes\Recipe_InstallMechanicalPart.cs" />

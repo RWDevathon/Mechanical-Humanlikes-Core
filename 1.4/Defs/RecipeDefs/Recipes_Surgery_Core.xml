@@ -210,36 +210,22 @@
 		<addsHediff>MHC_Restarting</addsHediff>
 	</RecipeDef>
 
-    <!-- Extracting coolant from aa mechanical unit -->
-    <RecipeDef ParentName="MHC_surgeryMechanicalBase">
-        <defName>MHC_ExtractCoolant</defName>
-        <label>extract coolant pack</label>
-        <description>Extract the coolant reserves of the target. The operation will fail if there is insuffient reserves.\n\nCoolant can be consumed by mechanical pawns to replenish their own coolant reserves.</description>
-        <workerClass>MechHumanlikes.Recipe_ExtractCoolant</workerClass>
-        <jobString>Extracting coolant pack.</jobString>
-        <workAmount>500</workAmount>
-        <hideBodyPartNames>true</hideBodyPartNames>
-        <targetsBodyPart>false</targetsBodyPart>
-        <isViolation>true</isViolation>
-        <descriptionHyperlinks>
-            <ThingDef>MHC_CoolantPack</ThingDef>
-        </descriptionHyperlinks>
-        <uiIconThing>MHC_CoolantPack</uiIconThing>
-        <anesthetize>false</anesthetize>
-        <workSkillLearnFactor>2</workSkillLearnFactor>
-    </RecipeDef>
-
     <!-- Injecting coolant into a mechanical unit -->
-    <RecipeDef ParentName="MHC_surgeryMechanicalBase">
+    <RecipeDef>
         <defName>MHC_CoolantInjection</defName>
         <label>inject coolant</label>
         <description>Manually replenish a pawn's coolant reserves by injecting from a pack. This does not replace lost coolant in the chassis, but is essential for replenishing that lost quantity over time from the reserves.</description>
         <jobString>injecting coolant into TargetA.</jobString>
+        <effectWorking>Repair</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workSpeedStat>MHC_MechanicalOperationSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <workSkillLearnFactor>2</workSkillLearnFactor>
         <workAmount>800</workAmount>
         <hideBodyPartNames>true</hideBodyPartNames>
         <targetsBodyPart>false</targetsBodyPart>
         <anesthetize>false</anesthetize>
-        <workerClass>MechHumanlikes.Recipe_InjectCoolant</workerClass>
+        <workerClass>MechHumanlikes.Recipe_SurgicallyFulfillMechNeed</workerClass>
         <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
         <ingredients>
             <li>
@@ -253,6 +239,39 @@
         <fixedIngredientFilter>
             <thingDefs>
                 <li>MHC_CoolantPack</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+
+    <!-- Injecting lubricant into a mechanical unit -->
+    <RecipeDef>
+        <defName>MHC_LubricantInjection</defName>
+        <label>inject lubricant</label>
+        <description>Manually replenish a pawn's lubricant reserves by injecting from a pack. This does not replace lost lubricant in the chassis, but is essential for replenishing that lost quantity over time from the reserves.</description>
+        <jobString>injecting lubricant into TargetA.</jobString>
+        <effectWorking>Repair</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workSpeedStat>MHC_MechanicalOperationSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <workSkillLearnFactor>2</workSkillLearnFactor>
+        <workAmount>800</workAmount>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <anesthetize>false</anesthetize>
+        <workerClass>MechHumanlikes.Recipe_SurgicallyFulfillMechNeed</workerClass>
+        <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MHC_LubricationPack</li>
+                    </thingDefs>
+                </filter>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MHC_LubricationPack</li>
             </thingDefs>
         </fixedIngredientFilter>
     </RecipeDef>
