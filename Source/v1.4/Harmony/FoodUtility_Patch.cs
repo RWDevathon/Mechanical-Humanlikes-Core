@@ -4,9 +4,9 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    // Mechanical units can not be food poisoned, so set their chance to receive food poisoning to zero.
     public class FoodUtility_Patch
     {
+        // Mechanical units can not be food poisoned, so set their chance to receive food poisoning to zero.
         [HarmonyPatch(typeof(FoodUtility), "GetFoodPoisonChanceFactor")]
         public class GetFoodPoisonChanceFactor_Patch
         {
@@ -15,6 +15,17 @@ namespace MechHumanlikes
             {
                 if (MHC_Utils.IsConsideredMechanical(ingester))
                     __result = 0f;
+            }
+        }
+
+        // Modify the estimated nutrition for a food by the pawn's NutritionalIntakeEfficiency
+        [HarmonyPatch(typeof(FoodUtility), "GetNutrition")]
+        public class GetNutrition_patch
+        {
+            [HarmonyPostfix]
+            public static void Listener(Pawn eater, Thing foodSource, ThingDef foodDef, ref float __result)
+            {
+                __result *= eater.GetStatValue(MHC_StatDefOf.MHC_NutritionalIntakeEfficiency, cacheStaleAfterTicks: 1200);
             }
         }
     }

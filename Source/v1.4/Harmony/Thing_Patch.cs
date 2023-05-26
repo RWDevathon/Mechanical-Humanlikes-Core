@@ -8,7 +8,7 @@ namespace MechHumanlikes
     {
         // Player charge-capable pawns have modified nutritional intake values.
         [HarmonyPatch(typeof(Thing), "IngestedCalculateAmounts")]
-        public class IngestedCalculateAmountsModifiedByBiogenEfficiency_Patch
+        public class IngestedCalculateAmounts_Patch
         {
             [HarmonyPostfix]
             public static void Listener(Pawn ingester, ref float nutritionIngested)
