@@ -197,11 +197,11 @@
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>
             <DeteriorationRate>5</DeteriorationRate>
-            <Mass>0.75</Mass>
+            <Mass>0.5</Mass>
             <Flammability>0.1</Flammability>
             <Beauty>0</Beauty>
             <MarketValue>3</MarketValue>
-            <WorkToMake>1200</WorkToMake>
+            <WorkToMake>1600</WorkToMake>
         </statBases>
         <thingCategories>
             <li>Drugs</li>
@@ -215,8 +215,8 @@
             <soundWorking>Recipe_Drug</soundWorking>
         </recipeMaker>
         <costList>
-            <Neutroamine>5</Neutroamine>
-            <Chemfuel>1</Chemfuel>
+            <Neutroamine>1</Neutroamine>
+            <Chemfuel>10</Chemfuel>
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>
@@ -261,11 +261,11 @@
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>
             <DeteriorationRate>5</DeteriorationRate>
-            <Mass>0.75</Mass>
+            <Mass>0.5</Mass>
             <Flammability>0.1</Flammability>
             <Beauty>0</Beauty>
             <MarketValue>3</MarketValue>
-            <WorkToMake>800</WorkToMake>
+            <WorkToMake>1400</WorkToMake>
         </statBases>
         <thingCategories>
             <li>Drugs</li>
@@ -280,7 +280,7 @@
         </recipeMaker>
         <costList>
             <Neutroamine>1</Neutroamine>
-            <Chemfuel>4</Chemfuel>
+            <Chemfuel>14</Chemfuel>
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>

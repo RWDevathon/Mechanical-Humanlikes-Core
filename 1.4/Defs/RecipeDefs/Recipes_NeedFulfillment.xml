@@ -6,7 +6,10 @@
         <label>make coolant packs</label>
         <description>Efficiently make coolant packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it.</description>
         <jobString>Making coolant.</jobString>
-        <workAmount>4800</workAmount>
+        <workAmount>4000</workAmount>
+		<skillRequirements>
+            <Crafting>6</Crafting>
+        </skillRequirements>
         <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
         <effectWorking>Cook</effectWorking>
         <soundWorking>Recipe_Drug</soundWorking>
@@ -17,7 +20,7 @@
 						<li>Neutroamine</li>
 					</thingDefs>
 				</filter>
-				<count>25</count>
+				<count>10</count>
 			</li>
 			<li>
 				<filter>
@@ -25,7 +28,7 @@
 						<li>Chemfuel</li>
 					</thingDefs>
 				</filter>
-				<count>5</count>
+				<count>100</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -49,7 +52,10 @@
         <label>make lubrication packs</label>
         <description>Efficiently make lubrication packs, simple containers that will replenish the reserves of a mechanical pawn that consumes it.</description>
         <jobString>Making lubricant.</jobString>
-        <workAmount>4000</workAmount>
+        <workAmount>3500</workAmount>
+		<skillRequirements>
+            <Crafting>6</Crafting>
+        </skillRequirements>
         <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
         <effectWorking>Cook</effectWorking>
         <soundWorking>Recipe_Drug</soundWorking>
@@ -60,7 +66,7 @@
 						<li>Neutroamine</li>
 					</thingDefs>
 				</filter>
-				<count>5</count>
+				<count>10</count>
 			</li>
 			<li>
 				<filter>
@@ -68,7 +74,7 @@
 						<li>Chemfuel</li>
 					</thingDefs>
 				</filter>
-				<count>20</count>
+				<count>140</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
