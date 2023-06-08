@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MHC_Make_IndustrialCoolantPack.label>изготовить упаковки хладогента</MHC_Make_IndustrialCoolantPack.label>
+  <MHC_Make_IndustrialCoolantPack.description>Создавать пакеты с хладогентом, пополняющие резервы механической пешки, если она в этом нуждается.</MHC_Make_IndustrialCoolantPack.description>
+  <MHC_Make_IndustrialCoolantPack.jobString>Изготовление хладогента.</MHC_Make_IndustrialCoolantPack.jobString>
+
+  <MHC_Make_IndustrialLubricationPack.label>изготовить упаковки смазки</MHC_Make_IndustrialLubricationPack.label>
+  <MHC_Make_IndustrialLubricationPack.description>Создать пакеты смазки, пополняющие резервы механической пешки, если она в этом нуждается.</MHC_Make_IndustrialLubricationPack.description>
+  <MHC_Make_IndustrialLubricationPack.jobString>Изготовление смазки.</MHC_Make_IndustrialLubricationPack.jobString>
+
+
+</LanguageData>

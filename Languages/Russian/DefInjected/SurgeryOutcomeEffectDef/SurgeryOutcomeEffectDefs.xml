@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterLabel>Смертельная ошибка допущена над {PATIENT_labelShort}</MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterLabel>
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterText>{SURGEON_labelShort} допустил фатальную ошибку во время операции над {PATIENT_labelShort} из-за особых проблем: {RECIPE_label}.</MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterText>
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterLabel>Произошла катастрофическая ошибка над {PATIENT_labelShort}</MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterLabel>
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterText>{SURGEON_labelShort} катастрофически ошибся во время операции над {PATIENT_labelShort} ({RECIPE_label}).</MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterText>
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterLabel>Операция не удалась над {PATIENT_labelShort}</MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterLabel>
-  <MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterText>{SURGEON_labelShort} допустил незначительную ошибку при работе с {PATIENT_labelShort} ({RECIPE_label}).</MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterText>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterLabel>Операция над {PATIENT_labelShort} провалилась</MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterLabel>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterText>{SURGEON_labelShort} {SURGEON_gender ? совершил : совершила} фатальную ошибку во время оперирования {PATIENT_labelShort} из-за особой сложности операции: {RECIPE_label}.</MHC_MechanicalSurgeryOutcomeBase.outcomes.1.letterText>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterLabel>Операция над {PATIENT_labelShort} провалилась</MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterLabel>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterText>{SURGEON_labelShort} {SURGEON_gender ? совершил : совершила} серьёзную ошибку во время операции ({RECIPE_label}) над {PATIENT_labelShort}.</MHC_MechanicalSurgeryOutcomeBase.outcomes.2.letterText>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterLabel>Операция над {PATIENT_labelShort} провалилась</MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterLabel>
+  <MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterText>{SURGEON_labelShort} {SURGEON_gender ? совершил : совершила} незначительную ошибку во время операции ({RECIPE_label}) над {PATIENT_labelShort}.</MHC_MechanicalSurgeryOutcomeBase.outcomes.3.letterText>
 
 
 </LanguageData>

@@ -3,14 +3,14 @@
 
   <!-- Nutritional Intake Efficiency -->
 
-  <MHC_NutritionalIntakeEfficiency.label>эффективность потребления нутриентов</MHC_NutritionalIntakeEfficiency.label>
-  <MHC_NutritionalIntakeEfficiency.description>Сколько энергии получает эта пешка от потребления пищи. Этот показатель напрямую влияет на то, насколько восполняется потребность в энергии при потреблении пищи. В первую очередь на него влияет генератор юнита.</MHC_NutritionalIntakeEfficiency.description>
+  <MHC_NutritionalIntakeEfficiency.label>эффективность потребления еды</MHC_NutritionalIntakeEfficiency.label>
+  <MHC_NutritionalIntakeEfficiency.description>Сколько энергии получает эта пешка от потребления пищи. Этот показатель влияет на то, насколько восполняется заряд аккумулятора от потребления пищи. В первую очередь на него влияет генератор юнита.</MHC_NutritionalIntakeEfficiency.description>
 
 
   <!-- Charging Speed -->
 
   <MHC_ChargingSpeed.label>скорость зарядки</MHC_ChargingSpeed.label>
-  <MHC_ChargingSpeed.description>Как быстро эта пешка набирает энергию во время зарядки. Этот показатель напрямую влияет на количество энергии, необходимое для достижения полной зарядки, и на время, необходимое для достижения полной зарядки. В первую очередь на него влияет батарея устройства.</MHC_ChargingSpeed.description>
+  <MHC_ChargingSpeed.description>Как быстро эта пешка набирает энергию во время зарядки. Этот показатель влияет на количество энергии, нужное для полной зарядки, и на время для её достижения. В первую очередь на него влияет аккумулятор юнита.</MHC_ChargingSpeed.description>
 
 
 </LanguageData>

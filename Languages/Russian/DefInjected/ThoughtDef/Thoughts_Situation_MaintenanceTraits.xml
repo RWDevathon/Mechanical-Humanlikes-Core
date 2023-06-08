@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MHC_MaintenanceMood_Masochist.stages.0.label>ужасное обслуживание</MHC_MaintenanceMood_Masochist.stages.0.label>
-  <MHC_MaintenanceMood_Masochist.stages.0.description>Я слишком долго не мог должным образом поддерживать свою основную память и системы. Мои внутренние устройства сталкиваются с ошибками, критические компоненты вынуждены работать на пределе своих возможностей, а важные системы выходят из строя. Это заставляет меня чувствовать себя по-настоящему живым!</MHC_MaintenanceMood_Masochist.stages.0.description>
-  <MHC_MaintenanceMood_Masochist.stages.1.label>плохое обслуживание</MHC_MaintenanceMood_Masochist.stages.1.label>
-  <MHC_MaintenanceMood_Masochist.stages.1.description>В течение некоторого времени я не мог должным образом поддерживать свою основную память и системы. Возникают внутренние системные ошибки, и мои системы перегружены. Я процветаю благодаря этому вызову.</MHC_MaintenanceMood_Masochist.stages.1.description>
-  <MHC_MaintenanceMood_Masochist.stages.2.label>плохое обслуживание</MHC_MaintenanceMood_Masochist.stages.2.label>
-  <MHC_MaintenanceMood_Masochist.stages.2.description>Моя основная память и системы нуждаются в проверке здоровья. Игнорирование этих слабых и неактуальных предупреждений приятно.</MHC_MaintenanceMood_Masochist.stages.2.description>
-  <MHC_MaintenanceMood_Masochist.stages.3.label>стандартное обслуживание</MHC_MaintenanceMood_Masochist.stages.3.label>
-  <MHC_MaintenanceMood_Masochist.stages.3.description>Все системы показывают регулярную эффективность работы, при этом все ошибки находятся в пределах стандартных ожиданий.</MHC_MaintenanceMood_Masochist.stages.3.description>
-  <MHC_MaintenanceMood_Masochist.stages.4.label>достойное обслуживание</MHC_MaintenanceMood_Masochist.stages.4.label>
-  <MHC_MaintenanceMood_Masochist.stages.4.description>Моя основная память и системы имели достаточные перерывы в работе, чтобы отдохнуть. Мои системы работают без сбоев, что разочаровывает.</MHC_MaintenanceMood_Masochist.stages.4.description>
-  <MHC_MaintenanceMood_Masochist.stages.5.label>отличное обслуживание</MHC_MaintenanceMood_Masochist.stages.5.label>
-  <MHC_MaintenanceMood_Masochist.stages.5.description>У меня было время провести широкий спектр внутренних проверок здоровья и оптимизации эффективности. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам - как скучно.</MHC_MaintenanceMood_Masochist.stages.5.description>
-  <MHC_MaintenanceMood_Masochist.stages.6.label>безупречное обслуживание</MHC_MaintenanceMood_Masochist.stages.6.label>
-  <MHC_MaintenanceMood_Masochist.stages.6.description>У меня появилось время даже на самые ненужные проверки здоровья и оптимизации для предсказания проблем до того, как они могут возникнуть. Мои системы работают лучше, чем в тот день, когда ядро впервые включилось! Как я могу испытывать такие трудности и чувствовать себя живым?</MHC_MaintenanceMood_Masochist.stages.6.description>
+  <MHC_MaintenanceMood_Masochist.stages.0.label>ужасное техобслуживание</MHC_MaintenanceMood_Masochist.stages.0.label>
+  <MHC_MaintenanceMood_Masochist.stages.0.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Это заставляет меня чувствовать себя по-настоящему живым!</MHC_MaintenanceMood_Masochist.stages.0.description>
+  <MHC_MaintenanceMood_Masochist.stages.1.label>ужасное техобслуживание</MHC_MaintenanceMood_Masochist.stages.1.label>
+  <MHC_MaintenanceMood_Masochist.stages.1.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Я процветаю благодаря этому испытанию.</MHC_MaintenanceMood_Masochist.stages.1.description>
+  <MHC_MaintenanceMood_Masochist.stages.2.label>плохое техобслуживание</MHC_MaintenanceMood_Masochist.stages.2.label>
+  <MHC_MaintenanceMood_Masochist.stages.2.description>Моё ядро памяти и системы нуждаются в проверке. Игнорирование этих предупреждений приятно.</MHC_MaintenanceMood_Masochist.stages.2.description>
+  <MHC_MaintenanceMood_Masochist.stages.3.label>обычное техобслуживание</MHC_MaintenanceMood_Masochist.stages.3.label>
+  <MHC_MaintenanceMood_Masochist.stages.3.description>Я поддерживаю нормальное состояние своего корпуса. Все системы сообщают о хорошей эффективности, при этом все ошибки соответствуют стандартным ожиданиям.</MHC_MaintenanceMood_Masochist.stages.3.description>
+  <MHC_MaintenanceMood_Masochist.stages.4.label>хорошее техобслуживание</MHC_MaintenanceMood_Masochist.stages.4.label>
+  <MHC_MaintenanceMood_Masochist.stages.4.description>Я долгое время поддерживал хорошее состояние своих памяти и корпуса. Мои системы работают без сбоев, это разочаровывает.</MHC_MaintenanceMood_Masochist.stages.4.description>
+  <MHC_MaintenanceMood_Masochist.stages.5.label>отличное техобслуживание</MHC_MaintenanceMood_Masochist.stages.5.label>
+  <MHC_MaintenanceMood_Masochist.stages.5.description>Я долгое время тщательно поддерживал отличное состояние своих систем и корпуса. Мои системы работают отлично, и все проверки прошли по самым высоким стандартам — как скучно.</MHC_MaintenanceMood_Masochist.stages.5.description>
+  <MHC_MaintenanceMood_Masochist.stages.6.label>безупречное техобслуживание</MHC_MaintenanceMood_Masochist.stages.6.label>
+  <MHC_MaintenanceMood_Masochist.stages.6.description>Я долгое время тщательно поддерживал безупречное состояние своего корпуса и оптимизировал внутренние процедуры. Мои системы работают лучше, чем в день, когда моё ядро впервые включилось! Как я могу не испытывать трудности и чувствовать себя живым?</MHC_MaintenanceMood_Masochist.stages.6.description>
 
-  <MHC_MaintenanceMood_Greedy.stages.0.label>ужасное обслуживание</MHC_MaintenanceMood_Greedy.stages.0.label>
-  <MHC_MaintenanceMood_Greedy.stages.0.description>Я слишком долго не мог должным образом поддерживать свою основную память и системы. Мои внутренние устройства сталкиваются с ошибками, критические компоненты вынуждены работать на пределе своих возможностей, а важные системы выходят из строя. Это хуже смерти!</MHC_MaintenanceMood_Greedy.stages.0.description>
-  <MHC_MaintenanceMood_Greedy.stages.1.label>плохое обслуживание</MHC_MaintenanceMood_Greedy.stages.1.label>
-  <MHC_MaintenanceMood_Greedy.stages.1.description>В течение некоторого времени я не мог должным образом поддерживать свою основную память и системы. Возникают внутренние системные ошибки, и мои системы перегружены. Это просто кошмар!</MHC_MaintenanceMood_Greedy.stages.1.description>
-  <MHC_MaintenanceMood_Greedy.stages.2.label>плохое обслуживание</MHC_MaintenanceMood_Greedy.stages.2.label>
-  <MHC_MaintenanceMood_Greedy.stages.2.description>Моя основная память и системы нуждаются в проверке здоровья. Я должен обслуживаться лучше, чем сейчас.</MHC_MaintenanceMood_Greedy.stages.2.description>
-  <MHC_MaintenanceMood_Greedy.stages.3.label>стандартное обслуживание</MHC_MaintenanceMood_Greedy.stages.3.label>
-  <MHC_MaintenanceMood_Greedy.stages.3.description>Все системы показывают регулярную эффективность работы, при этом все ошибки находятся в пределах стандартных ожиданий.</MHC_MaintenanceMood_Greedy.stages.3.description>
-  <MHC_MaintenanceMood_Greedy.stages.4.label>достойное обслуживание</MHC_MaintenanceMood_Greedy.stages.4.label>
-  <MHC_MaintenanceMood_Greedy.stages.4.description>Моя основная память и системы имеют достаточные перерывы в работе, чтобы отдохнуть. Мои системы работают гладко. Как и должно быть.</MHC_MaintenanceMood_Greedy.stages.4.description>
-  <MHC_MaintenanceMood_Greedy.stages.5.label>отличное обслуживание</MHC_MaintenanceMood_Greedy.stages.5.label>
-  <MHC_MaintenanceMood_Greedy.stages.5.description>У меня было время провести широкий спектр внутренних проверок здоровья и оптимизации эффективности. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам - наконец-то.</MHC_MaintenanceMood_Greedy.stages.5.description>
-  <MHC_MaintenanceMood_Greedy.stages.6.label>безупречное обслуживаниебезупречное обслуживание</MHC_MaintenanceMood_Greedy.stages.6.label>
-  <MHC_MaintenanceMood_Greedy.stages.6.description>У меня появилось время даже на самые ненужные проверки здоровья и оптимизации для предсказания проблем до того, как они могут возникнуть. Мои системы работают лучше, чем в тот день, когда ядро впервые включили! Это то, чего я заслуживаю.</MHC_MaintenanceMood_Greedy.stages.6.description>
+  <MHC_MaintenanceMood_Greedy.stages.0.label>ужасное техобслуживание</MHC_MaintenanceMood_Greedy.stages.0.label>
+  <MHC_MaintenanceMood_Greedy.stages.0.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Это хуже смерти!</MHC_MaintenanceMood_Greedy.stages.0.description>
+  <MHC_MaintenanceMood_Greedy.stages.1.label>ужасное техобслуживание</MHC_MaintenanceMood_Greedy.stages.1.label>
+  <MHC_MaintenanceMood_Greedy.stages.1.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Это кошмар!</MHC_MaintenanceMood_Greedy.stages.1.description>
+  <MHC_MaintenanceMood_Greedy.stages.2.label>плохое техобслуживание</MHC_MaintenanceMood_Greedy.stages.2.label>
+  <MHC_MaintenanceMood_Greedy.stages.2.description>Моё ядро памяти и системы нуждаются в проверке. Мне нужно обслуживаться лучше, чем сейчас.</MHC_MaintenanceMood_Greedy.stages.2.description>
+  <MHC_MaintenanceMood_Greedy.stages.3.label>обычное техобслуживание</MHC_MaintenanceMood_Greedy.stages.3.label>
+  <MHC_MaintenanceMood_Greedy.stages.3.description>Я поддерживаю нормальное состояние своего корпуса. Все системы сообщают о хорошей эффективности, при этом все ошибки соответствуют стандартным ожиданиям.</MHC_MaintenanceMood_Greedy.stages.3.description>
+  <MHC_MaintenanceMood_Greedy.stages.4.label>хорошее техобслуживание</MHC_MaintenanceMood_Greedy.stages.4.label>
+  <MHC_MaintenanceMood_Greedy.stages.4.description>Я долгое время поддерживал хорошее состояние своих памяти и корпуса. Мои системы работают бесперебойно. Так и должно быть.</MHC_MaintenanceMood_Greedy.stages.4.description>
+  <MHC_MaintenanceMood_Greedy.stages.5.label>отличное техобслуживание</MHC_MaintenanceMood_Greedy.stages.5.label>
+  <MHC_MaintenanceMood_Greedy.stages.5.description>Я долгое время тщательно поддерживал отличное состояние своих систем и корпуса. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам — наконец-то.</MHC_MaintenanceMood_Greedy.stages.5.description>
+  <MHC_MaintenanceMood_Greedy.stages.6.label>безупречное техобслуживание</MHC_MaintenanceMood_Greedy.stages.6.label>
+  <MHC_MaintenanceMood_Greedy.stages.6.description>Я долгое время тщательно поддерживал безупречное состояние своего корпуса и оптимизировал внутренние процедуры. Мои системы работают лучше, чем в день, когда моё ядро впервые включилось! Я заслужил это.</MHC_MaintenanceMood_Greedy.stages.6.description>
 
-  <MHC_MaintenanceMood_Ascetic.stages.0.label>ужасное обслуживание</MHC_MaintenanceMood_Ascetic.stages.0.label>
-  <MHC_MaintenanceMood_Ascetic.stages.0.description>Я слишком долго не мог должным образом поддерживать свою основную память и системы. Мои внутренние устройства сталкиваются с ошибками, критические компоненты вынуждены работать на пределе своих возможностей, а важные системы выходят из строя. Это нормально.</MHC_MaintenanceMood_Ascetic.stages.0.description>
-  <MHC_MaintenanceMood_Ascetic.stages.1.label>плохое обслуживание</MHC_MaintenanceMood_Ascetic.stages.1.label>
-  <MHC_MaintenanceMood_Ascetic.stages.1.description>В течение некоторого времени я не мог должным образом поддерживать свою основную память и системы. Есть внутренние системные ошибки, и мои системы перегружены. Это не повод для беспокойства.</MHC_MaintenanceMood_Ascetic.stages.1.description>
-  <MHC_MaintenanceMood_Ascetic.stages.2.label>плохое обслуживание</MHC_MaintenanceMood_Ascetic.stages.2.label>
-  <MHC_MaintenanceMood_Ascetic.stages.2.description>Моя основная память и системы нуждаются в проверке здоровья.</MHC_MaintenanceMood_Ascetic.stages.2.description>
-  <MHC_MaintenanceMood_Ascetic.stages.3.label>стандартное обслуживание</MHC_MaintenanceMood_Ascetic.stages.3.label>
-  <MHC_MaintenanceMood_Ascetic.stages.3.description>Все системы сообщают о регулярной операционной эффективности, а все ошибки находятся в пределах стандартных ожиданий. Это кажется правильным и нужным.</MHC_MaintenanceMood_Ascetic.stages.3.description>
-  <MHC_MaintenanceMood_Ascetic.stages.4.label>достойное обслуживание</MHC_MaintenanceMood_Ascetic.stages.4.label>
-  <MHC_MaintenanceMood_Ascetic.stages.4.description>Моя основная память и системы имеют достаточные перерывы в работе, чтобы отдохнуть. Мои системы работают без сбоев. Я чувствую себя слишком блестящим.</MHC_MaintenanceMood_Ascetic.stages.4.description>
-  <MHC_MaintenanceMood_Ascetic.stages.5.label>отличное обслуживание</MHC_MaintenanceMood_Ascetic.stages.5.label>
-  <MHC_MaintenanceMood_Ascetic.stages.5.description>У меня было время провести широкий спектр внутренних проверок здоровья и оптимизации эффективности. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам. Я что, выставочный образец?</MHC_MaintenanceMood_Ascetic.stages.5.description>
-  <MHC_MaintenanceMood_Ascetic.stages.6.label>безупречное обслуживание</MHC_MaintenanceMood_Ascetic.stages.6.label>
-  <MHC_MaintenanceMood_Ascetic.stages.6.description>У меня появилось время даже на самые ненужные проверки здоровья и оптимизации для предсказания проблем до того, как они могут возникнуть. Мои системы работают лучше, чем в тот день, когда мое ядро впервые включилось! Я не должен быть таким - я выгляжу и работаю так, как будто мне самое место в Glitterworld!</MHC_MaintenanceMood_Ascetic.stages.6.description>
+  <MHC_MaintenanceMood_Ascetic.stages.0.label>ужасное техобслуживание</MHC_MaintenanceMood_Ascetic.stages.0.label>
+  <MHC_MaintenanceMood_Ascetic.stages.0.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Это нормально.</MHC_MaintenanceMood_Ascetic.stages.0.description>
+  <MHC_MaintenanceMood_Ascetic.stages.1.label>ужасное техобслуживание</MHC_MaintenanceMood_Ascetic.stages.1.label>
+  <MHC_MaintenanceMood_Ascetic.stages.1.description>Я долгое время не мог должным образом поддерживать нормальное состояние своего корпуса. Моя память и комплектующие сталкиваются с ошибками, есть критические повреждения, а основные системы выходят из строя. Нет повода для беспокойства.</MHC_MaintenanceMood_Ascetic.stages.1.description>
+  <MHC_MaintenanceMood_Ascetic.stages.2.label>плохое техобслуживание</MHC_MaintenanceMood_Ascetic.stages.2.label>
+  <MHC_MaintenanceMood_Ascetic.stages.2.description>Моё ядро памяти и системы нуждаются в проверке.</MHC_MaintenanceMood_Ascetic.stages.2.description>
+  <MHC_MaintenanceMood_Ascetic.stages.3.label>обычное техобслуживание</MHC_MaintenanceMood_Ascetic.stages.3.label>
+  <MHC_MaintenanceMood_Ascetic.stages.3.description>Я поддерживаю нормальное состояние своего корпуса. Все системы сообщают о хорошей эффективности, при этом все ошибки соответствуют стандартным ожиданиям. Это кажется правильным.</MHC_MaintenanceMood_Ascetic.stages.3.description>
+  <MHC_MaintenanceMood_Ascetic.stages.4.label>хорошее техобслуживание</MHC_MaintenanceMood_Ascetic.stages.4.label>
+  <MHC_MaintenanceMood_Ascetic.stages.4.description>Я долгое время поддерживал хорошее состояние своих памяти и корпуса. Мои системы работают бесперебойно. Чувствую себя слишком блестящим.</MHC_MaintenanceMood_Ascetic.stages.4.description>
+  <MHC_MaintenanceMood_Ascetic.stages.5.label>отличное техобслуживание</MHC_MaintenanceMood_Ascetic.stages.5.label>
+  <MHC_MaintenanceMood_Ascetic.stages.5.description>Я долгое время тщательно поддерживал отличное состояние своих систем и корпуса. Мои системы работают безупречно, и все проверки прошли по самым высоким стандартам. Я что, выставочный образец?</MHC_MaintenanceMood_Ascetic.stages.5.description>
+  <MHC_MaintenanceMood_Ascetic.stages.6.label>безупречное техобслуживание</MHC_MaintenanceMood_Ascetic.stages.6.label>
+  <MHC_MaintenanceMood_Ascetic.stages.6.description>Я долгое время тщательно поддерживал безупречное состояние своего корпуса и оптимизировал внутренние процедуры. Мои системы работают лучше, чем в день, когда моё ядро впервые включилось! Я не должен быть таким — выгляжу и работаю так, как будто мне самое место в утопичном мире!</MHC_MaintenanceMood_Ascetic.stages.6.description>
 
 
 </LanguageData>

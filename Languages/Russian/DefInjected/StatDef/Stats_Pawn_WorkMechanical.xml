@@ -3,26 +3,26 @@
 
   <!-- Mechanical Surgery Success Chance -->
 
-  <MHC_MechanicalSurgerySuccessChance.label>шансы на успех механической операции</MHC_MechanicalSurgerySuccessChance.label>
-  <MHC_MechanicalSurgerySuccessChance.description>Базовый шанс того, что персонаж добьется успеха при выполнении операции на механических узлах. На фактический шанс успеха также влияют такие факторы, как условия, чистота помещения, используемые лекарства, сложность операции и вдохновение. Независимо от того, насколько высок шанс успеха, всегда существует небольшой шанс неудачи при выполнении любой операции.</MHC_MechanicalSurgerySuccessChance.description>
+  <MHC_MechanicalSurgerySuccessChance.label>шанс успеха операции</MHC_MechanicalSurgerySuccessChance.label>
+  <MHC_MechanicalSurgerySuccessChance.description>Базовая вероятность того, что персонаж успешно завершит механическую операцию. \n\nНа успех также влияют кровать и помещение, в котором проводится операция, используемые ремкомплекты, сложность самой операции и воодушевление механика. \n\nВне зависимости от этого показателя всегда есть небольшой риск совершения ошибки.</MHC_MechanicalSurgerySuccessChance.description>
 
 
   <!-- Mechanical Surgery Operation Speed -->
 
-  <MHC_MechanicalOperationSpeed.label>скорость механических операций</MHC_MechanicalOperationSpeed.label>
-  <MHC_MechanicalOperationSpeed.description>Скорость, с которой персонаж выполняет механические операции.</MHC_MechanicalOperationSpeed.description>
+  <MHC_MechanicalOperationSpeed.label>скорость проведения процедур</MHC_MechanicalOperationSpeed.label>
+  <MHC_MechanicalOperationSpeed.description>Скорость, с которой персонаж проводит механические процедуры.</MHC_MechanicalOperationSpeed.description>
 
 
   <!-- Mechanical Tend Quality -->
 
-  <MHC_MechanicalTendQuality.label>качество механической помощи</MHC_MechanicalTendQuality.label>
-  <MHC_MechanicalTendQuality.description>Базовое качество помощи, оказываемой при устранении повреждений целостности.\n\nНа фактическое качество помощи также влияют такие факторы, как используемые лекарства, условия, удача и так далее.</MHC_MechanicalTendQuality.description>
+  <MHC_MechanicalTendQuality.label>качество ремонта</MHC_MechanicalTendQuality.label>
+  <MHC_MechanicalTendQuality.description>Базовое качество, с которым персонаж чинит повреждения и исправляет поломки.\n\nФактическое качество ремонта зависит от кровати и помещения, в котором проводится операция, используемых ремкомплектов, удачи и других факторов.</MHC_MechanicalTendQuality.description>
 
 
   <!-- Mechanical tend speed -->
 
-  <MHC_MechanicalTendSpeed.label>скорость механической помощи</MHC_MechanicalTendSpeed.label>
-  <MHC_MechanicalTendSpeed.description>Скорость, с которой персонаж стремится к целостности повреждений.</MHC_MechanicalTendSpeed.description>
+  <MHC_MechanicalTendSpeed.label>скорость ремонта</MHC_MechanicalTendSpeed.label>
+  <MHC_MechanicalTendSpeed.description>Скорость, с которой персонаж чинит повреждения и исправляет поломки.</MHC_MechanicalTendSpeed.description>
 
 
 </LanguageData>

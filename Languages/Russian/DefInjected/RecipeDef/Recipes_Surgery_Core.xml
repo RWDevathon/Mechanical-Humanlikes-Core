@@ -3,65 +3,65 @@
 
   <!-- Surgery to remove body parts from mechanical units -->
 
-  <MHC_RemoveMechanicalBodyPart.label>Снять часть</MHC_RemoveMechanicalBodyPart.label>
-  <MHC_RemoveMechanicalBodyPart.description>Снять часть тела..</MHC_RemoveMechanicalBodyPart.description>
-  <MHC_RemoveMechanicalBodyPart.jobString>Снятие части тела.</MHC_RemoveMechanicalBodyPart.jobString>
+  <MHC_RemoveMechanicalBodyPart.label>Удалить деталь</MHC_RemoveMechanicalBodyPart.label>
+  <MHC_RemoveMechanicalBodyPart.description>Удалить деталь.</MHC_RemoveMechanicalBodyPart.description>
+  <MHC_RemoveMechanicalBodyPart.jobString>Удаляет деталь.</MHC_RemoveMechanicalBodyPart.jobString>
 
 
   <!-- Surgery to shutdown any incapacitated mechanical unit -->
 
-  <MHC_MechanicalShutdown.label>Отключить центральное ядро</MHC_MechanicalShutdown.label>
-  <MHC_MechanicalShutdown.description>Отключает механический юнит, чтобы сделать его полностью нефункционирующим и умершим.</MHC_MechanicalShutdown.description>
-  <MHC_MechanicalShutdown.jobString>Отключение механического юнита.</MHC_MechanicalShutdown.jobString>
+  <MHC_MechanicalShutdown.label>Отключить ядро</MHC_MechanicalShutdown.label>
+  <MHC_MechanicalShutdown.description>Отключение ядра андроида, делает юнита нефункционирующим и умершим.</MHC_MechanicalShutdown.description>
+  <MHC_MechanicalShutdown.jobString>Отключает ядро.</MHC_MechanicalShutdown.jobString>
 
 
   <!-- Surgery to restore body parts in mechanical units -->
 
-  <MHC_RestoreBodyPartMechanical.label>Восстановить часть</MHC_RestoreBodyPartMechanical.label>
-  <MHC_RestoreBodyPartMechanical.description>Восстанавливает определенную часть тела.</MHC_RestoreBodyPartMechanical.description>
-  <MHC_RestoreBodyPartMechanical.jobString>Восстановление части тела.</MHC_RestoreBodyPartMechanical.jobString>
+  <MHC_RestoreBodyPartMechanical.label>Восстановить деталь</MHC_RestoreBodyPartMechanical.label>
+  <MHC_RestoreBodyPartMechanical.description>Восстановить определенную деталь.</MHC_RestoreBodyPartMechanical.description>
+  <MHC_RestoreBodyPartMechanical.jobString>Восстанавливает деталь.</MHC_RestoreBodyPartMechanical.jobString>
 
 
   <!-- Surgery to repaint mechanical units -->
 
   <MHC_RepaintMechanical.label>Перекрасить</MHC_RepaintMechanical.label>
-  <MHC_RepaintMechanical.description>Изменение цвета краски механического юнита.</MHC_RepaintMechanical.description>
-  <MHC_RepaintMechanical.jobString>Покраска механического юнита.</MHC_RepaintMechanical.jobString>
+  <MHC_RepaintMechanical.description>Перекрасить корпус андроида.</MHC_RepaintMechanical.description>
+  <MHC_RepaintMechanical.jobString>Перекрашивает андроида.</MHC_RepaintMechanical.jobString>
 
 
   <!-- Surgery to increase the maintenance level of a unit to a certain extent. -->
 
-  <MHC_DoEmergencyMaintenance.label>Провести временное техобслуживание</MHC_DoEmergencyMaintenance.label>
-  <MHC_DoEmergencyMaintenance.description>Использовать детали для устранения серьезных недостатков технического обслуживания. Поскольку техническое обслуживание - это в основном внутренняя деятельность, это может довести ее только до 40%.</MHC_DoEmergencyMaintenance.description>
-  <MHC_DoEmergencyMaintenance.jobString>Восстановление части тела.</MHC_DoEmergencyMaintenance.jobString>
+  <MHC_DoEmergencyMaintenance.label>Аварийное техобслуживание</MHC_DoEmergencyMaintenance.label>
+  <MHC_DoEmergencyMaintenance.description>Провести аварийное техобслуживание. Поскольку техобслуживание — это в основном внутренняя деятельность, операция сможет довести состояние корпуса только до 40%.</MHC_DoEmergencyMaintenance.description>
+  <MHC_DoEmergencyMaintenance.jobString>Восстанавливает деталь.</MHC_DoEmergencyMaintenance.jobString>
 
 
   <!-- Surgery to reprogram drones to serve the colony -->
 
   <MHC_ReprogramDrone.label>перепрограммировать дрон</MHC_ReprogramDrone.label>
-  <MHC_ReprogramDrone.description>Перепрограммирование дронов в соответствии с целями колонии - простая, но деликатная операция - отличный способ усилить потенциал. Однако предыдущие владельцы могли установить защиту от таких операций, поэтому в случае неудачи существует высокий риск смерти.</MHC_ReprogramDrone.description>
-  <MHC_ReprogramDrone.jobString>Перепрограммирование дрона.</MHC_ReprogramDrone.jobString>
+  <MHC_ReprogramDrone.description>Перепрограммирование дронов — простая и тонкая операция. Однако предыдущие владельцы могли установить защиту от взлома, поэтому в случае неудачи существует высокий риск уничтожения дрона.</MHC_ReprogramDrone.description>
+  <MHC_ReprogramDrone.jobString>Перепрограммирует дрон.</MHC_ReprogramDrone.jobString>
 
 
   <!-- Reboot, akin to anesthetic but requiring no medicine -->
 
-  <MHC_RebootUnit.label>Перезапустить юнит</MHC_RebootUnit.label>
-  <MHC_RebootUnit.description>Очень простая операция по перезапуску юнита, без каких-либо побочных эффектов или последствий.</MHC_RebootUnit.description>
-  <MHC_RebootUnit.jobString>Перезапуск юнита.</MHC_RebootUnit.jobString>
-
-
-  <!-- Extracting coolant from aa mechanical unit -->
-
-  <MHC_ExtractCoolant.label>извлечь упаковку охлаждающей жидкости</MHC_ExtractCoolant.label>
-  <MHC_ExtractCoolant.description>Извлечь запасы охлаждающей жидкости цели. Операция будет провалена, если запасов недостаточно.\n\nОхлаждающая жидкость может быть использована механическими юнитами для пополнения собственных запасов хладагента.</MHC_ExtractCoolant.description>
-  <MHC_ExtractCoolant.jobString>Извлечение упаковки охлаждающей жидкостью.</MHC_ExtractCoolant.jobString>
+  <MHC_RebootUnit.label>Перезагрузить</MHC_RebootUnit.label>
+  <MHC_RebootUnit.description>Перезагрузка — очень простая операция по перезапуску андроида, без каких-либо побочных эффектов или последствий.</MHC_RebootUnit.description>
+  <MHC_RebootUnit.jobString>Перегружает андроида.</MHC_RebootUnit.jobString>
 
 
   <!-- Injecting coolant into a mechanical unit -->
 
-  <MHC_CoolantInjection.label>ввести охлаждающую жидкость</MHC_CoolantInjection.label>
-  <MHC_CoolantInjection.description>Вручную пополняйте запасы охлаждающей жидкости пешки, впрыскивая ее из упаковки. Это не заменяет потерянную охлаждающую жидкость в шасси, но необходимо для восполнения потерянного со временем количества из резервов.</MHC_CoolantInjection.description>
-  <MHC_CoolantInjection.jobString>введение охлаждающей жидкости в TargetA.</MHC_CoolantInjection.jobString>
+  <MHC_CoolantInjection.label>ввести хладогент</MHC_CoolantInjection.label>
+  <MHC_CoolantInjection.description>Вручную пополнить запас хладогента пешки, вводя его из пакета. Это не заменяет потерянный хладогент в шасси, но необходимо для восполнения потерянного количества из резервов.</MHC_CoolantInjection.description>
+  <MHC_CoolantInjection.jobString>введение хладогента в TargetA</MHC_CoolantInjection.jobString>
+
+
+  <!-- Injecting lubricant into a mechanical unit -->
+
+  <MHC_LubricantInjection.label>ввести смазку</MHC_LubricantInjection.label>
+  <MHC_LubricantInjection.description>Вручную пополнить запас смазки пешки, вводя его из пакета. Это не заменяет потерянную смазку в шасси, но необходимо для восполнения потерянного количества из резервов.</MHC_LubricantInjection.description>
+  <MHC_LubricantInjection.jobString>введение смазки в TargetA</MHC_LubricantInjection.jobString>
 
 
 </LanguageData>

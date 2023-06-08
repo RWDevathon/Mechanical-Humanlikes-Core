@@ -2,15 +2,15 @@
 <LanguageData>
 
   <!-- Miscellaneous -->
-  <MHC_DroneCaptured>{0} является дроном, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</MHC_DroneCaptured>
+  <MHC_DroneCaptured>{0} дрон, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</MHC_DroneCaptured>
 
   <!-- Surgeries -->
-  <MHC_MessageMechanicOperationFailureMinor>{0} допустил незначительную ошибку во время работы и прервал процедуру над {1}.</MHC_MessageMechanicOperationFailureMinor>
-  <MHC_MessageMechanicOperationFailureRidiculous>{0} допустил серьезную ошибку при попытке выполнить операцию над {1}.</MHC_MessageMechanicOperationFailureRidiculous>
-  <MHC_MessageMechanicOperationFailureFatal>{0} допустил фатальную ошибку во время работы с {1}, которая привела к непреднамеренному каскадному повреждению. Процедура вызвала необратимое повреждение устройства, что привело к прекращению его функционирования.</MHC_MessageMechanicOperationFailureFatal>
+  <MHC_MessageMechanicOperationFailureMinor>{0} допустил незначительную ошибку во время работы и прервал операцию на {1}.</MHC_MessageMechanicOperationFailureMinor>
+  <MHC_MessageMechanicOperationFailureRidiculous>{0} допустил критическую ошибку при попытке выполнить операцию на {1}.</MHC_MessageMechanicOperationFailureRidiculous>
+  <MHC_MessageMechanicOperationFailureFatal>{0} допустил смертельную ошибку при попытке выполнить операцию на {1}, что вызвало непреднамеренный ущерб. Операция нанесла необратимое повреждение ядру, что привело к полной потере памяти и сознания.</MHC_MessageMechanicOperationFailureFatal>
 
   <!-- Coolant Extraction -->
-  <MHC_CannotStartCoolantExtraction>У {PAWN_nameDef} недостаточно запасов охлаждающей жидкости для извлечения упаковки охлаждающей жидкости.</MHC_CannotStartCoolantExtraction>
-  <MHC_PawnHadInsufficientCoolantToExtractCoolantPack>У {PAWN_nameDef} не было достаточного запаса охлаждающей жидкости для извлечения упаковки охлаждающей жидкости.</MHC_PawnHadInsufficientCoolantToExtractCoolantPack>
+  <MHC_CannotStartCoolantExtraction>У {PAWN_nameDef} недостаточно хладогента для извлечения упаковки охлаждающей жидкости.</MHC_CannotStartCoolantExtraction>
+  <MHC_PawnHadInsufficientCoolantToExtractCoolantPack>У {PAWN_nameDef} не было достаточного хладогента для извлечения упаковки охлаждающей жидкости.</MHC_PawnHadInsufficientCoolantToExtractCoolantPack>
 
 </LanguageData>
