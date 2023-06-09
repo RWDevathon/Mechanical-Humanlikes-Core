@@ -2,6 +2,6 @@
 <LanguageData>
 
   <!-- Charging -->
-  <MHC_CurrentChargerPowerConsumption>Текущее потребление энергии: {0} W</MHC_CurrentChargerPowerConsumption>
+  <MHC_CurrentChargerPowerConsumption>Текущее энергопотребление: {0} W</MHC_CurrentChargerPowerConsumption>
 
 </LanguageData>

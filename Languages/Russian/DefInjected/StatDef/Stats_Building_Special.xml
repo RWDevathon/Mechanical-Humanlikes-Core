@@ -3,14 +3,14 @@
 
   <!-- Mechanical Surgery Success Chance Factor -->
 
-  <MHC_MechanicalSurgerySuccessChanceFactor.label>фактор шансов на успех механической операции</MHC_MechanicalSurgerySuccessChanceFactor.label>
-  <MHC_MechanicalSurgerySuccessChanceFactor.description>Множитель к шансу, что операция на механическом юните будет успешной при выполнении здесь. На шанс успеха механической операции также влияет множество других факторов, включая способности механика.</MHC_MechanicalSurgerySuccessChanceFactor.description>
+  <MHC_MechanicalSurgerySuccessChanceFactor.label>шанс успеха операции</MHC_MechanicalSurgerySuccessChanceFactor.label>
+  <MHC_MechanicalSurgerySuccessChanceFactor.description>Базовая вероятность того, что пешка успешно завершит механическую операцию. \n\nНа успех также влияют кровать и помещение, в котором проводится операция, используемые ремкомплекты, сложность самой операции и воодушевление механика.\n\nВне зависимости от этого показателя всегда сохраняется небольшой риск совершить ошибки.</MHC_MechanicalSurgerySuccessChanceFactor.description>
 
 
   <!-- Mechanical Tend Quality Offset -->
 
-  <MHC_MechanicalTendQualityOffset.label>качество механической обработки</MHC_MechanicalTendQualityOffset.label>
-  <MHC_MechanicalTendQualityOffset.description>Это значение компенсирует качество механической обработки.</MHC_MechanicalTendQualityOffset.description>
+  <MHC_MechanicalTendQualityOffset.label>качество ремонта</MHC_MechanicalTendQualityOffset.label>
+  <MHC_MechanicalTendQualityOffset.description>Базовое качество, с которым персонаж чинит повреждения и исправляет поломки.</MHC_MechanicalTendQualityOffset.description>
 
 
 </LanguageData>

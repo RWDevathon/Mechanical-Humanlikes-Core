@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MHC_GetRecharge.reportString>Зарядка аккумулятора.</MHC_GetRecharge.reportString>
-  <MHC_IngestMechNeed.reportString>Восполнение потребностей.</MHC_IngestMechNeed.reportString>
-  <MHC_TendMechanical.reportString>стремится к TargetA.</MHC_TendMechanical.reportString>
-  <MHC_DoMaintenanceUrgent.reportString>занимаеться самообслуживанием.</MHC_DoMaintenanceUrgent.reportString>
-  <MHC_DoMaintenanceIdle.reportString>занимаеться самообслуживанием.</MHC_DoMaintenanceIdle.reportString>
+  <MHC_GetRecharge.reportString>Перезарядка аккумулятора.</MHC_GetRecharge.reportString>
+  <MHC_IngestMechNeed.reportString>Восполнение нужд.</MHC_IngestMechNeed.reportString>
+  <MHC_TendMechanical.reportString>ремонтирует TargetA</MHC_TendMechanical.reportString>
+  <MHC_DoMaintenanceUrgent.reportString>самообслуживание</MHC_DoMaintenanceUrgent.reportString>
+  <MHC_DoMaintenanceIdle.reportString>самообслуживание</MHC_DoMaintenanceIdle.reportString>
 
 
 </LanguageData>

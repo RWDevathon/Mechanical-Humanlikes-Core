@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MHC_MechanicalShutdown.label>выведен из эксплуатации</MHC_MechanicalShutdown.label>
+  <MHC_MechanicalShutdown.label>отключён</MHC_MechanicalShutdown.label>
   <MHC_MechanicalShutdown.description>Работоспособность исключена.</MHC_MechanicalShutdown.description>
 
-  <MHC_Restarting.label>Перезагрузка</MHC_Restarting.label>
-  <MHC_Restarting.description>Юнит полностью перезапускает все функции и снова включается.</MHC_Restarting.description>
+  <MHC_Restarting.label>перезагрузка</MHC_Restarting.label>
+  <MHC_Restarting.description>Нейроинтерфейс андроида перезагружается.</MHC_Restarting.description>
 
-  <MHC_CoolantShortage.label>Нехватка охлаждающей жидкости</MHC_CoolantShortage.label>
-  <MHC_CoolantShortage.description>У этого юнита недостаточно охлаждающей жидкости для полного заполнения линий охлаждения, и он отключается, чтобы избежать катастрофического отказа.\nЗапасы охлаждающей жидкости должны быть пополнены, чтобы обеспечить возврат к надлежащей функциональности.</MHC_CoolantShortage.description>
-  <MHC_CoolantShortage.stages.0.label>незначительная</MHC_CoolantShortage.stages.0.label>
-  <MHC_CoolantShortage.stages.1.label>умеренная</MHC_CoolantShortage.stages.1.label>
-  <MHC_CoolantShortage.stages.2.label>серьезная</MHC_CoolantShortage.stages.2.label>
-  <MHC_CoolantShortage.stages.3.label>экстремальная</MHC_CoolantShortage.stages.3.label>
+  <MHC_CoolantShortage.label>Нехватка хладогента</MHC_CoolantShortage.label>
+  <MHC_CoolantShortage.description>У юнита недостаточно хладогента для полного заполнения трубопроводов охлаждающей жидкости, и он отключается, чтобы избежать катастрофического исхода.\nДля восстановления работоспособности необходимо пополнить запасы хладогента.</MHC_CoolantShortage.description>
+  <MHC_CoolantShortage.stages.0.label>лёгкая</MHC_CoolantShortage.stages.0.label>
+  <MHC_CoolantShortage.stages.1.label>средняя</MHC_CoolantShortage.stages.1.label>
+  <MHC_CoolantShortage.stages.2.label>сильная</MHC_CoolantShortage.stages.2.label>
+  <MHC_CoolantShortage.stages.3.label>тяжёлая</MHC_CoolantShortage.stages.3.label>
 
   <MHC_LubricantShortage.label>Нехватка смазки</MHC_LubricantShortage.label>
-  <MHC_LubricantShortage.description>У этого юнита недостаточно смазки для поддержания бесперебойной работы деталей, что снижает эффективность работы наружной части и увеличивает потери в техническом обслуживании.\nДля восстановления нормальной работы необходимо пополнить запасы смазки.</MHC_LubricantShortage.description>
-  <MHC_LubricantShortage.stages.0.label>незначительная</MHC_LubricantShortage.stages.0.label>
-  <MHC_LubricantShortage.stages.1.label>умеренная</MHC_LubricantShortage.stages.1.label>
-  <MHC_LubricantShortage.stages.2.label>серьезная</MHC_LubricantShortage.stages.2.label>
-  <MHC_LubricantShortage.stages.3.label>экстремальная</MHC_LubricantShortage.stages.3.label>
+  <MHC_LubricantShortage.description>У юнита недостаточно смазки для поддержания стабильной работы деталей, что снижает эффективность работы наружной части и увеличивает потери в техобслуживании.\nДля восстановления работоспособности необходимо пополнить запасы смазки.</MHC_LubricantShortage.description>
+  <MHC_LubricantShortage.stages.0.label>лёгкая</MHC_LubricantShortage.stages.0.label>
+  <MHC_LubricantShortage.stages.1.label>средняя</MHC_LubricantShortage.stages.1.label>
+  <MHC_LubricantShortage.stages.2.label>сильная</MHC_LubricantShortage.stages.2.label>
+  <MHC_LubricantShortage.stages.3.label>тяжёлая</MHC_LubricantShortage.stages.3.label>
 
 
 </LanguageData>

@@ -2,11 +2,11 @@
 <LanguageData>
 
   <MHC_Mechanic.label>механик</MHC_Mechanic.label>
-  <MHC_Mechanic.description>Ремонтируйте поврежденных механических юнитов, проводите операции и спасайте вышедших из строя юнитов. Механики будут ухаживать как за колонистами, так и за заключенными.</MHC_Mechanic.description>
+  <MHC_Mechanic.description>Механики чинят тех, кто выведен из строя и находится в кровати. Они заботятся и о поселенцах, и о пленниках.</MHC_Mechanic.description>
   <MHC_Mechanic.labelShort>механик</MHC_Mechanic.labelShort>
   <MHC_Mechanic.pawnLabel>Механик</MHC_Mechanic.pawnLabel>
-  <MHC_Mechanic.gerundLabel>ремонт</MHC_Mechanic.gerundLabel>
-  <MHC_Mechanic.verb>Ремонт</MHC_Mechanic.verb>
+  <MHC_Mechanic.gerundLabel>починить</MHC_Mechanic.gerundLabel>
+  <MHC_Mechanic.verb>Починить</MHC_Mechanic.verb>
 
 
 </LanguageData>

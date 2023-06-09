@@ -2,31 +2,31 @@
 <LanguageData>
 
   <MHC_ChargingStation.label>Зарядная станция</MHC_ChargingStation.label>
-  <MHC_ChargingStation.description>Станция, построенная для одновременной зарядки 8 соседних пешек.</MHC_ChargingStation.description>
-  <MHC_ChargingStation_Blueprint.label>Зарядная станция (чертеж)</MHC_ChargingStation_Blueprint.label>
-  <MHC_ChargingStation_Blueprint_Install.label>Зарядная станция (чертеж)</MHC_ChargingStation_Blueprint_Install.label>
-  <MHC_ChargingStation_Frame.label>Зарядная станция (строительство)</MHC_ChargingStation_Frame.label>
-  <MHC_ChargingStation_Frame.description>Станция, построенная для одновременной зарядки 8 соседних пешек.</MHC_ChargingStation_Frame.description>
+  <MHC_ChargingStation.description>Станция, способная заряжать до 8 андроидов одновременно.</MHC_ChargingStation.description>
+  <MHC_ChargingStation_Blueprint.label>Зарядная станция (проект)</MHC_ChargingStation_Blueprint.label>
+  <MHC_ChargingStation_Blueprint_Install.label>Зарядная станция (проект)</MHC_ChargingStation_Blueprint_Install.label>
+  <MHC_ChargingStation_Frame.label>Зарядная станция (в процессе сборки)</MHC_ChargingStation_Frame.label>
+  <MHC_ChargingStation_Frame.description>Станция, способная заряжать до 8 андроидов одновременно.</MHC_ChargingStation_Frame.description>
 
 
   <!-- Bedside Charger -->
 
   <MHC_BedsideChargerFacility.label>прикроватный зарядник</MHC_BedsideChargerFacility.label>
-  <MHC_BedsideChargerFacility.description>Прикроватное устройство, позволяющее обитателю связанной кровати заряжаться. Оно обеспечивает энергию во время нахождения в постели, но потребляет при этом много энергии. Оно должно быть размещено непосредственно рядом с изголовьем кровати и напротив него.</MHC_BedsideChargerFacility.description>
-  <MHC_BedsideChargerFacility_Blueprint.label>прикроватный зарядник (чертеж)</MHC_BedsideChargerFacility_Blueprint.label>
-  <MHC_BedsideChargerFacility_Blueprint_Install.label>прикроватный зарядник (чертеж)</MHC_BedsideChargerFacility_Blueprint_Install.label>
-  <MHC_BedsideChargerFacility_Frame.label>прикроватный зарядник (строительство)</MHC_BedsideChargerFacility_Frame.label>
-  <MHC_BedsideChargerFacility_Frame.description>Прикроватное устройство, позволяющее обитателю связанной кровати заряжаться. Оно обеспечивает энергию во время нахождения в постели, но потребляет при этом много энергии. Оно должно быть размещено непосредственно рядом с изголовьем кровати и напротив него.</MHC_BedsideChargerFacility_Frame.description>
+  <MHC_BedsideChargerFacility.description>Прикроватный зарядник, позволяет соединённой кровати заряжать андроидов. Обеспечивает энергией во время нахождения в постели, но потребляет много энергии. Необходимо разместить непосредственно рядом и лицом к изголовью кровати.</MHC_BedsideChargerFacility.description>
+  <MHC_BedsideChargerFacility_Blueprint.label>прикроватный зарядник (проект)</MHC_BedsideChargerFacility_Blueprint.label>
+  <MHC_BedsideChargerFacility_Blueprint_Install.label>прикроватный зарядник (проект)</MHC_BedsideChargerFacility_Blueprint_Install.label>
+  <MHC_BedsideChargerFacility_Frame.label>прикроватный зарядник (в процессе сборки)</MHC_BedsideChargerFacility_Frame.label>
+  <MHC_BedsideChargerFacility_Frame.description>Прикроватный зарядник, позволяет соединённой кровати заряжать андроидов. Обеспечивает энергией во время нахождения в постели, но потребляет много энергии. Необходимо разместить непосредственно рядом и лицом к изголовью кровати.</MHC_BedsideChargerFacility_Frame.description>
 
 
   <!-- Charging Pods -->
 
-  <MHC_ChargingPod.label>Капсула для зарядки</MHC_ChargingPod.label>
-  <MHC_ChargingPod.description>Простая зарядная капсула, которая может заряжать механические устройства. Она не предназначена для комфорта.</MHC_ChargingPod.description>
-  <MHC_ChargingPod_Blueprint.label>Капсула для зарядки (чертеж)</MHC_ChargingPod_Blueprint.label>
-  <MHC_ChargingPod_Blueprint_Install.label>Капсула для зарядки (чертеж)</MHC_ChargingPod_Blueprint_Install.label>
-  <MHC_ChargingPod_Frame.label>Капсула для зарядки (строительство)</MHC_ChargingPod_Frame.label>
-  <MHC_ChargingPod_Frame.description>Простая зарядная капсула, которая может заряжать механические устройства. Она не предназначена для комфорта.</MHC_ChargingPod_Frame.description>
+  <MHC_ChargingPod.label>энергокапсула</MHC_ChargingPod.label>
+  <MHC_ChargingPod.description>Простая механическая энергокапсула, предназначенная для зарядки андроидов. Она не рассчитана на комфорт.</MHC_ChargingPod.description>
+  <MHC_ChargingPod_Blueprint.label>энергокапсула (проект)</MHC_ChargingPod_Blueprint.label>
+  <MHC_ChargingPod_Blueprint_Install.label>энергокапсула (проект)</MHC_ChargingPod_Blueprint_Install.label>
+  <MHC_ChargingPod_Frame.label>энергокапсула (в процессе сборки)</MHC_ChargingPod_Frame.label>
+  <MHC_ChargingPod_Frame.description>Простая механическая энергокапсула, предназначенная для зарядки андроидов. Она не рассчитана на комфорт.</MHC_ChargingPod_Frame.description>
 
 
 </LanguageData>
