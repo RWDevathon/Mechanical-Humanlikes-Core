@@ -26,36 +26,17 @@ namespace MechHumanlikes
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
                 List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
-                bool needNextLabel = false;
-                int insertionPoint = -1;
-                Label? insertLabelEnd = new Label?();
-
-                // Locate the IsFlesh check for the EMP vulnerability piece and mark it as our insertion point.
-                for (int i = 0; i < instructions.Count; i++)
-                {
-                    if (instructions[i].Calls(AccessTools.PropertyGetter(typeof(RaceProperties), nameof(RaceProperties.IsFlesh))))
-                    {
-                        // Mark the place where our instruction goes.
-                        insertionPoint = i + 1;
-                        needNextLabel = true;
-                    }
-                    else if (needNextLabel && instructions[i].Branches(out insertLabelEnd))
-                    {
-                        // Branches will insert the label directly into the variable for us. Break to avoid looking for other insertion points unnecessarily.
-                        break;
-                    }
-                }
+                MethodInfo targetMethod = AccessTools.PropertyGetter(typeof(RaceProperties), nameof(RaceProperties.IsFlesh));
 
                 // Yield the actual instructions, adding in our additional instructions where necessary.
                 for (int i = 0; i < instructions.Count; i++)
                 {
-                    // Operation target hit, yield contained instructions and add null-check branch.
-                    if (insertionPoint == i)
+                    // Operation target hit, yield instruction and insert new instructions.
+                    if (instructions[i].Calls(targetMethod))
                     {
-                        yield return instructions[i]; // Return the instruction we encountered initially
+                        yield return instructions[i]; // Use the IsFlesh instruction, which will be passed to our method below
                         yield return new CodeInstruction(OpCodes.Ldloc_1); // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(MHC_Utils), nameof(MHC_Utils.IsConsideredMechanical), new Type[] { typeof(Pawn) })); // Our function call
-                        yield return new CodeInstruction(OpCodes.Brtrue_S, insertLabelEnd); // Branch to next check if it is a mechanical unit (if MHC_Utils.IsConsideredMechanical == true)
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BestAttackTarget_innerValidator_Patch), nameof(Invulnerable))); // Our function call
                     }
                     // Not a target, return instruction as normal.
                     else
@@ -63,6 +44,11 @@ namespace MechHumanlikes
                         yield return instructions[i];
                     }
                 }
+            }
+
+            private static bool Invulnerable(bool vulnerableSoFar, Pawn pawn)
+            {
+                return vulnerableSoFar && pawn.def.GetModExtension<MHC_MechanicalPawnExtension>()?.vulnerableToEMP != true;
             }
         }
     }
