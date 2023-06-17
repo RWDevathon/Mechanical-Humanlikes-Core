@@ -8,7 +8,7 @@ namespace MechHumanlikes
 {
     public class IncidentWorker_DiseaseHuman_Patch
     {
-        // Mechanicals aren't valid candidates for diseases.
+        // Mechanicals aren't valid candidates for diseases. Can't be transpiled due to a lack of viable targets.
         [HarmonyPatch(typeof(IncidentWorker_DiseaseHuman), "PotentialVictimCandidates")]
         public class PotentialVictimCandidates_Patch
         {

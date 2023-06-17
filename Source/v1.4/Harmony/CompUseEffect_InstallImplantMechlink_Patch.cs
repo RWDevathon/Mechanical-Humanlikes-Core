@@ -7,7 +7,7 @@ namespace MechHumanlikes
 {
     public class CompUseEffect_InstallImplantMechlink_Patch
     {
-        // Mechanical units do not suffer gas exposure hediffs like Tox Gas.
+        // Non-sapient mechanical units may not have mechlinks installed - it can possibly generate errors!
         [HarmonyPatch(typeof(CompUseEffect_InstallImplantMechlink), "CanBeUsedBy")]
         [HarmonyPatch(new Type[] { typeof(Pawn), typeof(string) }, new ArgumentType[] { ArgumentType.Normal, ArgumentType.Out })]
         public class CanBeUsedBy_Patch
@@ -23,7 +23,7 @@ namespace MechHumanlikes
                 if (MHC_Utils.IsConsideredNonHumanlike(p))
                 {
                     __result = false;
-                    failReason = "MHC_NoSurrogateMechanitors".Translate();
+                    failReason = "MHC_PawnTypeAutonomousTooltip".Translate();
                     return;
                 }
             }

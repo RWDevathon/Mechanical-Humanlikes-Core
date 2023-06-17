@@ -10,11 +10,15 @@ namespace MechHumanlikes
         [HarmonyPatch(typeof(FoodUtility), "GetFoodPoisonChanceFactor")]
         public class GetFoodPoisonChanceFactor_Patch
         {
-            [HarmonyPostfix]
-            public static void Listener(Pawn ingester, ref float __result)
+            [HarmonyPrefix]
+            public static bool Prefix(Pawn ingester, ref float __result)
             {
                 if (MHC_Utils.IsConsideredMechanical(ingester))
+                {
                     __result = 0f;
+                    return false;
+                }
+                return true;
             }
         }
 

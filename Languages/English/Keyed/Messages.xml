@@ -2,6 +2,7 @@
 <LanguageData>
 
     <!-- Miscellaneous -->
+    <MHC_MessageSelfRepairUnsatisfied>To self-repair, {1_labelShort} must also be assigned to Mechanic work.</MHC_MessageSelfRepairUnsatisfied>
     <MHC_DroneCaptured>{0} is a drone, and can not be interacted with by wardens. Use operations to recruit or execute.</MHC_DroneCaptured>
 
     <!-- Surgeries -->

@@ -36,10 +36,6 @@ namespace MechHumanlikes
                 else
                 {
                     colors = new List<Color>();
-                    if (pawn.story?.favoriteColor.HasValue == true)
-                    {
-                        colors.Add(pawn.story.favoriteColor.Value);
-                    }
                     if (pawn.Ideo != null && !Find.IdeoManager.classicMode)
                     {
                         colors.Add(pawn.Ideo.ApparelColor);
@@ -114,6 +110,18 @@ namespace MechHumanlikes
 
         private void DrawBottomButtons(Rect inRect)
         {
+            if (pawn.story?.favoriteColor.HasValue == true)
+            {
+                if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - (ButSize.y * 2) - 5, ButSize.x, ButSize.y), "SetFavoriteColor".Translate()))
+                {
+                    targetColor = pawn.story.favoriteColor.Value;
+                    pawn.GetComp<AlienPartGenerator.AlienComp>()?.OverwriteColorChannel("skin", targetColor);
+                    pawn.story.SkinColorBase = targetColor;
+                    pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
+                    PortraitsCache.SetDirty(pawn);
+                    SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                }
+            }
             if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Reset".Translate()))
             {
                 Reset();

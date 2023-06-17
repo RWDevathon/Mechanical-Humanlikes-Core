@@ -1,7 +1,6 @@
 ﻿using System;
 using Verse;
 using HarmonyLib;
-using RimWorld;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Reflection;
@@ -11,31 +10,30 @@ namespace MechHumanlikes
 {
     public class Corpse_Patch
     {
-        // No one is bothered by seeing a destroyed mechanical chassis. It doesn't rot, decay, or deteriorate significantly. It may not even have had an intelligence when destroyed.
-        [HarmonyPatch(typeof(Corpse), "GiveObservedThought")]
-        public class GiveObservedThought_Patch
-        {
-            [HarmonyPostfix]
-            public static void Listener(Corpse __instance, ref Thought_Memory __result)
-            {
-                if (MHC_Utils.IsConsideredMechanical(__instance.InnerPawn))
-                {
-                    __result = null;
-                }
-            }
-        }
-
-        // No one is bothered by seeing a destroyed mechanical chassis. It doesn't rot, decay, or deteriorate significantly. It may not even have had an intelligence when destroyed.
+        // This transpiler prevents mechanical units from triggering corpse thoughts. Only organic humanlikes trigger it normally.
         [HarmonyPatch(typeof(Corpse), "GiveObservedHistoryEvent")]
         public class GiveObservedHistoryEvent_Patch
         {
-            [HarmonyPostfix]
-            public static void Listener(Corpse __instance, Pawn observer, ref HistoryEventDef __result)
+            [HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
-                if (MHC_Utils.IsConsideredMechanical(__instance.InnerPawn))
+                List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
+                MethodInfo targetMethod = AccessTools.PropertyGetter(typeof(RaceProperties), nameof(RaceProperties.Humanlike));
+
+                for (int i = 0; i < instructions.Count; i++)
                 {
-                    __result = null;
+                    yield return instructions[i];
+                    if (instructions[i].Calls(targetMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load Corpse
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(GiveObservedHistoryEvent_Patch), nameof(IsOrganicHumanlike))); // Our function call
+                    }
                 }
+            }
+
+            private static bool IsOrganicHumanlike (bool humanlike, Corpse corpse)
+            {
+                return humanlike && !MHC_Utils.IsConsideredMechanical(corpse.InnerPawn);
             }
         }
 

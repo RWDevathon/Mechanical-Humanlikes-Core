@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace MechHumanlikes
 {
-    // Do not give an alert about no food for charge-capable royals.
     public class Alert_RoyalNoAcceptableFood_Patch
     {
+        // Do not give an alert about no food for charge-capable royals.
         [HarmonyPatch(typeof(Alert_RoyalNoAcceptableFood), "get_Targets")]
         public class Alert_RoyalNoAcceptableFood_get_Targets_Patch
         {

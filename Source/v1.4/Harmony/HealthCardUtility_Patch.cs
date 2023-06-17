@@ -3,7 +3,6 @@ using RimWorld;
 using Verse;
 using System.Collections.Generic;
 using System.Reflection.Emit;
-using System;
 using System.Reflection;
 
 namespace MechHumanlikes
@@ -20,59 +19,56 @@ namespace MechHumanlikes
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {
-                MethodBase targetMethod = AccessTools.Method(typeof(Pawn), "WorkTypeIsDisabled");
-                MethodBase mechCheckMethod = AccessTools.Method(typeof(MHC_Utils), "IsConsideredMechanical", new Type[] { typeof(Pawn) });
-                CodeInstruction startInstruction = new CodeInstruction(OpCodes.Ldarg_1);
                 List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
-                bool needNextLabel = false;
-                int insertionPoint = -1;
-                Label originalStartConditionLabel = generator.DefineLabel();
-                Label? skipBranchLabel = new Label?();
-
-                // Locate the troublesome doctor work type check and identify the location to insert our instructions at.
-                for (int i = 0; i < instructions.Count; i++)
-                {
-                    if (instructions[i].operand as MethodBase == targetMethod)
-                    {
-                        // Mark the place where our instruction goes.
-                        insertionPoint = i - 3;
-                        // Move any jumps over to our start instruction so they don't get skipped.
-                        instructions[i - 3].MoveLabelsTo(startInstruction);
-                        // Store the original condition start instruction so that if the Mechanical check fails it doesn't get skipped entirely.
-                        instructions[i - 3].labels.Add(originalStartConditionLabel);
-                        needNextLabel = true;
-                    }
-                    // Identify wherever the condition was originally branching out to if false and store for later.
-                    else if (needNextLabel && instructions[i].Branches(out skipBranchLabel))
-                    {
-                        break;
-                    }
-                }
+                MethodBase disableTargetMethod = AccessTools.Method(typeof(Pawn), nameof(Pawn.WorkTypeIsDisabled));
+                MethodBase warningTargetMethod = AccessTools.Method(typeof(Pawn_WorkSettings), nameof(Pawn_WorkSettings.GetPriority));
 
                 // Yield the actual instructions, adding in our additional instructions where necessary.
                 for (int i = 0; i < instructions.Count; i++)
                 {
+                    yield return instructions[i];
                     // Operation target hit, yield contained instructions and add null-check branch.
-                    if (insertionPoint == i)
+                    if (instructions[i].operand as MethodBase == disableTargetMethod)
                     {
-                        // If (MHC_Utils.IsConsideredMechanical(pawn) && pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
-                        yield return startInstruction; // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, mechCheckMethod); // Call MHC_Utils.IsConsideredMechanical(pawn)
-                        yield return new CodeInstruction(OpCodes.Brfalse_S, originalStartConditionLabel); // Branch to original condition (or'd) if false to check against Doctor
-
-                        yield return new CodeInstruction(OpCodes.Ldarg_1); // Load Pawn again
-                        yield return new CodeInstruction(OpCodes.Ldsfld, typeof(MHC_WorkTypeDefOf).GetField("MHC_Mechanic")); // Load the MHC_Mechanic WorkTypeDef onto the stack
-                        yield return new CodeInstruction(OpCodes.Call, targetMethod); // Call pawn.WorkTypeIsDisabled(MHC_Mechanic);
-                        yield return new CodeInstruction(OpCodes.Brfalse_S, skipBranchLabel); // Is a mechanical pawn but can't do Mechanic, condition is true, no need to check original condition.
-
-                        yield return instructions[i]; // Return the instruction we encountered initially
+                        yield return new CodeInstruction(OpCodes.Ldarg_1); // Load Pawn
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(DrawOverviewTab_Patch), nameof(CanEverSelfTend)));
                     }
-                    // Not a target, return instruction as normal.
-                    else
+                    else if (instructions[i].operand as MethodBase == warningTargetMethod)
                     {
-                        yield return instructions[i];
+                        yield return new CodeInstruction(OpCodes.Ldarg_1); // Load Pawn
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(DrawOverviewTab_Patch), nameof(HasSelfTendWorkTypeSet)));
                     }
                 }
+            }
+
+            // Organic pawns that are not doctors have self-tend disabled. Mechanical pawns that are not mechanics have self-tend disabled.
+            // Skip the original condition if mechanical to avoid double-sending warning messages.
+            private static bool CanEverSelfTend (bool notDoctor, Pawn pawn)
+            {
+                if (!MHC_Utils.IsConsideredMechanical(pawn))
+                {
+                    return notDoctor;
+                }
+                else if (pawn.WorkTypeIsDisabled(MHC_WorkTypeDefOf.MHC_Mechanic))
+                {
+                    pawn.playerSettings.selfTend = false;
+                }
+                return false;
+            }
+
+            // If the pawn is organic and is a doctor, then no warning message will appear.
+            // If the pawn is mechanical and not a mechanic, send a warning message but return true so that the organic doctor warning is still skipped.
+            private static bool HasSelfTendWorkTypeSet (bool isDoctor, Pawn pawn)
+            {
+                if (!MHC_Utils.IsConsideredMechanical(pawn))
+                {
+                    return isDoctor;
+                }
+                else if (pawn.workSettings.GetPriority(MHC_WorkTypeDefOf.MHC_Mechanic) == 0)
+                {
+                    Messages.Message("MHC_MessageSelfRepairUnsatisfied".Translate(pawn.LabelShort, pawn), MessageTypeDefOf.CautionInput, historical: false);
+                }
+                return true;
             }
         }
     }

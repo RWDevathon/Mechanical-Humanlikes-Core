@@ -10,10 +10,15 @@ namespace MechHumanlikes
         [HarmonyPatch(typeof(JobGiver_GetHemogen), "CanFeedOnPrisoner")]
         public class CanFeedOnPrisoner_Patch
         {
-            [HarmonyPostfix]
-            public static void Listener(ref AcceptanceReport __result, Pawn prisoner)
+            [HarmonyPrefix]
+            public static bool Prefix(ref AcceptanceReport __result, Pawn prisoner)
             {
-                __result = __result && !MHC_Utils.IsConsideredMechanical(prisoner);
+                if (MHC_Utils.IsConsideredMechanical(prisoner))
+                {
+                    __result = false;
+                    return false;
+                }
+                return true;
             }
         }
     }

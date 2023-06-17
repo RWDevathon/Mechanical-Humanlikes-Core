@@ -10,10 +10,15 @@ namespace MechHumanlikes
         [HarmonyPatch(typeof(InteractionUtility), "CanInitiateInteraction")]
         public class CanInitiateInteraction_Patch
         {
-            [HarmonyPostfix]
-            public static void Listener(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
+            [HarmonyPrefix]
+            public static bool Prefix(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
             {
-                __result = __result && !MHC_Utils.IsConsideredMechanicalDrone(pawn);
+                if (MHC_Utils.IsConsideredMechanicalDrone(pawn))
+                {
+                    __result = false;
+                    return false;
+                }
+                return true;
             }
         }
 
@@ -21,10 +26,15 @@ namespace MechHumanlikes
         [HarmonyPatch(typeof(InteractionUtility), "CanReceiveInteraction")]
         public class CanReceiveInteraction_Patch
         {
-            [HarmonyPostfix]
-            public static void Listener(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
+            [HarmonyPrefix]
+            public static bool Prefix(Pawn pawn, ref bool __result, InteractionDef interactionDef = null)
             {
-                __result = __result && !MHC_Utils.IsConsideredMechanicalDrone(pawn);
+                if (MHC_Utils.IsConsideredMechanicalDrone(pawn))
+                {
+                    __result = false;
+                    return false;
+                }
+                return true;
             }
         }
     }

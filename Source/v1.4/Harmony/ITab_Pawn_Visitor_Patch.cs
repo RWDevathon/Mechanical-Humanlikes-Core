@@ -14,8 +14,7 @@ namespace MechHumanlikes
             public static bool Prefix(ITab_Pawn_Visitor __instance)
             {
                 // Get the currently selected pawn. If it's null for some reason, let the default behavior continue.
-                Pawn pawn = Find.Selector.SingleSelectedThing as Pawn;
-                if (pawn == null)
+                if (!(Find.Selector.SingleSelectedThing is Pawn pawn))
                     return true;
 
                 // Non-drones or non-prisoners/slaves should continue with default behavior.
