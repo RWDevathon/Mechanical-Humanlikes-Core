@@ -13,7 +13,7 @@ namespace MechHumanlikes
         public class AddHediff_Patch
         { 
             [HarmonyPrefix]
-            public static bool Listener(ref Pawn ___pawn, ref Hediff hediff, BodyPartRecord part)
+            public static bool Prefix(ref Pawn ___pawn, ref Hediff hediff, BodyPartRecord part)
             {
                 // If this is a mechanical pawn and this particular hediff is forbidden for mechanicals to have, then abort trying to add it.
                 if (MHC_Utils.IsConsideredMechanical(___pawn) && MechHumanlikes_Settings.blacklistedMechanicalHediffs.Contains(hediff.def.defName))
@@ -30,7 +30,7 @@ namespace MechHumanlikes
         public class NotifyPlayerOfKilled_Patch
         {
             [HarmonyPrefix]
-            public static bool Listener(ref DamageInfo? dinfo, ref Hediff hediff, ref Caravan caravan, Pawn ___pawn)
+            public static bool Prefix(ref DamageInfo? dinfo, ref Hediff hediff, ref Caravan caravan, Pawn ___pawn)
             {
                 // If the pawn is a surrogate and wasn't just turned into one, then abort.
                 if (MHC_Utils.IsConsideredNonHumanlike(___pawn))
@@ -40,6 +40,23 @@ namespace MechHumanlikes
 
                 return true;
             }
+        }
+
+        // Mechanical pawns do not die from the lethal damage threshold mechanic.
+        [HarmonyPatch(typeof(Pawn_HealthTracker), "ShouldBeDeadFromLethalDamageThreshold")]
+        public class ShouldBeDeadFromLethalDamageThreshold_Patch
+        {
+            [HarmonyPrefix]
+            public static bool Prefix(ref bool __result, Pawn ___pawn)
+            {
+                if (MHC_Utils.IsConsideredMechanical(___pawn))
+                {
+                    __result = false;
+                    return false;
+                }
+                return true;
+            }
+
         }
     }
 }
