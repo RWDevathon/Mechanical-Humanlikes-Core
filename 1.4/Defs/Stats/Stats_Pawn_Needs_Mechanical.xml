@@ -6,9 +6,9 @@
         <defName>MHC_MaintenanceRetention</defName>
         <label>maintenance retention efficiency</label>
         <description>How well this mechanical unit retains its level of maintenance over time. This stat affects how quickly the pawn's maintenance need naturally falls, and is primarily affected by coolant filtration and pumping.</description>
+        <workerClass>MechHumanlikes.StatWorker_Maintenance</workerClass>
         <category>BasicsPawn</category>
         <defaultBaseValue>1.0</defaultBaseValue>
-        <hideAtValue>1.0</hideAtValue>
         <toStringStyle>PercentZero</toStringStyle>
         <minValue>0.2</minValue>
         <maxValue>5</maxValue>
@@ -30,18 +30,6 @@
                 <factor>3</factor>
             </li>
         </parts>
-    </StatDef>
-
-    <!-- Mechanical Need Capacity -->
-    <StatDef>
-        <defName>MHC_MechanicalNeedCapacity</defName>
-        <label>maximum mechanical need capacity</label>
-        <description>How much this mechanical unit needs (and stores) in a need, as a factor. This stat affects how large a need the pawn may have at once and how much the unit will need to replenish to reach full satisfaction.</description>
-        <category>BasicsPawn</category>
-        <alwaysHide>true</alwaysHide>
-        <defaultBaseValue>1.0</defaultBaseValue>
-        <toStringStyle>PercentZero</toStringStyle>
-        <minValue>0</minValue>
     </StatDef>
 
 </Defs>

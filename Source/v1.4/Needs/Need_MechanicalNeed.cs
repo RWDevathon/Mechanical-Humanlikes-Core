@@ -7,9 +7,37 @@ namespace MechHumanlikes
     {
         private int ticksAtZero = 0;
 
+        private MHC_MechanicalNeedExtension needExtension;
+
+        private MHC_MechanicalPawnExtension pawnExtension;
+
         public int TicksAtZero => ticksAtZero;
 
         public float CoolantDesired => MaxLevel - CurLevel;
+
+        protected MHC_MechanicalNeedExtension NeedExtension
+        {
+            get
+            {
+                if (needExtension == null)
+                {
+                    needExtension = pawn.def.GetModExtension<MHC_MechanicalNeedExtension>();
+                }
+                return needExtension;
+            }
+        }
+
+        protected MHC_MechanicalPawnExtension PawnExtension
+        {
+            get
+            {
+                if (pawnExtension == null)
+                {
+                    pawnExtension = pawn.def.GetModExtension<MHC_MechanicalPawnExtension>();
+                }
+                return pawnExtension;
+            }
+        }
 
         public float PercentageFallRatePerTick
         {
@@ -28,7 +56,11 @@ namespace MechHumanlikes
         {
             get
             {
-                return pawn.GetStatValue(MHC_StatDefOf.MHC_MechanicalNeedCapacity, applyPostProcess: true, 60000);
+                if (PawnExtension.mechanicalNeeds.NullOrEmpty() || !PawnExtension.mechanicalNeeds.ContainsKey(def))
+                {
+                    return 1f;
+                }
+                return PawnExtension.mechanicalNeeds[def];
             }
         }
 
@@ -41,22 +73,20 @@ namespace MechHumanlikes
 
             CurLevelPercentage -= 150 * PercentageFallRatePerTick;
 
-            MHC_MechanicalNeedExtension needExtension = def.GetModExtension<MHC_MechanicalNeedExtension>();
-
             if (CurLevel <= 0.001)
             {
                 ticksAtZero += 150;
-                if (needExtension.hediffToApplyOnEmpty != null)
+                if (NeedExtension.hediffToApplyOnEmpty != null)
                 {
-                    HealthUtility.AdjustSeverity(pawn, needExtension.hediffToApplyOnEmpty, 150 * (needExtension.hediffRisePerDay / 60000));
+                    HealthUtility.AdjustSeverity(pawn, NeedExtension.hediffToApplyOnEmpty, 150 * (NeedExtension.hediffRisePerDay / 60000));
                 }
             }
             else
             {
                 ticksAtZero = 0;
-                if (needExtension.hediffToApplyOnEmpty != null)
+                if (NeedExtension.hediffToApplyOnEmpty != null)
                 {
-                    HealthUtility.AdjustSeverity(pawn, needExtension.hediffToApplyOnEmpty, -150 * (needExtension.hediffFallPerDay / 60000));
+                    HealthUtility.AdjustSeverity(pawn, NeedExtension.hediffToApplyOnEmpty, -150 * (NeedExtension.hediffFallPerDay / 60000));
                 }
             }
         }

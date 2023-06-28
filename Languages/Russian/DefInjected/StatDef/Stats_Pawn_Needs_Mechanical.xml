@@ -6,11 +6,4 @@
   <MHC_MaintenanceRetention.label>эффективность самобслуживания</MHC_MaintenanceRetention.label>
   <MHC_MaintenanceRetention.description>Насколько хорошо юнит сохраняет состояние корпуса с течением времени. Эта статистика влияет на то, как быстро потребность юнита в самобслуживании падает.</MHC_MaintenanceRetention.description>
 
-
-  <!-- Mechanical Need Capacity -->
-
-  <MHC_MechanicalNeedCapacity.label>необходимо потребности юниту</MHC_MechanicalNeedCapacity.label>
-  <MHC_MechanicalNeedCapacity.description>Насколько юнит нуждается в потребности. Это влияет на то, насколько большую потребность может иметь пешка и сколько ей нужно, чтобы достичь полного удовлетворения.</MHC_MechanicalNeedCapacity.description>
-
-
 </LanguageData>

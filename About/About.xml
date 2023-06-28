@@ -20,6 +20,9 @@
         </li>
     </modDependencies>
     <packageId>Killathon.MechanicalHumanlikesCore</packageId>
+	<incompatibleWith>
+        <li>Killathon.AndroidTiersReforged</li><!--Don't use the Standalone version with MH. -->
+    </incompatibleWith>
     <loadAfter>
         <li>brrainz.harmony</li><!-- Dependency -->
         <li>erdelf.HumanoidAlienRaces</li><!-- Dependency -->

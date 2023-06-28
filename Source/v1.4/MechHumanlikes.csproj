@@ -290,6 +290,7 @@
     <Compile Include="Recipes\Recipe_PaintMechanicalUnit.cs" />
     <Compile Include="Recipes\Recipe_RemoveMechanicalPart.cs" />
     <Compile Include="Recipes\Recipe_ReprogramDrone.cs" />
+    <Compile Include="StatWorkers\StatWorker_Maintenance.cs" />
     <Compile Include="ThoughtWorker\ThoughtWorker_MaintenanceMood.cs" />
     <Compile Include="JobDrivers\JobDriver_RechargeBattery.cs" />
     <Compile Include="Recipes\Recipe_RestoreMechanicalPart.cs" />

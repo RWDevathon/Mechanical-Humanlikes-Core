@@ -25,7 +25,5 @@ namespace MechHumanlikes
         public static StatDef MHC_NutritionalIntakeEfficiency;
 
         public static StatDef MHC_ChargingSpeed;
-
-        public static StatDef MHC_MechanicalNeedCapacity;
     }
 }

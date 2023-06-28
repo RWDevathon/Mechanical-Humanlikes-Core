@@ -33,17 +33,6 @@ namespace MechHumanlikes
             {
                 return !organic || MHC_Utils.IsConsideredMechanical(pawn);
             }
-
-            //[HarmonyPrefix]
-            //public static bool Prefix(ref HediffSet __instance, ref float __result)
-            //{
-            //    if (MHC_Utils.IsConsideredMechanical(__instance.pawn))
-            //    {
-            //        __result = 0f;
-            //        return false;
-            //    }
-            //    return true;
-            //}
         }
 
         // Mechanical units may check against different hediffs than organics do for temperature hediff concerns.
