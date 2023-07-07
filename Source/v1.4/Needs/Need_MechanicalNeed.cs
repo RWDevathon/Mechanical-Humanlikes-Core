@@ -21,7 +21,7 @@ namespace MechHumanlikes
             {
                 if (needExtension == null)
                 {
-                    needExtension = pawn.def.GetModExtension<MHC_MechanicalNeedExtension>();
+                    needExtension = def.GetModExtension<MHC_MechanicalNeedExtension>();
                 }
                 return needExtension;
             }
@@ -47,7 +47,7 @@ namespace MechHumanlikes
             }
         }
 
-        public Need_MechanicalNeed(Pawn pawn) 
+        public Need_MechanicalNeed(Pawn pawn)
             : base(pawn)
         {
         }
@@ -56,7 +56,7 @@ namespace MechHumanlikes
         {
             get
             {
-                if (PawnExtension.mechanicalNeeds.NullOrEmpty() || !PawnExtension.mechanicalNeeds.ContainsKey(def))
+                if (def == null || PawnExtension.mechanicalNeeds.NullOrEmpty() || !PawnExtension.mechanicalNeeds.ContainsKey(def))
                 {
                     return 1f;
                 }

@@ -58,7 +58,7 @@ namespace MechHumanlikes
                 }
 
                 // Mechanical needs (marked by the defModExtension) are whitelist only.
-                if (needExtension != null && !pawnExtension.mechanicalNeeds.NullOrEmpty() && !pawnExtension.mechanicalNeeds.ContainsKey(nd) && !___pawn.health.hediffSet.hediffs.Any(hediff => hediff.def.causesNeed == nd))
+                if (needExtension != null && (pawnExtension.mechanicalNeeds.NullOrEmpty() || !pawnExtension.mechanicalNeeds.ContainsKey(nd)))
                 {
                     __result = false;
                 }

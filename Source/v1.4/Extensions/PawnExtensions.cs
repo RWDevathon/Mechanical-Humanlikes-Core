@@ -43,7 +43,7 @@ namespace MechHumanlikes
 
         // Dictionary of mechanical-specific needs of this race. The Keys are NeedDefs they have, with the Values being an int representation of their maximum capacity of the need.
         // Since only NeedDefs that are added to this list are added to the pawn, this is a whitelist. Note that the NeedDef should have its own extension to fully work.
-        public Dictionary<NeedDef, float> mechanicalNeeds;
+        public Dictionary<NeedDef, float> mechanicalNeeds = new Dictionary<NeedDef, float>();
 
 
         public override IEnumerable<string> ConfigErrors()

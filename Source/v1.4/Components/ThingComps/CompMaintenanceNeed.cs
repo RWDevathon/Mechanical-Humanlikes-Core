@@ -196,47 +196,6 @@ namespace MechHumanlikes
                 };
                 yield return maintenanceEffectGizmo;
             }
-
-            if (DebugSettings.ShowDevGizmos)
-            {
-                Command_Action subtract20PercentMaintenance = new Command_Action
-                {
-                    defaultLabel = "DEV: Maintenance -20%",
-                    action = delegate
-                    {
-                        ChangeMaintenanceLevel(-0.2f);
-                    }
-                };
-                yield return subtract20PercentMaintenance;
-                Command_Action add20PercentMaintenance = new Command_Action
-                {
-                    defaultLabel = "DEV: Maintenance +20%",
-                    action = delegate
-                    {
-                        ChangeMaintenanceLevel(0.2f);
-                    }
-                };
-                yield return add20PercentMaintenance;
-                Command_Action substract1DayMaintenanceEffect = new Command_Action
-                {
-                    defaultLabel = "DEV: Maintenance Effect -1 day",
-                    action = delegate
-                    {
-                        maintenanceEffectTicks -= TicksPerDay;
-                    }
-                };
-                yield return substract1DayMaintenanceEffect;
-                Command_Action add1DayMaintenanceEffect = new Command_Action
-                {
-                    defaultLabel = "DEV: Maintenance Effect +1 day",
-                    action = delegate
-                    {
-                        maintenanceEffectTicks += TicksPerDay;
-                    }
-                };
-                yield return add1DayMaintenanceEffect;
-            }
-            yield break;
         }
 
         public string MaintenanceTipString()
