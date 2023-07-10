@@ -13,7 +13,7 @@ namespace MechHumanlikes
             [HarmonyPostfix]
             public static void Listener(LocalTargetInfo target, ref bool __result)
             {
-                __result = __result && MHC_Utils.IsConsideredMechanicalDrone(target.Pawn);
+                __result = __result && !MHC_Utils.IsConsideredMechanicalDrone(target.Pawn);
             }
         }
     }

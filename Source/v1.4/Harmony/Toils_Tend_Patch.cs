@@ -22,9 +22,12 @@ namespace MechHumanlikes
                     {
                         Pawn actor = toil.actor;
                         Medicine medicine = (Medicine)actor.CurJob.targetB.Thing;
-                        float learnAmountBase = (!patient.RaceProps.Animal) ? 500f : 175f;
-                        float learnMedicineFactor = (medicine != null) ? medicine.def.MedicineTendXpGainFactor : 0.5f;
-                        actor.skills.Learn(SkillDefOf.Crafting, learnAmountBase * learnMedicineFactor);
+                        if (actor.skills != null && actor.skills.GetSkill(SkillDefOf.Crafting) != null)
+                        {
+                            float learnAmountBase = (!patient.RaceProps.Animal) ? 500f : 175f;
+                            float learnMedicineFactor = (medicine != null) ? medicine.def.MedicineTendXpGainFactor : 0.5f;
+                            actor.skills?.Learn(SkillDefOf.Crafting, learnAmountBase * learnMedicineFactor);
+                        }
                         TendUtility.DoTend(actor, patient, medicine);
                         if (medicine != null && medicine.Destroyed)
                         {

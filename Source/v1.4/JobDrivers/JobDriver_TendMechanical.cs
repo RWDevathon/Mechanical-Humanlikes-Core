@@ -83,7 +83,7 @@ namespace MechHumanlikes
             }
 
             waitToil.FailOnCannotTouch(TargetIndex.A, interactionCell).WithProgressBarToilDelay(TargetIndex.A).PlaySustainerOrSound(SoundDefOf.Interact_Tend);
-            waitToil.activeSkill = () => SkillDefOf.Medicine;
+            waitToil.activeSkill = () => SkillDefOf.Crafting;
             waitToil.handlingFacing = true;
             waitToil.tickAction = delegate
             {

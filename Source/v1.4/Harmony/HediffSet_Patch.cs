@@ -23,15 +23,15 @@ namespace MechHumanlikes
                     yield return instructions[i];
                     if (instructions[i].Calls(targetProperty))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CalculateMechanicalPain_Patch), nameof(IsMechanical))); // Our function call
+                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load HediffSet
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CalculateMechanicalPain_Patch), nameof(IsOrganic))); // Our function call
                     }
                 }
             }
 
-            private static bool IsMechanical(bool organic, Pawn pawn)
+            private static bool IsOrganic(bool organic, HediffSet hediffSet)
             {
-                return !organic || MHC_Utils.IsConsideredMechanical(pawn);
+                return organic && !MHC_Utils.IsConsideredMechanical(hediffSet.pawn);
             }
         }
 
