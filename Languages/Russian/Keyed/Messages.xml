@@ -2,6 +2,7 @@
 <LanguageData>
 
   <!-- Miscellaneous -->
+  <MHC_MessageSelfRepairUnsatisfied>Для само-ремонта, {1_labelShort}, должен быть назначен механиком.</MHC_MessageSelfRepairUnsatisfied>
   <MHC_DroneCaptured>{0} дрон, и надзиратели не могут с ним взаимодействовать. Используйте операции для вербовки или казни.</MHC_DroneCaptured>
 
   <!-- Surgeries -->
