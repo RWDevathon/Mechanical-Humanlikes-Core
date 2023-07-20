@@ -30,7 +30,7 @@ namespace MechHumanlikes
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            if (pawn.Faction != null)
+            if (pawn.Faction != null && ConsumableSource.Spawned)
             {
                 if (!pawn.Reserve(ConsumableSource, job, 10, Math.Min(job.count, ConsumableSource.Map.reservationManager.CanReserveStack(pawn, ConsumableSource, 10)), null, errorOnFailed))
                 {

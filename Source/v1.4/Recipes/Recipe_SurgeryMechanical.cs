@@ -38,13 +38,13 @@ namespace MechHumanlikes
             chanceSucceed *= recipe.surgerySuccessChanceFactor;
 
             // If the surgeon has an inspiration for surgery, use it to massively increase success chance.
-            if (surgeon.InspirationDef == InspirationDefOf.Inspired_Surgery && !patient.RaceProps.IsMechanoid)
+            if (surgeon.InspirationDef == InspirationDefOf.Inspired_Creativity)
             {
                 if (chanceSucceed < 1f)
                 {
                     chanceSucceed = 1f - (1f - chanceSucceed) * 0.1f;
                 }
-                surgeon.mindState.inspirationHandler.EndInspiration(InspirationDefOf.Inspired_Surgery);
+                surgeon.mindState.inspirationHandler.EndInspiration(InspirationDefOf.Inspired_Creativity);
             }
 
             // Max chance of success is either the calculated surgery chance or the settings-prescribed max limit (default 1).

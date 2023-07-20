@@ -9,12 +9,13 @@ namespace MechHumanlikes
         // This recipe always targets the core part, and is always applicable to "alien" mechanical races, as it would throw errors if not using AlienRace.
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
         {
-            if (!MHC_Utils.IsConsideredMechanical(pawn) || !(pawn.def is AlienRace.ThingDef_AlienRace))
-            {
-                yield break;
-            }
-
             yield return pawn.RaceProps.body.corePart;
+        }
+
+        // This is valid only for mechanical humanlike pawns.
+        public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
+        {
+            return MHC_Utils.IsConsideredMechanicalSapient(thing.def) || MHC_Utils.IsConsideredMechanicalDrone(thing.def);
         }
 
         // On completion, open a dialog menu to select the new paint color.

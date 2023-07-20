@@ -4,18 +4,27 @@ using Verse;
 
 namespace MechHumanlikes
 {
-    public class Recipe_ReprogramDrone : Recipe_SurgeryMechanical
+    public class Recipe_CommandDrone : Recipe_SurgeryMechanical
     {
         // This recipe is specifically targetting the brain of a mechanical unit, so we only need to check if the brain is available (a slight optimization over checking fixed body parts).
         public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
         {
 
             BodyPartRecord targetBodyPart = pawn.health.hediffSet.GetBrain();
-            if (targetBodyPart != null && (MHC_Utils.IsConsideredMechanicalDrone(pawn) || MHC_Utils.IsConsideredMechanicalAnimal(pawn)))
+            if (targetBodyPart != null)
             {
                 yield return targetBodyPart;
             }
             yield break;
+        }
+
+        public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
+        {
+            if (thing is Pawn pawn && (MHC_Utils.IsConsideredMechanicalDrone(pawn) || MHC_Utils.IsConsideredMechanicalAnimal(pawn)) && pawn.Faction != Faction.OfPlayer)
+            {
+                return true;
+            }
+            return false;
         }
 
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)

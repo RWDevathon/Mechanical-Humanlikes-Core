@@ -283,13 +283,14 @@
     <Compile Include="Harmony\WorkGiver_DoBill_Patch.cs" />
     <Compile Include="MaintenanceWorkers\MaintenanceWorker.cs" />
     <Compile Include="Needs\Need_MechanicalNeed.cs" />
+    <Compile Include="Recipes\Recipe_RebootUnit.cs" />
     <Compile Include="Recipes\Recipe_SurgicallyFulfillMechNeed.cs" />
     <Compile Include="Recipes\Recipe_DoEmergencyMaintenance.cs" />
     <Compile Include="DefOfs\MHC_HediffDefOf.cs" />
     <Compile Include="Recipes\Recipe_InstallMechanicalPart.cs" />
     <Compile Include="Recipes\Recipe_PaintMechanicalUnit.cs" />
     <Compile Include="Recipes\Recipe_RemoveMechanicalPart.cs" />
-    <Compile Include="Recipes\Recipe_ReprogramDrone.cs" />
+    <Compile Include="Recipes\Recipe_CommandDrone.cs" />
     <Compile Include="StatWorkers\StatWorker_Maintenance.cs" />
     <Compile Include="ThoughtWorker\ThoughtWorker_MaintenanceMood.cs" />
     <Compile Include="JobDrivers\JobDriver_RechargeBattery.cs" />

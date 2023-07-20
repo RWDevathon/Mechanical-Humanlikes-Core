@@ -151,10 +151,10 @@
 	<!-- Surgery to reprogram drones to serve the colony -->
     <RecipeDef ParentName="MHC_surgeryMechanicalBase">
 		<defName>MHC_ReprogramDrone</defName>
-		<label>reprogram drone</label>
-		<description>A straightforward but delicate operation, reprogramming drones to suit the colony's purposes is an excellent way to strengthen capabilities. However, the previous owners may have installed safeguards against such operations, so there is a high risk of death should it fail.</description>
-		<workerClass>MechHumanlikes.Recipe_ReprogramDrone</workerClass>
-		<jobString>Reprogramming drone.</jobString>
+		<label>take command of drone</label>
+		<description>A straightforward but delicate operation, taking command of drones to suit the colony's purposes is an excellent way to strengthen capabilities. However, the previous owners may have installed safeguards against such operations, so there is a high risk of death should it fail.</description>
+		<workerClass>MechHumanlikes.Recipe_CommandDrone</workerClass>
+		<jobString>Taking command of drone.</jobString>
 		<workAmount>5000</workAmount>
 		<skillRequirements>
             <Crafting>6</Crafting>
@@ -184,13 +184,11 @@
 		<defName>MHC_RebootUnit</defName>
 		<label>Reboot unit</label>
 		<description>An exceedingly straightforward operation to restart the unit, without any side effects or consequences.</description>
-		<workerClass>Recipe_AddHediff</workerClass>
-		<jobString>Rebooting unit.</jobString>
-		<workAmount>5000</workAmount>
-		<skillRequirements>
-            <Crafting>4</Crafting>
-            <Intellectual>2</Intellectual>
-        </skillRequirements>
+        <workerClass>MechHumanlikes.Recipe_RebootUnit</workerClass>
+        <jobString>Rebooting unit.</jobString>
+		<workAmount>1000</workAmount>
+        <workSkillLearnFactor>0</workSkillLearnFactor>
+        <surgeryOutcomeEffect IsNull="True" /> <!-- Always succeeds -->
 		<ingredients>
 			<li>
 				<filter>
@@ -206,7 +204,6 @@
 				<li>Medicine</li>
 			</categories>
 		</fixedIngredientFilter>
-		<surgerySuccessChanceFactor>4</surgerySuccessChanceFactor>
 		<addsHediff>MHC_Restarting</addsHediff>
 	</RecipeDef>
 
