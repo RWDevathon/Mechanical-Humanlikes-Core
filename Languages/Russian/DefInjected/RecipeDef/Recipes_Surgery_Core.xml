@@ -38,9 +38,9 @@
 
   <!-- Surgery to reprogram drones to serve the colony -->
 
-  <MHC_ReprogramDrone.label>перепрограммировать дрон</MHC_ReprogramDrone.label>
-  <MHC_ReprogramDrone.description>Перепрограммирование дронов — простая и тонкая операция. Однако предыдущие владельцы могли установить защиту от взлома, поэтому в случае неудачи существует высокий риск уничтожения дрона.</MHC_ReprogramDrone.description>
-  <MHC_ReprogramDrone.jobString>Перепрограммирует дрон.</MHC_ReprogramDrone.jobString>
+  <MHC_ReprogramDrone.label>принимать управление дроном</MHC_ReprogramDrone.label>
+  <MHC_ReprogramDrone.description>Принятие управления дроном — простая и тонкая операция. Однако предыдущие владельцы могли установить защиту от взлома, поэтому в случае неудачи существует высокий риск уничтожения дрона.</MHC_ReprogramDrone.description>
+  <MHC_ReprogramDrone.jobString>Принимает управление дроном</MHC_ReprogramDrone.jobString>
 
 
   <!-- Reboot, akin to anesthetic but requiring no medicine -->
