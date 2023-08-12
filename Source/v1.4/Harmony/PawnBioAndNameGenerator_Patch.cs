@@ -32,7 +32,7 @@ namespace MechHumanlikes
                 else if (MHC_Utils.IsConsideredMechanicalDrone(pawn) && pawn.def.GetModExtension<MHC_MechanicalPawnExtension>().letPawnKindHandleDroneBackstories == false)
                 {
                     __result = PawnBioAndNameGenerator.GenerateFullPawnName(pawn.def, modExtension.droneNoneGenderNameMaker, pawn.story, null, null, pawn.Faction?.ideos?.PrimaryCulture, pawn.gender, pawn.RaceProps.nameCategory, forcedLastName);
-                    
+
                 }
             }
         }

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MechHumanlikes
 {
-    public class PawnGroupMakerUtility_Patch
+    public class MHC_PawnGroupMakerUtility_Patch
     {
         // Give mechanical pawns in faction groups (raids, caravans, etc) random maintenance levels between -5 to 5 days.
         [HarmonyPatch(typeof(PawnGroupMakerUtility), "GeneratePawns")]
@@ -26,7 +26,7 @@ namespace MechHumanlikes
                         }
                     }
                 }
-                __result = modifiedResults;
+                __result = modifiedResults.AsEnumerable();
             }
         }
     }

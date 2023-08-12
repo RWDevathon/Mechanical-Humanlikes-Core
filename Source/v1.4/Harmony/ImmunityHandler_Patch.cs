@@ -25,13 +25,14 @@ namespace MechHumanlikes
                     yield return instructions[i];
                     if (instructions[i].Calls(targetProperty))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load Pawn
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(DiseaseContractChanceFactor_Patch), nameof(IsOrganic))); // Our function call
+                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load the ImmunityHandler "this"
+                        yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(ImmunityHandler), "pawn")); // Load Pawn
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(DiseaseContractChanceFactor_Patch), nameof(IsVulnerable))); // Our function call
                     }
                 }
             }
 
-            private static bool IsOrganic(bool organic, Pawn pawn)
+            private static bool IsVulnerable(bool organic, Pawn pawn)
             {
                 return organic && !MHC_Utils.IsConsideredMechanical(pawn);
             }

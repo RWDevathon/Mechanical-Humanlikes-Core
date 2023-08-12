@@ -26,7 +26,7 @@ namespace MechHumanlikes
 
         // Patch pawn generation for mechanical drones so they have appropriate related mechanics at generation.
         [HarmonyPatch(typeof(PawnGenerator), "GeneratePawn")]
-        [HarmonyPatch(new Type[] { typeof(PawnGenerationRequest)}, new ArgumentType[] { ArgumentType.Normal })]
+        [HarmonyPatch(new Type[] { typeof(PawnGenerationRequest) }, new ArgumentType[] { ArgumentType.Normal })]
         public class GeneratePawn_Patch
         {
             [HarmonyPostfix]
@@ -40,7 +40,7 @@ namespace MechHumanlikes
                         MHC_Utils.ReconfigureDrone(__result);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error("[MHC] PawnGenerator.GeneratePawn " + ex.Message + " " + ex.StackTrace);
                 }

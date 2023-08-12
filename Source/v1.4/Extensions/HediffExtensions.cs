@@ -12,7 +12,7 @@ namespace MechHumanlikes
 
         // Maintenance workers have special C# code for adding conditions on when it is legal to add the effect to pawns, and to add additional actions upon application.
         // A HediffDef may have multiple maintenance workers. Conditionals are always AND, meaning all workers must permit the effect for it to be legal.
-        public List<Type> maintenanceWorkers;
+        private List<Type> maintenanceWorkers;
 
         // Curve to set the mean time to happen (in days) before this effect occurs when it is valid.
         public SimpleCurve meanDaysToOccur = new SimpleCurve
