@@ -30,7 +30,7 @@ namespace MechHumanlikes
                     }
                     else if (pawn.IsSlave)
                     {
-                        Messages.Message("MHC_EnslavedDroneAlert".Translate(), MessageTypeDefOf.NegativeEvent, true);
+                        Messages.Message("MHC_EnslavedDroneAlert".Translate(), MessageTypeDefOf.NegativeEvent, false);
                     }
                 }
                 // Prevent displaying the prisoner tab. There is nothing necessary on it for drones.
