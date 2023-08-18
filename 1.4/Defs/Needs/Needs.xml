@@ -10,6 +10,7 @@
         <fallPerDay>0.01667</fallPerDay>
         <showForCaravanMembers>true</showForCaravanMembers>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <colonistAndPrisonersOnly>true</colonistAndPrisonersOnly>
         <modExtensions>
             <li Class="MechHumanlikes.MHC_MechanicalNeedExtension">
                 <hediffToApplyOnEmpty>MHC_CoolantShortage</hediffToApplyOnEmpty>
@@ -28,6 +29,7 @@
         <fallPerDay>0.0667</fallPerDay>
         <showForCaravanMembers>true</showForCaravanMembers>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <colonistAndPrisonersOnly>true</colonistAndPrisonersOnly>
         <modExtensions>
             <li Class="MechHumanlikes.MHC_MechanicalNeedExtension">
                 <hediffToApplyOnEmpty>MHC_LubricantShortage</hediffToApplyOnEmpty>

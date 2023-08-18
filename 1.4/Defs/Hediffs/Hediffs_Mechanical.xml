@@ -17,6 +17,7 @@
         <description>Unit is fully restarting all functionality and reactivating.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <initialSeverity>1</initialSeverity>
+        <maxSeverity>1</maxSeverity>
         <defaultLabelColor>(0.3, 0.7, 0.3)</defaultLabelColor>
         <scenarioCanAdd>false</scenarioCanAdd>
         <isBad>false</isBad>
