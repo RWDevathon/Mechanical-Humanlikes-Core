@@ -197,6 +197,7 @@
     <Compile Include="Extensions\SettingsUIExtensions.cs" />
     <Compile Include="Gizmos\Gizmo_MaintenanceEffect.cs" />
     <Compile Include="Gizmos\Gizmo_MaintenanceStatus.cs" />
+    <Compile Include="Harmony\HistoryAutoRecorderWorker_ColonistMood_Patch.cs" />
     <Compile Include="Harmony\Alert_NeedDoctor_Patch.cs" />
     <Compile Include="Harmony\Alert_RoyalNoAcceptableFood_Patch.cs" />
     <Compile Include="Harmony\AttackTargetFinder_Patch.cs" />

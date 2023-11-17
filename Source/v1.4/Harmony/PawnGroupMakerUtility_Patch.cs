@@ -13,10 +13,9 @@ namespace MechHumanlikes
         public class GeneratePawns_Patch
         {
             [HarmonyPostfix]
-            public static void Listener(PawnGroupMakerParms parms, bool warnOnZeroResults, ref IEnumerable<Pawn> __result)
+            public static IEnumerable<Pawn> Listener(IEnumerable<Pawn> __result, PawnGroupMakerParms parms, bool warnOnZeroResults)
             {
-                List<Pawn> modifiedResults = __result.ToList();
-                foreach (Pawn member in modifiedResults)
+                foreach (Pawn member in __result)
                 {
                     if (MHC_Utils.IsConsideredMechanical(member))
                     {
@@ -25,8 +24,8 @@ namespace MechHumanlikes
                             maintenanceNeed.maintenanceEffectTicks = Rand.Range(-300000f, 300000f);
                         }
                     }
+                    yield return member;
                 }
-                __result = modifiedResults.AsEnumerable();
             }
         }
     }

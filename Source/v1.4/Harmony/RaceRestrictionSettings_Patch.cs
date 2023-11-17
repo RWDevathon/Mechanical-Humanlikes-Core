@@ -7,7 +7,7 @@ using RimWorld;
 namespace MechHumanlikes
 {
     // NOTE: This is for harmony patches on Humanoid Alien Race's Assembly, not Core!
-    // Piggyback off HAR's code to make sure sapients do not end up with blacklisted traits.
+    // Piggyback off HAR's code to make sure pawns do not end up with blacklisted traits.
     public class RaceRestrictionSettings_Patch
     {
         [HarmonyPatch(typeof(RaceRestrictionSettings), "CanGetTrait")]
