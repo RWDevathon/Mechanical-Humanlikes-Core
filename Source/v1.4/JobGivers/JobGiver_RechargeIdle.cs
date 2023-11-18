@@ -18,7 +18,7 @@ namespace MechHumanlikes
             Need_Food foodNeed = pawn.needs.food;
 
             // If the pawn can not charge or has sufficient charge, don't try giving them the job.
-            if (foodNeed == null || !pawn.Spawned || pawn.InAggroMentalState || foodNeed.CurLevelPercentage >= 0.8f || pawn.GetStatValue(MHC_StatDefOf.MHC_ChargingSpeed) <= 0)
+            if (foodNeed == null || !pawn.Spawned || pawn.InAggroMentalState || foodNeed.CurLevelPercentage >= 0.8f || !MHC_Utils.CanUseBattery(pawn))
             {
                 return null;
             }
