@@ -321,6 +321,9 @@ namespace MechHumanlikes
         // Cached dictionary matching mechanical NeedDefs to the ingestible items which can satisfy that need that is generated in a Static Constructor On Startup.
         public static Dictionary<NeedDef, List<ThingDef>> cachedMechNeeds = new Dictionary<NeedDef, List<ThingDef>>();
 
+        // Cached list of drone races that may have traits. This is expected to be exceedingly short.
+        public static List<ThingDef> cachedDronesWithTraits = new List<ThingDef>();
+
         // Cached Hediffs for a particular pawn's race that count as temperature hediffs to avoid recalculation, cached when needed.
         private static Dictionary<RaceProperties, HashSet<HediffDef>> cachedTemperatureHediffs = new Dictionary<RaceProperties, HashSet<HediffDef>>();
 

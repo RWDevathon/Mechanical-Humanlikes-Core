@@ -1,6 +1,8 @@
 ﻿using Verse;
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
+using RimWorld;
 
 namespace MechHumanlikes
 {
@@ -44,6 +46,22 @@ namespace MechHumanlikes
                 {
                     Log.Error("[MHC] PawnGenerator.GeneratePawn " + ex.Message + " " + ex.StackTrace);
                 }
+            }
+        }
+
+        // Patch trait generation for mechanical drones so they have none under the correct circumstances.
+        [HarmonyPatch(typeof(PawnGenerator), "GenerateTraitsFor")]
+        public class GenerateTraitsFor_Patch
+        {
+            [HarmonyPrefix]
+            public static bool Prefix(ref List<Trait> __result, Pawn pawn, int traitCount, PawnGenerationRequest? req, bool growthMomentTrait)
+            {
+                if (MHC_Utils.IsConsideredMechanicalDrone(pawn) && !MHC_Utils.cachedDronesWithTraits.Contains(pawn.def))
+                {
+                    __result = new List<Trait>();
+                    return false;
+                }
+                return true;
             }
         }
     }

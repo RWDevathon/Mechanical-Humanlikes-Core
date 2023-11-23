@@ -95,21 +95,28 @@ namespace MechHumanlikes
                             };
                             thingDef.comps.Add(cp);
                         }
+
+                        // Drones do not have learning factors.
+                        if (MHC_Utils.IsConsideredMechanicalDrone(thingDef))
+                        {
+                            StatModifier learningModifier = thingDef.statBases.Find(modifier => modifier.stat.defName == "GlobalLearningFactor");
+                            if (learningModifier != null)
+                            {
+                                learningModifier.value = 0;
+                            }
+                            else
+                            {
+                                thingDef.statBases.Add(new StatModifier() { stat = StatDefOf.GlobalLearningFactor, value = 0 });
+                            }
+
+                            // Check if drones of this race may have traits. If it may, cache it for easy access elsewhere.
+                            if (thingDef.GetModExtension<MHC_MechanicalPawnExtension>()?.dronesCanHaveTraits == true)
+                            {
+                                MHC_Utils.cachedDronesWithTraits.Add(thingDef);
+                            }
+                        }
                     }
 
-                    // Drones do not have learning factors.
-                    if (MHC_Utils.IsConsideredMechanicalDrone(thingDef))
-                    {
-                        StatModifier learningModifier = thingDef.statBases.Find(modifier => modifier.stat.defName == "GlobalLearningFactor");
-                        if (learningModifier != null)
-                        {
-                            learningModifier.value = 0;
-                        }
-                        else
-                        {
-                            thingDef.statBases.Add(new StatModifier() { stat = StatDefOf.GlobalLearningFactor, value = 0 });
-                        }
-                    }
                 }
                 // All beds should have the Restrictable comp to restrict what pawn type may use it.
                 if (thingDef.IsBed)
