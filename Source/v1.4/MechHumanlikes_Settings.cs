@@ -154,14 +154,14 @@ namespace MechHumanlikes
                             cachedExpandFirst = !cachedExpandFirst;
                     }
                     if (cachedExpandFirst)
-                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), mechanicalSapients, "MHC_SettingsConsideredMechanicalSapient".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
+                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns().Where(def => def.GetModExtension<MHC_MechanicalPawnExtension>()?.canBeSapient != false), Intelligence.Humanlike), mechanicalSapients, "MHC_SettingsConsideredMechanicalSapient".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
 
                     if (listingStandard.ButtonText("MHC_ExpandMenu".Translate()))
                     {
                         cachedExpandSecond = !cachedExpandSecond;
                     }
                     if (cachedExpandSecond)
-                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns(), Intelligence.Humanlike), mechanicalDrones, "MHC_SettingsConsideredMechanicalDrone".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
+                        listingStandard.PawnSelector(FilteredGetters.FilterByIntelligence(FilteredGetters.GetValidPawns().Where(def => def.GetModExtension<MHC_MechanicalPawnExtension>()?.canBeDrone != false), Intelligence.Humanlike), mechanicalDrones, "MHC_SettingsConsideredMechanicalDrone".Translate(), "MHC_SettingsNotConsideredMechanical".Translate(), onConsiderationChange);
 
                     if (listingStandard.ButtonText("MHC_ExpandMenu".Translate()))
                     {

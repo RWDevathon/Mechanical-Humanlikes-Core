@@ -9,6 +9,7 @@ namespace MechHumanlikes
         static MHC_Textures()
         {
         }
+        public static readonly Texture2D VanillaBleedIcon = ContentFinder<Texture2D>.Get("UI/Icons/Medical/Bleeding");
 
         // Settings
         public static readonly Texture2D DrawPocket = ContentFinder<Texture2D>.Get("UI/Icons/Settings/DrawPocket");

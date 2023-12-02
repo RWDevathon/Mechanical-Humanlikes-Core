@@ -52,6 +52,11 @@ namespace MechHumanlikes
         {
         }
 
+        public override void SetInitialLevel()
+        {
+            CurLevelPercentage = 1.0f;
+        }
+
         public override float MaxLevel
         {
             get

@@ -20,18 +20,56 @@ namespace MechHumanlikes
 
                 for (int i = 0; i < instructions.Count; i++)
                 {
+                    if (i < instructions.Count - 1 && instructions[i + 1].Calls(targetProperty))
+                    {
+                        yield return new CodeInstruction(OpCodes.Dup); // Load a copy of the Pawn onto the Stack
+                    }
+
                     yield return instructions[i];
+
                     if (instructions[i].Calls(targetProperty))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Load HediffSet
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CalculateMechanicalPain_Patch), nameof(IsOrganic))); // Our function call
                     }
                 }
             }
 
-            private static bool IsOrganic(bool organic, HediffSet hediffSet)
+            private static bool IsOrganic(Pawn pawn, bool notMechanoid)
             {
-                return organic && !MHC_Utils.IsConsideredMechanical(hediffSet.pawn);
+                return notMechanoid && !MHC_Utils.IsConsideredMechanical(pawn);
+            }
+        }
+
+        // Some mechanical units do not bleed.
+        [HarmonyPatch(typeof(HediffSet), "CalculateBleedRate")]
+        public class CalculateBleedRate_Patch
+        {
+            [HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
+            {
+                List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
+                MethodInfo targetProperty = AccessTools.PropertyGetter(typeof(RaceProperties), nameof(RaceProperties.IsFlesh));
+
+                for (int i = 0; i < instructions.Count; i++)
+                {
+                    if (i < instructions.Count - 1 && instructions[i + 1].Calls(targetProperty))
+                    {
+                        yield return new CodeInstruction(OpCodes.Dup); // Load a copy of the Pawn onto the Stack
+                    }
+
+                    yield return instructions[i];
+
+                    if (instructions[i].Calls(targetProperty))
+                    {
+                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CalculateBleedRate_Patch), nameof(CanBleed))); // Our function call
+                    }
+                }
+            }
+
+            // Pawns that have any HediffGiver_Bleeding can bleed. We only check our own mechanical pawns currently.
+            private static bool CanBleed(Pawn pawn, bool notMechanoid)
+            {
+                return notMechanoid && (!MHC_Utils.IsConsideredMechanical(pawn) || MHC_Utils.cachedBleedingHediffGivers.ContainsKey(pawn.RaceProps));
             }
         }
 

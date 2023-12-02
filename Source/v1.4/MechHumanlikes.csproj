@@ -197,6 +197,7 @@
     <Compile Include="Extensions\SettingsUIExtensions.cs" />
     <Compile Include="Gizmos\Gizmo_MaintenanceEffect.cs" />
     <Compile Include="Gizmos\Gizmo_MaintenanceStatus.cs" />
+    <Compile Include="Harmony\Hediff_Patch.cs" />
     <Compile Include="Harmony\HistoryAutoRecorderWorker_ColonistMood_Patch.cs" />
     <Compile Include="Harmony\Alert_NeedDoctor_Patch.cs" />
     <Compile Include="Harmony\Alert_RoyalNoAcceptableFood_Patch.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="Harmony\WorkGiver_Tend_Patch.cs" />
     <Compile Include="Components\HediffComps\HediffComp_MaintenanceStageEffect.cs" />
     <Compile Include="Components\HediffComps\HediffCompProperties_MaintenanceStageEffect.cs" />
+    <Compile Include="Hediffs\HediffGivers\HediffGiver_MechBleeding.cs" />
     <Compile Include="IngestionOutcomeDoers\IngestionOutcomeDoer_OffsetMechNeed.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceIdle.cs" />
     <Compile Include="JobDrivers\JobDriver_DoMaintenanceUrgent.cs" />

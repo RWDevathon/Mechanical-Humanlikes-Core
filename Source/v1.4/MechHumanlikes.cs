@@ -81,6 +81,46 @@ namespace MechHumanlikes
                             }
                         }
 
+                        // Cache all bleeding hediffs associated with this race so that they are accounted for in health calculations.
+                        List<HediffGiverSetDef> hediffGiverSetDefs = thingDef.race.hediffGiverSets;
+                        List<KeyValuePair<HediffGiver_MechBleeding, float>> targetHediffPairs = new List<KeyValuePair<HediffGiver_MechBleeding, float>>();
+
+                        if (hediffGiverSetDefs != null)
+                        {
+                            foreach (HediffGiverSetDef hediffGiverSetDef in hediffGiverSetDefs)
+                            {
+                                foreach (HediffGiver hediffGiver in hediffGiverSetDef.hediffGivers)
+                                {
+                                    //if (typeof(HediffGiver_MechBleeding).IsAssignableFrom(hediffGiver.GetType()))
+                                    if (hediffGiver is HediffGiver_MechBleeding mechBleedingGiver)
+                                    {
+                                        float criticalThreshold = -1;
+                                        foreach (HediffStage hediffStage in hediffGiver.hediff.stages)
+                                        {
+                                            if (hediffStage.lifeThreatening)
+                                            {
+                                                criticalThreshold = hediffStage.minSeverity;
+                                                break;
+                                            }
+                                        }
+                                        if (criticalThreshold < 0 && hediffGiver.hediff.lethalSeverity >= 0)
+                                        {
+                                            criticalThreshold = hediffGiver.hediff.lethalSeverity;
+                                        }
+                                        else if (criticalThreshold < 0)
+                                        {
+                                            criticalThreshold = hediffGiver.hediff.maxSeverity;
+                                        }
+                                        targetHediffPairs.Add(new KeyValuePair<HediffGiver_MechBleeding, float>(mechBleedingGiver, criticalThreshold));
+                                    }
+                                }
+                            }
+                        }
+                        if (targetHediffPairs.Count > 0)
+                        {
+                            MHC_Utils.cachedBleedingHediffGivers[thingDef.race] = targetHediffPairs;
+                        }
+
                         // Ensure all mechanical pawns have a mechanical pawn extension, with default values.
                         if (!thingDef.HasModExtension<MHC_MechanicalPawnExtension>())
                         {

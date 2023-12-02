@@ -185,19 +185,16 @@ namespace MechHumanlikes
                     List<HediffGiverSetDef> hediffGiverSetDefs = raceProperties.hediffGiverSets;
                     HashSet<HediffDef> targetHediffs = new HashSet<HediffDef>();
 
-                    if (hediffGiverSetDefs == null)
+                    if (hediffGiverSetDefs != null)
                     {
-                        cachedTemperatureHediffs[raceProperties] = targetHediffs;
-                        return targetHediffs;
-                    }
-
-                    foreach (HediffGiverSetDef hediffGiverSetDef in hediffGiverSetDefs)
-                    {
-                        foreach (HediffGiver hediffGiver in hediffGiverSetDef.hediffGivers)
+                        foreach (HediffGiverSetDef hediffGiverSetDef in hediffGiverSetDefs)
                         {
-                            if (typeof(HediffGiver_Heat).IsAssignableFrom(hediffGiver.GetType()) || typeof(HediffGiver_Hypothermia).IsAssignableFrom(hediffGiver.GetType()))
+                            foreach (HediffGiver hediffGiver in hediffGiverSetDef.hediffGivers)
                             {
-                                targetHediffs.Add(hediffGiver.hediff);
+                                if (typeof(HediffGiver_Heat).IsAssignableFrom(hediffGiver.GetType()) || typeof(HediffGiver_Hypothermia).IsAssignableFrom(hediffGiver.GetType()))
+                                {
+                                    targetHediffs.Add(hediffGiver.hediff);
+                                }
                             }
                         }
                     }
@@ -318,16 +315,28 @@ namespace MechHumanlikes
             }
         }
 
-        // Cached dictionary matching mechanical NeedDefs to the ingestible items which can satisfy that need that is generated in a Static Constructor On Startup.
+        // Utility method that will return the number of ticks before a given pawn will reach a critical threshold.
+        public static int TicksUntilCriticalFailure(Pawn pawn, KeyValuePair<HediffGiver_MechBleeding, float> bleedHediffPair)
+        {
+            float bleedRateTotal = pawn.health.hediffSet.BleedRateTotal;
+            Hediff targetHediff = pawn.health.hediffSet.GetFirstHediffOfDef(bleedHediffPair.Key.hediff);
+            float severityDifference = Math.Max(0, bleedHediffPair.Value - (targetHediff?.Severity ?? 0));
+            return (int)(severityDifference / bleedRateTotal * GenDate.TicksPerDay * bleedHediffPair.Key.riseRatePerDay);
+        }
+
+        // Cached dictionary matching mechanical NeedDefs to the ingestible items which can satisfy that need, cached at startup.
         public static Dictionary<NeedDef, List<ThingDef>> cachedMechNeeds = new Dictionary<NeedDef, List<ThingDef>>();
 
-        // Cached list of drone races that may have traits. This is expected to be exceedingly short.
+        // Cached list of drone races that may have traits. This is expected to be exceedingly short, cached at startup.
         public static List<ThingDef> cachedDronesWithTraits = new List<ThingDef>();
+
+        // Cached Hediffs and the severity it is considered critical for a particular pawn's race that are handled by HediffGiver_Bleeding so they may be appropriately checked, cached at startup.
+        public static Dictionary<RaceProperties, List<KeyValuePair<HediffGiver_MechBleeding, float>>> cachedBleedingHediffGivers = new Dictionary<RaceProperties, List<KeyValuePair<HediffGiver_MechBleeding, float>>>();
 
         // Cached Hediffs for a particular pawn's race that count as temperature hediffs to avoid recalculation, cached when needed.
         private static Dictionary<RaceProperties, HashSet<HediffDef>> cachedTemperatureHediffs = new Dictionary<RaceProperties, HashSet<HediffDef>>();
 
-        // Cached Hediff Set for all maintenance effect Hediffs and a dictionary matching RaceProperties to the valid maintenance effects for that race.
+        // Cached Hediff Set for all maintenance effect Hediffs and a dictionary matching RaceProperties to the valid maintenance effects for that race, cached when needed.
         private static IEnumerable<HediffDef> allMaintenanceHediffs;
         private static Dictionary<RaceProperties, HashSet<HediffDef>> cachedMaintenanceHediffs = new Dictionary<RaceProperties, HashSet<HediffDef>>();
     }

@@ -9,6 +9,10 @@
     <MHC_ImprisonedDroneWarning>Drones can not be interacted with. Use surgeries to reprogram or shut down.</MHC_ImprisonedDroneWarning>
     <MHC_EnslavedDroneAlert>Drones should not be slaves! You are suffering a free error each tick. Immediately reprogram or eliminate this drone.</MHC_EnslavedDroneAlert>
 
+    <!-- Health Tab -->
+    <MHC_HoursToFailure>critical in {0}</MHC_HoursToFailure>
+    <MHC_CriticalReached>critical threshold reached</MHC_CriticalReached>
+
     <!-- Maintenance Spot -->
     <MHC_MaintenanceNeedRequired>Has no maintenance need.</MHC_MaintenanceNeedRequired>
 

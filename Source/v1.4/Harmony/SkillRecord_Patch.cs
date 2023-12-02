@@ -4,12 +4,12 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    // Non-humanlike intelligences don't forget skills.
-    [HarmonyPatch(typeof(SkillRecord), "Interval")]
-    public static class Interval_Patch
+    // Non-humanlike intelligences don't gain or forget skills.
+    [HarmonyPatch(typeof(SkillRecord), "Learn")]
+    public static class Learn_Patch
     {
         [HarmonyPrefix]
-        public static bool Prefix(ref Pawn ___pawn)
+        public static bool Prefix(float xp, bool direct, ref Pawn ___pawn)
         {
             if (MHC_Utils.IsConsideredNonHumanlike(___pawn))
             {
