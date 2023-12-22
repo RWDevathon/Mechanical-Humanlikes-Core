@@ -68,7 +68,8 @@ namespace MechHumanlikes
         {
             if (parent is Building_Bed)
             {
-                if (MechHumanlikes_Settings.bedRestrictionDefaultsToAll)
+                // If the mod settings indicate it should default to all or this is a sleeping spot of any kind (no work to build), default to allow all.
+                if (MechHumanlikes_Settings.bedRestrictionDefaultsToAll || parent.def.statBases.GetStatValueFromList(StatDefOf.WorkToBuild, 1) <= 0)
                 {
                     assignedToType = MHC_PawnType.All;
                 }
