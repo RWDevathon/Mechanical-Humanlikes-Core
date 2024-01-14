@@ -117,11 +117,12 @@ namespace MechHumanlikes
 
                 // Fulfill nutrition (if it should be).
                 float nutritionGained = thing.GetStatValue(StatDefOf.Nutrition) * curJob.count;
-                if (!consumer.Dead)
+                Need foodNeed = actor.needs.TryGetNeed(NeedDefOf.Food);
+                if (foodNeed != null)
                 {
                     consumer.needs.food.CurLevel += nutritionGained;
+                    consumer.records.AddTo(RecordDefOf.NutritionEaten, nutritionGained);
                 }
-                consumer.records.AddTo(RecordDefOf.NutritionEaten, nutritionGained);
             };
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
             return toil;

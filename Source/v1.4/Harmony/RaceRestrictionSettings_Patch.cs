@@ -12,7 +12,7 @@ namespace MechHumanlikes
     {
         [HarmonyPatch(typeof(RaceRestrictionSettings), "CanGetTrait")]
         [HarmonyPatch(new Type[] { typeof(TraitDef), typeof(Pawn), typeof(int)}, new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal })]
-        public class CanGetTrait_Patch
+        public class CanGetTrait_HAR_Patch
         {
             [HarmonyPrefix]
             public static bool Prefix(TraitDef trait, Pawn pawn, int degree, ref bool __result)
