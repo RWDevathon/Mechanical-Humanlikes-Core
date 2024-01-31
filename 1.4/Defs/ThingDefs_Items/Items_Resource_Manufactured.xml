@@ -98,6 +98,7 @@
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <recipeMaker>
+            <bulkRecipeCount>4</bulkRecipeCount>
             <skillRequirements>
                 <Crafting>4</Crafting>
                 <Intellectual>4</Intellectual>
@@ -130,6 +131,7 @@
         </costList>
         <recipeMaker>
             <researchPrerequisite>MicroelectronicsBasics</researchPrerequisite>
+            <bulkRecipeCount>4</bulkRecipeCount>
             <skillRequirements>
                 <Crafting>6</Crafting>
                 <Intellectual>6</Intellectual>
@@ -161,6 +163,7 @@
         </costList>
         <recipeMaker>
             <researchPrerequisite>AdvancedFabrication</researchPrerequisite>
+            <bulkRecipeCount>4</bulkRecipeCount>
             <skillRequirements>
                 <Crafting>12</Crafting>
                 <Intellectual>12</Intellectual>

@@ -20,11 +20,6 @@ namespace MechHumanlikes
         // Try to find a mechanical need that needs to be satisfied, and return a job to satisfy it if it can find an item to ingest for it.
         protected override Job TryGiveJob(Pawn pawn)
         {
-            if (!MHC_Utils.IsConsideredMechanical(pawn))
-            {
-                return null;
-            }
-
             foreach (NeedDef needDef in MHC_Utils.cachedMechNeeds.Keys)
             {
                 Need need = pawn.needs.TryGetNeed(needDef);

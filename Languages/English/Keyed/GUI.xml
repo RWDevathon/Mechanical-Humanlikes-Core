@@ -5,10 +5,6 @@
 	<MHC_EnergyNeed>Energy</MHC_EnergyNeed>
 	<MHC_EnergyNeedDesc>Energy is the amount of retained charge in the unit. If it is hits zero, the unit will enter an inefficient low-power mode. If charge is not restored, hardware will eventually critically malfunction, and the unit will cease functioning.</MHC_EnergyNeedDesc>
 
-    <!-- Prisoner Tab -->
-    <MHC_ImprisonedDroneWarning>Drones can not be interacted with. Use surgeries to reprogram or shut down.</MHC_ImprisonedDroneWarning>
-    <MHC_EnslavedDroneAlert>Drones should not be slaves! You are suffering a free error each tick. Immediately reprogram or eliminate this drone.</MHC_EnslavedDroneAlert>
-
     <!-- Health Tab -->
     <MHC_HoursToFailure>critical in {0}</MHC_HoursToFailure>
     <MHC_CriticalReached>critical threshold reached</MHC_CriticalReached>

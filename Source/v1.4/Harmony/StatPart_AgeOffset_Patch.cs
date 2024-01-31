@@ -4,10 +4,10 @@ using RimWorld;
 
 namespace MechHumanlikes
 {
-    public class StatPart_Age_Patch
+    public class StatPart_AgeOffset_Patch
     {
         // Age as a StatPart is not used for mechanical units. This resolves issues around "baby" mechanical units with reduced work speed, and other related issues.
-        [HarmonyPatch(typeof(StatPart_Age), "ActiveFor")]
+        [HarmonyPatch(typeof(StatPart_AgeOffset), "ActiveFor")]
         public class ActiveFor_Patch
         {
             [HarmonyPrefix]
