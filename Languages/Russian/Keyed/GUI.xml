@@ -5,6 +5,10 @@
   <MHC_EnergyNeed>Энергия</MHC_EnergyNeed>
   <MHC_EnergyNeedDesc>Энергия — это количество сохранённого заряда. Если заряд аккумулятора равен нулю, андроид перейдёт в неэффективный режим пониженного энергопотребления. Если заряд не будет восстановлен, аппаратное обеспечение в конечном итоге даст критический сбой, и андроид перестанет функционировать.</MHC_EnergyNeedDesc>
 
+  <!-- Health Tab -->
+  <MHC_HoursToFailure>критично в {0}</MHC_HoursToFailure>
+  <MHC_CriticalReached>критический порог достигнут</MHC_CriticalReached>
+
   <!-- Maintenance Spot -->
   <MHC_MaintenanceNeedRequired>Не требует техобслуживания</MHC_MaintenanceNeedRequired>
 
